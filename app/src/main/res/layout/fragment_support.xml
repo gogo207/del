@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor">
+
+    <include android:id="@+id/toolBarCustom"
+        layout="@layout/layout_custom_tool_bar"/>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/shading"
+        android:layout_below="@id/toolBarCustom"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:visibility="gone"/>
+
+ <!--   <ListView
+        android:id="@+id/lvSupportTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:scrollbars="none"
+        android:layout_below="@id/toolBarCustom">
+    </ListView>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSupportTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:scrollbars="none"
+        android:layout_below="@id/toolBarCustom"
+        android:paddingBottom="@dimen/dimen_15dp"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/shading"
+        android:layout_below="@id/rvSupportTypes"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:textSize="@dimen/text_size_20sp"
+        android:textColor="@color/addressname"/>
+</RelativeLayout>

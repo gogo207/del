@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add__shipment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorfafafa"
+    tools:context="com.delex.bookingFlow.AddShipmentActivity">
+
+    <include
+        layout="@layout/layout_custom_action_bar"
+        android:id="@+id/actionbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/actionbar"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:layout_above="@+id/btn_shipment_request">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_shipment_add_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="10dp">
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/shiping_background_color" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_shipment_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp">
+
+                    <TextView
+                        android:id="@+id/tv_shipment_rcvr_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/receiver_info"
+                        android:textSize="@dimen/text_size_16sp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginBottom="@dimen/dimen_2dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:paddingBottom="@dimen/dimen_5dp"
+                        android:layout_marginTop="@dimen/dimen_5dp"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_shipment_sender_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/dimen_5dp"
+                        android:layout_below="@id/tv_shipment_rcvr_title">
+
+                        <CheckBox
+                            android:id="@+id/cb_shipment_sender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:onClick="checkBoxClicked"
+                            android:buttonTint="@color/colorPrimary"
+                            style="@style/CustomCheckBoxTheme"
+                            tools:targetApi="lollipop" />
+
+                        <TextView
+                            android:id="@+id/tv_shipment_sender_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/same_as_sender"
+                            android:textSize="@dimen/text_size_14sp"
+                            android:textColor="@color/shiping_text_color"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/cb_shipment_sender"
+                            android:layout_toEndOf="@id/cb_shipment_sender" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_shipment_rcvr_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_5dp"
+                        android:layout_below="@id/rl_shipment_sender_layout">
+
+                        <ImageView
+                            android:id="@+id/rl_shipment_contact_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/booking_details_user_icon"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/tv_shipment_contact_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/receiver_name"
+                            android:layout_marginLeft="@dimen/dimen_5dp"
+                            android:layout_marginStart="@dimen/dimen_5dp"
+                            android:layout_toRightOf="@id/rl_shipment_contact_icon"
+                            android:layout_toEndOf="@id/rl_shipment_contact_icon"
+                            android:layout_centerVertical="true"
+                            android:textSize="@dimen/text_size_12sp"
+                            android:textColor="@color/shiping_text_color"/>
+                        <ImageView
+                            android:id="@+id/iv_shipment_contact_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/booking_details_book_icon"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:onClick="onClick"
+                            android:contentDescription="@string/app_name" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/et_shipment_receiver_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/mand_full_name"
+                        android:paddingTop="@dimen/dimen_8dp"
+                        android:paddingBottom="@dimen/dimen_15dp"
+                        android:paddingRight="@dimen/dimen_5dp"
+                        android:paddingEnd="@dimen/dimen_5dp"
+                        android:textSize="@dimen/text_size_15sp"
+                        android:layout_marginStart="@dimen/dimen_20dp"
+                        android:layout_marginLeft="@dimen/dimen_20dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/shiping_hint_color"
+                        android:maxLines="1"
+                        android:layout_marginBottom="@dimen/dimen_5dp"
+                        android:layout_below="@id/rl_shipment_rcvr_layout"/>
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/shiping_background_color"
+                    android:layout_below="@+id/rl_shipment_name"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:visibility="gone"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_shipment_phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view5"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_shipment_phone_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/booking_details_call_icon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:contentDescription="@string/app_name" />
+
+                    <TextView
+                        android:id="@+id/tv_shipment_phone_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mobile_number"
+                        android:layout_toRightOf="@id/iv_shipment_phone_icon"
+                        android:layout_toEndOf="@id/iv_shipment_phone_icon"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:textColor="@color/shiping_text_color"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_shipment_phone_layout"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_shipment_country_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:onClick="onClick">
+                        <ImageView
+                            android:id="@+id/iv_shipment_country_flag"
+                            android:layout_width="@dimen/dimen_35dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:src="@drawable/flag_in"
+                            android:layout_marginLeft="@dimen/dimen_8dp"
+                            android:layout_marginStart="@dimen/dimen_8dp"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/tv_shipment_country_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/current_country_code"
+                            android:textSize="16sp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/iv_shipment_country_flag"
+                            android:layout_toEndOf="@+id/iv_shipment_country_flag"
+                            android:paddingRight="4dp"
+                            android:paddingLeft="4dp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="@dimen/dimen_66dp"
+                        android:layout_height="0.8dp"
+                        android:background="@color/shiping_background_color"
+                        android:layout_below="@+id/rl_shipment_country_code"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="4dp"
+                        android:visibility="gone"
+                        android:layout_marginStart="4dp" />
+
+                    <View
+                        android:id="@+id/vw_shipment_country_divider"
+                        android:layout_width="1dp"
+                        android:layout_height="@dimen/dimen_25dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_toRightOf="@+id/rl_shipment_country_code"
+                        android:layout_toEndOf="@+id/rl_shipment_country_code"
+                        android:background="@color/shiping_background_color" />
+
+                    <EditText
+                        android:id="@+id/et_shipment_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/phone"
+                        android:textColor="@color/black"
+                        android:ems="20"
+                        android:inputType="number"
+                        android:layout_marginLeft="@dimen/dimen_3dp"
+                        android:layout_marginStart="@dimen/dimen_3dp"
+                        android:paddingLeft="@dimen/dimen_5dp"
+                        android:paddingStart="@dimen/dimen_5dp"
+                        android:textSize="15sp"
+                        android:layout_toRightOf="@+id/vw_shipment_country_divider"
+                        android:layout_toEndOf="@+id/vw_shipment_country_divider"
+                        android:layout_centerVertical="true"
+                        android:textColorHint="@color/shiping_hint_color"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/vw_shipment_phone_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@id/rl_shipment_add_receiver"
+                android:background="@color/light_shadow" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_10dp"
+                android:layout_below="@id/vw_shipment_phone_view"
+                android:background="@color/colorfafafa" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@id/view3"
+                android:background="@color/light_shadow" />
+
+            <LinearLayout
+                android:id="@+id/ll_shipment_handlers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/view4"
+                android:padding="@dimen/dimen_15dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_shipment_handlers_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/noOfHelpersReq"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="@dimen/dimen_5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/booking_details_user_icon"
+                        android:layout_gravity="center_vertical|start"
+                        android:contentDescription="@string/app_name" />
+
+                    <TextView
+                        android:id="@+id/tv_shipment_handlers_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/helpers_Caps"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:textColor="@color/shiping_text_color"
+                        android:layout_gravity="center_vertical|start"
+                        android:gravity="center_vertical|start"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_shipment_handlers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/noHelpers"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textColor="@color/grayTextColor"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:drawablePadding="@dimen/dimen_15dp"
+                    android:layout_gravity="start|center_vertical"
+                    android:gravity="start|center_vertical"
+                    android:drawableRight="@drawable/arrow_head_dropdown_lblack"
+                    android:drawableEnd="@drawable/arrow_head_dropdown_lblack"
+                    android:paddingTop="@dimen/dimen_10dp"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:paddingStart="@dimen/dimen_15dp"
+                    android:paddingEnd="@dimen/dimen_15dp"
+                    android:paddingLeft="@dimen/dimen_15dp"
+                    android:paddingRight="@dimen/dimen_15dp"
+                    android:background="@drawable/coupon_sd_border"/>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@id/ll_shipment_handlers"
+                android:background="@color/light_shadow" />
+
+            <View
+                android:id="@+id/view8"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_10dp"
+                android:layout_below="@id/view6"
+                android:background="@color/colorfafafa" />
+
+
+            <View
+                android:id="@+id/view9"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@+id/view8"
+                android:background="@color/light_shadow" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view9"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_shipment_additional_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/any_additional"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="@dimen/dimen_2dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/tv_shipment_additional_pics_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_shipment_additional_label"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_shipment_additional_pics_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/booking_details_gallery_icon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:contentDescription="@string/app_name" />
+
+                    <TextView
+                        android:id="@+id/tv_shipment_additional_pics_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/photo"
+                        android:layout_toRightOf="@id/iv_shipment_additional_pics_icon"
+                        android:layout_toEndOf="@id/iv_shipment_additional_pics_icon"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:textColor="@color/shiping_text_color"/>
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_shipment_additional_pics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/tv_shipment_additional_pics_layout"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp"/>
+
+                <TextView
+                    android:id="@+id/rv_shipment_additional_pics_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_photo_optional"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:layout_below="@id/rv_shipment_additional_pics"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp"
+                    android:layout_marginTop="@dimen/dimen_7dp"
+                    android:textColor="@color/shiping_hint_color"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_shipment_additional_notes_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rv_shipment_additional_pics_title"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginStart="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp"
+                    android:layout_marginTop="@dimen/dimen_7dp">
+
+                    <ImageView
+                        android:id="@+id/iv_shipment_additional_notes_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/booking_details_note_icon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:contentDescription="@string/app_name" />
+
+                    <TextView
+                        android:id="@+id/tv_shipment_additional_notes_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/addtional_notes"
+                        android:layout_toRightOf="@id/iv_shipment_additional_notes_icon"
+                        android:layout_toEndOf="@id/iv_shipment_additional_notes_icon"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:textColor="@color/shiping_text_color"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_shipment_additional_notes"
+                    android:layout_width="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/rl_shipment_additional_notes_title"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_marginEnd="@dimen/dimen_15dp"
+                    android:layout_marginTop="@dimen/dimen_5dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/et_shipment_additional_notes"
+                        android:textSize="@dimen/text_size_15sp"
+                        android:maxLines="8"
+                        android:hint="@string/additional_note"
+                        android:textColorHint="@color/shiping_hint_color"
+                        android:textColor="@color/shiping_text_color"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/shading"
+                    android:layout_below="@id/rl_shipment_additional_notes"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+    <Button
+        android:id="@+id/btn_shipment_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_16sp"
+        android:background="@drawable/selector_layout"
+        android:text="@string/confirm_booking"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClick"/>
+</RelativeLayout>

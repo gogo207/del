@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_circle_corner">
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/alert_cap"
+        android:textSize="@dimen/text_size_16sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/dimen_20dp"/>
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_header"
+        android:textSize="@dimen/text_size_14sp"
+        android:textColor="@color/black"
+        android:text="@string/messagealert"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:padding="@dimen/dimen_8dp"
+        android:foregroundGravity="center"
+        android:layout_centerInParent="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_below="@id/tv_text">
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/ok"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/text_size_16sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/dimen_12dp"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:background="@drawable/grey_square_border_selector"/>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/cancel"
+        android:textColor="@color/blue"
+        android:layout_below="@id/tv_text"
+        android:textSize="@dimen/text_size_16sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/dimen_12dp"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:background="@drawable/grey_square_border_selector"/>
+    </LinearLayout>
+
+</RelativeLayout>

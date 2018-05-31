@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/RootView">
+
+    <include
+        layout="@layout/layout_custom_action_bar"
+        android:id="@+id/app_toobar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_2dp"
+        android:id="@+id/search_Rl"
+        android:background="@drawable/rounded_white_background"
+        android:layout_below="@id/app_toobar"
+        android:layout_margin="@dimen/dimen_5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selected_location"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tvSearchLocationLabel"
+            android:textColor="@color/blue"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_12sp"
+            android:layout_marginTop="@dimen/dimen_4dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvSearchLocationLabel"
+            android:paddingLeft="@dimen/dimen_8dp"
+            android:paddingRight="@dimen/dimen_8dp"
+            android:paddingStart="@dimen/dimen_8dp"
+            android:paddingEnd="@dimen/dimen_8dp"
+            android:layout_marginTop="@dimen/dimen_8dp">
+
+            <TextView
+                android:id="@+id/tvSelectedLoation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_14sp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:text="@string/search"
+                android:layout_centerInParent="true"
+                android:gravity="bottom"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/tvPlacePinLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/shiping_text_color"
+            android:text="@string/place_pin1"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_12dp"/>
+
+        <TextView
+            android:id="@+id/tvConfirmAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPlacePinLabel"
+            android:textSize="@dimen/text_size_16sp"
+            android:textColor="@color/white"
+            android:text="@string/confirm_location"
+            android:padding="@dimen/dimen_15dp"
+            android:background="@drawable/selector_layout"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/dimen_8dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_Rl"
+        android:layout_above="@id/rl_bottom">
+
+        <fragment
+            android:id="@+id/fragmentMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.SupportMapFragment"/>
+
+        <ImageButton
+            android:id="@+id/ivMapMarker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/red"
+            android:layout_marginTop="@dimen/dimen_145dp"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

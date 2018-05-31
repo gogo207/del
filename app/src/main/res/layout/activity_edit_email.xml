@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:isScrollContainer="true">
+    <!--Custom toolbar-->
+    <include android:id="@+id/include_mailEditCtb"
+        layout="@layout/layout_toolbar_custom"/>
+
+    <RelativeLayout
+        android:id="@+id/rlMainEditEmail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/include_mailEditCtb">
+
+    <!--Email Editing info-->
+    <TextView
+        android:id="@+id/tvEmailMsg_EditEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_30dp"
+        android:layout_marginRight="@dimen/dimen_30dp"
+        android:layout_marginStart="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:paddingTop="@dimen/dimen_20dp"
+        android:textColor="@color/colorPrimary"
+        android:paddingLeft="@dimen/dimen_3dp"
+        android:textSize="@dimen/textsize_15_74sp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:text="@string/enter_new_e_mail"/>
+
+    <!--Email Id-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilEmail_EditEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dimen_30dp"
+        android:layout_marginRight="@dimen/dimen_30dp"
+        android:layout_marginStart="@dimen/dimen_30dp"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_below="@id/tvEmailMsg_EditEmail">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tietEmail_EditEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:paddingBottom="@dimen/dimen_12dp"
+            android:textSize="@dimen/textsize_15_74sp"
+            android:maxLength="30"
+            android:hint="@string/e_mail"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <View
+        android:background="@color/light_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tilEmail_EditEmail"
+        android:visibility="gone"/>
+    <!--Save button -->
+        <Button
+            android:id="@+id/btnSave_EditEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/save"
+            android:textSize="@dimen/text_size_18sp"
+            android:textColor="@color/white"
+            android:background="@drawable/selector_layout"/>
+    </RelativeLayout>
+</RelativeLayout>

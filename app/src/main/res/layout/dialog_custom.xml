@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/circle_corner">
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:text="@string/logout_msg"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:textSize="@dimen/text_size_14sp"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:layout_marginLeft="@dimen/dimen_12dp"
+        android:paddingLeft="@dimen/dimen_8dp"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:paddingStart="@dimen/dimen_8dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_below="@id/tv_msg"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:layout_marginRight="@dimen/dimen_16dp"
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:layout_marginStart="@dimen/dimen_16dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/white_grey_selector"
+            android:id="@+id/rl_cancel"
+            android:paddingLeft="@dimen/dimen_18dp"
+            android:paddingRight="@dimen/dimen_18dp"
+            android:layout_alignParentRight="true"
+            android:paddingStart="@dimen/dimen_18dp"
+            android:paddingEnd="@dimen/dimen_18dp"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:id="@+id/leter_pickup_Tv"
+                android:textSize="@dimen/text_size_14sp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@color/order_status"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@drawable/white_grey_selector"
+            android:id="@+id/rl_logout"
+            android:layout_toLeftOf="@id/rl_cancel"
+            android:paddingLeft="@dimen/dimen_18dp"
+            android:paddingRight="@dimen/dimen_18dp"
+            android:layout_toStartOf="@id/rl_cancel"
+            android:paddingStart="@dimen/dimen_18dp"
+            android:paddingEnd="@dimen/dimen_18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout"
+                android:textSize="@dimen/text_size_14sp"
+                android:id="@+id/tvRunNow"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@color/order_status" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

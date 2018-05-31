@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:isScrollContainer="true">
+    <!--Custom toolbar-->
+    <include android:id="@+id/include_mailEditCtb"
+        layout="@layout/layout_toolbar_custom">
+
+    </include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include_mailEditCtb"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_above="@+id/btnSave_EditName">
+
+        <RelativeLayout
+            android:id="@+id/rlMain_EditName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--Email Editing info-->
+            <TextView
+                android:id="@+id/tvName_editName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_marginLeft="@dimen/dimen_30dp"
+                android:layout_marginRight="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:paddingLeft="@dimen/dimen_3dp"
+                android:paddingStart="@dimen/dimen_3dp"
+                android:paddingRight="@dimen/dimen_0dp"
+                android:paddingEnd="@dimen/dimen_0dp"
+                android:paddingTop="@dimen/dimen_20dp"
+                android:text="@string/enter_new_name"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize_15_74sp" />
+
+            <!--Name Id-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName_profileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvName_editName"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_marginLeft="@dimen/dimen_30dp"
+                android:layout_marginRight="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_30dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tietName_EditName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:paddingBottom="@dimen/dimen_12dp"
+                    android:textSize="@dimen/textsize_15_74sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tilName_profileFrag"
+                android:background="@color/light_shadow"
+                android:visibility="gone" />
+            <!--Save button -->
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSave_EditName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_layout"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_18sp" />
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/change_card_relative"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@drawable/support_selector">
+	<ImageView
+		android:id="@+id/iv_payment_card"
+		android:layout_width="@dimen/dimen_30dp"
+		android:layout_height="@dimen/dimen_30dp"
+		android:layout_centerVertical="true"
+		android:src="@drawable/add_card_card_icon"
+		android:layout_marginTop="@dimen/dimen_10dp"
+		android:layout_marginBottom="@dimen/dimen_10dp"
+		android:layout_marginLeft="@dimen/dimen_10dp"
+		android:layout_marginStart="@dimen/dimen_10dp"
+		android:contentDescription="@string/app_name" />
+	<TextView
+		android:id="@+id/tv_payment_card_number"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@+id/iv_payment_card"
+		android:layout_toEndOf="@+id/iv_payment_card"
+		android:layout_centerVertical="true"
+		android:textColor="@color/black"
+		android:layout_marginTop="@dimen/dimen_10dp"
+		android:layout_marginBottom="@dimen/dimen_10dp"
+		android:layout_marginLeft="@dimen/dimen_10dp"
+		android:layout_marginStart="@dimen/dimen_10dp"/>
+	<ImageView
+		android:id="@+id/iv_payment_tick"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/tick"
+		android:layout_toLeftOf="@+id/iv_payment_delete"
+		android:layout_toStartOf="@+id/iv_payment_delete"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="@dimen/dimen_10dp"
+		android:layout_marginEnd="@dimen/dimen_10dp"
+		android:contentDescription="@string/app_name" />
+	<ImageView
+		android:id="@+id/iv_payment_delete"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentEnd="true"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="@dimen/dimen_10dp"
+		android:layout_marginEnd="@dimen/dimen_10dp"
+		android:layout_marginLeft="@dimen/dimen_10dp"
+		android:layout_marginStart="@dimen/dimen_10dp"
+		android:src="@drawable/ic_delete_black_24dp"/>
+</RelativeLayout>

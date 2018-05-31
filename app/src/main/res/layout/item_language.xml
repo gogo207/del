@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/body_language"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <TextView
+        android:text="name"
+        android:gravity="center"
+        android:padding="@dimen/dimen_15dp"
+        android:id="@+id/tv_lang_txt"
+        android:textSize="@dimen/text_size_16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+</RelativeLayout>

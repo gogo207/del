@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <include
+        layout="@layout/layout_custom_action_bar"
+        android:id="@+id/toolBarTermsConds"/>
+
+    <RelativeLayout
+        android:id="@+id/rlTermsConditionsMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBarTermsConds"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:padding="@dimen/dimen_5dp"
+            android:id="@+id/rlTermsConditions"
+            android:background="@drawable/selector_white_layout">
+
+            <TextView
+                android:id="@+id/tvTermsConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:text="@string/terms_and_conditions"
+                android:textColor="#000000" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/rlTermsConditions"
+            android:background="@color/lightGray"
+            android:id="@+id/divider1_V"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_5dp"
+            android:layout_below="@id/divider1_V"
+            android:id="@+id/rlPrivacyPolicy"
+            android:background="@drawable/selector_white_layout">
+
+            <TextView
+                android:id="@+id/tvPrivacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:text="@string/privacy_policy"
+                android:textColor="#000000" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/rlPrivacyPolicy"
+            android:background="@color/lightGray"
+            android:id="@+id/divider2_V"/>
+    </RelativeLayout>
+</RelativeLayout>

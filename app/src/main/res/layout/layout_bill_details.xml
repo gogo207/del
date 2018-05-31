@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlBase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvBaseLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/base"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvBaseLabel"
+            android:layout_toEndOf="@id/tvBaseLabel"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvDistanceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/distance_fare"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvDistanceLabel"
+            android:layout_toEndOf="@id/tvDistanceLabel"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/time"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvTimeLabel"
+            android:layout_toEndOf="@id/tvTimeLabel" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlWaiting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvWaitingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/waiting"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvWaiting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvWaitingLabel"
+            android:layout_toEndOf="@id/tvWaitingLabel" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDiscount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvDiscountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/discount"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvDiscountLabel"
+            android:layout_toEndOf="@id/tvDiscountLabel" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlToll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTollLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/Toll"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvToll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvTollLabel"
+            android:layout_toEndOf="@id/tvTollLabel" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlHandlingFee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvHandlingFeeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/handlingFee"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvHandlingFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvHandlingFeeLabel"
+            android:layout_toEndOf="@id/tvHandlingFeeLabel" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlVat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvVatLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:text="@string/vat_recipt_txt"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvVat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayLightTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvVatLabel"
+            android:layout_toEndOf="@id/tvVatLabel"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvDottedLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dashs"
+        android:maxLines="1"
+        android:textColor="@color/darkGray"
+        android:background="@color/white"
+        android:layout_marginStart="-15dp"
+        android:layout_marginLeft="-15dp"
+        android:layout_marginRight="-15dp"
+        android:layout_marginEnd="-15dp" />
+
+    <RelativeLayout
+        android:id="@+id/rlTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp">
+
+        <TextView
+            android:id="@+id/tvTotalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayTextColor"
+            android:text="@string/total1"
+            android:gravity="start|center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayTextColor"
+            android:gravity="end|center_vertical"
+            android:maxLines="1"
+            android:layout_toRightOf="@id/tvTotalLabel"
+            android:layout_toEndOf="@id/tvTotalLabel" />
+    </RelativeLayout>
+
+</LinearLayout>

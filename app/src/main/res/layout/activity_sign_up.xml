@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/toolBarTermsConds"
+        layout="@layout/layout_toolbar_signup" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlSingUpButton"
+        android:layout_below="@+id/toolBarTermsConds"
+        android:isScrollContainer="false"
+        android:onClick="onClick"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:focusableInTouchMode="true">
+
+            <RelativeLayout
+                android:id="@+id/network_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/network_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/nonetwork"
+                    android:textColor="@color/text_color" />
+            </RelativeLayout>
+
+            <!--Radio button group-->
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/network_bar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <!--Individual Radio button-->
+                <RadioButton
+                    android:id="@+id/rb_signup_individual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:button="@drawable/selector_radio_button"
+                    android:text="@string/individual"
+                    android:textSize="@dimen/textsize_15_74sp" />
+                <!--Business radio button-->
+                <RadioButton
+                    android:id="@+id/rb_signup_corporate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:button="@drawable/selector_radio_button"
+                    android:text="@string/Business"
+                    android:textSize="@dimen/textsize_15_74sp" />
+            </RadioGroup>
+
+            <!--Name input field-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radioGroup"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dimen_20dp">
+
+                <!--Profile pic and Name-->
+                <RelativeLayout
+                    android:id="@+id/rlProfilePicName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivProfilePic_signUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="onClick"
+                        android:padding="@dimen/dimen_3dp"
+                        android:src="@drawable/default_userpic" />
+
+                    <!--Add profile pic button-->
+                    <ImageView
+                        android:id="@+id/ivAddProfilePic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/dimen_40dp"
+                        android:layout_marginStart="@dimen/dimen_40dp"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="onClick"
+                        android:src="@drawable/add_profile_pic_selector" />
+
+                    <!--Name input field-->
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilFullName_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="@dimen/dimen_30dp"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:layout_marginRight="@dimen/dimen_30dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_toEndOf="@id/ivProfilePic_signUp"
+                        android:layout_toRightOf="@id/ivProfilePic_signUp"
+                        android:theme="@style/InputTextTheme">
+
+                        <EditText
+                            android:id="@+id/etFullName_signUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/color8d8f8e"
+                            android:hint="@string/mand_full_name"
+                            android:importantForAutofill="noExcludeDescendants"
+                            android:inputType="textCapSentences"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:textColor="@color/sign_up_edittext"
+                            android:textSize="@dimen/textsize_15_74sp" />
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <!--Company name field-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilCompanyName_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlProfilePicName"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/etCompanyName_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="@string/company_name"
+                        android:inputType="text"
+                        android:maxLines="2"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <!--Company address field-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_companyAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilCompanyName_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:onClick="onClick"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/etCompanyAddress_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="@string/company_address"
+                        android:inputType="text"
+                        android:maxLength="40"
+                        android:maxLines="2"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlPhone_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/til_companyAddress"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_centerVertical="true"
+                        android:id="@+id/llCountryFlag_signUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/ivCountryFlag_signUp"
+                            android:layout_width="@dimen/dimen_35dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginStart="5dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/flag_in" />
+
+                        <TextView
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:id="@+id/tvCountryCode_signUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize_15_74sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/viewCountryCodeDivider"
+                        android:layout_width="1dp"
+                        android:layout_height="@dimen/dimen_25dp"
+android:layout_centerVertical="true"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_toEndOf="@id/llCountryFlag_signUp"
+                        android:layout_toRightOf="@id/llCountryFlag_signUp"
+                        android:background="@color/lightGray" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilPhoneNo_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/llCountryFlag_signUp"
+                        android:layout_toRightOf="@id/llCountryFlag_signUp"
+                        android:theme="@style/InputTextTheme">
+
+                        <EditText
+                            android:id="@+id/etPhoneNo_signUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/color8d8f8e"
+                            android:hint="@string/phoneNumber"
+                            android:importantForAutofill="noExcludeDescendants"
+                            android:inputType="number"
+                            android:maxLength="16"
+                            android:textColor="@color/sign_up_edittext"
+                            android:textSize="@dimen/textsize_15_74sp" />
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilEmail_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlPhone_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme">
+
+                    <EditText
+                        android:id="@+id/etEmail_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="@string/email"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilPassword_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilEmail_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme">
+
+                    <EditText
+                        android:id="@+id/etPassword_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="@string/password"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="textPassword"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilReferral_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilPassword_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/etReferral_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="@string/referral_code"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_booking_detail_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilReferral_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="BUSINESS DETAILS:"
+                    android:textSize="@dimen/text_size_17sp" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilWebsite_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_booking_detail_heading"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme">
+
+                    <EditText
+                        android:id="@+id/etWebsite_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="Website*"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_contact_person"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilWebsite_signUp">
+
+                    <LinearLayout
+                        android:id="@+id/llCountryFlag_signUp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_30dp"
+                        android:layout_marginStart="@dimen/dimen_30dp"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/ivCountryFlag_signUp1"
+                            android:layout_width="@dimen/dimen_35dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginStart="5dp"
+                            android:contentDescription="@string/app_name"
+                            android:paddingBottom="@dimen/dimen_8dp"
+                            android:src="@drawable/flag_in" />
+
+                        <TextView
+                            android:id="@+id/tvCountryCode_signUp1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:paddingBottom="@dimen/dimen_10dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize_15_74sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/viewCountryCodeDivider1"
+                        android:layout_width="1dp"
+                        android:layout_height="@dimen/dimen_20dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/dimen_5dp"                        android:layout_marginLeft="1dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_toEndOf="@id/llCountryFlag_signUp"
+                        android:layout_toRightOf="@id/llCountryFlag_signUp"
+                        android:background="@color/lightGray" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilContactPerson_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginEnd="@dimen/dimen_30dp"
+
+                        android:layout_marginRight="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:theme="@style/InputTextTheme">
+
+                        <EditText
+                            android:id="@+id/etContactPerson_signUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/color8d8f8e"
+                            android:hint="Contact Person*"
+                            android:importantForAutofill="noExcludeDescendants"
+                            android:inputType="number"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:textColor="@color/sign_up_edittext"
+                            android:textSize="@dimen/textsize_15_74sp" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilLicenseNumber_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_contact_person"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme">
+
+                    <EditText
+                        android:id="@+id/etLicenseNumber_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="License Number*"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilVAT_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilLicenseNumber_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme">
+
+                    <EditText
+                        android:id="@+id/etVAT_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="VAT*"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="number"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilExternalContractNumber_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tilVAT_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:theme="@style/InputTextTheme">
+
+                    <EditText
+                        android:id="@+id/etExternalContractNumber_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/color8d8f8e"
+                        android:hint="External Contract Number*"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textColor="@color/sign_up_edittext"
+                        android:textSize="@dimen/textsize_15_74sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_booking_document_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilExternalContractNumber_signUp"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="BUSINESS DOCUMENT:"
+                    android:textSize="@dimen/text_size_17sp" />
+
+                <TextView
+                    android:id="@+id/tv_licence_copy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_booking_document_heading"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="Licence Copy" />
+
+                <ImageView
+                    android:id="@+id/iv_licence_doc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_licence_copy"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:clickable="true"
+                    android:src="@drawable/shipment_details_profile_default_image_frame" />
+
+                <TextView
+                    android:id="@+id/tv_vat_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_licence_doc"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="Vat Copy" />
+
+                <ImageView
+                    android:id="@+id/iv_vat_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_vat_copy"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:clickable="true"
+                    android:src="@drawable/shipment_details_profile_default_image_frame" />
+
+                <TextView
+                    android:id="@+id/tv_chamber_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_vat_image"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="Chamber Commerce Copy" />
+
+                <ImageView
+                    android:id="@+id/iv_chamber_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_chamber_copy"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:clickable="true"
+                    android:src="@drawable/shipment_details_profile_default_image_frame" />
+
+                <TextView
+                    android:id="@+id/tv_agrement_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_chamber_copy"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="Agreement Copy" />
+
+                <ImageView
+                    android:id="@+id/iv_agrement_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_agrement_copy"
+                    android:layout_marginEnd="@dimen/dimen_30dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:layout_marginStart="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:clickable="true"
+                    android:src="@drawable/shipment_details_profile_default_image_frame" />
+
+                <RelativeLayout
+                    android:id="@+id/rlTermsConds_singUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_agrement_copy"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp">
+
+                    <Switch
+                        android:id="@+id/switchTermsConds_singUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="@drawable/switch_selector"
+                        android:trackTint="@color/light_shadow" />
+
+                    <TextView
+                        android:id="@+id/tvTermsConds_singUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/switchTermsConds_singUp"
+                        android:layout_toRightOf="@+id/switchTermsConds_singUp"
+                        android:padding="@dimen/dimen_5dp"
+                        android:text="@string/terms_and_cond"
+                        android:textSize="@dimen/text_size_14sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlSingUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_5dp">
+
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_bg"
+            android:onClick="onClick"
+            android:text="@string/create_account_signup"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp" />
+    </RelativeLayout>
+</RelativeLayout>

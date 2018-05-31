@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_smoke">
+
+    <include
+        android:id="@+id/abar_comment"
+        layout="@layout/abar_left_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"/>
+
+
+    <Button
+        android:id="@+id/btnSubmitRatingComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10dp"
+        android:textSize="@dimen/text_size_18sp"
+        android:background="@drawable/selector_layout"
+        android:text="@string/done"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/abar_comment"
+        android:layout_above="@id/btnSubmitRatingComment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvCommentLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_16sp"
+            android:textColor="@color/grayTextColor"
+            android:text="@string/ratingCommentLabel"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:layout_marginRight="@dimen/dimen_15dp"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_20dp"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilRatingReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/InputTextTheme"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:layout_marginRight="@dimen/dimen_15dp"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginStart="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_below="@id/tvCommentLabel">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietRatingReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/add_the_feedback"
+                android:maxLines="5"
+                android:padding="@dimen/dimen_15dp"
+                android:textColor="@color/grayTextColor"/>
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

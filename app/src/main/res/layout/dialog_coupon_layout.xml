@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_5dp"
+        android:background="@color/color23c590"/>
+    <TextView
+        android:text="@string/apply_coupon"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/text_size_16sp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:textColor="@color/color23c590"
+        android:paddingLeft="4dp"/>
+    <EditText
+        android:id="@+id/et_coupon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:hint="Coupon code"
+        android:inputType="text"
+        android:maxLength="30"
+        tools:text="DRMEX250"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginStart="@dimen/dimen_20dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:textColor="@color/shiping_text_color"
+        android:textSize="@dimen/text_size_12sp"
+        android:textColorHint="@color/light_shadow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/light_shadow"
+            android:text="@string/cancel"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp"
+            />
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color23c590"
+            android:text="@string/apply"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

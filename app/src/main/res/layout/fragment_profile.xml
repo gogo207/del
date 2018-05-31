@@ -1,0 +1,316 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/white">
+
+    <!--Profile pic background green-->
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@drawable/selector_layout"
+        android:contentDescription="@string/app_name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/dimen_50dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_15dp"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:clickable="true"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical">
+
+        <!-- NAME -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp">
+
+            <ImageView
+                android:id="@+id/ivEditName_profileFrag"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_edit_24dp"
+                android:contentDescription="@string/app_name"
+                android:layout_gravity="end|center_vertical"
+                android:gravity="end|center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName_profileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/ivEditName_profileFrag"
+                android:layout_toStartOf="@id/ivEditName_profileFrag"
+                android:gravity="start|center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:layout_marginEnd="@dimen/dimen_15dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tietName_profileFrag"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color3b3b3b"
+                    android:textSize="@dimen/textsize_15_74sp"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:gravity="start|center_vertical"
+                    android:background="@color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+
+        <!-- PHONE NUMBER -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp">
+
+            <ImageView
+                android:id="@+id/ivPhoneNo_profileFrag"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_edit_24dp"
+                android:contentDescription="@string/app_name"
+                android:layout_gravity="end|center_vertical"
+                android:gravity="end|center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPhoneNo_profileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/ivPhoneNo_profileFrag"
+                android:layout_toStartOf="@id/ivPhoneNo_profileFrag"
+                android:gravity="start|center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:layout_marginEnd="@dimen/dimen_15dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tietPhoneNo_profileFrag"
+                    android:hint="@string/phone_number"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color3b3b3b"
+                    android:textSize="@dimen/textsize_15_74sp"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:gravity="start|center_vertical"
+                    android:background="@color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+
+        <!-- EMAIL -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp">
+
+            <ImageView
+                android:id="@+id/ivEmail_profileFrag"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_edit_24dp"
+                android:contentDescription="@string/app_name"
+                android:layout_gravity="end|center_vertical"
+                android:gravity="end|center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilEmail_profileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/ivEmail_profileFrag"
+                android:layout_toStartOf="@id/ivEmail_profileFrag"
+                android:gravity="start|center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:layout_marginEnd="@dimen/dimen_15dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tietEmail_profileFrag"
+                    android:hint="@string/e_mail"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color3b3b3b"
+                    android:textSize="@dimen/textsize_15_74sp"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:gravity="start|center_vertical"
+                    android:background="@color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+
+        <!-- PASSWORD -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp">
+
+            <ImageView
+                android:id="@+id/ivPassword_profileFrag"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_edit_24dp"
+                android:contentDescription="@string/app_name"
+                android:layout_gravity="end|center_vertical"
+                android:gravity="end|center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPassword_profileFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/ivPassword_profileFrag"
+                android:layout_toStartOf="@id/ivPassword_profileFrag"
+                android:gravity="start|center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:layout_marginEnd="@dimen/dimen_15dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tietPassword_profileFrag"
+                    android:hint="@string/password_cap"
+                    android:maxLines="1"
+                    android:maxLength="30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color3b3b3b"
+                    android:textSize="@dimen/textsize_15_74sp"
+                    android:paddingBottom="@dimen/dimen_10dp"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:inputType="textPassword"
+                    android:gravity="start|center_vertical"
+                    android:background="@color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_14sp"
+        android:text="@string/logout"
+        android:textColor="@color/grayTextColor"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:layout_marginEnd="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp" />
+
+    <!--Profile pic-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfilePic_profileFrag"
+        android:layout_width="@dimen/dimen_120dp"
+        android:layout_height="@dimen/dimen_120dp"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:padding="@dimen/dimen_3dp"
+        android:src="@drawable/default_userpic"
+        android:background="@drawable/profile_pic_stroke"
+        android:layout_gravity="center_horizontal"/>
+
+    <ProgressBar
+        android:layout_width="@dimen/dimen_30dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:layout_marginTop="@dimen/dimen_145dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:id="@+id/pBar_profileFrag" />
+
+    <!--Add profile pic button-->
+    <ImageView
+        android:id="@+id/ivAddIcon_profileFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_profile_pic_selector"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_190dp"
+        android:layout_marginLeft="@dimen/dimen_40dp"
+        android:layout_marginStart="@dimen/dimen_40dp"
+        android:contentDescription="@string/app_name" />
+
+    <!--Navigation drawer-->
+    <ImageView
+        android:id="@+id/ivMenuBtn_profileFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:src="@drawable/ic_hamburger_24dp"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tvToolBarTitle_profileFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_28dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginStart="@dimen/dimen_15dp"
+        android:text="@string/my_profile"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_19_13sp"/>
+</FrameLayout>

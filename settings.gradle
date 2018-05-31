@@ -1,0 +1,1 @@
+include ':app', ':simplecrop', ':firebase_chat_module'

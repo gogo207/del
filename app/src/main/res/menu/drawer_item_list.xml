@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/book_load_icon_off"
+        android:title="@string/book_runner" />
+    <item
+        android:id="@+id/nav_order"
+        android:icon="@drawable/my_booking_icon_off"
+        android:title="@string/my_bookings" />
+    <item
+        android:id="@+id/nav_payment"
+        android:icon="@drawable/payment_icon_off"
+        android:title="@string/payments" />
+    <item
+        android:id="@+id/nav_ratecard"
+        android:icon="@drawable/rate_card_icon_off"
+        android:title="@string/rate_card" />
+    <item
+        android:id="@+id/nav_support"
+        android:icon="@drawable/support_icon_off"
+        android:title="@string/support" />
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/about_icon_off"
+        android:title="@string/about" />
+    <item
+        android:id="@+id/nav_invite"
+        android:icon="@drawable/invite_icon_off"
+        android:title="@string/invite"
+        />
+    <item
+        android:id="@+id/nav_liveChat"
+        android:icon="@drawable/live_chat_icon_off"
+        android:title="@string/liveChat" />
+    <!--<item-->
+        <!--android:id = "@+id/nav_home"-->
+        <!--android:icon="@drawable/menu_home_icon"-->
+        <!--android:title = "@string/delievery"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/nav_order"-->
+        <!--android:icon="@drawable/menu_my_order_icon"-->
+        <!--android:title="@string/order"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/nav_payment"-->
+        <!--android:icon="@drawable/menu_payment_icon"-->
+        <!--android:title="@string/payments"/>-->
+
+    <!--<item-->
+        <!--android:id = "@+id/nav_address"-->
+        <!--android:icon="@drawable/menu_my_address_icon"-->
+        <!--android:title = "@string/addresses"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/nav_support"-->
+        <!--android:icon="@drawable/menu_support_icon"-->
+        <!--android:title="@string/support"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/nav_invite"-->
+        <!--android:icon="@drawable/menu_invite_icon"-->
+        <!--android:title="@string/invites"/>-->
+
+    <!--<item-->
+        <!--android:id = "@+id/nav_about"-->
+        <!--android:icon="@drawable/menu_about_icon"-->
+        <!--android:title = "@string/abouts"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/nav_logout"-->
+        <!--android:icon="@drawable/menu_logout_icon"-->
+        <!--android:title="@string/logout"/>-->
+</menu>

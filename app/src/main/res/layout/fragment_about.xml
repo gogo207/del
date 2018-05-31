@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorfafafa">
+
+    <include android:id="@+id/included_tb_abt"
+        layout="@layout/layout_custom_tool_bar"/>
+
+    <TextView
+        android:id="@+id/tvAppVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_14sp"
+        android:textColor="@color/grayLightTextColor"
+        android:gravity="center"
+        android:text="@string/version"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:layout_alignParentBottom="true" />
+
+    <RelativeLayout
+        android:id="@+id/rlTermsConditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/included_tb_abt"
+        android:layout_centerHorizontal="true">
+
+
+        <RelativeLayout
+            android:id="@+id/rlRateInGooglePlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:paddingBottom="@dimen/dimen_5dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingStart="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:paddingEnd="@dimen/dimen_10dp"
+            android:background="@drawable/selector_white_layout">
+
+            <ImageView
+                android:id="@+id/ivRateGooglePlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/rate"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tvRateInGooglePlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="@string/rate_googlePlay"
+                android:textColor="@color/color535353"
+                android:layout_toRightOf="@id/ivRateGooglePlay"
+                android:layout_toEndOf="@id/ivRateGooglePlay"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_below="@+id/rlRateInGooglePlay"
+            android:background="@color/lightGray"
+            android:id="@+id/divider1_V"/>
+
+        <RelativeLayout
+            android:id="@+id/rlLikeInFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1_V"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:paddingBottom="@dimen/dimen_5dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingStart="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:paddingEnd="@dimen/dimen_10dp"
+            android:background="@drawable/selector_white_layout">
+
+            <ImageView
+                android:id="@+id/ivLikeInFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/like"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tvLikeInFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="@string/like_onFacebook"
+                android:textColor="@color/color535353"
+                android:layout_toRightOf="@id/ivLikeInFacebook"
+                android:layout_toEndOf="@id/ivLikeInFacebook"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_below="@+id/rlLikeInFacebook"
+            android:background="@color/lightGray"
+            android:id="@+id/divider2_V"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider2_V"
+            android:id="@+id/rlLegal"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:paddingBottom="@dimen/dimen_5dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingStart="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:paddingEnd="@dimen/dimen_10dp"
+            android:background="@drawable/selector_white_layout">
+
+            <ImageView
+                android:id="@+id/ivLegal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/legal"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tvLegal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="@string/legal"
+                android:textColor="@color/color535353"
+                android:layout_toRightOf="@id/ivLegal"
+                android:layout_toEndOf="@id/ivLegal"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_below="@+id/rlLegal"
+            android:background="@color/lightGray"
+            android:id="@+id/divider3_V" />
+    </RelativeLayout>
+</RelativeLayout>

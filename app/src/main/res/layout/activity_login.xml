@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/layout_toolbar_signup"
+            android:id="@+id/toolBarTermsConds"/>
+
+        <!--Day runner logo text-->
+        <TextView
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:id="@+id/login_logo"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_size_50sp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!--This is used just for decoration-->
+        <TextView
+            android:id="@+id/v_fgbtn_decor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:layout_marginRight="@dimen/dimen_5dp" />
+
+        <!--Facebook login button-->
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/ivFbLoginBtn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/login_logo"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_toLeftOf="@id/v_fgbtn_decor"
+            android:src="@drawable/fb_login_selector"
+            android:background="@drawable/corner_blue"
+            android:padding="@dimen/dimen_3dp"
+            android:onClick="onClick"
+            android:contentDescription="@string/app_name" />
+
+        <!--Google plus login button-->
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/ivGoogleLogin_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_logo"
+            android:layout_alignBaseline="@id/ivFbLoginBtn_login"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_40dp"
+            android:layout_toRightOf="@id/v_fgbtn_decor"
+            android:src="@drawable/google_login_selector"
+            android:background="@drawable/corner_red"
+            android:padding="@dimen/dimen_3dp"
+            android:onClick="onClick"
+            android:contentDescription="@string/app_name" />
+
+        <!--OR Divider-->
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_login_or_decor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivFbLoginBtn_login"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginRight="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!--Divider-->
+            <View
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent8d8f8e" />
+
+            <!--or-->
+            <TextView
+                android:id="@+id/tv_login_or_decor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/or"
+                android:textColor="@color/colorAccent8d8f8e"
+                android:textSize="@dimen/text_size_10sp" />
+
+            <!--divider-->
+            <View
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent8d8f8e" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_below="@+id/ivFbLoginBtn_login"
+            android:id="@+id/llMainForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Forgot password info-->
+            <TextView
+                android:id="@+id/tv_fp_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_5dp"
+                android:textSize="@dimen/text_size_14sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/grayLightTextColor" />
+            <!--Phone number text input layout-->
+
+            <RadioGroup android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_35dp"
+                android:layout_marginEnd="@dimen/dimen_35dp"
+                android:layout_marginLeft="@dimen/dimen_35dp"
+                android:layout_marginStart="@dimen/dimen_35dp">
+
+                <!--Individual Radio button-->
+                <RadioButton
+                    android:id="@+id/rbPhoneNO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:textSize="@dimen/text_size_11sp"
+                    android:layout_marginRight="@dimen/dimen_25dp"
+                    android:layout_marginEnd="@dimen/dimen_25dp"
+                    android:layout_gravity="start|center_vertical"
+                    android:gravity="start|center_vertical"
+                    android:button="@drawable/selector_radio_button"/>
+                <!--Business radio button-->
+                <RadioButton
+                    android:id="@+id/rbEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_11sp"
+                    android:layout_marginLeft="@dimen/dimen_25dp"
+                    android:layout_marginStart="@dimen/dimen_25dp"
+                    android:text="@string/emailAddress"
+                    android:layout_gravity="end|center_vertical"
+                    android:gravity="end|center_vertical"
+                    android:button="@drawable/selector_radio_button"/>
+            </RadioGroup>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:id="@+id/rlPhoneForgotPswd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_40dp"
+                    android:layout_marginStart="@dimen/dimen_40dp"
+                    android:layout_marginEnd="@dimen/dimen_40dp"
+                    android:layout_marginRight="@dimen/dimen_40dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+
+                        android:id="@+id/llCountryFlag_signUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"
+                        >
+
+                        <ImageView
+                            android:paddingBottom="@dimen/dimen_5dp"
+                            android:layout_gravity="bottom"
+                            android:id="@+id/ivCountryFlag_signUp"
+                            android:layout_width="@dimen/dimen_35dp"
+                            android:layout_height="@dimen/dimen_30dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginStart="5dp"
+                            android:src="@drawable/flag_us"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:paddingBottom="@dimen/dimen_10dp"
+                            android:layout_gravity="bottom"
+                            android:id="@+id/tvCountryCode_signUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/textsize_15_74sp"
+                            android:textColor="@color/black"
+                            android:paddingRight="4dp"
+                            android:paddingLeft="4dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/viewCountryCodeDivider"
+                        android:layout_width="1dp"
+                        android:layout_height="@dimen/dimen_15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_toRightOf="@id/llCountryFlag_signUp"
+                        android:layout_toEndOf="@id/llCountryFlag_signUp"
+                        android:background="@color/lightGray" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilPhoneNo_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/llCountryFlag_signUp"
+                        android:layout_toEndOf="@id/llCountryFlag_signUp"
+                        android:theme="@style/InputTextTheme">
+
+                        <EditText
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/etPhoneNo_signUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/sign_up_edittext"
+                            android:inputType="number"
+                            android:hint="@string/phoneNumber"
+                            android:maxLength="16"
+                            android:textSize="@dimen/textsize_15_74sp" />
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilEmail_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_40dp"
+                    android:layout_marginStart="@dimen/dimen_40dp"
+                    android:layout_marginEnd="@dimen/dimen_40dp"
+                    android:layout_marginRight="@dimen/dimen_40dp"
+                    android:theme="@style/InputTextTheme"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/etEmail_signUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:hint="@string/email"
+                        android:maxLength="30"
+                        android:textColor="@color/sign_up_edittext"
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/textsize_15_74sp"/>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+        <!--Email or password input-->
+
+        <!--Password input-->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPassword_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llMainForgotPassword"
+            android:layout_marginEnd="@dimen/dimen_40dp"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginRight="@dimen/dimen_40dp"
+            android:layout_marginStart="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:theme="@style/InputTextTheme">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etPassword_signUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/color8d8f8e"
+                android:textColorHint="@color/color8d8f8e"
+                android:textSize="@dimen/text_size_16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--Sign in button-->
+        <Button
+            android:id="@+id/btnSignIn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilPassword_login"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginRight="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:background="@drawable/grey_login_selector"
+            android:text="@string/sign_in"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp"
+            android:onClick="onClick"/>
+
+        <!--forgot password text view-->
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSignIn_login"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_10dp"
+            android:text="@string/forgotPassword"
+            android:textSize="@dimen/text_size_11sp"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tvForgotPassword"
+            android:background="@color/white">
+            <TextView
+                android:background="@drawable/grey_square_border_selector"
+                android:id="@+id/Lang_select"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:text="@string/select_language_txt"
+                android:gravity="center"
+                android:clickable="true"
+                android:padding="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_100dp"
+                android:layout_marginStart="@dimen/dimen_100dp"
+                android:layout_marginEnd="@dimen/dimen_100dp"
+                android:layout_marginRight="@dimen/dimen_100dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:clickable="true"
+                android:textStyle="bold"
+                android:text="@string/login_don_t_have_an_account_sign_up"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:id="@+id/tvSignUp_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_14sp"
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
+
+    <!--Dont have an account? Sign In text view-->
+

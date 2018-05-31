@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_2">
+
+    <TextView
+        android:id="@+id/tv_logo_title"
+        android:textSize="@dimen/dimen_80dp"
+        android:text="@string/app_name"
+        android:layout_marginTop="@dimen/dimen_100dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:paddingTop="@dimen/dimen_60dp"
+        android:layout_width="@dimen/dimen_200dp"
+        android:layout_height="@dimen/dimen_200dp"
+        android:id="@+id/rrloutbooking"
+        android:visibility="gone"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rlWaveOut">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:text="@string/loading"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_login_button"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginLeft="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:id="@+id/btn_landing_signin"
+            android:text="Sign in"
+            android:textSize="@dimen/text_size_13sp"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="@dimen/text_size_13sp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/btn_landing_signup"
+            android:layout_margin="@dimen/dimen_20dp"
+            android:text="Dont have an Account? Sign up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

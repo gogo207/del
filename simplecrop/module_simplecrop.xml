@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_simplecrop" default="compile.module.simplecrop">
+  <dirname property="module.simplecrop.basedir" file="${ant.file.module_simplecrop}"/>
+  
+  <property name="module.jdk.home.simplecrop" value="${jdk.home.android_api_22_platform_(2)}"/>
+  <property name="module.jdk.bin.simplecrop" value="${jdk.bin.android_api_22_platform_(2)}"/>
+  <property name="module.jdk.classpath.simplecrop" value="jdk.classpath.android_api_22_platform_(2)"/>
+  
+  <property name="compiler.args.simplecrop" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="simplecrop.output.dir" value="${module.simplecrop.basedir}/build/intermediates/classes/debug"/>
+  <property name="simplecrop.testoutput.dir" value="${module.simplecrop.basedir}/build/intermediates/classes/test/debug"/>
+  
+  <path id="simplecrop.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="simplecrop.module.production.classpath">
+    <path refid="${module.jdk.classpath.simplecrop}"/>
+  </path>
+  
+  <path id="simplecrop.runtime.production.module.classpath">
+    <pathelement location="${simplecrop.output.dir}"/>
+  </path>
+  
+  <path id="simplecrop.module.classpath">
+    <path refid="${module.jdk.classpath.simplecrop}"/>
+    <pathelement location="${simplecrop.output.dir}"/>
+  </path>
+  
+  <path id="simplecrop.runtime.module.classpath">
+    <pathelement location="${simplecrop.testoutput.dir}"/>
+    <pathelement location="${simplecrop.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.simplecrop">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.simplecrop">
+    <patternset refid="excluded.from.module.simplecrop"/>
+  </patternset>
+  
+  <path id="simplecrop.module.sourcepath">
+    <dirset dir="${module.simplecrop.basedir}">
+      <include name="build/generated/source/r/debug"/>
+      <include name="build/generated/source/aidl/debug"/>
+      <include name="build/generated/source/buildConfig/debug"/>
+      <include name="build/generated/source/rs/debug"/>
+      <include name="build/generated/res/rs/debug"/>
+      <include name="build/generated/res/resValues/debug"/>
+      <include name="src/main/res"/>
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="simplecrop.module.test.sourcepath">
+    <dirset dir="${module.simplecrop.basedir}">
+      <include name="build/generated/source/r/androidTest/debug"/>
+      <include name="build/generated/source/aidl/androidTest/debug"/>
+      <include name="build/generated/source/buildConfig/androidTest/debug"/>
+      <include name="build/generated/source/rs/androidTest/debug"/>
+      <include name="build/generated/res/rs/androidTest/debug"/>
+      <include name="build/generated/res/resValues/androidTest/debug"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.simplecrop" depends="compile.module.simplecrop.production,compile.module.simplecrop.tests" description="Compile module simplecrop"/>
+  
+  <target name="compile.module.simplecrop.production" depends="register.custom.compilers" description="Compile module simplecrop; production classes">
+    <mkdir dir="${simplecrop.output.dir}"/>
+    <javac2 destdir="${simplecrop.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.simplecrop}/javac">
+      <compilerarg line="${compiler.args.simplecrop}"/>
+      <bootclasspath refid="simplecrop.module.bootclasspath"/>
+      <classpath refid="simplecrop.module.production.classpath"/>
+      <src refid="simplecrop.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.simplecrop"/>
+    </javac2>
+    
+    <copy todir="${simplecrop.output.dir}">
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/r/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/aidl/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/buildConfig/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/res/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/res/resValues/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/src/main/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.simplecrop.tests" depends="register.custom.compilers,compile.module.simplecrop.production" description="compile module simplecrop; test classes" unless="skip.tests">
+    <mkdir dir="${simplecrop.testoutput.dir}"/>
+    <javac2 destdir="${simplecrop.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.simplecrop}/javac">
+      <compilerarg line="${compiler.args.simplecrop}"/>
+      <bootclasspath refid="simplecrop.module.bootclasspath"/>
+      <classpath refid="simplecrop.module.classpath"/>
+      <src refid="simplecrop.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.simplecrop"/>
+    </javac2>
+    
+    <copy todir="${simplecrop.testoutput.dir}">
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/r/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/aidl/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/buildConfig/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/source/rs/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/res/rs/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.simplecrop.basedir}/build/generated/res/resValues/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.simplecrop" description="cleanup module">
+    <delete dir="${simplecrop.output.dir}"/>
+    <delete dir="${simplecrop.testoutput.dir}"/>
+  </target>
+</project>

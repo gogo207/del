@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.delex.customer.LandingPage">
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginLeft="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_30dp"
+            android:layout_marginEnd="@dimen/dimen_30dp"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:id="@+id/btn_landing_signin"
+            android:text="Sign in"
+            android:textSize="@dimen/text_size_13sp"
+            android:textAllCaps="false"
+            android:background="@color/white"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="@dimen/text_size_13sp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:textColor="@color/white"
+            android:id="@+id/btn_landing_signup"
+            android:layout_margin="@dimen/dimen_20dp"
+            android:text="Dont have an Account? Sign up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

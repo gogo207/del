@@ -1,0 +1,158 @@
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://maven.google.com' }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'io.fabric.tools:gradle:1.24.4'
+
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'maven'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+apply plugin: 'io.fabric'
+
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://maven.google.com' }
+        google()
+    }
+}
+
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.delex.customer"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+    dexOptions
+            {
+                javaMaxHeapSize "2048M"
+            }
+
+    buildTypes {
+        /*  release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }*/
+
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    productFlavors {
+    }
+
+    packagingOptions
+            {
+                exclude 'META-INF/NOTICE'
+                exclude 'META-INF/LICENSE'
+                exclude 'META-INF/LICENSE.txt'
+                exclude 'AndroidManifest.xml'
+                exclude 'lib/arm64-v8a/libcardioDecider.so'
+                exclude 'lib/arm64-v8a/libcardioRecognizer.so'
+                exclude 'lib/arm64-v8a/libcardioRecognizer_tegra2.so'
+                exclude 'lib/arm64-v8a/libopencv_core.so'
+                exclude 'lib/arm64-v8a/libopencv_imgproc.so'
+                exclude 'lib/armeabi/libcardioDecider.so'
+                exclude 'lib/armeabi-v7a/libcardioRecognizer_tegra2.so'
+                exclude 'lib/mips/libcardioDecider.so'
+                exclude 'lib/x86/libcardioDecider.so'
+                exclude 'lib/x86/libcardioRecognizer.so'
+                exclude 'lib/x86/libcardioRecognizer_tegra2.so'
+                exclude 'lib/x86/libopencv_core.so'
+                exclude 'lib/x86/libopencv_imgproc.so'
+                exclude 'lib/x86_64/libcardioDecider.so'
+                exclude 'lib/x86_64/libcardioRecognizer.so'
+                exclude 'lib/x86_64/libcardioRecognizer_tegra2.so'
+                exclude 'lib/x86_64/libopencv_core.so'
+                exclude 'lib/x86_64/libopencv_imgproc.so'
+            }
+
+}
+
+
+dependencies {
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':simplecrop')
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true;
+    }
+    compile 'org.jsoup:jsoup:1.11.2'
+    //compile files('libs/LiveChatWindow.jar')
+    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.github.livechat:chat-window-android:v2.0.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:cardview-v7:26.0.2'
+    compile 'com.android.support:design:26.0.2'
+    compile 'com.google.android.gms:play-services-maps:9.6.0'
+    compile 'com.google.android.gms:play-services-location:9.6.0'
+    compile 'com.google.android.gms:play-services-places:9.6.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'io.card:android-sdk:5.4.1'
+    compile 'com.stripe:stripe-android:+'
+    compile 'com.github.Q42:AndroidScrollingImageView:1.2'
+    compile 'com.amazonaws:aws-android-sdk-s3:2.6.16'
+    compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.hbb20:ccp:1.7.6'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.android.support:support-v4:26.0.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.firebaseui:firebase-ui:0.6.0'
+    compile('com.squareup.retrofit2:converter-gson:2.1.0') {
+        exclude module: 'gson'
+    }
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.firebase:firebase-auth:9.6.0'
+    compile 'com.google.firebase:firebase-storage:9.6.0'
+    compile 'com.google.firebase:firebase-messaging:9.6.0'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.pubnub:pubnub:4.0.3'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.yarolegovich:sliding-root-nav:1.1.0'
+    compile 'com.couchbase.lite:couchbase-lite-android:1.4.1'
+    compile 'io.card:android-sdk:5.5.1'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.0.1'
+
+}
+apply plugin: 'com.google.gms.google-services'

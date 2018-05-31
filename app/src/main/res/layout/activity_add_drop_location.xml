@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorececec">
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/layout_custom_action_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_70dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/transparent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@color/white"
+            android:layout_alignParentTop="true"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            card_view:cardCornerRadius="@dimen/dimen_2dp"
+            card_view:contentPadding="@dimen/dimen_5dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:background="@color/transparent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_add_drop_clear"
+                    android:layout_width="@dimen/dimen_25dp"
+                    android:layout_height="@dimen/dimen_25dp"
+                    android:src="@drawable/places_ic_clear"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@string/app_name"
+                    android:layout_margin="@dimen/dimen_5dp"/>
+
+                <EditText
+                    android:id="@+id/iv_add_drop_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/search"
+                    android:maxLines="1"
+                    android:textSize="14sp"
+                    android:layout_toLeftOf="@id/iv_add_drop_clear"
+                    android:layout_toStartOf="@id/iv_add_drop_clear"
+                    android:imeOptions="actionSearch"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/search_icon"
+                    android:drawableStart="@drawable/search_icon"
+                    android:drawablePadding="@dimen/dimen_10dp"
+                    android:paddingLeft="@dimen/dimen_5dp"
+                    android:paddingRight="@dimen/dimen_5dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        card_view:cardCornerRadius="@dimen/dimen_5dp"
+        card_view:cardBackgroundColor="@color/white">
+
+        <TextView
+            android:id="@+id/tv_add_drop_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/grayTextColor"
+            android:text="@string/select_location_map"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_5dp"
+            android:gravity="start|center_vertical"
+            android:background="@color/transparent"
+            android:drawableLeft="@drawable/home_location_icon"
+            android:drawableStart="@drawable/home_location_icon"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorececec">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- RECENT & FAVOURITES LIST -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_add_drop_recent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:background="@color/white"
+                    card_view:cardCornerRadius="@dimen/dimen_10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_add_drop_recent_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:textSize="@dimen/text_size_14sp"
+                            android:text="@string/recent"
+                            android:textColor="@color/fullName_color"
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            android:layout_marginLeft="@dimen/dimen_15dp"
+                            android:layout_marginStart="@dimen/dimen_15dp"
+                            android:layout_marginRight="@dimen/dimen_15dp"
+                            android:layout_marginEnd="@dimen/dimen_15dp"
+                            android:layout_marginBottom="@dimen/dimen_10dp"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_add_drop_recent_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_add_drop_fav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_10dp"
+                    android:background="@color/white"
+                    android:layout_below="@id/cv_add_drop_recent"
+                    card_view:cardCornerRadius="@dimen/dimen_10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_add_drop_fav_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:textSize="@dimen/text_size_14sp"
+                            android:text="@string/favourites"
+                            android:textColor="@color/fullName_color"
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            android:layout_marginLeft="@dimen/dimen_15dp"
+                            android:layout_marginStart="@dimen/dimen_15dp"
+                            android:layout_marginRight="@dimen/dimen_15dp"
+                            android:layout_marginEnd="@dimen/dimen_15dp"
+                            android:layout_marginBottom="@dimen/dimen_10dp"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_add_drop_fav_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

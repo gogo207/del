@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:isScrollContainer="true">
+    <!--Custom toolbar-->
+    <include android:id="@+id/include_PhoneEditctb"
+        layout="@layout/layout_toolbar_custom" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include_PhoneEditctb"
+        android:layout_above="@+id/btn_saveMobileNumber">
+
+        <RelativeLayout
+            android:id="@+id/rlMainEditPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--key Icon-->
+            <ImageView
+                android:id="@+id/ivKey_EditPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_30dp"
+                android:src="@drawable/forgot_pass_key"
+                android:contentDescription="@string/app_name" />
+
+            <!--Phone verification info-->
+            <TextView
+
+                android:id="@+id/tvPhoneNoMsg_EditPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_30dp"
+                android:layout_marginRight="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:paddingTop="@dimen/dimen_20dp"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="@string/phone_verfication_info"
+                android:layout_below="@id/ivKey_EditPhone"
+                android:gravity="center"/>
+            <!--Country code picker and phone number-->
+
+            <LinearLayout
+                android:id="@+id/llPhone_EditPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_30dp"
+                android:layout_marginLeft="@dimen/dimen_30dp"
+                android:layout_marginRight="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/dimen_30dp"
+                android:layout_marginEnd="@dimen/dimen_30dp"
+                android:layout_below="@id/tvPhoneNoMsg_EditPhone">
+
+                <LinearLayout
+                    android:id="@+id/llCountryFlag_signUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="@dimen/dimen_35dp"
+                        android:layout_height="@dimen/dimen_30dp"
+                        android:id="@+id/ivCountryFlag_signUp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/flag_in"
+                        android:contentDescription="@string/app_name" />
+
+                    <TextView
+                        android:paddingBottom="@dimen/dimen_8dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvCountryCode_signUp"
+                        android:textSize="@dimen/textsize_15_74sp"
+                        android:textColor="@color/black"
+                        android:paddingTop="8dp"
+                        android:paddingRight="4dp"
+                        android:paddingLeft="4dp"
+                        />
+
+                </LinearLayout>
+
+                <!--Phone number-->
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/dimen_5dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/tietPhoneNo_EditPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:inputType="number"
+                        android:paddingBottom="@dimen/dimen_12dp"
+                        android:textSize="@dimen/textsize_15_74sp"
+                        android:maxLength="15"
+                        android:hint="@string/phone_number"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <View
+                android:background="@color/light_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/llPhone_EditPhone"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_saveMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/save"
+        android:textSize="@dimen/text_size_18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_layout"/>
+
+</RelativeLayout>

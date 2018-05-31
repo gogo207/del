@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/vehicle_Rl_main"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehicle_Rl"
+        android:paddingTop="@dimen/dimen_5dp"
+        android:paddingBottom="@dimen/dimen_5dp"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nodriver"
+            android:textSize="@dimen/text_size_10sp"
+            android:maxLines="1"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tvEta"
+            android:textColor="@color/vehicle_unselect"
+            android:visibility="visible"/>
+
+        <RelativeLayout
+            android:id="@+id/rlVehicleImages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEta"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/vehicle_image"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/vehicle_image_on"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/vehicle_unselect"
+            android:layout_below="@+id/rlVehicleImages"
+            android:id="@+id/vehicle_name"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_10sp"
+            android:text="share"/>
+    </RelativeLayout>
+</RelativeLayout>

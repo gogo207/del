@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tvNoOfHelpersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/noOfHelpersReq"
+        android:textSize="@dimen/text_size_18sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/dimen_15dp"/>
+
+
+    <com.delex.numberPicker.NumberPicker
+        android:id="@+id/npHelpers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:np_dividerColor="@color/gray"
+        app:np_textColor="@color/black"
+        app:np_textSize="18sp"
+        android:background="@color/white"
+        android:layout_below="@id/tvNoOfHelpersLabel"
+        android:layout_marginBottom="@dimen/dimen_15dp"/>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10dp"
+        android:textSize="@dimen/text_size_18sp"
+        android:background="@drawable/selector_layout"
+        android:text="@string/confirm"
+        android:textAllCaps="false"
+        android:layout_below="@+id/npHelpers"
+        android:textColor="@color/white" />
+</RelativeLayout>

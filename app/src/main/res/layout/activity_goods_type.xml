@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/layout_toolbar_act"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/lv_goodsType"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="@dimen/dimen_400dp"
+            android:layout_marginTop="@dimen/dimen_60dp"
+            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingRight="@dimen/dimen_20dp">
+        </ListView>
+        <EditText
+            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingRight="@dimen/dimen_20dp"
+            android:layout_below="@+id/lv_goodsType"
+            android:id="@+id/et_other_types"
+            android:hint="Type other types"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</ScrollView>
+
+
+    <TextView
+        android:id="@+id/tv_submit_goodstype"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_17sp"
+        android:background="@color/colorPrimary"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:padding="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_40dp" />
+
+
+</RelativeLayout>

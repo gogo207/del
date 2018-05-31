@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.delex.customer">
+
+    <uses-sdk tools:overrideLibrary="com.q42.android.scrollingimageview" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <!-- Permission to vibrate -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="com.threembed.app.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.delex.servicesMgr.AppController"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustResize"
+        tools:replace="allowBackup,supportsRtl">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.delex.customer.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths2" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- @android:style/Theme.DeviceDefault.Light.NoActionBar -->
+        <activity
+            android:name="com.delex.customer.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.delex.customer.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        .
+        <activity
+            android:name="com.delex.customer.LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.delex.customer.VerifyOTP"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.delex.customer.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.customer.TermsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.customer.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.customer.AddCardActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.delex.customer.DeleteCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="eu.janmuller.android.simplecropimage.CropImage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.bookingFlow.LocationFromMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.bookingFlow.ShipmentDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified"
+            android:isScrollContainer="true"/>
+        <!-- android:theme="@style/MyTheme.Hint" -->
+
+
+        <!-- android:theme="@style/MyTheme.Hint" /> -->
+
+        <activity
+            android:name="com.delex.bookingFlow.ChangeCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.bookingHistory.BookingUnAssigned"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.customer.GlobalAlertDialogActivity"
+            android:screenOrientation="portrait" />
+        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar" -->
+        <activity
+            android:name="com.delex.customer.NotificationHandler"
+            android:label="@string/title_activity_notificaton_handler" />
+        <!-- android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" -->
+        <activity
+            android:name="com.delex.customer.ForgotPasswordActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.delex.customer.EditEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.delex.customer.ChangePasswordActivity" />
+        <activity android:name="com.delex.customer.EditPhoneNumberActivity" />
+
+        <!--
+DayRunner Live
+              trukr3embed@gmail.com
+3Embed007
+        -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBon9J3sYWvdGflVImc47E042ZubFHE43M"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="bd8a28688d4b2b7517016c7444e7f7a129ab76c9"/>
+
+        <service android:name="com.delex.servicesMgr.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <activity android:name="com.delex.bookingFlow.AddDropLocationActivity" />
+        <activity android:name="com.delex.bookingFlow.BookingDetailsActivity" />
+        <activity android:name="com.delex.bookingFlow.CancelBookingActivity" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar" -->
+
+
+        <!--
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <string name="fb_login_protocol_scheme">fb618713008324352</string>
+        -->
+
+        <activity
+            android:name="com.delex.bookingFlow.AddShipmentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.delex.bookingFlow.GoodsTypeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.delex.customer.Second_Splash" />
+        <activity
+            android:name="com.delex.bookingHistory.BookingAssignedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.customer.EditNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.bookingHistory.ReceiptActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.delex.bookingHistory.ReceiptRatingCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.customer.LanguageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.delex.bookingHistory.CompletedBookingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.delex.bookingHistory.CancelledBookingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.delex.wallet.WalletTransActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <receiver
+            android:name="com.delex.servicesMgr.NetworkChangeReceiver"
+            android:label="NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.livechatinc.inappchat.ChatWindowActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name="com.delex.servicesMgr.FireBaseChatActivity" />
+        <activity android:name="com.delex.servicesMgr.ChatMessagesScreen" />
+        <activity android:name="com.delex.servicesMgr.Chatlist" />
+        <activity android:name="com.delex.servicesMgr.MediaHistory_FullScreenImage" />
+        <activity android:name="com.delex.servicesMgr.MediaHistory_FullScreenVideo" />
+        <activity android:name="com.delex.servicesMgr.SelectUsersActivity" />
+
+        <service android:name="com.delex.servicesMgr.FireBaseMessageReceiver">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.delex.servicesMgr.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.delex.servicesMgr.FireBaseMessageReceiver">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.delex.customer.LandingPage"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoTitleBar">
+        </activity>
+    </application>
+
+</manifest>

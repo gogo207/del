@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:visibility="visible" />
+
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weightLl"
+            android:weightSum="4">
+            <Button
+                android:id="@+id/cancle_btn"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel_booking_later"
+                android:textSize="@dimen/text_size_14sp"
+                android:textColor="@color/white"
+                android:background="@drawable/sign_up_button"
+                android:layout_margin="@dimen/dimen_2dp"/>
+            <Button
+                android:id="@+id/btnSet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/select_booking_later"
+                android:textSize="@dimen/text_size_14sp"
+                android:textColor="@color/white"
+                android:background="@drawable/sign_up_button"
+                android:layout_margin="@dimen/dimen_2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

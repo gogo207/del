@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_10dp">
+            <TextView
+                android:layout_marginLeft="@dimen/dimen_30dp"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:id="@+id/tv_rc_vehicleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:textColor="@color/color23c590"
+                android:textSize="@dimen/text_size_14_06sp"
+                tools:text="TATA ACE" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_below="@+id/tv_rc_vehicleName"
+                android:id="@+id/civ_rc_vehicleImage"
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginStart="@dimen/dimen_5dp"
+                android:layout_marginEnd="@dimen/dimen_25dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_40dp" />
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_row1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_toRightOf="@id/tv_rc_vehicleName"
+                android:layout_toEndOf="@id/civ_rc_vehicleImage"
+                android:layout_marginTop="@dimen/dimen_8dp">
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_rc_capacity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color555555"
+                        android:textSize="@dimen/text_size_14_06sp"
+                        tools:text="1500 Kg"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/tv_rc_capacityLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color8d8f8e"
+                        android:textSize="@dimen/text_size_10_12sp"
+                        android:gravity="center_horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_rc_dimen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color555555"
+                        android:textSize="@dimen/text_size_14_06sp"
+                        tools:text="7.5ft x 3.5ft 4ft"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/tv_rc_dimenLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color8d8f8e"
+                        android:textSize="@dimen/text_size_10_12sp"
+                        android:gravity="center_horizontal"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_toRightOf="@id/civ_rc_vehicleImage"
+                android:layout_toEndOf="@id/civ_rc_vehicleImage"
+                android:orientation="horizontal"
+                android:layout_below="@id/ll_row1">
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_rc_minfare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color555555"
+                        android:textSize="@dimen/text_size_14_06sp"
+                        tools:text="$10"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:text="minimum fare"
+                        android:id="@+id/tv_rc_minfare_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color8d8f8e"
+                        android:textSize="@dimen/text_size_10_12sp"
+                        android:gravity="center_horizontal"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_rc_aft60min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color555555"
+                        android:textSize="@dimen/text_size_14_06sp"
+                        tools:text="$3 / Min"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/tv_rc_aft60minLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color8d8f8e"
+                        android:textSize="@dimen/text_size_10_12sp"
+                        android:gravity="center_horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_rc_aft2mi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color555555"
+                        android:textSize="@dimen/text_size_14_06sp"
+                        tools:text="$3 / Mi"
+                        android:gravity="center_horizontal"/>
+                    <TextView
+                        android:id="@+id/tv_rc_aft2minLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color8d8f8e"
+                        android:textSize="@dimen/text_size_10_12sp"
+                        android:gravity="center_horizontal"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
