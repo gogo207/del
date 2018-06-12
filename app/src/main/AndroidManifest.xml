@@ -80,7 +80,7 @@
             android:name="com.delex.customer.SignUpActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        .
+
         <activity
             android:name="com.delex.customer.LoginActivity"
             android:windowSoftInputMode="adjustResize" />

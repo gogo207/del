@@ -29,10 +29,11 @@ public class HomeModelBase
 
     private ArrayList<Types> vehicleTypes;
     private HashMap<String, String> etaOfEachType;
-    private HashMap<String, String> driversMarkerIconUrls;              // used to store vehicle type id and its respective vehicle image url
+    private HashMap<String, String> driversMarkerIconUrls;  // 차량 유형 id 및 해당 차량 이미지 url을 저장하는데 사용됩니다
     private ArrayList<PubnubMasArrayPojo> driversListAllCategory;
     private ArrayList<PubnubMasPojo> driversListSelectedCategory;
-    private ArrayList<String> vehicleIds_havingDrivers;                // use to store the vehicle types which hv drivers
+    private ArrayList<String> vehicleIds_havingDrivers;  // use to store the vehicle types which hv drivers
+                                                           //운전자가 있는 차량 유형을 저장하는데 사용한다
 
     private ArrayList<FavDropAdrsData> favDropAdrsDatAL;
 

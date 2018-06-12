@@ -56,12 +56,12 @@ import io.fabric.sdk.android.Fabric;
 /**
  * <h1>Splash Activity</h1>
  * This class is used to provide the Splash screen, where we can select our login or register option and if user is already login, then it directly opens Main Activity.
+ *
  * @author 3embed
  * @since 3 Jan 2017.
  */
-public class SplashActivity extends ParentActivity implements LocationUtil.LocationNotifier
-{
-    private SessionManager sessionManager ;
+public class SplashActivity extends ParentActivity implements LocationUtil.LocationNotifier {
+    private SessionManager sessionManager;
     private LocationUtil locationUtil = null;
     private AppPermissionsRunTime permissionsRunTime;
     private ArrayList<AppPermissionsRunTime.Permission> permissionList;
@@ -81,21 +81,19 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     }
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
         Bundle bundle = getIntent().getExtras();
-        Utility.printLog("value of bundle: "+bundle);
+        Utility.printLog("value of bundle: " + bundle);
         sessionManager = new SessionManager(SplashActivity.this);
         sessionManager.setIsProfile(true);
         getPushToken();
 
 
-        manager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE );
+        manager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         permissionsRunTime = AppPermissionsRunTime.getInstance();
         permissionList = new ArrayList<AppPermissionsRunTime.Permission>();
         permissionList.add(AppPermissionsRunTime.Permission.PHONE);
@@ -103,9 +101,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
         initialize();
 
 
-
     }
-
 
 
     /**
@@ -114,37 +110,34 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * This method is used for getting the push token.
      * i.e pushToken and saving that token in session manager for further use
      * </p>
+     *
      * @see MyFirebaseInstanceIDService
      */
-    private void getPushToken()
-    {
-        if (checkPlayServices())
-        {
+    private void getPushToken() {
+        if (checkPlayServices()) { // true면
             Intent intent = new Intent(this, MyFirebaseInstanceIDService.class);
             startService(intent);
             String token = FirebaseInstanceId.getInstance().getToken();
-            if (token != null)
-            {
+
+            if (token != null) {
                 sessionManager.setRegistrationId(token);
             }
-        }
-        else
-        {
-            Toast.makeText(this,getResources().getString(R.string.splash_playServicenotfound), Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, getResources().getString(R.string.splash_playServicenotfound), Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     /**
      * <h2>checkPlayServices</h2>
      * <p>
-     * This method is used for checking the play services are available in our devices or not.
+     * Google Play 서비스를 사용할 수 있는지 확인하는 데 사용됩니다.
      * </p>
+     *
      * @return boolean: true if play services available
      */
-    private boolean checkPlayServices()
-    {
+    private boolean checkPlayServices() {
         GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
         int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
         if (resultCode != ConnectionResult.SUCCESS) {
@@ -155,10 +148,9 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
                 apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
                         .show();
 
-            }else
-            {
+            } else {
 
-               finish();
+                finish();
 
             }
             return false;
@@ -172,15 +164,14 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * This method initialize the all UI elements of our splash layout.
      * </p>
      */
-    private void initialize()
-    {
-        TextView tv_logo_title= (TextView)findViewById(R.id.tv_logo_title);
-        ll_login_button= findViewById(R.id.ll_login_button);
-        rrloutbooking =  findViewById(R.id.rrloutbooking);
-        rLWaveOut =  findViewById(R.id.rlWaveOut);
+    private void initialize() {
+        TextView tv_logo_title = (TextView) findViewById(R.id.tv_logo_title);
+        ll_login_button = findViewById(R.id.ll_login_button);
+        rrloutbooking = findViewById(R.id.rrloutbooking);
+        rLWaveOut = findViewById(R.id.rlWaveOut);
         waveDrawable = new WaveDrawable(ContextCompat.getColor(this, R.color.white), 200);
 
-        btnSignin=(Button)findViewById(R.id.btn_landing_signin);
+        btnSignin = (Button) findViewById(R.id.btn_landing_signin);
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,7 +180,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
 
             }
         });
-        tvSignup=(TextView)findViewById(R.id.btn_landing_signup);
+        tvSignup = (TextView) findViewById(R.id.btn_landing_signup);
         tvSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,81 +191,65 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     }
 
 
-
     /**
      * <h2>getCurrentLocation</h2>
      * <p>
-     * Getting the current location of user.
+     * 현재 위치
      * </p>
      */
-    private void getCurrentLocation()
-    {
-        if (locationUtil == null)
-        {
+    private void getCurrentLocation() {
+        if (locationUtil == null) {
             locationUtil = new LocationUtil(this, this);       //checking the locationUtil.
-        }
-        else
-        {
+        } else {
             locationUtil.checkLocationSettings();   //checking location services.
         }
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         hasGetDriversCalled = false;
 
-        if(sessionManager.isLogin()){
+        if (sessionManager.isLogin()) {  //로그인 되있을때
 
-            if (Build.VERSION.SDK_INT >= 23)
-            {
+            if (Build.VERSION.SDK_INT >= 23) { //퍼미션 체크
 
-                if(permissionsRunTime.getPermission(permissionList,this, true))
-                {
+                if (permissionsRunTime.getPermission(permissionList, this, true)) {
                     workResume();
                 }
-            }
-            else
-            {
+
+            } else {
                 workResume();
             }
-        }else{
-                StartAnimationLogin();
+        } else {
+            StartAnimationLogin();  //로그인 안되있을때
         }
     }
 
 
     /**
-     * This method got called, once we give any permission to our required permission.
+     * 권한 체크
+     *
      * @param requestCode  contains request code.
-     * @param permissions   contains Permission list.
-     * @param grantResults  contains the grant permission result.
+     * @param permissions  contains Permission list.
+     * @param grantResults contains the grant permission result.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-    {
-        if (requestCode == Constants.REQUEST_CODE)
-        {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == Constants.REQUEST_CODE) {
             boolean isAllGranted = true;
-            for (String permissionName : permissions)
-            {
-                if (!permissionName.equals(PackageManager.PERMISSION_GRANTED))
-                {
+            for (String permissionName : permissions) {
+                if (!permissionName.equals(PackageManager.PERMISSION_GRANTED)) {
                     isAllGranted = false;
                 }
             }
 
-            if (! isAllGranted)
-            {
+            if (!isAllGranted) {
                 permissionsRunTime.getPermission(permissionList, this, true);
-            }
-            else
-            {
+            } else {
                 workResume();
             }
-        }
-        else{
+        } else {
 
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -283,50 +258,42 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     }
 
 
-
     /**
      * <h2>workResume</h2>
      * <p>
      * This method is used to perform all the task, which we wants to do on our onResume() method.
      * </p>
      */
-    private void workResume()
-    {
+    private void workResume() {
         startWaveAnimation();
 
 
         //checking Language set
-        String lang="";
+        String lang = "";
 
 
-       // setCheckLang(lang);
+        // setCheckLang(lang);
 
 
         // creating object of the location class object, and setting that I dont hv current location.
-        if (Build.VERSION.SDK_INT >= 23)
-        {
+        if (Build.VERSION.SDK_INT >= 23) {
             if (!(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
                 //getting the location.
                 getCurrentLocation();
             }
-        }else
-        {
+        } else {
             // getting the location.
             getCurrentLocation();
         }
 
         // checking network is available or nor. If not show alert
-        if(Utility.isNetworkAvailable(SplashActivity.this))
-        {
+        if (Utility.isNetworkAvailable(SplashActivity.this)) {
             // This condition is used to check, whether, GPS is enabled or not,  If it is enabled, then only check that user is login or not.
-            if(!sessionManager.isLogin() && manager.isProviderEnabled( LocationManager.GPS_PROVIDER) &&
-                    latiLongi[0]!=0.0 && latiLongi[1] != 0.0 && !hasGetDriversCalled)
-            {
+            if (!sessionManager.isLogin() && manager.isProviderEnabled(LocationManager.GPS_PROVIDER) &&
+                    latiLongi[0] != 0.0 && latiLongi[1] != 0.0 && !hasGetDriversCalled) {
                 getDrivers();
             }
-        }
-        else
-        {
+        } else {
             Alerts alerts = new Alerts();
             alerts.showNetworkAlert(SplashActivity.this);
         }
@@ -338,21 +305,19 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * <p>
      * This method is used to update the location.
      * </p>
+     *
      * @param location instance of Location.
      */
     @Override
-    public void updateLocation(Location location)
-    {
+    public void updateLocation(Location location) {
         locationUtil.stoppingLocationUpdate();
         latiLongi[0] = location.getLatitude();
         latiLongi[1] = location.getLongitude();
-        Log.d("SplashAct", "updateLocation lat: "+latiLongi[0]+"   lng: "+latiLongi[1]);
-        if (latiLongi[0]!=0.0 && latiLongi[1] != 0.0)
-        {
+        Log.d("SplashAct", "updateLocation lat: " + latiLongi[0] + "   lng: " + latiLongi[1]);
+        if (latiLongi[0] != 0.0 && latiLongi[1] != 0.0) {
             sessionManager.setlatitude(String.valueOf(location.getLatitude()));
             sessionManager.setlongitude(String.valueOf(location.getLongitude()));
-            if(sessionManager.isLogin() && !hasGetDriversCalled)
-            {
+            if (sessionManager.isLogin() && !hasGetDriversCalled) {
                 getDrivers();
             }
         }
@@ -364,30 +329,28 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * <p>
      * This method is used to get the message.
      * </p>
+     *
      * @param msg message
      */
     @Override
     public void locationMsg(String msg) {
-        Utility.printLog("error with update location: "+msg);
+        Utility.printLog("error with update location: " + msg);
     }
 
     /**
      * This is an overrided method, got a call, when an activity opens by StartActivityForResult(), and return something back to its calling activity.
+     *
      * @param requestCode returning the request code.
-     * @param resultCode returning the result code.
-     * @param data contains the actual data. */
+     * @param resultCode  returning the result code.
+     * @param data        contains the actual data.
+     */
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == LocationUtil.REQUEST_CHECK_SETTINGS)
-        {
-            if (resultCode == RESULT_OK)
-            {
+        if (requestCode == LocationUtil.REQUEST_CHECK_SETTINGS) {
+            if (resultCode == RESULT_OK) {
                 locationUtil.checkLocationSettings();
-            }
-            else if (requestCode == RESULT_CANCELED)
-            {
+            } else if (requestCode == RESULT_CANCELED) {
                 Utility.printLog("location user choose not to make required location settings");
             }
         }
@@ -396,33 +359,36 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>getDrivers</h2>
      * <p>
+     * 로그인 서비스를 호출하고 성공한 경우 저장
+     * 세션 관리자의 값 및 main activity 시작
      * Calling login service and if success storing
      * values in session manager and start main activity
      * </p>
      */
-    private void getDrivers()
-    {
-        if (sessionManager.isLogin())
-        {
+    private void getDrivers() {
+        if (sessionManager.isLogin()) {
             GetDrivers context = new GetDrivers(this);
             final String url = Constants.GET_DRIVERS + sessionManager.getlatitude() + "/" + sessionManager.getlongitude()
                     + "/" + sessionManager.getChannel() + "/" + sessionManager.getPresenceTime() + "/1";
 
+            Log.d(TAG, "getDrivers: "+url);
+
             context.getDrivers(sessionManager.getSession(), url, new GetDrivers.GetDriversCallback() {
                 @Override
-                public void success(String success)
-                {
+                public void success(String success) {
                     Utility.printLog("Splash result:success: " + success);
 
                     if (success != null && !success.isEmpty()) {
                         try {
                             JSONObject jsnResponse = new JSONObject(success);
                             int errNum = jsnResponse.getInt("errNum");
-                            switch (errNum)
-                            {
+                            switch (errNum) {
+
                                 case 200:
-                                    String data=jsnResponse.getJSONObject("data").toString();
+                                    String data = jsnResponse.getJSONObject("data").toString();
                                     PubnubResponsePojoHome temp = new Gson().fromJson(data, PubnubResponsePojoHome.class);
+                                    Log.d(TAG, "success: "+temp.toString());
+                                    Log.d(TAG, "PubNubMgrpostNewVehicleTypes: 탈 것 데이터 보내기");
                                     PubNubMgr.getInstance().updateNewVehicleTypesData(temp);
                                     startMainActivity();
                                     break;
@@ -449,13 +415,12 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
 
 
     /**
-     *<h2>startWaveAnimation</h2>
+     * <h2>startWaveAnimation</h2>
      * <p>
-     *     method to start Wave Animation if not already stated
+     * method to start Wave Animation if not already stated
      * </p>
      */
-    private void startWaveAnimation()
-    {
+    private void startWaveAnimation() {
         rrloutbooking.setVisibility(View.VISIBLE);
         rLWaveOut.setBackground(waveDrawable);
 
@@ -474,11 +439,10 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>startMainActivity</h2>
      * <p>
-     *     method to start Main Activity
+     * method to start Main Activity
      * </p>
      */
-    private void startMainActivity()
-    {
+    private void startMainActivity() {
         stopWaveAnimation();
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
@@ -488,11 +452,10 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>startLoginActivity</h2>
      * <p>
-     *     method to start login activity
+     * method to start login activity
      * </p>
      */
-    private void startLoginActivity()
-    {
+    private void startLoginActivity() {
         stopWaveAnimation();
         Intent intent = new Intent(SplashActivity.this, LandingPage.class);
         startActivity(intent);
@@ -500,10 +463,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     }
 
 
-
-
-
-    private void StartAnimationLogin(){
+    private void StartAnimationLogin() {
         stopWaveAnimation();
         Animation bottomUp = AnimationUtils.loadAnimation(SplashActivity.this,
                 R.anim.bottom_down);
@@ -516,22 +476,19 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>stopWaveAnimation</h2>
      * <p>
-     *     this method is used to stop the wave like animation
-     *     if its already visible
+     * this method is used to stop the wave like animation
+     * if its already visible
      * </p>
      */
-    private void stopWaveAnimation()
-    {
-        if(rrloutbooking.getVisibility() == View.VISIBLE)
-        {
+    private void stopWaveAnimation() {
+        if (rrloutbooking.getVisibility() == View.VISIBLE) {
             rrloutbooking.setVisibility(View.GONE);
             waveDrawable.stopAnimation();
         }
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
         hasGetDriversCalled = false;
         Utility.printLog("splash pause called.");
@@ -544,25 +501,21 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * </p>
      */
     @Override
-    public void onStop()
-    {
+    public void onStop() {
         super.onStop();
         Utility.printLog("splash onStop called.");
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
 
-        if(locationUtil != null && locationUtil.getHasGoogleApiConnected())
-        {
+        if (locationUtil != null && locationUtil.getHasGoogleApiConnected()) {
             locationUtil.stop_Location_Update();
         }
     }
 
-    private void setCheckLang(String check)
-    {
+    private void setCheckLang(String check) {
         try {
             Locale myLocale = new Locale(check);
             Resources res = getResources();

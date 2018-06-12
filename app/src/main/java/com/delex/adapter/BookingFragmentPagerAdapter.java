@@ -12,6 +12,7 @@ import static com.delex.utility.Constants.PAGE_COUNT;
 
 /**
  * <h1>My_order_Fragment_Pager_Adapter</h1>
+ * BookingsHistoryFragment
  * This class is used to provide the the adapter where we can select the name of our tabs. for order screen.
  * @author 3embed
  * @since 3 Jan 2017.

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 /**
  * <h1>AssignedBookingsAdapter</h1>
- * This class is used to provide the AssignedBookingsAdapter screen, where we can see our assigned jobs.
+ * 이 클래스는 할당 된 작업을 볼 수있는 AssignedBookingsAdapter 화면을 제공하는 데 사용됩니다.
  * @author 3embed
  * @since 3 Jan 2017.
  */

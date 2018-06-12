@@ -22,7 +22,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:padding="@dimen/dimen_10dp"
-        android:src="@drawable/home_heart_icon"
+        android:src="@drawable/home_heart_icon_off"
         android:contentDescription="@string/app_name"
         android:layout_centerVertical="true"/>
     <TextView

@@ -35,7 +35,7 @@ import static com.delex.utility.Constants.TYPE_AUTOCOMPLETE;
 
 /**
  * <h1>PlaceAutoComplete_Adapter</h1>
- * This class is used to provide the PlaceAutoComplete screen, where we can see our Address.
+ * 이 클래스는 주소를 볼 수있는 PlaceAutoComplete 화면을 제공하는 데 사용됩니다.
  * @author 3embed
  * @since 3 Jan 2017.
  */
@@ -165,6 +165,7 @@ public class PlaceAutoCompleteAdapter extends RecyclerView.Adapter<PlaceAutoComp
             @Override
             public void onClick(View v)
             {
+                android.util.Log.d(""+i, "onClick: 검색된 주소 클릭");
                 mListener.onPlaceClick(mResultList,i);
             }
         });

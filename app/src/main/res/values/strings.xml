@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">DELEX</string>
     <string name="mapbox_access_token">pk.eyJ1IjoiZGVsdGFvbngiLCJhIjoiY2pnbG4yd3RuMTRqMjJ3dDQwZGd0Z2NmeCJ9.6g2Ah8Uowdsqk2PwQHbUdw</string>
+    <string name="tmap_api_key">fc10f46e-776e-46a7-b890-78e5ab5c312d</string>
 
 
     <string name="invite_app_name">DELEX</string>

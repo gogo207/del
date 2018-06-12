@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.multidex.MultiDex;
@@ -36,14 +38,13 @@ import com.delex.interfaceMgr.OnGettingOfAppConfig;
 import com.delex.pojos.StartReceiptActPojo;
 import com.delex.utility.LocaleHelper;
 import com.delex.utility.SessionManager;
-import com.mapbox.mapboxsdk.Mapbox;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 /**
- * Created by moda on 21/06/17.
+ * base Application
  */
 
 public class AppController extends MultiDexApplication implements Application.ActivityLifecycleCallbacks
@@ -65,6 +66,8 @@ public class AppController extends MultiDexApplication implements Application.Ac
     private SessionManager sessionManager;
     private Intent intent;
 
+    public static boolean DEBUG = false;  // Dlog 셋팅
+
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -75,9 +78,11 @@ public class AppController extends MultiDexApplication implements Application.Ac
     @Override
     public void onCreate() {
         super.onCreate();
+
+        this.DEBUG = isDebuggable(this);
+
         mInstance = this;
         EventBus.getDefault().register(this);
-        Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
 
         IsForeground.init(this);
         IsForeground.get(this).addListener(new IsForeground.Listener() {
@@ -167,6 +172,26 @@ public class AppController extends MultiDexApplication implements Application.Ac
         receiptIntent.putExtra("bid", startReceiptActPojo.getBookingId());
         receiptIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(receiptIntent);
+    }
+
+    /**
+     * 현재 디버그모드여부를 리턴
+     *
+     * @param context
+     * @return
+     */
+    private boolean isDebuggable(Context context) {
+        boolean debuggable = false;
+
+        PackageManager pm = context.getPackageManager();
+        try {
+            ApplicationInfo appinfo = pm.getApplicationInfo(context.getPackageName(), 0);
+            debuggable = (0 != (appinfo.flags & ApplicationInfo.FLAG_DEBUGGABLE));
+        } catch (PackageManager.NameNotFoundException e) {
+			// 디버그 변수는 false로 남는다
+        }
+
+        return debuggable;
     }
 
 

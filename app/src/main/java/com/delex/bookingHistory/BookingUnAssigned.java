@@ -92,7 +92,7 @@ import java.util.List;
 
 /**
  * <h1>BookingUnAssigned Activity</h1>
- * This class is used to provide the BookingUnAssigned screen, where we can see the screen of assigned booking status.
+ * 이 클래스는 예약 된 예약 상태 화면을 볼 수있는 BookingUnAssigned 화면을 제공하는 데 사용됩니다.
  * @since 30 Aug 2017.
  */
 public class BookingUnAssigned extends ParentActivity implements View.OnClickListener,

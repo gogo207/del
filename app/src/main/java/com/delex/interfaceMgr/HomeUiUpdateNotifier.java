@@ -1,7 +1,8 @@
 package com.delex.interfaceMgr;
 
 /**
- * @since 18/08/17.
+ * HomeFragment UI 업데이트 알리미
+ * HomeFragment와 HomeModel 에서 쓴다
  */
 
 public interface HomeUiUpdateNotifier

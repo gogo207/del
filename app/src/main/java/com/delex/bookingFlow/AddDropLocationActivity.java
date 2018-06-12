@@ -44,8 +44,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.places.Places;
 import com.google.gson.Gson;
 import com.delex.customer.R;
+import com.skt.Tmap.TMapData;
 
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -56,14 +58,15 @@ import java.util.Collections;
 
 /**
  * <h1>AddDropLocation Activity</h1>
+ * 픽업 로케이션 액티비티
  * This class is used to provide the AddDropLocation screen, where we can search or select our address.
+ *
  * @author 3embed
  * @since 3 Jan 2017.
  */
 public class AddDropLocationActivity extends ParentActivity implements
         PlaceAutoCompleteAdapter.PlaceAutoCompleteInterface,
-        GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks
-{
+        GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     private static String TAG = "AddDropLocationActivity";
     private Context mContext;
@@ -76,8 +79,8 @@ public class AddDropLocationActivity extends ParentActivity implements
     private EditText iv_add_drop_search;
     private ImageView iv_add_drop_clear;
     DataBaseHelper dataBaseHelper;
-    private String delivererId, vehicleName, pickUpAddress,pickLtrTime, key, comingFrom, vehicleUrl;
-    private double currentLatitude,currentLongitude;
+    private String delivererId, vehicleName, pickUpAddress, pickLtrTime, key, comingFrom, vehicleUrl;
+    private double currentLatitude, currentLongitude;
     private ArrayList<String> nearestDriversList;
     private int keyId;
     private String flag = "";
@@ -91,7 +94,7 @@ public class AddDropLocationActivity extends ParentActivity implements
     private CardView cv_add_drop_recent, cv_add_drop_fav;
     private TextView tv_add_drop_recent_title;
     private RecyclerView rv_add_drop_recent_list;
-    private ArrayList <FavDropAdrsData> favAddressList;
+    private ArrayList<FavDropAdrsData> favAddressList;
     private OnItemViewClickNotifier rvOnItemViewsClickNotifier;
     private TextView tv_add_drop_fav_title;
     private static SessionManager sessionManager;
@@ -102,21 +105,23 @@ public class AddDropLocationActivity extends ParentActivity implements
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_drop_location);
         //to initialize the variables
         mContext = AddDropLocationActivity.this;
         dataBaseHelper = new DataBaseHelper(mContext);
         sessionManager = new SessionManager(mContext);
+
+        TMapData mTMapData = new TMapData();
+
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, 0 /* clientId */, this)
                 .addApi(Places.GEO_DATA_API)
                 .build();
         delivererId = sessionManager.getDeliveredId();
         pickUpAddress = sessionManager.getPickUpAdr();
-        if(!sessionManager.getPickLt().equals("")) {
+        if (!sessionManager.getPickLt().equals("")) {
             currentLatitude = Double.parseDouble(sessionManager.getPickLt());
             currentLongitude = Double.parseDouble(sessionManager.getPickLg());
         }
@@ -124,18 +129,23 @@ public class AddDropLocationActivity extends ParentActivity implements
         vehicleName = sessionManager.getVehicleName();
         //to get all the data from bundle from previous activity
         Bundle bundle = getIntent().getExtras();
-        if(bundle !=null)
-        {
-            key=  bundle.getString("key");
-            comingFrom=  bundle.getString("comingFrom");
-            keyId=  bundle.getInt("keyId");
-            pickLtrTime= bundle.getString("pickltrtime");
-            nearestDriversList =   bundle.getStringArrayList("NearestDriverstoSend");
+        if (bundle != null) {
+            key = bundle.getString("key");
+            comingFrom = bundle.getString("comingFrom");
+
+
+
+            keyId = bundle.getInt("keyId");
+            pickLtrTime = bundle.getString("pickltrtime");
+            nearestDriversList = bundle.getStringArrayList("NearestDriverstoSend");
             if (bundle.getString("FireBaseChatActivity") != null)
                 flag = bundle.getString("FireBaseChatActivity");
         }
-        if (comingFrom != null && comingFrom.equals("signup"))
-        {
+
+        // TODO: 2018-06-11 밑에꺼 무슨값인지 찍어보기
+        Log.d(TAG, "onCreate: "+comingFrom +" , "+keyId +" , "+pickLtrTime +" , "+nearestDriversList +" , "+flag +" , "+key);
+
+        if (comingFrom != null && comingFrom.equals("signup")) {
             //comingFrom = getIntent().getStringExtra("comingFrom");
             login_type = getIntent().getIntExtra("login_type", 1);
             //accountType = getIntent().getIntExtra("ent_account_type", 1);
@@ -163,6 +173,7 @@ public class AddDropLocationActivity extends ParentActivity implements
 
     @Override
     public void onStart() {
+        // TODO: 2018-06-11 구글api 클라이언트 때어 내기
         mGoogleApiClient.connect();
         super.onStart();
     }
@@ -174,13 +185,11 @@ public class AddDropLocationActivity extends ParentActivity implements
      * This method initialize the all UI elements of our layout.
      * </p>
      */
-    private void initViews()
-    {
+    private void initViews() {
         AppTypeface appTypeface = AppTypeface.getInstance(this);
 
-        if(Utility.isRTL())
-        {
-            ImageView ivBackBtn =  findViewById(R.id.ivBackArrow);
+        if (Utility.isRTL()) {
+            ImageView ivBackBtn = findViewById(R.id.ivBackArrow);
             ivBackBtn.setRotation((float) 180.0);
         }
 
@@ -194,22 +203,19 @@ public class AddDropLocationActivity extends ParentActivity implements
 
         TextView toolBarTitle = findViewById(R.id.tvToolBarTitle);
         toolBarTitle.setTypeface(appTypeface.getPro_narMedium());
-        if(comingFrom.equals("pick"))
+        if (comingFrom.equals("pick"))
             toolBarTitle.setText(getString(R.string.add_pick_note));
-        else if(comingFrom.equals("signup"))
+        else if (comingFrom.equals("signup"))
             toolBarTitle.setText(getString(R.string.company_address));
         else
             toolBarTitle.setText(getString(R.string.add_drop_note));
 
         //to initialize the clear image and add click listener to toggle
         iv_add_drop_clear = findViewById(R.id.iv_add_drop_clear);
-        iv_add_drop_clear.setOnClickListener(new View.OnClickListener()
-        {
+        iv_add_drop_clear.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(!iv_add_drop_search.getText().toString().isEmpty())
-                {
+            public void onClick(View v) {
+                if (!iv_add_drop_search.getText().toString().isEmpty()) {
                     iv_add_drop_search.setText("");
                     toggleFavAdrsList(true);
                 }
@@ -228,11 +234,11 @@ public class AddDropLocationActivity extends ParentActivity implements
         tv_add_drop_recent_title = findViewById(R.id.tv_add_drop_recent_title);
         iv_add_drop_search = findViewById(R.id.iv_add_drop_search);
         //to extract all addresses from database
-        dropAddressList = dataBaseHelper.extractAllDropAddressData();
+        dropAddressList = dataBaseHelper.extractAllDropAddressData();  //최근 선택한 주소 리스트
         //to reverse the list of address
         Collections.reverse(dropAddressList);
         //to set the adapters
-        placeAutoCompleteAdapter = new PlaceAutoCompleteAdapter(this);
+        placeAutoCompleteAdapter = new PlaceAutoCompleteAdapter(this);  //주소 검색 리스트
         dropAddressAdapter = new DropAddressAdapter(this, dropAddressList, rvOnItemViewsClickNotifier);
         rv_add_drop_recent_list.setAdapter(dropAddressAdapter);
 
@@ -247,44 +253,40 @@ public class AddDropLocationActivity extends ParentActivity implements
     /**
      * <h>initOnItemClickNotifier</h>
      * <p>
-     * This method is used to initialize the item click notifier
+     * 화면에 뷰들 클릭하면 콜백
      * </p>
      */
-    private void initOnItemClickNotifier()
-    {
-        rvOnItemViewsClickNotifier = new OnItemViewClickNotifier()
-        {
+    private void initOnItemClickNotifier() {
+        rvOnItemViewsClickNotifier = new OnItemViewClickNotifier() {
             @Override
-            public void OnItemViewClicked(View view, int position, int listType)
-            {
-                switch (view.getId())
-                {
-                    case R.id.iv_fav_address_delete_icon:
-                        Log.d(TAG, "onRVItemViewClicked() ivDelete favAddressList.size(): "+favAddressList.size());
+            public void OnItemViewClicked(View view, int position, int listType) {
+                switch (view.getId()) {
+                    case R.id.iv_fav_address_delete_icon: //휴지통 아이콘 클릭시
+                        Log.d(TAG, "onRVItemViewClicked() ivDelete favAddressList.size(): " + favAddressList.size());
                         deleteFavAdrsApi(favAddressList.get(position).get_id(), position);
                         break;
 
-                    case R.id.rl_fav_address_layout :
+                    case R.id.rl_fav_address_layout:
                     case R.id.rl_drop_address_layout:
-                        DropAddressPojo dropAddressPojo = new DropAddressPojo();
-                        switch (listType)
-                        {
-                            //if the recent address list item is clicked
+                        DropAddressPojo dropAddressPojo = new DropAddressPojo();  //주소 저장 모델
+                        switch (listType) {
+                            //최근 검색한 주소의 리스트 아이템 클릭시
                             case Constants.RECENT_TYPE_LIST:
-                                Log.d(TAG, "onRVItemViewClicked() rlAdrsCell listTypeRecent: "+listType);
+                                Log.d(TAG, "onRVItemViewClicked() rlAdrsCell listTypeRecent: " + listType);
+
                                 dropAddressPojo = dropAddressList.get(position);
-                                dropAddressPojo.setIsToAddAsFav(false);
-                                dropAddressPojo.setIsItAFavAdrs(false);
+                                dropAddressPojo.setIsToAddAsFav(false);  // 좋아하는 주소를 더한게 아니다
+                                dropAddressPojo.setIsItAFavAdrs(false);  // 선택된 주소가 좋아하는 주소가 아닌걸 set
                                 dropAddressPojo.setName("");
                                 storeInSession(dropAddressPojo);
                                 break;
-                            //if the fav address list item is clicked
+                            //좋아하는 주소의 리스트 아이템 클릭시
                             case Constants.FAV_TYPE_LIST:
-                                Log.d(TAG, "onRVItemViewClicked() rlAdrsCell listTypeFav: "+listType+"address "+
-                                favAddressList.get(position));
+                                Log.d(TAG, "onRVItemViewClicked() rlAdrsCell listTypeFav: " + listType + "address " + favAddressList.get(position));
+
                                 FavDropAdrsData favDropAdrsTemp = favAddressList.get(position);
-                                dropAddressPojo.setIsToAddAsFav(false);
-                                dropAddressPojo.setIsItAFavAdrs(true);
+                                dropAddressPojo.setIsToAddAsFav(false);  // 좋아하는 주소를 더한게 아니다
+                                dropAddressPojo.setIsItAFavAdrs(true);   // 선택된 주소가 좋아하는 주소다 set
                                 dropAddressPojo.setName("");
                                 dropAddressPojo.set_id(favDropAdrsTemp.get_id());
                                 dropAddressPojo.setAddress(favDropAdrsTemp.getAddress());
@@ -292,8 +294,9 @@ public class AddDropLocationActivity extends ParentActivity implements
                                 dropAddressPojo.setLng(String.valueOf(favDropAdrsTemp.getLng()));
                                 storeInSession(dropAddressPojo);
                                 break;
+                                // ?
                             case Constants.SEARCH_TYPE_LIST:
-                                Log.d(TAG, "onRVItemViewClicked() rlAdrsCell listTypeSearch: "+listType);
+                                Log.d(TAG, "onRVItemViewClicked() rlAdrsCell listTypeSearch: " + listType);
                                 break;
                         }
                         break;
@@ -307,15 +310,14 @@ public class AddDropLocationActivity extends ParentActivity implements
     //==========================================================================
 
     /**
-     *<h>initFavAdrsList</h>
+     * <h>initFavAdrsList</h>
      * <p>
      * This method is used to initialize the fav address views
      * </p>
      */
-    private void initFavAdrsList()
-    {
+    private void initFavAdrsList() {
         cv_add_drop_fav = findViewById(R.id.cv_add_drop_fav);
-        favAddressList = new ArrayList<FavDropAdrsData>();
+        favAddressList = new ArrayList<FavDropAdrsData>();  //좋아하는 주소 리스트
         tv_add_drop_fav_title = findViewById(R.id.tv_add_drop_fav_title);
         RecyclerView rv_add_drop_fav_list = findViewById(R.id.rv_add_drop_fav_list);
 
@@ -331,32 +333,29 @@ public class AddDropLocationActivity extends ParentActivity implements
     //==========================================================================
 
     /**
-     *<h>toggleFavAdrsList</h>
+     * <h>toggleFavAdrsList</h>
      * <p>
      * This method is used to toggle the fav address icon
      * </p>
+     *
      * @param isToShowFavAdrsLis Tells whther to address is fav
      *                           true means need to change UI for fav
      *                           else change UI for non fav
      */
-    private void toggleFavAdrsList(final boolean isToShowFavAdrsLis)
-    {
-        if(isToShowFavAdrsLis)
-        {
-            if(favAddressList.size() > 0)
+    private void toggleFavAdrsList(final boolean isToShowFavAdrsLis) {
+        if (isToShowFavAdrsLis) {
+            if (favAddressList.size() > 0)  //좋아하는 주소 리스트
                 cv_add_drop_fav.setVisibility(View.VISIBLE);
-            else if(cv_add_drop_fav.getVisibility() == View.VISIBLE)
+            else if (cv_add_drop_fav.getVisibility() == View.VISIBLE)
                 cv_add_drop_fav.setVisibility(View.GONE);
 
-            if(dropAddressList.size() >0)
+            if (dropAddressList.size() > 0)  //최근 선택한 주소 리스트
                 tv_add_drop_recent_title.setVisibility(View.VISIBLE);
-            else if(cv_add_drop_recent.getVisibility() == View.VISIBLE)
+            else if (cv_add_drop_recent.getVisibility() == View.VISIBLE)
                 cv_add_drop_recent.setVisibility(View.GONE);
             iv_add_drop_clear.setVisibility(View.GONE);
             rv_add_drop_recent_list.setAdapter(dropAddressAdapter);
-        }
-        else
-        {
+        } else {
             cv_add_drop_recent.setVisibility(View.VISIBLE);
             tv_add_drop_recent_title.setVisibility(View.GONE);
             cv_add_drop_fav.setVisibility(View.GONE);
@@ -368,21 +367,18 @@ public class AddDropLocationActivity extends ParentActivity implements
 
     /**
      * <p>
-     * This method is used to store the address and lat-long into session.
+     * 이 메소드는 주소와 lat-long을 세션에 저장하는 데 사용됩니다.
      * </p>
+     *
      * @param dropAddressPojo , contains the instance of DropAddressPojo class.
      */
-    private void storeInSession(DropAddressPojo dropAddressPojo)
-    {
-        Utility.printLog(TAG+" ,value of full: "+dropAddressPojo.getAddress() + " ,keyId: "+keyId);
-        if (keyId == Constants.DROP_ID)
-        {
+    private void storeInSession(DropAddressPojo dropAddressPojo) {
+        Utility.printLog(TAG + " ,value of full: " + dropAddressPojo.getAddress() + " ,keyId: " + keyId);
+        if (keyId == Constants.DROP_ID) {
             sessionManager.setDropAdr(dropAddressPojo.getAddress());
             sessionManager.setDropLt(dropAddressPojo.getLat());
             sessionManager.setDropLg(dropAddressPojo.getLng());
-        }
-        else
-        {
+        } else {
             sessionManager.setPickUpAdr(dropAddressPojo.getAddress());
             sessionManager.setPickLt(dropAddressPojo.getLat());
             sessionManager.setPickLg(dropAddressPojo.getLng());
@@ -392,79 +388,64 @@ public class AddDropLocationActivity extends ParentActivity implements
     //==========================================================================
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
-        iv_add_drop_search.addTextChangedListener(new TextWatcher()
-        {
+        iv_add_drop_search.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-                Log.d("AddDropLocation",  "count: "+count);
-                if (count > 0)
-                {
-                    if(iv_add_drop_clear.getVisibility() != View.VISIBLE)
-                    {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.d("AddDropLocation", "count: " + count);
+                if (count > 0) {
+                    if (iv_add_drop_clear.getVisibility() != View.VISIBLE) {
                         iv_add_drop_clear.setVisibility(View.VISIBLE);
                     }
                     toggleFavAdrsList(false);
-                }
-                else
-                {
+                } else {
                     toggleFavAdrsList(true);
                 }
 
-                if (!s.toString().equals("") && mGoogleApiClient.isConnected())
-                {
+                if (!s.toString().equals("") && mGoogleApiClient.isConnected()) {
                     placeAutoCompleteAdapter.getFilter().filter(s.toString());
-                }
-                else if (!mGoogleApiClient.isConnected())
-                {
+                } else if (!mGoogleApiClient.isConnected()) {
                     Log.d("AddDropLocation", "NOT CONNECTED");
                 }
             }
 
             @Override
-            public void afterTextChanged(Editable s)
-            {
+            public void afterTextChanged(Editable s) {
             }
         });
 
 
-        tv_add_drop_map.setOnClickListener(new View.OnClickListener()
-        {
+        tv_add_drop_map.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (key.equals("startActivityForResultHOME"))
                     onBackPressed();
-                else
-                {
-                    Utility.printLog("deliver id in detail:laterTime:before currentloc: delivererId: "+delivererId+" ,latitude: "+currentLatitude+ " ,longitude: "+currentLongitude
-                            +" ,vehicleName "+vehicleName+" ,pickUpAddress "+pickUpAddress+" ,pickLtrTime "+pickLtrTime+" ,nearestDriversList "+nearestDriversList+
-                            " ,drop_lat "+""+" ,drop_lng "+""+" ,drop_addr "+""+" ,Constants.DROP_ID "+Constants.DROP_ID+" ,coming: "+comingFrom);
+                else {
+                    Utility.printLog("deliver id in detail:laterTime:before currentloc: delivererId: " + delivererId + " ,latitude: " + currentLatitude + " ,longitude: " + currentLongitude
+                            + " ,vehicleName " + vehicleName + " ,pickUpAddress " + pickUpAddress + " ,pickLtrTime " + pickLtrTime + " ,nearestDriversList " + nearestDriversList +
+                            " ,drop_lat " + "" + " ,drop_lng " + "" + " ,drop_addr " + "" + " ,Constants.DROP_ID " + Constants.DROP_ID + " ,coming: " + comingFrom);
                     Intent shipmentIntent = new Intent(AddDropLocationActivity.this, LocationFromMapActivity.class);
                     shipmentIntent.putExtra("pickltrtime", pickLtrTime);
                     shipmentIntent.putExtra("NearestDriverstoSend", nearestDriversList);
 
-                    shipmentIntent.putExtra("FireBaseChatActivity",flag);
+                    shipmentIntent.putExtra("FireBaseChatActivity", flag);
                     shipmentIntent.putExtra("comingFrom", comingFrom);
                     //Last these 6 data, we used only for SIGN UP ACTIVITY.
-                    shipmentIntent.putExtra("name",name);
-                    shipmentIntent.putExtra("phone",phone);
-                    shipmentIntent.putExtra("email",email);
-                    shipmentIntent.putExtra("password",password);
-                    shipmentIntent.putExtra("picture",picture);
-                    shipmentIntent.putExtra("company_name",company_name);
-                    shipmentIntent.putExtra("login_type",login_type);
+                    shipmentIntent.putExtra("name", name);
+                    shipmentIntent.putExtra("phone", phone);
+                    shipmentIntent.putExtra("email", email);
+                    shipmentIntent.putExtra("password", password);
+                    shipmentIntent.putExtra("picture", picture);
+                    shipmentIntent.putExtra("company_name", company_name);
+                    shipmentIntent.putExtra("login_type", login_type);
                     //shipmentIntent.putExtra("ent_account_type",accountType);
                     shipmentIntent.putExtra("referral_code", referralCode);
-                    shipmentIntent.putExtra("is_business_Account",isItBusinessAccount);
+                    shipmentIntent.putExtra("is_business_Account", isItBusinessAccount);
                     startActivity(shipmentIntent);
                 }
             }
@@ -476,6 +457,7 @@ public class AddDropLocationActivity extends ParentActivity implements
     public void onConnected(Bundle bundle) {
 
     }
+
     @Override
     public void onConnectionSuspended(int i) {
 
@@ -483,47 +465,49 @@ public class AddDropLocationActivity extends ParentActivity implements
     //==========================================================================
 
     /**
-     * Issue a request to the Places Geo Data API to retrieve a Place object with additional details about the place.
+     * 장소에 대한 추가 세부 정보가 포함 된 장소 개체를 가져 오도록 Places Geo Data API에 요청합니다
+     *
      * @param mResultList List of PlaceAutoCompletePojo
-     * @param position position of the list clicked
+     * @param position    position of the list clicked
      */
     @Override
     public void onPlaceClick(final ArrayList<PlaceAutoCompletePojo> mResultList, final int position) {
-        if(mResultList!=null){
+        if (mResultList != null) {
             try {
-                final String ref_key = String.valueOf(mResultList.get(position).getRef_key());
-                final String url = getPlaceDetailsUrl(ref_key);
+//                final String ref_key = String.valueOf(mResultList.get(position).getRef_key());
+//                final String url = getPlaceDetailsUrl(ref_key);
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        boolean insertFlag = true;
-                        DropAddressPojo addressPojo = getPlaceData(url);
+
+                        // TODO: 2018-06-11 검색된 주소의 선택값
+                        String addressKeyword = mResultList.get(position).getAddress();
+
+                        DropAddressPojo addressPojo = new DropAddressPojo();
+                        addressPojo.setLat();
+                        addressPojo.setLng();
                         addressPojo.setAddress(mResultList.get(position).getAddress());
-                        for (int pos = 0; pos < dropAddressList.size(); pos++)
-                        {
+                        for (int pos = 0; pos < dropAddressList.size(); pos++) {
                             if (addressPojo.getAddress().equals(dropAddressList.get(pos).getAddress()) && addressPojo.getLat().equals(dropAddressList.get(pos).getLat())
-                                    && addressPojo.getLng().equals(dropAddressList.get(pos).getLng()))
-                            {
+                                    && addressPojo.getLng().equals(dropAddressList.get(pos).getLng())) {
                                 insertFlag = false;
                                 break;
                             }
                         }
                         long autoGeneratedId = -1;
-                        if (insertFlag)
-                        {
+                        if (insertFlag) {
                             autoGeneratedId = dataBaseHelper.insertDropAddressData(addressPojo.getAddress(), addressPojo.getLat(), addressPojo.getLng());
                         }
                         addressPojo.setName("");
                         addressPojo.set_id(String.valueOf(autoGeneratedId));
-                        addressPojo.setAddressId((int)autoGeneratedId);
+                        addressPojo.setAddressId((int) autoGeneratedId);
                         addressPojo.setIsItAFavAdrs(false);
 
                         storeInSession(addressPojo);
                     }
                 });
                 thread.start();
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -533,80 +517,78 @@ public class AddDropLocationActivity extends ParentActivity implements
     /**
      * <h>getPlaceDetailsUrl</h>
      * <p>
-     * Creating the google API request list for getting the lat-long based on our requested address.
+     * 우리가 요청한 주소를 기반으로 lat-long을 가져 오기위한 google API 요청 목록을 만듭니다.
      * </p>
      */
-    private static String getPlaceDetailsUrl(String ref)
-    {
-        String key = "key="+sessionManager.getGoogleServerKey();
-        String reference = "reference="+ref;                // reference of place
-        String sensor = "sensor=false";                     // Sensor enabled
-        String parameters = reference+"&"+sensor+"&"+key;   // Building the parameters to the web service
-        String output = "json";                             // Output format
-        // Building the url to the web service
-        return "https://maps.googleapis.com/maps/api/place/details/"+output+"?"+parameters;
-    }
+//    private static String getPlaceDetailsUrl(String ref) {
+//        String key = "key=" + sessionManager.getGoogleServerKey();
+//        String reference = "reference=" + ref;                // reference of place
+//        String sensor = "sensor=false";                     // Sensor enabled
+//        String parameters = reference + "&" + sensor + "&" + key;   // Building the parameters to the web service
+//        String output = "json";                             // Output format
+//        // Building the url to the web service
+//        return "https://maps.googleapis.com/maps/api/place/details/" + output + "?" + parameters;
+//    }
     //==========================================================================
 
     /**
      * <h2>DropAddressPojo</h2>
      * <p>
-     * This method is providing the LAT-LONG based on the URL, we got from getPlaceDetailsUrl().
+     * 이 메소드는 getPlaceDetailsUrl ()에서 얻은 URL을 기반으로 LAT-LONG을 제공합니다.
      * </p>
+     *
      * @param inputURL represent a URL.
      * @return returns DropAddressPojo object based on the filter
      */
-    public static DropAddressPojo getPlaceData(String inputURL)
-    {
-        DropAddressPojo dropAddressPojo = new DropAddressPojo();
-        Utility.printLog("value of url: activity: "+inputURL);
-        HttpURLConnection conn = null;
-        StringBuilder jsonResults = new StringBuilder();
-        try {
-            URL url = new URL(inputURL);
-            conn = (HttpURLConnection) url.openConnection();
-            InputStreamReader in = new InputStreamReader(conn.getInputStream());
-            // Load the results into a StringBuilder
-            int read;
-            char[] buff = new char[1024];
-            while ((read = in.read(buff)) != -1) {
-                jsonResults.append(buff, 0, read);
-            }
-            Utility.printLog(TAG+" ,address:11: "+jsonResults);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            Log.e(TAG, "Error API", e);
-        } finally {
-            if (conn != null) {
-                conn.disconnect();
-            }
-        }
-        Gson gson = new Gson();
-        DropLocationGooglePojo google_pojo = gson.fromJson(jsonResults.toString(), DropLocationGooglePojo.class);
-
-        String lat = google_pojo.getResult().getGeometry().getLocation().getLat();
-        String lng = google_pojo.getResult().getGeometry().getLocation().getLng();
-        dropAddressPojo.setLat(lat);
-        dropAddressPojo.setLng(lng);
-        return dropAddressPojo;
-    }
+//    public static DropAddressPojo getPlaceData(String inputURL) {
+//        DropAddressPojo dropAddressPojo = new DropAddressPojo();
+//        Utility.printLog("value of url: activity: " + inputURL);
+//        HttpURLConnection conn = null;
+//        StringBuilder jsonResults = new StringBuilder();
+//        try {
+//            URL url = new URL(inputURL);
+//            conn = (HttpURLConnection) url.openConnection();
+//            InputStreamReader in = new InputStreamReader(conn.getInputStream());
+//            // Load the results into a StringBuilder
+//            int read;
+//            char[] buff = new char[1024];
+//            while ((read = in.read(buff)) != -1) {
+//                jsonResults.append(buff, 0, read);
+//            }
+//            Utility.printLog(TAG + " ,address:11: " + jsonResults);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            Log.e(TAG, "Error API", e);
+//        } finally {
+//            if (conn != null) {
+//                conn.disconnect();
+//            }
+//        }
+//        Gson gson = new Gson();
+//        DropLocationGooglePojo google_pojo = gson.fromJson(jsonResults.toString(), DropLocationGooglePojo.class);
+//
+//        String lat = google_pojo.getResult().getGeometry().getLocation().getLat();
+//        String lng = google_pojo.getResult().getGeometry().getLocation().getLng();
+//        dropAddressPojo.setLat(lat);
+//        dropAddressPojo.setLng(lng);
+//        return dropAddressPojo;
+//    }
     //==========================================================================
 
     /**
      * <h2>sendControlBack</h2>
      * <p>
-     * This method is used to transfer our control to other screens.
+     * 이 메서드는 다른 컨트롤로 컨트롤을 전송하는 데 사용됩니다.
      * </p>
+     *
      * @param dropAddressPojo object of DropAddressPojo class   .
      */
-    private void sendControlBack(DropAddressPojo dropAddressPojo)
-    {
+    private void sendControlBack(DropAddressPojo dropAddressPojo) {
         InputMethodManager im = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
-        if (key.equals("startActivityForResult"))
-        {
+        if (key.equals("startActivityForResult")) {
             Intent shipmentIntent = new Intent(this, ShipmentDetailsActivity.class);
             shipmentIntent.putExtra("lat", dropAddressPojo.getLat());
             shipmentIntent.putExtra("lng", dropAddressPojo.getLng());
@@ -614,8 +596,7 @@ public class AddDropLocationActivity extends ParentActivity implements
             setResult(keyId, shipmentIntent);
             finish();
             overridePendingTransition(R.anim.stay_still, R.anim.slide_down_acvtivity);
-        }
-        else if (key.equals("startActivityForResultHOME"))              //This exist only when we call from HOME_FRAGMENT Class.
+        } else if (key.equals("startActivityForResultHOME"))              //This exist only when we call from HOME_FRAGMENT Class.
         {
             Intent shipmentIntent = new Intent(this, MainActivity.class);
             shipmentIntent.putExtra("delivererId", delivererId);
@@ -633,19 +614,16 @@ public class AddDropLocationActivity extends ParentActivity implements
             setResult(keyId, shipmentIntent);
             finish();
             overridePendingTransition(R.anim.stay_still, R.anim.slide_down_acvtivity);
-        }
-        else if (key.equals("startActivityForResultAddr"))              //This exist only when we call from SIGNUP_ACTIVITY Class.
+        } else if (key.equals("startActivityForResultAddr"))              //This exist only when we call from SIGNUP_ACTIVITY Class.
         {
             Intent intentReturn = getIntent();
             intentReturn.putExtra("drop_lat", String.valueOf(dropAddressPojo.getLat()));
             intentReturn.putExtra("drop_lng", String.valueOf(dropAddressPojo.getLng()));
             intentReturn.putExtra("drop_addr", String.valueOf(dropAddressPojo.getAddress()));
-            setResult(RESULT_OK,intentReturn);
+            setResult(RESULT_OK, intentReturn);
             finish();
             overridePendingTransition(R.anim.stay_still, R.anim.slide_down_acvtivity);
-        }
-        else
-        {
+        } else {
             Intent shipmentIntent = new Intent(this, ShipmentDetailsActivity.class);
             shipmentIntent.putExtra("pickltrtime", pickLtrTime);
             shipmentIntent.putExtra("NearestDriverstoSend", nearestDriversList);
@@ -653,41 +631,39 @@ public class AddDropLocationActivity extends ParentActivity implements
             overridePendingTransition(R.anim.stay_still, R.anim.slide_down_acvtivity);
         }
     }
+
     @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult)
-    {
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
     }
     //==========================================================================
 
     /**
-     *<h2>deleteFavAdrsApi</h2>
+     * <h2>deleteFavAdrsApi</h2>
      * <p>
      * This methos is used to call the Delete API
      * </p>
+     *
      * @param id: id of selected fav adrs to be deleted
      */
-    private void deleteFavAdrsApi(final String id, final int index)
-    {
-        Log.d(TAG, "deleteFavAdrsApi id: "+id);
+    private void deleteFavAdrsApi(final String id, final int index) {
+        Log.d(TAG, "deleteFavAdrsApi id: " + id);
         //show the progress dialog
         pDialog.setMessage(getString(R.string.pleaseWait));
         pDialog.show();
-        OkHttp3Connection.doOkHttp3Connection(sessionManager.getSession(),sessionManager.getLanguageId(), Constants.DELETE_FAV_ADDRESS+id,
-                OkHttp3Connection.Request_type.DELETE, new JSONObject(), new OkHttp3Connection.OkHttp3RequestCallback()
-                {
+        OkHttp3Connection.doOkHttp3Connection(sessionManager.getSession(), sessionManager.getLanguageId(), Constants.DELETE_FAV_ADDRESS + id,
+                OkHttp3Connection.Request_type.DELETE, new JSONObject(), new OkHttp3Connection.OkHttp3RequestCallback() {
                     @Override
-                    public void onSuccess(String result)
-                    {
-                        Log.d(TAG, "addNewFavAdrsApi result: "+result);
-                        if(result != null && !result.isEmpty())
+                    public void onSuccess(String result) {
+                        Log.d(TAG, "addNewFavAdrsApi result: " + result);
+                        if (result != null && !result.isEmpty())
                             deleteFavAdrsResponseHandler(result, id, index);
                         else
                             pDialog.dismiss();
                     }
+
                     @Override
-                    public void onError(String error)
-                    {
-                        Log.d(TAG, "addNewFavAdrsApi error: "+error);
+                    public void onError(String error) {
+                        Log.d(TAG, "addNewFavAdrsApi error: " + error);
                         pDialog.dismiss();
                     }
                 });
@@ -699,25 +675,22 @@ public class AddDropLocationActivity extends ParentActivity implements
      * <p>
      * This method is used to handle the success response from delete fav address
      * </p>
+     *
      * @param response Response from delete fav address
-     * @param id id of the address to be deleted
-     * @param index index of the fav address list
+     * @param id       id of the address to be deleted
+     * @param index    index of the fav address list
      */
-    private void deleteFavAdrsResponseHandler(String response, final String id, final int index)
-    {
-        try
-        {
+    private void deleteFavAdrsResponseHandler(String response, final String id, final int index) {
+        try {
             JSONObject jsonObject = new JSONObject(response);
-            if (jsonObject != null && jsonObject.has("errNum"))
-            {
+            if (jsonObject != null && jsonObject.has("errNum")) {
                 pDialog.dismiss();
                 //if errNum=200 then address is deleted
-                if (jsonObject.getInt("errNum") == 200)
-                {
+                if (jsonObject.getInt("errNum") == 200) {
                     dataBaseHelper.deleteFavDropAdrs(id);
-                    Utility.printLog(TAG+"fav address list after delete "+dataBaseHelper.extractAllFavDropAdrs().size());
+                    Utility.printLog(TAG + "fav address list after delete " + dataBaseHelper.extractAllFavDropAdrs().size());
                     favAddressList.remove(index);
-                    if(favAddressList.isEmpty())
+                    if (favAddressList.isEmpty())
                         tv_add_drop_fav_title.setVisibility(View.GONE);
                     favAddressAdapter.notifyDataSetChanged();
                 }
@@ -725,32 +698,29 @@ public class AddDropLocationActivity extends ParentActivity implements
                 else
                     Toast.makeText(this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
             }
-        }
-        catch (Exception exc)
-        {
+        } catch (Exception exc) {
             pDialog.dismiss();
             exc.printStackTrace();
-            Log.d(TAG, "addNewFavAdrsResponseHandler exc: "+exc);
+            Log.d(TAG, "addNewFavAdrsResponseHandler exc: " + exc);
         }
     }
     //==========================================================================
 
     @Override
     public void onBackPressed() {
-        Utility.printLog("value of flag: "+flag);
+        Utility.printLog("value of flag: " + flag);
         InputMethodManager im = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        if (flag.equals("signup"))
-        {
+        if (flag.equals("signup")) {
             Intent intent = new Intent(this, SignUpActivity.class);
             intent.putExtra("drop_addr", "");//Last these 6 data, we used only for SIGN UP ACTIVITY.
-            intent.putExtra("name",name);
-            intent.putExtra("phone",phone);
-            intent.putExtra("email",email);
-            intent.putExtra("password",password);
-            intent.putExtra("picture",picture);
-            intent.putExtra("company_name",company_name);
-            intent.putExtra("login_type",login_type);
+            intent.putExtra("name", name);
+            intent.putExtra("phone", phone);
+            intent.putExtra("email", email);
+            intent.putExtra("password", password);
+            intent.putExtra("picture", picture);
+            intent.putExtra("company_name", company_name);
+            intent.putExtra("login_type", login_type);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
