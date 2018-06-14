@@ -24,7 +24,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,7 +40,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.utility.Alerts;
 import com.delex.utility.Constants;
 import com.delex.utility.OkHttp3Connection;

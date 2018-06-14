@@ -7,7 +7,6 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,8 +20,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentActivity;
-import com.delex.customer.MainActivity;
+import com.delex.parent.ParentActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.presenterMgr.ReceiptPresenter;
 import com.delex.utility.Alerts;
 import com.delex.utility.AppTypeface;

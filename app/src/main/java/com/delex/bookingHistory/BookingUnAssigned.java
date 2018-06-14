@@ -19,7 +19,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -30,7 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.controllers.BookingUnAssignedController;
 import com.delex.pojos.PathJSONParser;
 import com.delex.pojos.UnReadCount;
@@ -45,7 +44,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.delex.ETA_Pojo.ElementsForEta;
 import com.delex.bookingFlow.CancelBookingActivity;
 import com.delex.chat_module.ModelClasses.MembersItem;
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.interfaceMgr.AssignedBookingsInterface;
 
 import com.delex.pojos.DriverPubnubPojo;

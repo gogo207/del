@@ -14,7 +14,7 @@ import android.widget.TimePicker;
 import com.delex.pojos.Types;
 import com.delex.utility.SessionManager;
 import com.delex.utility.Utility;
-import com.delex.model.HomeModel;
+import com.delex.a_main.HomeModel;
 
 import com.google.gson.Gson;
 import com.delex.customer.R;

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.delex.ParentFragment;
+import com.delex.a_main.MainActivity;
+import com.delex.parent.ParentFragment;
 import com.delex.utility.AppTypeface;
 import com.delex.utility.Utility;
 

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.delex.customer.MainActivity;
-import com.delex.customer.SplashActivity;
+import com.delex.a_main.MainActivity;
+import com.delex.a_sign.SplashActivity;
 import com.delex.utility.Alerts;
 import com.delex.utility.Constants;
 import com.delex.utility.OkHttp3Connection;

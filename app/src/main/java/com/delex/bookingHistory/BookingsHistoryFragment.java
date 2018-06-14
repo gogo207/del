@@ -9,7 +9,6 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -22,8 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentFragment;
-import com.delex.customer.MainActivity;
+import com.delex.parent.ParentFragment;
+import com.delex.a_main.MainActivity;
 import com.delex.pojos.BookingDetailsPojo;
 import com.delex.pojos.BookingsHistoryListPojo;
 import com.delex.pojos.DriverPubnubPojo;

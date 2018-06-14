@@ -8,14 +8,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.delex.customer.ChangePasswordActivity;
-import com.delex.customer.Second_Splash;
+import com.delex.a_sign.Second_Splash;
 import com.delex.utility.Alerts;
 import com.delex.utility.Constants;
 import com.delex.utility.OkHttp3Connection;
 import com.delex.utility.SessionManager;
 import com.delex.interfaceMgr.SingleCallbackInterface;
 import com.delex.utility.Utility;
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.customer.R;
 import com.delex.controllers.SignUpController;
 import com.delex.pojos.EmailValidatorPojo;

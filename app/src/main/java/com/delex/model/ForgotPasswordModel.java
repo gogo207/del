@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.customer.LoginActivity;
+import com.delex.a_sign.LoginActivity;
 import com.delex.logger.Log;
 import com.delex.utility.Constants;
 import com.delex.utility.OkHttp3Connection;

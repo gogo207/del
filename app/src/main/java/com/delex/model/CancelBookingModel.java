@@ -12,7 +12,7 @@ import com.delex.utility.SessionManager;
 import com.delex.utility.Utility;
 import com.delex.controllers.CancelBookingController;
 import com.delex.interfaceMgr.CancelReasonInterface;
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.customer.R;
 import com.delex.pojos.CancelReasonPojo;
 import com.delex.pojos.PhoneNumberValidator_pojo;

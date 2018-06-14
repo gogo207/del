@@ -19,11 +19,11 @@ import com.delex.utility.LocaleHelper;
 import com.delex.utility.OkHttp3Connection;
 import com.delex.utility.SessionManager;
 import com.delex.utility.Utility;
-import com.delex.customer.LoginActivity;
+import com.delex.a_sign.LoginActivity;
 import com.delex.controllers.LoginController;
 
-import com.delex.customer.Second_Splash;
-import com.delex.customer.SignUpActivity;
+import com.delex.a_sign.Second_Splash;
+import com.delex.a_sign.SignUpActivity;
 import com.delex.pojos.FacebookLoginPojo;
 import com.delex.pojos.LoginTypePojo;
 import com.delex.pojos.Login_SignUp_Pojo;

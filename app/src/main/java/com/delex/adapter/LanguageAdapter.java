@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 
 import com.delex.customer.R;
-import com.delex.customer.SplashActivity;
+import com.delex.a_sign.SplashActivity;
 import com.delex.utility.AppTypeface;
 import com.delex.utility.LocaleHelper;
 import com.delex.utility.SessionManager;

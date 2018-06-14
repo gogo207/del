@@ -1,7 +1,6 @@
 package com.delex.customer;
 
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -13,7 +12,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
-import com.delex.ParentActivity;
+import com.delex.a_main.MainActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.bookingHistory.BookingUnAssigned;
 import com.delex.model.DataBaseHelper;
 import com.delex.pojos.DataBaseGetItemDetailPojo;

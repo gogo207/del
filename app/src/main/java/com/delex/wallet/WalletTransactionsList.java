@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.delex.ParentFragment;
+import com.delex.parent.ParentFragment;
 import com.delex.adapter.WalletTransactionsAdapter;
 import com.delex.customer.R;
 import com.delex.pojos.WalletTransDataDetailsPojo;

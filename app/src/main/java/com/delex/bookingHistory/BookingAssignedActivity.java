@@ -20,7 +20,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.pojos.PathJSONParser;
 import com.delex.pojos.UnReadCount;
 import com.delex.utility.AppPermissionsRunTime;

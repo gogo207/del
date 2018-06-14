@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,7 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
+import com.delex.a_sign.SplashActivity;
 import com.delex.utility.Alerts;
 import com.delex.interfaceMgr.CallbackWithParam;
 import com.delex.utility.AppTypeface;

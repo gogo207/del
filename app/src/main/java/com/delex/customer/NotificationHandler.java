@@ -2,9 +2,9 @@ package com.delex.customer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import com.delex.ParentActivity;
+import com.delex.a_main.MainActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.bookingHistory.BookingAssignedActivity;
 import com.delex.bookingHistory.ReceiptActivity;
 import com.delex.model.DataBaseHelper;

@@ -6,7 +6,6 @@ package com.delex.servicesMgr;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.chat_module.Utilities.TouchImageView;
 import com.delex.customer.R;
 

@@ -7,8 +7,8 @@ import android.widget.Toast;
 
 import com.delex.customer.R;
 import com.delex.interfaceMgr.WalletFragInteractor;
-import com.delex.customer.MainActivity;
-import com.delex.customer.SplashActivity;
+import com.delex.a_main.MainActivity;
+import com.delex.a_sign.SplashActivity;
 import com.delex.pojos.WalletPojo;
 import com.delex.utility.Constants;
 import com.delex.utility.OkHttp3Connection;

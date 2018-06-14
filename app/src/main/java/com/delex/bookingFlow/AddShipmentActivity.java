@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,7 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.interfaceMgr.ContactInterface;
 import com.delex.numberPicker.NumberPicker;
 import com.delex.utility.AppPermissionsRunTime;

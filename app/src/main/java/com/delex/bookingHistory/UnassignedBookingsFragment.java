@@ -3,7 +3,6 @@ package com.delex.bookingHistory;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,10 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.delex.ParentFragment;
+import com.delex.parent.ParentFragment;
 import com.delex.customer.R;
 
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.pojos.BookingDetailsPojo;
 import com.delex.utility.Alerts;
 import com.delex.utility.Constants;

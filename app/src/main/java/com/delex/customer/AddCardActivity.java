@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -21,7 +20,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentActivity;
+import com.delex.a_main.MainActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.interfaceMgr.ResponseListener;
 import com.delex.model.CardPaymentModel;
 import com.delex.utility.AppPermissionsRunTime;

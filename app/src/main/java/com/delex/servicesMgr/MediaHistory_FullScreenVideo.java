@@ -6,14 +6,13 @@ package com.delex.servicesMgr;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.customer.R;
 
 

@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.pojos.BookingDetailsPojo;
 import com.delex.pojos.BookingsHistoryListPojo;
 import com.delex.utility.AppTypeface;

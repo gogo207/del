@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,7 +32,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.chat_module.WalletStatusChangedEvent;
 import com.delex.interfaceMgr.OnGettingOfAppConfig;
 import com.delex.interfaceMgr.SingleCallbackWithParam;

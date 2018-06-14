@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,12 +19,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentFragment;
+import com.delex.parent.ParentFragment;
 import com.delex.bookingFlow.ChangeCardActivity;
 import com.delex.customer.R;
 import com.delex.chat_module.WalletDataChangedEvent;
 import com.delex.interfaceMgr.WalletFragInteractor;
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.pojos.WalletDataPojo;
 import com.delex.presenterMgr.WalletFragPresenter;
 import com.delex.utility.Alerts;

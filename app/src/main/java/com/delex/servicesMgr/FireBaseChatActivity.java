@@ -2,16 +2,13 @@ package com.delex.servicesMgr;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.google.firebase.database.FirebaseDatabase;
 import com.delex.chat_module.ModelClasses.SelectUserItem;
 import com.delex.customer.R;
-
-import retrofit2.http.PATCH;
 
 
 public class FireBaseChatActivity extends ParentActivity {

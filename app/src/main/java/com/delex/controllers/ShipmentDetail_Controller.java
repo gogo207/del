@@ -10,7 +10,7 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.delex.bookingFlow.AddDropLocationActivity;
+import com.delex.a_pickupLocation.AddDropLocationActivity;
 import com.delex.interfaceMgr.SingleCallbackWithParam;
 import com.delex.utility.Alerts;
 import com.delex.utility.Constants;

@@ -14,7 +14,7 @@ import com.delex.utility.OkHttp3Connection;
 import com.delex.utility.SessionManager;
 import com.delex.utility.Utility;
 import com.delex.customer.R;
-import com.delex.customer.SplashActivity;
+import com.delex.a_sign.SplashActivity;
 import com.delex.pojos.Password_Pojo;
 import com.google.gson.Gson;
 

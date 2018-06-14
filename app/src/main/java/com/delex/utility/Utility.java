@@ -36,11 +36,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.livechatinc.inappchat.ChatWindowActivity;
-import com.delex.customer.MainActivity;
+import com.delex.a_main.MainActivity;
 import com.delex.model.DataBaseHelper;
 import com.delex.interfaceMgr.OnGettingOfAppConfig;
 import com.delex.customer.R;
-import com.delex.customer.SplashActivity;
+import com.delex.a_sign.SplashActivity;
 import com.delex.pojos.ConfigPojo;
 import com.delex.pojos.Config_Data_Pojo;
 import com.delex.servicesMgr.PubNubMgr;

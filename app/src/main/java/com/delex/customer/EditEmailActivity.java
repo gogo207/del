@@ -3,7 +3,6 @@ package com.delex.customer;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -15,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
 import com.delex.model.EditEmailModel;
 import com.delex.utility.AppTypeface;
 import com.delex.utility.LocaleHelper;

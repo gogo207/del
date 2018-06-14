@@ -1,13 +1,14 @@
 package com.delex.customer;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.delex.ParentActivity;
+import com.delex.parent.ParentActivity;
+import com.delex.a_sign.LoginActivity;
+import com.delex.a_sign.SignUpActivity;
 
 public class LandingPage extends ParentActivity {
 
