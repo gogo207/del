@@ -180,6 +180,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
         //to notify for address with checking fav address
         if (toRefreshAddress) // getmLastKnownLocation 마지막 위치
             initGeoCoder(getmLastKnownLocation().getLatitude(), getmLastKnownLocation().getLongitude());
+        Log.d(TAG, "refreshFavAddressList: dd");
     }
 
     /**
@@ -405,6 +406,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
                 if (distance > 20 || isToCallGeocoder()) {
                     setToCallGeocoder(false);
                     initGeoCoder(currentLatitude, currentLongitude);
+                    Log.d(TAG, "verifyAndUpdateNewLocation: dd");
                 }
 
                 if (distance > 500) {
@@ -436,7 +438,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * @param currentLat latitude of the location
      * @param currentLng longitude of the location
      */
-    public void initGeoCoder(final double currentLat, final double currentLng) {
+    private void initGeoCoder(final double currentLat, final double currentLng) {
 
         Thread thread = new Thread(() -> {
             String address;
