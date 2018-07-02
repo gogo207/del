@@ -32,7 +32,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.delex.parent.ParentFragment;
-import com.delex.a_pickupLocation.AddDropLocationActivity;
+import com.delex.a_chooseLocation.AddDropLocationActivity;
 import com.delex.customer.R;
 import com.delex.a_sign.SplashActivity;
 import com.delex.eventsHolder.CurrentLocationEvent;
@@ -257,9 +257,10 @@ public class HomeFragment extends ParentFragment implements
 
     /**
      * <h1>startCurrLocation</h1>
-     * 이 메소드는 현재 위치를 가져 오는 데 사용됩니다.
+     * 이 메소드는 현재 위치를 가져 오는 메소드 호출
      */
     private void startCurrLocation() {
+        Log.d(TAG, "startCurrLocation: dddd");
         /*
          * creating object of the location class object.
          * and setting that I don't hv current location.
@@ -281,6 +282,7 @@ public class HomeFragment extends ParentFragment implements
      * This method is used to initialize google Map
      */
     private void initializeMap() {
+        Log.d(TAG, "initializeMap: dddd");
         mTmapview = new TMapView(getContext());
         mTmapview.setSKTMapApiKey(getString(R.string.tmap_api_key));
 
@@ -291,6 +293,7 @@ public class HomeFragment extends ParentFragment implements
             mTmapview.setOnDisableScrollWithZoomLevelListener(this); //화면 스크롤이 종료하면 줌레벨과 센터포인트를 반환한다.
             mTmapview.setOnEnableScrollWithZoomLevelListener(this); //화면 스크롤이 발생하면 줌레벨과 센터포인트를 반환한다.
 
+
             if (homeModel.getCurrentLatitude() != 0.0 && homeModel.getCurrentLongitude() != 0.0) {
                 double firstLat = homeModel.getCurrentLatitude();
                 double firstLon = homeModel.getCurrentLongitude();
@@ -298,67 +301,20 @@ public class HomeFragment extends ParentFragment implements
                 mTmapview.setCenterPoint(firstLon, firstLat);
                 moveCameraPositionAndAdrs(firstLat, firstLon);
 
-//                homeModel.verifyAndUpdateNewLocation(new LatLng(firstLat,firstLon),false);
-//                homeModel.initGeoCoder(firstLat, firstLon);// -> 주소창 바꿈
-            }
-//
+                homeModel.initGeoCoder(firstLat,firstLon);
 
-//            mGPS = new TMapGpsManager(getContext());
-//
-//            mGPS.setMinTime(1000);
-//            mGPS.setMinDistance(1);
-//            mGPS.setProvider(TMapGpsManager.NETWORK_PROVIDER);
-//            mGPS.OpenGps();
+                //초반에 주소값 없음
+
+//               if (ivMidPointMarker.isShown()){
+//                    Log.d(TAG, "initializeMap: true dddd");
+//                    homeModel.verifyAndUpdateNewLocation(new LatLng(firstLat,firstLon),true);
+//                }else {
+//                    Log.d(TAG, "initializeMap: false dddd");
+//                    homeModel.verifyAndUpdateNewLocation(new LatLng(firstLat,firstLat), false);
+//                }
+            }
         }
     }
-
-//    @Override
-//    public void onLocationChange(Location location) {
-//        Log.d(TAG, "onLocationChange: ");
-//        if (location != null) {
-//            mCurrentPoint = new TMapPoint(location.getLatitude(), location.getLongitude());
-//
-//            double latitude = location.getLatitude();
-//            double longitude = location.getLongitude();
-//
-//            mTmapview.setLocationPoint(longitude, latitude);
-//        }
-//    }
-
-
-//    private final LocationListener mLocationListener = new LocationListener() {
-//        public void onLocationChanged(Location location) {
-//            if (location != null) {
-//            mCurrentPoint = new TMapPoint(location.getLatitude(), location.getLongitude());
-//
-//
-//                double latitude = location.getLatitude();
-//                double longitude = location.getLongitude();
-//                if (isFirstLocation) {  //처음에 위치 찾았을때만 centerPoint로 위치시키기
-//                    mTmapview.setCenterPoint(longitude, latitude);
-//                    isFirstLocation = false;
-//                }
-//                mTmapview.setLocationPoint(longitude, latitude);
-//            }
-//        }
-//
-//        public void onProviderDisabled(String provider) {
-//        }
-//
-//        public void onProviderEnabled(String provider) {
-//        }
-//
-//        public void onStatusChanged(String provider, int status, Bundle extras) {
-//        }
-//    };
-//
-//    public void setGps() {
-//        final LocationManager lm = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-//        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            return;
-//        }
-//        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, mLocationListener);
-//    }
 
     /**
      * 화면 스크롤 발생하면
@@ -403,8 +359,8 @@ public class HomeFragment extends ParentFragment implements
             mHideHandler.postDelayed(hideAnimationThread, UI_ANIMATION_DELAY);
         }
         startAnimationWhenMapStops();
-//        homeModel.initGeoCoder(lat, lon);
-        homeModel.verifyAndUpdateNewLocation(new LatLng(lat,lon),false);
+        homeModel.initGeoCoder(lat, lon);
+//        homeModel.verifyAndUpdateNewLocation(new LatLng(lat,lon),true);
         Log.d(TAG, "onDisableScrollWithZoomLevelEvent: dd");
 //        homeModel.verifyAndUpdateNewLocation(currentLatlong, true);
 
@@ -494,6 +450,7 @@ public class HomeFragment extends ParentFragment implements
      */
 
     private void startAnimationWhenMapMoves(boolean calledFrom) {
+
         ll_homepage_bottom_views.clearAnimation();
         llHomeButton.startAnimation(address_bar_slide_up);
         ll_homepage_top_views.startAnimation(anim_homepage_up_movement);
@@ -528,6 +485,7 @@ public class HomeFragment extends ParentFragment implements
      */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(ArrayList<Types> vehicle_types) {
+        Log.d(TAG, "onMessageEvent: vehicle_types dddd");
         Log.d(TAG, "PubNubMgrpostNewVehicleTypes onMessageEvent");
         Log.d(TAG, "onMessageEvent vehicleTypes: " + vehicle_types.toString() + "  size: " + vehicle_types.size());
         if (vehicle_types.size() > 0) {  //탈 것 타입이 있을때
@@ -569,6 +527,7 @@ public class HomeFragment extends ParentFragment implements
      * oncreate string is passed to set first vehicle is in onstate.
      */
     private void addVehicleTypes() {
+        Log.d(TAG, "addVehicleTypes: dddd");
 
         //Log.d(TAG, "addVehicleTypes(): "+vehicleTypes.toString()+"  size: "+vehicleTypes.size());
 
@@ -697,6 +656,7 @@ public class HomeFragment extends ParentFragment implements
      * @param size        size of the vehicle types
      */
     public void setWidthToTypesScrollView(View viewCreated, int size) {
+        Log.d(TAG, "setWidthToTypesScrollView: dddd");
         switch (size) {
             case 1: {
                 viewCreated.setLayoutParams(new LinearLayout.LayoutParams(Utility.returnDisplayWidth(getActivity()), ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -732,6 +692,7 @@ public class HomeFragment extends ParentFragment implements
      * @param url:                 contains the respective vehicle image url to be downloaded
      */
     private void loadImage(ImageView ivVehicle, String url) {
+        Log.d(TAG, "loadImage: dddd");
         try {
             url = url.replace(" ", "%20");
             if (!url.equals("")) {
@@ -747,8 +708,13 @@ public class HomeFragment extends ParentFragment implements
     }
     //==========================================================================
 
+    /**
+     * PubNubMgr에서 postDriversMarkerPositions() - 드라이버 데이터 리스트 실행시 콜백
+     * @param drivers_list
+     */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(DriversList drivers_list) {
+        Log.d(TAG, "onMessageEvent: DriversList dddd");
         //탈 것 데이터 받는 이벤트
         Log.d(TAG, "onMessageEvent() drivers_list size: " + drivers_list.getDriversList().size()
                 + "  drivers_list: " + drivers_list.getDriversList().toString());
@@ -756,11 +722,11 @@ public class HomeFragment extends ParentFragment implements
         if (!homeModel.getDriversListAllCategory().toString().equals(drivers_list.getDriversList().toString())) {
             Log.d(TAG, "onMessageEvent() homeModel.getSelectedVehicleId()  if");
             homeModel.getDriversListAllCategory().clear();
-            homeModel.getDriversListAllCategory().addAll(drivers_list.getDriversList());
+            homeModel.getDriversListAllCategory().addAll(drivers_list.getDriversList()); //드라이버 리스트들 getDriversListAllCategory에 추가
 
             if (!homeModel.getSelectedVehicleId().isEmpty()) {  //탈것 아이디값이 비어있지 않으면
                 Log.d(TAG, "onMessageEvent() homeModel.getSelectedVehicleId().isEmpty() ");
-                //드라이버 마커 아이콘 업데이트 메소드 호출
+                //드라이버 마커 아이콘 업데이트
                 updateDriverMarkerIcons(true);
 
                 //드라이버 리스트를 바꾸려면 initETACall 메소드 호출
@@ -775,6 +741,7 @@ public class HomeFragment extends ParentFragment implements
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(UnReadCount drivers_list) {
+        Log.d(TAG, "onMessageEvent: UnReadCount dddd");
         a++;
         if (a == 3) {
             Alerts alerts = new Alerts();
@@ -791,6 +758,7 @@ public class HomeFragment extends ParentFragment implements
      * also get all type drivers lat lngs to update eta
      */
     private void updateDriverMarkerIcons(final boolean hasDriversListChanged) {
+        Log.d(TAG, "updateDriverMarkerIcons: dddd");
         if (isAdded()) { //프래그먼트가 추가된 프래그먼트 목록에 있으면 true입니다
             Log.d(TAG, "updateDriverMarkerIcons() selectedVehicleId: " + hasDriversListChanged);
 
@@ -847,6 +815,7 @@ public class HomeFragment extends ParentFragment implements
      * 선택된 차량 유형의 운전자 마커를 지도에 추가하는 메소드
      */
     public void addMarkers_SelectedDrivers() {
+        Log.d(TAG, "addMarkers_SelectedDrivers: dddd");
 
         mTmapview.removeAllMarkerItem();
 
@@ -869,6 +838,7 @@ public class HomeFragment extends ParentFragment implements
      * 지도에 마커표시
      */
     public void addMarker(final TMapPoint tMapPoint, String driverMarkerUrl) {
+        Log.d(TAG, "addMarker: dddd");
         if (tMapPoint != null) {
             new Thread(() -> {
                 Bitmap bitmap = null;
@@ -928,6 +898,7 @@ public class HomeFragment extends ParentFragment implements
      */
     @Override
     public void favAddressUpdater(boolean isToSetAsFavAdrs, String address, String favAdrsName) {
+        Log.d(TAG, "favAddressUpdater: dddd "+ isToSetAsFavAdrs);
         Log.d(TAG, "favAddressUpdater isToSetAsFavAdrs: " + isToSetAsFavAdrs + "    favAdrsName: " + favAdrsName + "  address: " + address);
         if (isToSetAsFavAdrs) {  // favorite 주소 맞음
             homeModel.setItaFavAdrs(true);
@@ -956,6 +927,7 @@ public class HomeFragment extends ParentFragment implements
      */
     @Override
     public void updateEachVehicleTypeETA() {
+        Log.d(TAG, "updateEachVehicleTypeETA: dddd");
         for (int i = 0; i < homeModel.getVehicleTypes().size(); i++) {
             if (llVehicleTypes == null || llVehicleTypes.getChildCount() <= 0) {
                 return;
@@ -989,6 +961,7 @@ public class HomeFragment extends ParentFragment implements
 
     @Override
     public void OnGettingOfCurrentLoc(double latitude, double longutude) {
+        Log.d(TAG, "OnGettingOfCurrentLoc: dddd");
         Log.d(TAG, "curr latlong in homepage " + latitude + " " + longutude);
         LatLng currentLatlong = new LatLng(latitude, longutude);
         mTmapview.setCenterPoint(longutude, latitude);
@@ -999,7 +972,7 @@ public class HomeFragment extends ParentFragment implements
 
     @Override
     public void NotifyIfAddressChanged() {
-        Log.d(TAG, "NotifyIfAddressChanged: ");
+        Log.d(TAG, "NotifyIfAddressChanged: dddd");
         Intent addshipmenttIntent = new Intent(getActivity(), AddDropLocationActivity.class);
         addshipmenttIntent.putExtra("key", "startActivityForResultHOME");
         addshipmenttIntent.putExtra("keyId", Constants.PICK_ID);
@@ -1107,6 +1080,7 @@ public class HomeFragment extends ParentFragment implements
      *                         else hide the UI
      */
     private void setAsFavAdrs(boolean isToSetAsFavAdrs) {
+        Log.d(TAG, "setAsFavAdrs: dddd");
         final int durationOfAnim = 200;
 
         if (isToSetAsFavAdrs) {  //하트 눌렀을때 ui 보이게
@@ -1205,7 +1179,7 @@ public class HomeFragment extends ParentFragment implements
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult called " + requestCode);
+        Log.d(TAG, "onActivityResult called dddd " + requestCode);
         if (requestCode == Constants.PICK_ID) {
             //모델에 주소 변경을 알리는 것
             homeModel.refreshFavAddressList(true);

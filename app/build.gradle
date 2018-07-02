@@ -41,7 +41,7 @@ android {
     defaultConfig {
         applicationId "com.delex.customer"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -112,23 +112,26 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])  // jar 파일추가시 자동 add as library 해주는 기능
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // jar 파일추가시 자동 add as library 해주는 기능
     compile project(':simplecrop')
     compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
         transitive = true
     }
     compile 'org.jsoup:jsoup:1.11.2'
     //compile files('libs/LiveChatWindow.jar')
-    compile 'com.android.support:multidex:1.0.2'  //멀티덱스
+    compile 'com.android.support:multidex:1.0.2'
+    //멀티덱스
     compile 'com.github.livechat:chat-window-android:v2.0.0'
-    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.android.support:cardview-v7:26.0.2'
     compile 'com.android.support:design:26.0.2'
     compile 'com.google.android.gms:play-services-maps:9.6.0'
     compile 'com.google.android.gms:play-services-location:9.6.0'
     compile 'com.google.android.gms:play-services-places:9.6.0'
     compile 'com.google.code.gson:gson:2.4'
-    compile 'com.squareup.picasso:picasso:2.5.2'  //이미지 로딩 라이브러리
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //이미지 로딩 라이브러리
     compile 'io.card:android-sdk:5.4.1'
     compile 'com.stripe:stripe-android:+'
     compile 'com.github.Q42:AndroidScrollingImageView:1.2'
@@ -139,7 +142,6 @@ dependencies {
     //Country Code Picker Library = https://github.com/hbb20/CountryCodePickerProject 국가 코드 픽커 라이브러리
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.android.support:support-v4:26.0.2'
-
     compile 'com.firebaseui:firebase-ui:0.6.0'
     compile('com.squareup.retrofit2:converter-gson:2.1.0') {
         exclude module: 'gson'
@@ -149,10 +151,17 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:9.6.0'
     compile 'com.google.firebase:firebase-messaging:9.6.0'
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
-    compile 'com.pubnub:pubnub:4.0.3'  //
-    compile 'org.greenrobot:eventbus:3.0.0'  //이벤트 버스
+    compile 'com.pubnub:pubnub:4.0.3'
+    //
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //이벤트 버스
     compile 'com.yarolegovich:sliding-root-nav:1.1.0'
     compile 'com.couchbase.lite:couchbase-lite-android:1.4.1'
     compile 'io.card:android-sdk:5.5.1'
+    //  카카오 로그인 연동
+    compile group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
+    // 네이버 로그인 연동
+    compile files('libs/naveridlogin_android_sdk_4.2.0.aar')
+
 }
 apply plugin: 'com.google.gms.google-services'

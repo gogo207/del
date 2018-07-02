@@ -63,6 +63,7 @@ public class SignUpController
     }
 
     /**
+     * 추천 코드를 호출해야하는지 여부를 확인하는 데 사용됩니다.
      * This method is used for checking that is it mandatory to call Referral code or not.
      * @param hasCalledForReferralAndSignUp , false -> only referral , true -> both referral and signUp both.
      * @param latLng: contains latitude and longitude
@@ -73,6 +74,7 @@ public class SignUpController
     {
         if (referralCode.length() > 1) {
             if (Utility.isNetworkAvailable(context)) {
+                //프로모션 코드가 유효한지 확인하기 위해 프로모션 코드 적용 api를 호출
                 signUpModel.verifyReferralCode(referralCode, latLng, hasCalledForReferralAndSignUp, phone, resultInterface);
             } else {
                 alerts.showNetworkAlert(context);
@@ -80,6 +82,7 @@ public class SignUpController
         }
         else
         {
+            //잘못된 프로모션 코드라고 얼럿창 띄움
             resultInterface.errorNotifier(context.getString(R.string.invalidReferralCode));
         }
     }

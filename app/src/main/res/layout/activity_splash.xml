@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!--로딩 이미지-->
     <RelativeLayout
         android:paddingTop="@dimen/dimen_60dp"
         android:layout_width="@dimen/dimen_200dp"
@@ -38,7 +39,7 @@
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
     </RelativeLayout>
-
+    <!--로딩 이미지-->
 
     <LinearLayout
         android:visibility="gone"

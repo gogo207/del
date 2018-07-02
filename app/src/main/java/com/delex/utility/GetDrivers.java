@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /**
  * <h1>GetDrivers</h1>
  * <p>
- * Class to get drivers from servers
+ * 서버로부터 드라이버를 얻는 클래스
  * </P>
  *
  * @since 27/7/17.
@@ -34,7 +34,8 @@ public class GetDrivers {
     public void getDrivers(final String sessionToken, final String url) {
         Log.d(TAG, "getDrivers1 url: " + url);
         //String url = Constants.GET_DRIVERS+ currentLat+"/"+ currentLng+"/"+ sessionManager.getChannel() + "/0";
-        OkHttp3Connection.doOkHttp3Connection(sessionToken, sessionManager.getLanguageId(), url, OkHttp3Connection.Request_type.GET, new JSONObject(), new OkHttp3Connection.OkHttp3RequestCallback() {
+        OkHttp3Connection.doOkHttp3Connection(sessionToken, sessionManager.getLanguageId(), url,
+                OkHttp3Connection.Request_type.GET, new JSONObject(), new OkHttp3Connection.OkHttp3RequestCallback() {
             @Override
             public void onSuccess(String result) {
                 try {
@@ -48,7 +49,6 @@ public class GetDrivers {
                         if (statusCode == 401) {
                             Utility.sessionExpire(context);
                         }
-
                     }
 
                 } catch (JSONException e) {

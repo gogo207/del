@@ -27,6 +27,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.delex.a_kakao_login.KakaoLoginUtil;
+import com.delex.a_kakao_login.SessionCallback;
+import com.delex.a_main.MainActivity;
+import com.delex.a_naver_login.NaverHandler;
 import com.delex.parent.ParentActivity;
 import com.delex.countrypic.Country;
 import com.delex.countrypic.CountryPicker;
@@ -51,13 +55,18 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.kakao.auth.Session;
+import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
+import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 import java.util.ArrayList;
 
 /**
  * <h1>Login Activity</h1>
- * This class is used to provide the Login screen, where we can do our login and if we forget our etNewPassword then here we also can make a request to forgot etNewPassword
- * and if login successful, then it directly opens Main Activity.
+ * <p>
+ * 이 클래스는 로그인을 할 수있는 로그인 화면을 제공하기 위해 사용되며, 우리가 우리의 etNewPassword를 잊어 버린 경우 여기에서 etNewPassword를 잊어 버릴 수도 있습니다
+ * 로그인에 성공하면 Main Activity가 바로 열립니다.
  *
  * @author 3embed
  * @since 3 Jan 2017.
@@ -91,9 +100,11 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     private int countryCodeMinLength, countryCodeMaxLength;
     private TextView tvLoginTile;
     private AppTypeface appTypeface;
+    private SessionCallback mKakaoSessionCallback;
 
-
-
+    private OAuthLoginButton authLoginButton;
+    private OAuthLogin mOAuthLoginModule;
+    private LoginActivity mContext;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -103,19 +114,56 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
         sessionManager = new SessionManager(LoginActivity.this);
 
         callbackManager = CallbackManager.Factory.create();
         loginController = new LoginController(this, sessionManager, callbackManager);
-        setContentView(R.layout.activity_login);
+
+        /////////////////////////////카카오 로그인 세션 콜백 셋////////////////////////
+        KakaoLoginUtil kakaoLoginUtil = new KakaoLoginUtil();
+        kakaoLoginUtil.kakaoLogout();
+        mKakaoSessionCallback = new SessionCallback(loginController);
+
+        Session.getCurrentSession().addCallback(mKakaoSessionCallback);
+        Session.getCurrentSession().checkAndImplicitOpen();
+        //////////////////////////////////////////////////////////////////////////////
+
+        mContext = this;
+        initData();
+        initNaverLogin();
+
         initToolBar();
         initialization();
         initSwitchAndRadioButtons();
         loginFirstTime();
         getUserCountryInfo();
-
     }
 
+    private void initData() {
+
+
+        mOAuthLoginModule = OAuthLogin.getInstance();
+//        mOAuthLoginModule.showDevelopersLog(true);
+        mOAuthLoginModule.init(
+                mContext
+                , getString(R.string.naver_client_id)
+                , getString(R.string.naver_client_secret)
+                , "ddd");
+
+        mOAuthLoginModule.logout(mContext);  //로그인 화면오면 무조건 로그아웃부터
+    }
+
+    private void initNaverLogin() {
+        if (mOAuthLoginModule.getAccessToken(this) != null) {
+//
+        } else {
+            authLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
+            authLoginButton.setOAuthLoginHandler(new NaverHandler(this, mOAuthLoginModule, loginController));
+            Log.d(":dddddd", "onCreate: 로그인 요청");
+        }
+
+    }
 
     private void initToolBar() {
         appTypeface = AppTypeface.getInstance(this);
@@ -217,19 +265,23 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     /**
      * <h2>loginFirstTime</h2>
      * <p>
+     * 내 앱이 이전에 이미 로그인했는지 여부를 확인하고
+     * 델렉스 회원가입으로 로그인 했었으면 아이디에 연락처나 이메일주소 값 넣어줌
      * This method will check that either my app is already login before or not,
      * if it is login first time then keep both username and etNewPassword
      * field empty or else fill it with last time login details.
      * </p>
      */
     public void loginFirstTime() {
+
         loginController.firstTimeLogin(login_type, new ResultInterface() {
             @Override
             public void errorMandatoryNotifier() {
                 etPhoneNoForgotPassword.setText(sessionManager.getMobileNo());
-                if(sessionManager.getMobileNo().equalsIgnoreCase("")){
+
+                if (sessionManager.getMobileNo().equalsIgnoreCase("")) {
                     etEmailForgotPassword.setText(sessionManager.getUserId());
-                }else{
+                } else {
 
                 }
                 etPassword_login.setText(sessionManager.getPassword());
@@ -237,6 +289,7 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
 
             @Override
             public void errorInvalidNotifier() {
+                Log.d(TAG, "errorInvalidNotifier: ddddddddddddddd");
                 Utility.printLog("Login is either first time or by using FB/Google.");
             }
         });
@@ -425,23 +478,26 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnSignIn_login:
+//                KakaoLoginUtil kakaoLoginUtil = new KakaoLoginUtil();
+//                kakaoLoginUtil.kakaoUnlink();
                 login_type = 1;
                 loginController.doLogin(etPhoneNoForgotPassword.getText().toString(), etEmailForgotPassword.getText().toString(), etPassword_login.getText().toString(), isEmailValidation);
                 break;
 
             case R.id.ivFbLoginBtn_login:
                 login_flag = true;
+                //페이스북 로그인 버튼
 
-                    loginController.fbLogin();
+                loginController.fbLogin();
 
                 break;
 
 
             case R.id.ivGoogleLogin_login:
                 login_flag = false;
+                //구글 로그인 버튼
 
-
-                    loginController.googleLogin();
+                loginController.googleLogin();
 
                 break;
 
@@ -491,18 +547,31 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_OK) {
+            //facebook 로그인
+            Log.d(TAG, "onActivityResult: 2");
             login_type = 2;
             etEmailForgotPassword.setText("");
             etPassword_login.setText("");
+        } else {
+            //카카오톡 로그인
+            if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+                Log.d(TAG, "onActivityResult: " + requestCode + " , " + resultCode + " , " + data);
+                login_type = 4;
+
+                return;
+            }
         }
 
+        //구글 로그인
         if (requestCode == Constants.RC_SIGN_IN) {
+            Log.d(TAG, "onActivityResult: 3");
             login_type = 3;
             etEmailForgotPassword.setText("");
             etPassword_login.setText("");
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             loginController.handleResult(result);
         }
+        Log.d(TAG, "onActivityResult: " + login_type);
     }
 
     @Override
@@ -571,6 +640,7 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }
+
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -725,6 +795,11 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Session.getCurrentSession().removeCallback(mKakaoSessionCallback);
+    }
 
     private void intentActivity() {
 

@@ -30,7 +30,7 @@ public class Constants {
     public static final int CROP_IMAGE4 = 468;
 
     public static int REQUEST_CODE = 1;
-    public static final String SERVICE_URL = "http://api.delex.co.kr/";
+    public static final String SERVICE_URL = "https://api2.delex.co.kr/";
     public static final String FACEBOOK_LINK = "https://www.facebook.com/Truckr-Uber-For-Trucks-2031946467026704/";
     //public static final String SERVICE_URL = "https://api.dayrunnerapp.com/";
 
@@ -58,7 +58,7 @@ public class Constants {
     public static final String EMAILVALIDATION = SERVICE_URL + "slave/EmailPhoneValidate";
     public static final String PHONENOVALIDATION = SERVICE_URL + "slave/EmailPhoneValidate";
     public static final String GETVERIFICATIONCODE = SERVICE_URL + "app/signupOtp";
-    public static final String FORGOTPASSWORD = SERVICE_URL + "app/forgotpassword";
+    public static final String FORGOTPASSWORDTOMOBILE = SERVICE_URL + "app/forgotpassword";
     public static final String VERIFYPHONE = SERVICE_URL + "app/verifyOtp";
     public static final String GOODS_TYPE = SERVICE_URL + "slave/goodsType";
     public static final String NEWLIVEBOOKING = SERVICE_URL + "slave/livebooking";
@@ -66,7 +66,7 @@ public class Constants {
     public static final String SINGLE_BOOKING = SERVICE_URL + "slave/bookingDetails";  //This is used for single booking detail.
     public static final String CANCEL_BOOKING = SERVICE_URL + "slave/cancelBooking";
     public static final String CANCEL_REASON = SERVICE_URL + "app/cancelReasons";
-    public static final String FORGOTPASS = SERVICE_URL + "app/forgotpassword";
+    public static final String FORGOTPASSTOEMAIL = SERVICE_URL + "app/forgotpassword";
     public static final String UPDATEPASS = SERVICE_URL + "app/updatePassword";
     public static final String CHECKPASS = SERVICE_URL + "slave/checkpassword";
     public static final String GETPROFILE = SERVICE_URL + "slave/profile/me";

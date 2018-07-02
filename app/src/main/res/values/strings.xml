@@ -4,6 +4,10 @@
     <string name="mapbox_access_token">pk.eyJ1IjoiZGVsdGFvbngiLCJhIjoiY2pnbG4yd3RuMTRqMjJ3dDQwZGd0Z2NmeCJ9.6g2Ah8Uowdsqk2PwQHbUdw</string>
     <string name="tmap_api_key">fc10f46e-776e-46a7-b890-78e5ab5c312d</string>
 
+    <!--네이버 아이디 로그인-->
+    <string name="naver_client_id">fork_zHA1KnV_xRZ63y9</string>
+    <string name="naver_client_secret">4eGzY3ZfHt</string>
+
 
     <string name="invite_app_name">DELEX</string>
     <string name="app_website">delex.co.kr</string>
@@ -959,7 +963,16 @@
     <string name="upcoming_booking">Upcoming Booking</string>
     <string name="unassigned_status">Your runner will be assigned within 45 minutes of the pickup time.</string>
     <string name="cant_cancel">Sorry! we can not process your request</string>
-    <string name="facebook_app_id">120349545333957</string>
+    <!--facebook app id-->
+    <string name="facebook_app_id">193011671412340</string>
+
+    <string name="fb_login_protocol_scheme">fb193011671412340</string>
+    <!--////////////////////-->
+
+    <!--카카오 앱 키-->
+    <string name="kakao_app_key">ff3dba3945ddbed69eb3951c36e3fa98</string>
+    <!--////////////////////-->
+
     <string name="create_account_signup">CREATE ACCOUNT</string>
     <string name="accept_terms_privacy_policy"><![CDATA[I Accept Terms & Privacy Policy]]></string>
     <string name="select_country">Select Country</string>
@@ -1078,9 +1091,9 @@
     <string name="chargeZero">Would you like to cancel your order\?</string>
     <string name="cancellation">as cancellation charged.</string>
     <string name="base_fare">기본</string>
-    <string name="pickupAndDrop">픽업과 드롭</string>
-    <string name="pickUP">픽업</string>
-    <string name="Drop">드롭</string>
+    <string name="pickupAndDrop">픽업과 도착</string>
+    <string name="pickUP">픽업 장소</string>
+    <string name="Drop">도착 장소</string>
     <string name="whatToImprove">What to improve\?</string>
     <string name="x">X</string>
     <string name="stars">***************************************************************************************************************</string>

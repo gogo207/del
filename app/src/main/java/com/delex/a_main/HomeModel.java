@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.delex.ETA_Pojo.ElementsForEta;
 import com.delex.ETA_Pojo.EtaPojo;
-import com.delex.a_pickupLocation.AddDropLocationActivity;
+import com.delex.a_chooseLocation.AddDropLocationActivity;
 import com.delex.eventsHolder.CurrentLocationEvent;
 import com.delex.model.DataBaseHelper;
 
@@ -55,7 +55,7 @@ import okhttp3.Response;
 
 public class HomeModel extends HomeModelBase implements LocationUtil.LocationNotifier {
     private static HomeModel homeController = new HomeModel();
-    private final String TAG = "HomeFrag";
+    private final String TAG = "HomeModel";
     private Context mContext;
     private HomeUiUpdateNotifier homeUiUpdateNotifier;
 
@@ -102,7 +102,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
     }
 
     public void onCreateHomeFrag(Context context, HomeUiUpdateNotifier home_uiUpdater) {
-        Log.d(TAG, "onCreateHomeFrag: ");
+        Log.d(TAG, "onCreateHomeFrag: dddd");
         this.mContext = context;
 
         sessionMgr = new SessionManager(mContext);
@@ -129,13 +129,12 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * This method is used to initialize the widgets
      */
     private void initVariables() {
-        Log.d(TAG, "initVariables: ");
         if (sessionMgr.getlatitude() != null && !sessionMgr.getlatitude().isEmpty() && sessionMgr.getlongitude() != null && !sessionMgr.getlongitude().isEmpty()) {
             prevLatitude = currentLatitude = Double.parseDouble(sessionMgr.getlatitude());
             prevLongitude = currentLongitude = Double.parseDouble(sessionMgr.getlongitude());
         }
 
-        refreshFavAddressList(false); //마지막 위치 favorite 주소에 넣기
+        refreshFavAddressList(false);
 
         double[] size = Scaler.getScalingFactor(mContext);
         widthVehicleImage = (65) * size[0];
@@ -164,15 +163,17 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
     /**
      * <h>refreshFavAddressList</h>
      * favorite 주소 목록을 설정하는 메소드
+     * fav 주소 목록 바겼을때 호출
      *
      * @param toRefreshAddress true의 경우, 주소를 리프레쉬합니다.
      * @since v1.0
      */
     public void refreshFavAddressList(boolean toRefreshAddress) {
-        Log.d(TAG, "refreshFavAddressList: ");
-        //getFavDropAdrsDatAL은 어레이리스트
+        Log.d(TAG, "refreshFavAddressList: dddd");
+        //getFavDropAdrsDatAL은
         getFavDropAdrsDatAL().clear();
         getFavDropAdrsDatAL().addAll(dataBaseHelper.extractAllFavDropAdrs());
+
         //to refresh the fav address list and set in the list
         setFavDropAdrsDatAL(getFavDropAdrsDatAL());
         Utility.printLog(TAG + "fav address list size " + getFavDropAdrsDatAL().size());
@@ -230,7 +231,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * This method is called when the onResume of home page is called
      */
     public void onResumeHomeFrag() {
-        Log.d(TAG, "onResumeHomeFrag: ");
+        Log.d(TAG, "onResumeHomeFrag: dddd");
         setFromOnResume(true);
 
         if (pubNubMgr == null) {
@@ -264,10 +265,11 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
     /**
      * <h1>startPublishingWithTimer</h1>
+     * 이 메서드는 구성에 설정된 모든 간격으로 pubnub에 게시 할 API를 호출하는 데 사용됩니다
      * this method is used for calling API to publish in pubnub with every interval set in configuration
      */
     private void startPublishingWithTimer() {
-        Log.d(TAG, "startPublishingWithTimer: ");
+        Log.d(TAG, "startPublishingWithTimer: dddd");
         Log.d(TAG, "MyGeoDecoder startTimer() called: " + getCustomerApiInterval());
         myTimer_publish = new Timer();
         TimerTask myTimerTask_publish = new TimerTask() {
@@ -292,7 +294,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * This method is used to stop the timer
      */
     private void stopTimer() {
-        Log.d(TAG, "stopTimer: ");
+        Log.d(TAG, "stopTimer: dddd");
         Log.d(TAG, "MyGeoDecoder stopTimer");
         if (myTimer_publish != null) {
             myTimer_publish.cancel();
@@ -303,12 +305,12 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
     /**
      * <h1>restartTimer</h1>
      * this method is used to restart the pubnub publish
-     * 이 메소드는 pubnub를 다시 시작하는 데 사용됩니다.
+     * 이 메소드는 pubnub를  다시 시작하는 데 사용됩니다.
      *
      * @since v1.0
      */
     private void restartTimer() {
-        Log.d(TAG, "restartTimer: ");
+        Log.d(TAG, "restartTimer: dddd");
         stopTimer();
         if (myTimer_publish == null) {
             startPublishingWithTimer();
@@ -319,10 +321,10 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
     /**
      * <h2>getCurrentLocation</h2>
-     * 사용자의 현재 위치를 가져 오는 중
+     * 사용자의 현재 위치를 가져 오는 util 클래스 시작
      */
     public void getCurrentLocation() {
-        Log.d(TAG, "getCurrentLocation: ");
+        Log.d(TAG, "getCurrentLocation: dddd");
         //checking the locationUtil.
         if (locationUtil == null) {
             locationUtil = new LocationUtil((MainActivity) mContext, this);
@@ -336,6 +338,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
     @Override
     public void updateLocation(Location location) {
+        Log.d(TAG, "updateLocation: dddd");
         Utility.printLog(TAG + "curre locations " + location.getLatitude() + " " + location.getLongitude());
         currentLatitude1 = location.getLatitude();
         currentLongitude1 = location.getLongitude();
@@ -374,14 +377,14 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
     /**
      * <h2>verifyAndUpdateNewLocation</h2>
      * 새 위치 확인 및 업데이트
-     * 이 메소드는지도의 위치 중심을 가져 오는 데 사용됩니다.
+     * 이 메소드는 지도의 위치 중심을 가져 오는 데 사용됩니다.
      * This method is used to get the location center of map
      *
      * @param centerFromPoint         latlong from center of map
      * @param ivMidPointMarkerVisible true is the mid pointer is visible
      */
     public void verifyAndUpdateNewLocation(LatLng centerFromPoint, boolean ivMidPointMarkerVisible) {
-        Log.d(TAG, "verifyAndUpdateNewLocation: ");
+        Log.d(TAG, "verifyAndUpdateNewLocation: dddd");
         if (centerFromPoint != null) {
             currentLatitude = centerFromPoint.latitude;
             currentLongitude = centerFromPoint.longitude;
@@ -389,7 +392,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
         Log.d(TAG, "verifAyndUpdateNewLocation() currentLatitude: " + currentLatitude + " centerPointLat: " + centerFromPoint.latitude);
         if (currentLatitude == 0 || currentLongitude == 0 || (currentLatitude == prevLatitude && currentLongitude == prevLongitude)) {
-            //Pointer is in same location, so dont call the service to get address
+            //포인터가 같은 위치에 있으므로 주소를 얻기 위해 서비스를 호출하지 마십시오.
             Log.d(TAG, "verifyAndUpdateNewLocation() FALSE");
         } else {
             sessionMgr.setlatitude(String.valueOf(currentLatitude));
@@ -401,6 +404,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
                 newLoc.setLatitude(currentLatitude);
                 newLoc.setLongitude(currentLongitude);
 
+
                 double distance = newLoc.distanceTo(getmLastKnownLocation());
 
                 if (distance > 20 || isToCallGeocoder()) {
@@ -409,16 +413,17 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
                     Log.d(TAG, "verifyAndUpdateNewLocation: dd");
                 }
 
-                if (distance > 500) {
+                if (distance > 500) {  //새로운 위치가 원래 위치에서 500m 떨어진 위치면  마지막으로 저장
                     prevLatitude = currentLatitude;
                     prevLongitude = currentLongitude;
                     getmLastKnownLocation().setLatitude(prevLatitude);
                     getmLastKnownLocation().setLongitude(prevLongitude);
                     //to stop the timer and then start to publish again
+                    //타이머를 멈추고 다시 게시하기 시작
                     stopTimer();
                     if (myTimer_publish == null)
                         startPublishingWithTimer();
-                    //to initialize the google eta call
+                    //to initialize the google eta call 주변 차량 데이터 호출 초기화
                     initETACall();
                     Log.d(TAG, "eta called 2 ");
                 }
@@ -432,13 +437,14 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
     /**
      * <h2>initGeoCoder</h2>
-     * 드래그 후 손 땟을때 geo 코딩으로 주소값 가져오기
-     * 이 메소드는 latlong에서 주소를 가져 오는 데 사용됩니다.
+     * 드래그 후 손 땟을때 지오코딩으로 주소값 가져오기
+     * 이 메소드는 위도 경도값으로 주소를 가져 오는 데 사용됩니다.
      *
      * @param currentLat latitude of the location
      * @param currentLng longitude of the location
      */
-    private void initGeoCoder(final double currentLat, final double currentLng) {
+    public void initGeoCoder(final double currentLat, final double currentLng) {
+        Log.d(TAG, "initGeoCoder: dddd");
 
         Thread thread = new Thread(() -> {
             String address;
@@ -469,9 +475,10 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * to verify the address whether it is favorite
      * favorite 주소인지 아닌지 확인 후 HomeFragment로 homeUidUpdateNotifier 보내기
      *
-     * @param selectedAdrress input the selected address
+     * @param selectedAdrress 선택된 주소를 넣는다
      */
     private void verifyFavADrs(final String selectedAdrress) {
+        Log.d(TAG, "verifyFavADrs: dddd");
         Log.d(TAG, "GoogleMap verifyFavADrs selectedAdrress: " + selectedAdrress);
         Log.d(TAG, "GoogleMap verifyFavADrs getFavDropAdrsDatAL: " + getFavDropAdrsDatAL().size());
         for (FavDropAdrsData favDropAdrsData : getFavDropAdrsDatAL()) {
@@ -495,7 +502,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * @param favAdrsTag title of the favorite
      */
     public void addAsFavAddress(final String favAdrsTag) {
-        Log.d(TAG, "addAsFavAddress: ");
+        Log.d(TAG, "addAsFavAddress: dddd");
         if (favAdrsTag == null || favAdrsTag.isEmpty()) {
             Toast.makeText(mContext, R.string.provideTagName, Toast.LENGTH_SHORT).show();
         } else {
@@ -521,7 +528,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * @param favDropAdrsData: contains new address details to be added as favourite
      */
     private void addNewFavAdrsApi(final FavDropAdrsData favDropAdrsData) {
-        Log.d(TAG, "addNewFavAdrsApi: ");
+        Log.d(TAG, "addNewFavAdrsApi: dddd");
         pDialog.setMessage(mContext.getString(R.string.pleaseWait));
         pDialog.show();
 
@@ -566,7 +573,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * @param favDropAdrsData: contains new address details to be added as favourite
      */
     private void addNewFavAdrsResponseHandler(String response, FavDropAdrsData favDropAdrsData) {
-        Log.d(TAG, "addNewFavAdrsResponseHandler: ");
+        Log.d(TAG, "addNewFavAdrsResponseHandler: dddd");
         try {
             AddNewFavAdrsPojo addNewFavAdrsPojo = new Gson().fromJson(response, AddNewFavAdrsPojo.class);
             if (addNewFavAdrsPojo != null) {
@@ -602,7 +609,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      */
 
     public void initETACall() {
-        Log.d(TAG, "initETACall: ");
+        Log.d(TAG, "initETACall: dddd");
         Log.i(TAG, "each type driver size " + sessionMgr.getNearestVehicleType().length());
         if (!sessionMgr.getNearestVehicleType().equalsIgnoreCase("") && currentLatitude != 0.0 && currentLongitude != 0.0) {
             String[] params = new String[3];
@@ -632,7 +639,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
     private class getETA extends AsyncTask<String, Void, Void> {
         @Override
         protected Void doInBackground(String... params) {
-            Log.d(TAG, "doInBackground: ");
+            Log.d(TAG, "getETA: dddd");
             String url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + params[0] + "," + params[1]
                     + "&" + "destinations=" + params[2] + "&mode=driving" + "&" + "key=" + sessionMgr.getGoogleServerKey();
             Log.d(TAG, "Distance matrix getETA() url: " + url);
@@ -694,7 +701,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
         @Override
         protected void onPostExecute(Void avoid) {
-            Log.d(TAG, "onPostExecute: ");
+            Log.d(TAG, "onPostExecute: dddd");
             Log.d("working123: ", "working12345");
             homeUiUpdateNotifier.updateEachVehicleTypeETA();
         }
@@ -706,7 +713,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * 이 메소드는 드롭 주소 활동을 여는 데 사용됩니다.
      */
     public void startAddressActivity(final int rideType) {
-        Log.d(TAG, "startAddressActivity: ");
+        Log.d(TAG, "startAddressActivity: dddd");
         sessionMgr.setPickLt("" + currentLatitude);
         sessionMgr.setPickLg("" + currentLongitude);
         sessionMgr.setDeliveredId(getSelectedVehicleId());
@@ -727,11 +734,12 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
 
     /**
      * <h2>startAddPickupLocationActivity</h2>
-     * 이 방법은 픽업 주소를 선택할 다음 활동으로 제어를 보내는 데 사용됩니다.
+     * 이 메소드은 예약 버튼 눌렀을때 픽업 주소를 선택한 다음 활동으로 제어를 보내는 데 사용됩니다.
      * This method is used for sending control to the next Activity where we will select the pickup address.
+     *
      */
     public void startAddPickupLocationActivity(final int rideType, final String laterTime) {
-        Log.d(TAG, "startAddPickupLocationActivity: ");
+        Log.d(TAG, "startAddPickupLocationActivity: dddd");
         Log.d(TAG, "value of url: vehicle_url: 11: " + getVehicle_url() + " ,vehicleName: " + getVehicleName() + " ,lat: " + currentLatitude + " ,long: " + currentLongitude);
         Log.d("value of ", "value of lat: 2:" + currentLatitude + " ,long: " + currentLongitude);
         sessionMgr.setPickLt("" + currentLatitude);
@@ -751,7 +759,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
         //TODO pass NearestDriverstoSend  가장 가까운 드라이버 전달
         intent.putExtra("NearestDriverstoSend", "");
         intent.putExtra("keyId", Constants.DROP_ID);
-        intent.putExtra("comingFrom", "drop");
+        intent.putExtra("comingFrom", "drop");  //에서 오는
         mContext.startActivity(intent);
     }
     //==========================================================================
@@ -761,7 +769,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * 이 메소드는 홈 프래그먼트가 백그라운드로 이동하면 호출됩니다.
      */
     public void onPauseHomeFrag() {
-        Log.d(TAG, "onPauseHomeFrag: ");
+        Log.d(TAG, "onPauseHomeFrag: dddd");
         stopTimer();
         setFromOnResume(false);
         locationUtil.stop_Location_Update();
@@ -780,7 +788,7 @@ public class HomeModel extends HomeModelBase implements LocationUtil.LocationNot
      * 이 메소드는 현재 위치를 홈프래그먼트에서 알고 싶을때 홈 프래그먼트에 통지하는 데 사용됩니다.
      */
     public void getCurrentLatlong() {
-        Log.d(TAG, "getCurrentLatlong: ");
+        Log.d(TAG, "getCurrentLatlong: dddd");
         Log.d(TAG, "curr latlong in model " + currentLatitude1 + " " + currentLongitude1);
         if (currentLatitude1 != 0.0 && currentLongitude1 != 0.0)
             homeUiUpdateNotifier.OnGettingOfCurrentLoc(currentLatitude1, currentLongitude1);

@@ -6,27 +6,247 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="updateEachVehicleTypeETA" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Forget Password Response" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f67ac66-2e00-425a-80c6-21be1464ecc2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-32-48-439.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-33-29-995.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-32-48-439.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-33-29-995.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars___C__Users_Administrator_AndroidStudioProjects_DelexCustomer2_app_libs_com_skt_Tmap_1_52_jar_unspecified_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars___C__Users_Administrator_AndroidStudioProjects_DelexCustomer_app_libs_com_skt_Tmap_1_52_jar_unspecified_jar.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DelexCustomer2.iml" afterPath="$PROJECT_DIR$/DelexCustomer.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/naveridlogin_android_sdk_4.2.0.aar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars___C__Users_Administrator__gradle_caches_transforms_1_files_1_1_naveridlogin_android_sdk_4_2_0_aar_a982f13b4b4e06f1caa200dd4125bc36_unspecified_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_auth_1_1_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_network_1_1_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_util_1_1_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_choose_delivery_time/ChooseDeliveryTime.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_introduction/IntroductionActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_introduction/IntroductionFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/KakaoLoginUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/KakaoSDKAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/SessionCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_naver_login/NaverHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_naver_login/NaverLoginUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/retrofit/RetrofitLib.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/retrofit/RetrofitService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_delivery_time.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_introduction.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_introduction.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-15-50-875.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-15-50-875.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-41-49-345.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-41-49-345.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-43-21-321.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-43-21-321.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-43-58-905.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-43-58-905.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-44-48-239.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-44-48-239.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-50-46-293.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-50-46-293.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-54-46-427.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-11-54-46-427.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-04-05-636.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-04-05-636.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-04-43-564.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-04-43-564.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-09-06-874.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-09-06-874.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-10-04-801.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-10-04-801.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-20-38-128.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-20-38-128.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-22-49-495.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-22-49-495.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-26-36-700.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-12-26-36-700.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-43-04-800.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-43-04-800.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-45-23-654.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-45-23-654.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-48-21-531.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-48-21-531.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-49-44-756.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-49-44-756.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-50-18-516.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-13-50-18-516.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-00-22-267.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-00-22-267.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-01-37-051.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-01-37-051.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-15-25-943.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-15-25-943.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-15-52-148.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-15-52-148.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-17-04-479.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-17-04-479.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-19-43-360.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-19-43-360.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-20-09-770.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-20-09-770.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-23-25-600.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-23-25-600.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-26-29-112.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-26-29-112.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-37-53-170.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-37-53-170.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-46-58-845.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-46-58-845.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-47-23-621.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-14-47-23-621.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-02-14-512.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-02-14-512.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-07-58-387.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-07-58-387.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-12-55-271.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-12-55-271.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-14-38-364.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-14-38-364.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-15-33-500.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-15-33-500.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-27-20-932.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-27-20-932.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-29-46-079.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-29-46-079.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-32-19-753.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-32-19-753.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-44-45-679.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-44-45-679.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-45-19-282.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-15-45-19-282.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-13-04-308.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-13-04-308.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-13-14-232.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-13-14-232.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-18-04-939.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-18-04-939.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-18-26-716.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-18-26-716.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-32-48-439.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-32-48-439.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-33-29-995.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-33-29-995.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-36-15-173.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-36-15-173.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-55-04-136.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-16-55-04-136.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-17-10-24-565.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-17-10-24-565.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-17-32-06-444.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-17-32-06-444.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-17-45-15-934.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-17-45-15-934.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-06-41-619.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-06-41-619.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-13-46-098.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-13-46-098.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-14-20-977.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-14-20-977.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-15-27-252.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-15-27-252.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-20-52-347.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-20-52-347.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-57-26-751.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-18-57-26-751.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-19-00-43-833.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-19-00-43-833.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-19-10-41-112.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-19-10-41-112.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-19-14-25-187.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-14-19-14-25-187.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-06-54-016.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-06-54-016.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-07-08-030.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-07-08-030.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-21-03-800.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-21-03-800.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-21-16-211.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-10-21-16-211.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-11-54-13-906.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-11-54-13-906.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-11-55-03-740.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-11-55-03-740.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-11-58-18-244.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-11-58-18-244.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-03-44-812.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-03-44-812.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-07-00-278.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-07-00-278.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-13-32-204.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-13-32-204.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-15-42-432.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-15-42-432.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-17-52-183.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-17-52-183.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-27-52-018.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-27-52-018.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-28-44-779.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-28-44-779.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-30-00-061.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-30-00-061.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-32-39-835.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-32-39-835.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-33-13-549.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-12-33-13-549.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-13-45-25-526.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-13-45-25-526.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-18-35-37-514.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-18-35-37-514.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-18-40-07-067.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-06-15-18-40-07-067.rawproto" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AddDropLocationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_chooseLocation/AddDropLocationActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AutoCompleteCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_chooseLocation/AutoCompleteCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/DropAddressAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_chooseLocation/DropAddressAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/FavAddressAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_chooseLocation/FavAddressAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/PlaceAutoCompleteAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_chooseLocation/PlaceAutoCompleteAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SignUpActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SignUpActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SplashActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/AddShipmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/AddShipmentActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/LocationFromMapActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/LocationFromMapActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/ShipmentDetailsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/ShipmentDetailsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ForgotPasswordController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ForgotPasswordController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/LoginController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ShipmentDetail_Controller.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ShipmentDetail_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/SignUpController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/SignUpController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/customer/EditPhoneNumberActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/customer/EditPhoneNumberActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/customer/VerifyOTP.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/customer/VerifyOTP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/model/AddShipmentModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/model/AddShipmentModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/model/ForgotPasswordModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/model/ForgotPasswordModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/model/LoginModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/model/LoginModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/model/ShipmentDetail_Model.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/model/ShipmentDetail_Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/model/SignUpModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/model/SignUpModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/model/VerifyOTPModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/model/VerifyOTPModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/LiveBookingResponce_pojo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/LiveBookingResponce_pojo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/PubnubMasPojo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/PubnubMasPojo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/ShipmentDetailSharePojo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/ShipmentDetailSharePojo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/AppController.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/AppController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/PubNubMgr.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/PubNubMgr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/FacebookLogin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/FacebookLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/GetDrivers.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/GetDrivers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/LocaleHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/LocaleHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/OkHttp3Connection.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/OkHttp3Connection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Utility.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Utility.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Validator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Validator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simplecrop/simplecrop.iml" afterPath="$PROJECT_DIR$/simplecrop/simplecrop.iml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,6 +265,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <PATH>
@@ -57,6 +280,60 @@
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
               </PATH_ELEMENT>
             </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="DelexCustomer" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="DelexCustomer" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="DelexCustomer" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="DelexCustomer" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="DelexCustomer" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="DelexCustomer" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="android" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
+              </PATH_ELEMENT>
+            </PATH>
           </tree_state>
         </projects_view>
       </state>
@@ -64,32 +341,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeModel.java">
+      <file leaf-file-name="ForgotPasswordActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/customer/ForgotPasswordActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="476" column="40" lean-forward="false" selection-start-line="476" selection-start-column="40" selection-end-line="476" selection-end-column="40" />
+            <state relative-caret-position="205">
+              <caret line="282" column="0" lean-forward="false" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment.java">
+      <file leaf-file-name="ForgotPasswordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ForgotPasswordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="243" column="25" lean-forward="true" selection-start-line="243" selection-start-column="25" selection-end-line="243" selection-end-column="25" />
+            <state relative-caret-position="371">
+              <caret line="122" column="39" lean-forward="false" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/MainActivity.java">
+      <file leaf-file-name="ForgotPasswordModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/model/ForgotPasswordModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-743">
-              <caret line="110" column="22" lean-forward="false" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+            <state relative-caret-position="86">
+              <caret line="86" column="107" lean-forward="false" selection-start-line="86" selection-start-column="107" selection-end-line="86" selection-end-column="107" />
+              <folding>
+                <element signature="e#2320#2355#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="69" column="48" lean-forward="false" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_choose_delivery_time.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_choose_delivery_time.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChooseDeliveryTime.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_choose_delivery_time/ChooseDeliveryTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OkHttp3Connection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/OkHttp3Connection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="268" column="32" lean-forward="false" selection-start-line="268" selection-start-column="29" selection-end-line="268" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/controllers/SignUpController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VerifyOTPModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/model/VerifyOTPModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="289" column="30" lean-forward="false" selection-start-line="289" selection-start-column="30" selection-end-line="289" selection-end-column="30" />
+              <folding>
+                <element signature="e#1932#1966#0" expanded="true" />
+                <element signature="e#3856#3906#0" expanded="true" />
+                <element signature="e#4313#4363#0" expanded="true" />
+                <element signature="e#9377#9427#0" expanded="true" />
+                <element signature="e#11567#11617#0" expanded="true" />
+                <element signature="e#11986#12031#0" expanded="true" />
+                <element signature="e#15427#15477#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,36 +467,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pickUpad</find>
-      <find>pickUpadd</find>
-      <find>pickUpaddr</find>
-      <find>pickUpaddre</find>
-      <find>pickUpaddres</find>
-      <find>i</find>
-      <find>in</find>
-      <find>ini</find>
-      <find>init</find>
-      <find>initG</find>
-      <find>initGe</find>
-      <find>initGeo</find>
-      <find>initGeoC</find>
-      <find>initGeoCo</find>
-      <find>initGeoCod</find>
-      <find>initGeoCode</find>
-      <find>initGeoCoder(</find>
-      <find>refreshFavAddressList:</find>
-      <find>pickUpaddress</find>
-      <find>refreshFavAddressList</find>
-      <find>initGeoCoder</find>
-      <find>no driver</find>
-      <find>updateEachVehicleTypeETA</find>
-      <find>no drivers</find>
-      <find>getmLastKnownLocation</find>
-      <find>addMarkers_SelectedDrivers</find>
-      <find>addmarkers</find>
-      <find>addMarker</find>
-      <find>updateDriverMarkerIcons</find>
-      <find>addVehicleTypes</find>
+      <find>tjod</find>
+      <find>tjo</find>
+      <find>tj</find>
+      <find>tod</find>
+      <find>v</find>
+      <find>ve</find>
+      <find>ver</find>
+      <find>verif</find>
+      <find>verify</find>
+      <find>verifyop</find>
+      <find>verifyo</find>
+      <find>verifyotp</find>
+      <find>verifyotp.</find>
+      <find>verifyotp.c</find>
+      <find>verifyotp.cl</find>
+      <find>fo</find>
+      <find>for</find>
+      <find>forge</find>
+      <find>forgetP</find>
+      <find>forget</find>
+      <find>to</find>
+      <find>t</find>
+      <find>todot</find>
+      <find>onRequestPermissionsResult</find>
+      <find>todo</find>
+      <find>l</find>
+      <find>lo</find>
+      <find>login_type</find>
+      <find>etPhoneNoForgotPassword</find>
+      <find>jsonObject</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -3015,65 +3375,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/bookingHistory/BookingsHistoryFragment.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/AppController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/logger/Dlog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/interfaceMgr/HomeUiUpdateNotifier.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/SessionManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/GetDrivers.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/LocationUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/countrypic/HomeModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/eventsHolder/CurrentLocationEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/GpsUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/countrypic/HomeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/PubNubMgr.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/customer/SplashActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/countrypic/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/HomeModelBase.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/customer/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_home_vehicle_type.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/customer/HomeFragment2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/HomeModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/adapter/PlaceAutoCompleteAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/customer/HomeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/MainAcitivity/HomeModelBase.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/MainAcitivity/HomeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/MainAcitivity/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/AddDropLocationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/PickupLocation/AddDropLocationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/adapter/AssignedBookingsAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/PickupLocation/FavAddressAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/PickupLocation/PlaceAutoCompleteAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/pickupLocation/PlaceAutoCompleteAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/adapter/sign/Second_Splash.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/sign/Second_Splash.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/Second_Splash.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/parent/ParentFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_auto_complete.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AutoCompleteCursor.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AutoCompleteCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_drop_location.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/event/SearchAddressEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/event/PlaceClickEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/PlaceAutoCompleteAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AddDropLocationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/pojos/ShipmentDetailSharePojo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/bookingFlow/ShipmentDetailsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ShipmentDetail_Controller.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/ShipmentDetail_Model.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/OkHttp3Connection.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_introduction.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/FacebookLogin.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Validator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_introduction/IntroductionFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/service/impl/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/service/AccountPojo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/SignUpController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_introduction/IntroductionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_introduction.xml" />
+        <option value="$PROJECT_DIR$/gradle.properties" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/KakaoSDKAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/ddddd.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dddddddddd.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/LocaleHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/AppController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/KakaoLoginUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/SessionCallback.java" />
+        <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_naver_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/NaverLoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/retrofit/RetrofitLib.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/retrofit/RetrofitService.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_naver_login/NaverHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_naver_login/NaverLoginUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/SignUpModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SignUpActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/customer/VerifyOTP.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/VerifyOTPModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/customer/ForgotPasswordActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/LoginModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/utility/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ForgotPasswordController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/model/ForgotPasswordModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/delex/a_choose_delivery_time/ChooseDeliveryTime.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -3081,7 +3441,7 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages AndroidView="true" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -3090,125 +3450,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DelexCustomer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DelexCustomer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DelexCustomer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="strings.xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DelexCustomer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DelexCustomer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DelexCustomer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="a_main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3249,12 +3492,189 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="com.skt.Tmap_1.52.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-mdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="delex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DelexCustomer" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="delex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="a_choose_delivery_time" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3266,7 +3686,7 @@
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="android.project.structure.last.selected" value="firebase_chat_module" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DelexCustomer2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1524923834678" />
     <property name="device.picker.selection" value="ce0516058b34a31603" />
     <property name="VectorAssetImportPath" value="C:\Users\Administrator\AndroidStudioProjects" />
@@ -3274,23 +3694,33 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Administrator/AndroidStudioProjects/DelexCustomer/app/src/main/java/com/delex/customer/HomeFragment.java" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex" />
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\libs" />
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\a_kakao_login" />
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\a_pickupLocation" />
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\countrypic" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.delex.a_choose_delivery_time" />
+      <recent name="com.delex.a_sign" />
+      <recent name="com.delex.a_introduction" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\libs" />
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\a_pickupLocation" />
+      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\countrypic" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.delex" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\a_pickupLocation" />
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\countrypic" />
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app" />
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\customer" />
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\libs" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.delex.a_kakao_login" />
       <recent name="com.delex.a_main" />
       <recent name="com.delex.customer" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\a_pickupLocation" />
-      <recent name="C:\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\src\main\java\com\delex\countrypic" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.delex.service.impl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -3306,6 +3736,24 @@
     </option>
   </component>
   <component name="RunManager" selected="Android App.app">
+    <configuration default="false" name="DelexCustomer [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -3377,7 +3825,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529055921580" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530514421947" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3425,7 +3873,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529055921580" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530514421947" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3608,12 +4056,18 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529055921580" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1530514421947" />
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Android App.app" />
+      <item index="1" class="java.lang.String" itemvalue="Gradle.DelexCustomer [signingReport]" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Gradle.DelexCustomer [signingReport]" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -3653,31 +4107,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25974026" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3392116" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29979253" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19709544" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29051173" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09128631" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32883817" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.049792532" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22814499" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22510374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3686,831 +4142,461 @@
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29051173" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0031120332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40560165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15145229" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29051173" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09128631" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.049792532" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0031120332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/eventsHolder/CurrentLocationEvent.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/eventsHolder/Event.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/GpsUtil.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ddddd.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dddddddddd.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/countrypic/CountryPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="35" column="21" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="594">
+          <caret line="62" column="51" lean-forward="false" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/SessionManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-ro-rRO/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="475" column="53" lean-forward="false" selection-start-line="475" selection-start-column="41" selection-end-line="475" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#252#257#0" expanded="false" />
+            <element signature="e#4133#4138#0" expanded="false" />
+            <element signature="e#15250#15255#0" expanded="false" />
+            <element signature="e#37473#37478#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/countrypic/HomeFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/PubNubMgr.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/LocaleHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+        <state relative-caret-position="155">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/customer/RateCardFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/servicesMgr/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="84" column="54" lean-forward="false" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/pojos/Types.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-android-sdk/4.14.1/749a42e54d4830dba3348d0fbb7009e5d7b70eb9/facebook-android-sdk-4.14.1-sources.jar!/com/facebook/CallbackManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="180">
+          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.1.0/3c44f49e13d5963398f87259293ee6a766afa82a/support-fragment-27.1.0-sources.jar!/android/support/v4/app/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="116" column="61" lean-forward="true" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_layout.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/interfaceMgr/ResultInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/SessionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437598">
-          <caret line="24886" column="13" lean-forward="false" selection-start-line="24886" selection-start-column="13" selection-end-line="24886" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#1045447#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#176430#176431#0" expanded="false" />
-            <element signature="e#176469#176470#0" expanded="false" />
-            <element signature="e#229744#229745#0" expanded="false" />
-            <element signature="e#229793#229794#0" expanded="false" />
-            <element signature="e#247786#247787#0" expanded="false" />
-            <element signature="e#247859#247860#0" expanded="false" />
-            <element signature="e#250494#250495#0" expanded="false" />
-            <element signature="e#250538#250539#0" expanded="false" />
-            <element signature="e#252059#252060#0" expanded="false" />
-            <element signature="e#252123#252124#0" expanded="false" />
-            <element signature="e#256814#256815#0" expanded="false" />
-            <element signature="e#256866#256867#0" expanded="false" />
-            <element signature="e#257079#257080#0" expanded="false" />
-            <element signature="e#257133#257134#0" expanded="false" />
-            <element signature="e#257655#257656#0" expanded="false" />
-            <element signature="e#257709#257710#0" expanded="false" />
-            <element signature="e#258154#258155#0" expanded="false" />
-            <element signature="e#258207#258208#0" expanded="false" />
-            <element signature="e#267689#267690#0" expanded="false" />
-            <element signature="e#267748#267749#0" expanded="false" />
-            <element signature="e#269925#269926#0" expanded="false" />
-            <element signature="e#269973#269974#0" expanded="false" />
-            <element signature="e#290118#290119#0" expanded="false" />
-            <element signature="e#290167#290168#0" expanded="false" />
-            <element signature="e#292762#292763#0" expanded="false" />
-            <element signature="e#292805#292806#0" expanded="false" />
-            <element signature="e#309820#309821#0" expanded="false" />
-            <element signature="e#309861#309862#0" expanded="false" />
-            <element signature="e#310405#310406#0" expanded="false" />
-            <element signature="e#310442#310443#0" expanded="false" />
-            <element signature="e#310508#310509#0" expanded="false" />
-            <element signature="e#310575#310576#0" expanded="false" />
-            <element signature="e#310941#310942#0" expanded="false" />
-            <element signature="e#310968#310969#0" expanded="false" />
-            <element signature="e#335926#335927#0" expanded="false" />
-            <element signature="e#335970#335971#0" expanded="false" />
-            <element signature="e#338781#338782#0" expanded="false" />
-            <element signature="e#338826#338827#0" expanded="false" />
-            <element signature="e#342960#342961#0" expanded="false" />
-            <element signature="e#343002#343003#0" expanded="false" />
-            <element signature="e#346452#346453#0" expanded="false" />
-            <element signature="e#346506#346507#0" expanded="false" />
-            <element signature="e#348260#348261#0" expanded="false" />
-            <element signature="e#348313#348314#0" expanded="false" />
-            <element signature="e#348566#348567#0" expanded="false" />
-            <element signature="e#348600#348601#0" expanded="false" />
-            <element signature="e#349832#349833#0" expanded="false" />
-            <element signature="e#349867#349868#0" expanded="false" />
-            <element signature="e#350381#350382#0" expanded="false" />
-            <element signature="e#350440#350441#0" expanded="false" />
-            <element signature="e#350691#350692#0" expanded="false" />
-            <element signature="e#350764#350765#0" expanded="false" />
-            <element signature="e#352707#352708#0" expanded="false" />
-            <element signature="e#352769#352770#0" expanded="false" />
-            <element signature="e#353751#353752#0" expanded="false" />
-            <element signature="e#353808#353809#0" expanded="false" />
-            <element signature="e#354540#354541#0" expanded="false" />
-            <element signature="e#354579#354580#0" expanded="false" />
-            <element signature="e#354919#354920#0" expanded="false" />
-            <element signature="e#354969#354970#0" expanded="false" />
-            <element signature="e#355270#355271#0" expanded="false" />
-            <element signature="e#355310#355311#0" expanded="false" />
-            <element signature="e#355655#355656#0" expanded="false" />
-            <element signature="e#355707#355708#0" expanded="false" />
-            <element signature="e#355999#356000#0" expanded="false" />
-            <element signature="e#356036#356037#0" expanded="false" />
-            <element signature="e#356366#356367#0" expanded="false" />
-            <element signature="e#356412#356413#0" expanded="false" />
-            <element signature="e#356710#356711#0" expanded="false" />
-            <element signature="e#356749#356750#0" expanded="false" />
-            <element signature="e#357089#357090#0" expanded="false" />
-            <element signature="e#357139#357140#0" expanded="false" />
-            <element signature="e#357446#357447#0" expanded="false" />
-            <element signature="e#357488#357489#0" expanded="false" />
-            <element signature="e#358226#358227#0" expanded="false" />
-            <element signature="e#358270#358271#0" expanded="false" />
-            <element signature="e#374853#374854#0" expanded="false" />
-            <element signature="e#374898#374899#0" expanded="false" />
-            <element signature="e#375378#375379#0" expanded="false" />
-            <element signature="e#375419#375420#0" expanded="false" />
-            <element signature="e#376527#376528#0" expanded="false" />
-            <element signature="e#376578#376579#0" expanded="false" />
-            <element signature="e#376874#376875#0" expanded="false" />
-            <element signature="e#376927#376928#0" expanded="false" />
-            <element signature="e#377194#377195#0" expanded="false" />
-            <element signature="e#377255#377256#0" expanded="false" />
-            <element signature="e#388660#388661#0" expanded="false" />
-            <element signature="e#388729#388730#0" expanded="false" />
-            <element signature="e#391486#391487#0" expanded="false" />
-            <element signature="e#391528#391529#0" expanded="false" />
-            <element signature="e#392582#392583#0" expanded="false" />
-            <element signature="e#392646#392647#0" expanded="false" />
-            <element signature="e#393878#393879#0" expanded="false" />
-            <element signature="e#393938#393939#0" expanded="false" />
-            <element signature="e#394403#394404#0" expanded="false" />
-            <element signature="e#394465#394466#0" expanded="false" />
-            <element signature="e#394768#394769#0" expanded="false" />
-            <element signature="e#394838#394839#0" expanded="false" />
-            <element signature="e#398294#398295#0" expanded="false" />
-            <element signature="e#398365#398366#0" expanded="false" />
-            <element signature="e#398863#398864#0" expanded="false" />
-            <element signature="e#398931#398932#0" expanded="false" />
-            <element signature="e#400174#400175#0" expanded="false" />
-            <element signature="e#400247#400248#0" expanded="false" />
-            <element signature="e#403753#403754#0" expanded="false" />
-            <element signature="e#403813#403814#0" expanded="false" />
-            <element signature="e#411799#411800#0" expanded="false" />
-            <element signature="e#411842#411843#0" expanded="false" />
-            <element signature="e#414860#414861#0" expanded="false" />
-            <element signature="e#414912#414913#0" expanded="false" />
-            <element signature="e#416567#416568#0" expanded="false" />
-            <element signature="e#416649#416650#0" expanded="false" />
-            <element signature="e#429274#429275#0" expanded="false" />
-            <element signature="e#429326#429327#0" expanded="false" />
-            <element signature="e#430104#430105#0" expanded="false" />
-            <element signature="e#430156#430157#0" expanded="false" />
-            <element signature="e#430499#430500#0" expanded="false" />
-            <element signature="e#430551#430552#0" expanded="false" />
-            <element signature="e#431504#431505#0" expanded="false" />
-            <element signature="e#431556#431557#0" expanded="false" />
-            <element signature="e#461062#461063#0" expanded="false" />
-            <element signature="e#461108#461109#0" expanded="false" />
-            <element signature="e#461314#461315#0" expanded="false" />
-            <element signature="e#461342#461343#0" expanded="false" />
-            <element signature="e#461422#461423#0" expanded="false" />
-            <element signature="e#461473#461474#0" expanded="false" />
-            <element signature="e#461551#461552#0" expanded="false" />
-            <element signature="e#461606#461607#0" expanded="false" />
-            <element signature="e#478512#478513#0" expanded="false" />
-            <element signature="e#478540#478541#0" expanded="false" />
-            <element signature="e#478975#478976#0" expanded="false" />
-            <element signature="e#479003#479004#0" expanded="false" />
-            <element signature="e#479432#479433#0" expanded="false" />
-            <element signature="e#479460#479461#0" expanded="false" />
-            <element signature="e#480618#480619#0" expanded="false" />
-            <element signature="e#480664#480665#0" expanded="false" />
-            <element signature="e#482189#482190#0" expanded="false" />
-            <element signature="e#482262#482263#0" expanded="false" />
-            <element signature="e#483797#483798#0" expanded="false" />
-            <element signature="e#483832#483833#0" expanded="false" />
-            <element signature="e#494499#494500#0" expanded="false" />
-            <element signature="e#494530#494531#0" expanded="false" />
-            <element signature="e#495234#495235#0" expanded="false" />
-            <element signature="e#495262#495263#0" expanded="false" />
-            <element signature="e#497549#497550#0" expanded="false" />
-            <element signature="e#497577#497578#0" expanded="false" />
-            <element signature="e#499730#499731#0" expanded="false" />
-            <element signature="e#499758#499759#0" expanded="false" />
-            <element signature="e#500393#500394#0" expanded="false" />
-            <element signature="e#500421#500422#0" expanded="false" />
-            <element signature="e#501391#501392#0" expanded="false" />
-            <element signature="e#501419#501420#0" expanded="false" />
-            <element signature="e#502545#502546#0" expanded="false" />
-            <element signature="e#502572#502573#0" expanded="false" />
-            <element signature="e#503144#503145#0" expanded="false" />
-            <element signature="e#503172#503173#0" expanded="false" />
-            <element signature="e#504894#504895#0" expanded="false" />
-            <element signature="e#504921#504922#0" expanded="false" />
-            <element signature="e#505853#505854#0" expanded="false" />
-            <element signature="e#505881#505882#0" expanded="false" />
-            <element signature="e#507681#507682#0" expanded="false" />
-            <element signature="e#507709#507710#0" expanded="false" />
-            <element signature="e#512969#512970#0" expanded="false" />
-            <element signature="e#513028#513029#0" expanded="false" />
-            <element signature="e#530159#530160#0" expanded="false" />
-            <element signature="e#530200#530201#0" expanded="false" />
-            <element signature="e#530308#530309#0" expanded="false" />
-            <element signature="e#530345#530346#0" expanded="false" />
-            <element signature="e#545552#545553#0" expanded="false" />
-            <element signature="e#545582#545583#0" expanded="false" />
-            <element signature="e#545864#545865#0" expanded="false" />
-            <element signature="e#545905#545906#0" expanded="false" />
-            <element signature="e#546185#546186#0" expanded="false" />
-            <element signature="e#546226#546227#0" expanded="false" />
-            <element signature="e#546606#546607#0" expanded="false" />
-            <element signature="e#546637#546638#0" expanded="false" />
-            <element signature="e#547003#547004#0" expanded="false" />
-            <element signature="e#547034#547035#0" expanded="false" />
-            <element signature="e#547237#547238#0" expanded="false" />
-            <element signature="e#547274#547275#0" expanded="false" />
-            <element signature="e#547476#547477#0" expanded="false" />
-            <element signature="e#547513#547514#0" expanded="false" />
-            <element signature="e#548458#548459#0" expanded="false" />
-            <element signature="e#548516#548517#0" expanded="false" />
-            <element signature="e#549291#549292#0" expanded="false" />
-            <element signature="e#549328#549329#0" expanded="false" />
-            <element signature="e#549617#549618#0" expanded="false" />
-            <element signature="e#549676#549677#0" expanded="false" />
-            <element signature="e#550455#550456#0" expanded="false" />
-            <element signature="e#550493#550494#0" expanded="false" />
-            <element signature="e#551905#551906#0" expanded="false" />
-            <element signature="e#551959#551960#0" expanded="false" />
-            <element signature="e#555854#555855#0" expanded="false" />
-            <element signature="e#555902#555903#0" expanded="false" />
-            <element signature="e#557102#557103#0" expanded="false" />
-            <element signature="e#557151#557152#0" expanded="false" />
-            <element signature="e#558578#558579#0" expanded="false" />
-            <element signature="e#558627#558628#0" expanded="false" />
-            <element signature="e#560130#560131#0" expanded="false" />
-            <element signature="e#560176#560177#0" expanded="false" />
-            <element signature="e#561304#561305#0" expanded="false" />
-            <element signature="e#561350#561351#0" expanded="false" />
-            <element signature="e#562522#562523#0" expanded="false" />
-            <element signature="e#562568#562569#0" expanded="false" />
-            <element signature="e#563961#563962#0" expanded="false" />
-            <element signature="e#564007#564008#0" expanded="false" />
-            <element signature="e#565269#565270#0" expanded="false" />
-            <element signature="e#565352#565353#0" expanded="false" />
-            <element signature="e#568601#568602#0" expanded="false" />
-            <element signature="e#568628#568629#0" expanded="false" />
-            <element signature="e#574973#574974#0" expanded="false" />
-            <element signature="e#575000#575001#0" expanded="false" />
-            <element signature="e#577208#577209#0" expanded="false" />
-            <element signature="e#577238#577239#0" expanded="false" />
-            <element signature="e#577408#577409#0" expanded="false" />
-            <element signature="e#577470#577471#0" expanded="false" />
-            <element signature="e#579621#579622#0" expanded="false" />
-            <element signature="e#579649#579650#0" expanded="false" />
-            <element signature="e#581879#581880#0" expanded="false" />
-            <element signature="e#581908#581909#0" expanded="false" />
-            <element signature="e#584202#584203#0" expanded="false" />
-            <element signature="e#584250#584251#0" expanded="false" />
-            <element signature="e#584631#584632#0" expanded="false" />
-            <element signature="e#584673#584674#0" expanded="false" />
-            <element signature="e#585036#585037#0" expanded="false" />
-            <element signature="e#585083#585084#0" expanded="false" />
-            <element signature="e#585462#585463#0" expanded="false" />
-            <element signature="e#585503#585504#0" expanded="false" />
-            <element signature="e#585878#585879#0" expanded="false" />
-            <element signature="e#585935#585936#0" expanded="false" />
-            <element signature="e#586326#586327#0" expanded="false" />
-            <element signature="e#586377#586378#0" expanded="false" />
-            <element signature="e#586626#586627#0" expanded="false" />
-            <element signature="e#586675#586676#0" expanded="false" />
-            <element signature="e#587523#587524#0" expanded="false" />
-            <element signature="e#587575#587576#0" expanded="false" />
-            <element signature="e#588789#588790#0" expanded="false" />
-            <element signature="e#588841#588842#0" expanded="false" />
-            <element signature="e#589916#589917#0" expanded="false" />
-            <element signature="e#589968#589969#0" expanded="false" />
-            <element signature="e#591015#591016#0" expanded="false" />
-            <element signature="e#591056#591057#0" expanded="false" />
-            <element signature="e#592252#592253#0" expanded="false" />
-            <element signature="e#592305#592306#0" expanded="false" />
-            <element signature="e#595410#595411#0" expanded="false" />
-            <element signature="e#595449#595450#0" expanded="false" />
-            <element signature="e#597123#597124#0" expanded="false" />
-            <element signature="e#597169#597170#0" expanded="false" />
-            <element signature="e#599435#599436#0" expanded="false" />
-            <element signature="e#599468#599469#0" expanded="false" />
-            <element signature="e#600772#600773#0" expanded="false" />
-            <element signature="e#600824#600825#0" expanded="false" />
-            <element signature="e#605853#605854#0" expanded="false" />
-            <element signature="e#605889#605890#0" expanded="false" />
-            <element signature="e#608056#608057#0" expanded="false" />
-            <element signature="e#608108#608109#0" expanded="false" />
-            <element signature="e#617418#617419#0" expanded="false" />
-            <element signature="e#617450#617451#0" expanded="false" />
-            <element signature="e#620514#620515#0" expanded="false" />
-            <element signature="e#620556#620557#0" expanded="false" />
-            <element signature="e#632944#632945#0" expanded="false" />
-            <element signature="e#632984#632985#0" expanded="false" />
-            <element signature="e#651852#651853#0" expanded="false" />
-            <element signature="e#651909#651910#0" expanded="false" />
-            <element signature="e#652596#652597#0" expanded="false" />
-            <element signature="e#652629#652630#0" expanded="false" />
-            <element signature="e#653398#653399#0" expanded="false" />
-            <element signature="e#653429#653430#0" expanded="false" />
-            <element signature="e#654196#654197#0" expanded="false" />
-            <element signature="e#654229#654230#0" expanded="false" />
-            <element signature="e#654877#654878#0" expanded="false" />
-            <element signature="e#654911#654912#0" expanded="false" />
-            <element signature="e#655664#655665#0" expanded="false" />
-            <element signature="e#655695#655696#0" expanded="false" />
-            <element signature="e#656445#656446#0" expanded="false" />
-            <element signature="e#656479#656480#0" expanded="false" />
-            <element signature="e#669456#669457#0" expanded="false" />
-            <element signature="e#669484#669485#0" expanded="false" />
-            <element signature="e#674113#674114#0" expanded="false" />
-            <element signature="e#674162#674163#0" expanded="false" />
-            <element signature="e#676198#676199#0" expanded="false" />
-            <element signature="e#676266#676267#0" expanded="false" />
-            <element signature="e#684451#684452#0" expanded="false" />
-            <element signature="e#684497#684498#0" expanded="false" />
-            <element signature="e#684688#684689#0" expanded="false" />
-            <element signature="e#684746#684747#0" expanded="false" />
-            <element signature="e#686515#686516#0" expanded="false" />
-            <element signature="e#686556#686557#0" expanded="false" />
-            <element signature="e#688603#688604#0" expanded="false" />
-            <element signature="e#688675#688676#0" expanded="false" />
-            <element signature="e#695366#695367#0" expanded="false" />
-            <element signature="e#695416#695417#0" expanded="false" />
-            <element signature="e#704338#704339#0" expanded="false" />
-            <element signature="e#704411#704412#0" expanded="false" />
-            <element signature="e#711450#711451#0" expanded="false" />
-            <element signature="e#711483#711484#0" expanded="false" />
-            <element signature="e#720967#720968#0" expanded="false" />
-            <element signature="e#721012#721013#0" expanded="false" />
-            <element signature="e#724521#724522#0" expanded="false" />
-            <element signature="e#724572#724573#0" expanded="false" />
-            <element signature="e#724772#724773#0" expanded="false" />
-            <element signature="e#724812#724813#0" expanded="false" />
-            <element signature="e#736205#736206#0" expanded="false" />
-            <element signature="e#736233#736234#0" expanded="false" />
-            <element signature="e#736950#736951#0" expanded="false" />
-            <element signature="e#736978#736979#0" expanded="false" />
-            <element signature="e#737300#737301#0" expanded="false" />
-            <element signature="e#737324#737325#0" expanded="false" />
-            <element signature="e#737649#737650#0" expanded="false" />
-            <element signature="e#737673#737674#0" expanded="false" />
-            <element signature="e#737992#737993#0" expanded="false" />
-            <element signature="e#738016#738017#0" expanded="false" />
-            <element signature="e#738344#738345#0" expanded="false" />
-            <element signature="e#738368#738369#0" expanded="false" />
-            <element signature="e#740982#740983#0" expanded="false" />
-            <element signature="e#741057#741058#0" expanded="false" />
-            <element signature="e#772934#772935#0" expanded="false" />
-            <element signature="e#772958#772959#0" expanded="false" />
-            <element signature="e#783810#783811#0" expanded="false" />
-            <element signature="e#783843#783844#0" expanded="false" />
-            <element signature="e#788859#788860#0" expanded="false" />
-            <element signature="e#788907#788908#0" expanded="false" />
-            <element signature="e#788952#788953#0" expanded="false" />
-            <element signature="e#789011#789012#0" expanded="false" />
-            <element signature="e#810439#810440#0" expanded="false" />
-            <element signature="e#810473#810474#0" expanded="false" />
-            <element signature="e#829852#829853#0" expanded="false" />
-            <element signature="e#829886#829887#0" expanded="false" />
-            <element signature="e#830172#830173#0" expanded="false" />
-            <element signature="e#830209#830210#0" expanded="false" />
-            <element signature="e#834045#834046#0" expanded="false" />
-            <element signature="e#834083#834084#0" expanded="false" />
-            <element signature="e#835607#835608#0" expanded="false" />
-            <element signature="e#835667#835668#0" expanded="false" />
-            <element signature="e#837240#837241#0" expanded="false" />
-            <element signature="e#837301#837302#0" expanded="false" />
-            <element signature="e#851619#851620#0" expanded="false" />
-            <element signature="e#851686#851687#0" expanded="false" />
-            <element signature="e#852043#852044#0" expanded="false" />
-            <element signature="e#852069#852070#0" expanded="false" />
-            <element signature="e#852344#852345#0" expanded="false" />
-            <element signature="e#852371#852372#0" expanded="false" />
-            <element signature="e#852815#852816#0" expanded="false" />
-            <element signature="e#852841#852842#0" expanded="false" />
-            <element signature="e#855334#855335#0" expanded="false" />
-            <element signature="e#855358#855359#0" expanded="false" />
-            <element signature="e#858463#858464#0" expanded="false" />
-            <element signature="e#858488#858489#0" expanded="false" />
-            <element signature="e#874266#874267#0" expanded="false" />
-            <element signature="e#874299#874300#0" expanded="false" />
-            <element signature="e#875119#875120#0" expanded="false" />
-            <element signature="e#875151#875152#0" expanded="false" />
-            <element signature="e#875894#875895#0" expanded="false" />
-            <element signature="e#875934#875935#0" expanded="false" />
-            <element signature="e#878171#878172#0" expanded="false" />
-            <element signature="e#878227#878228#0" expanded="false" />
-            <element signature="e#878580#878581#0" expanded="false" />
-            <element signature="e#878637#878638#0" expanded="false" />
-            <element signature="e#879314#879315#0" expanded="false" />
-            <element signature="e#879342#879343#0" expanded="false" />
-            <element signature="e#888256#888257#0" expanded="false" />
-            <element signature="e#888298#888299#0" expanded="false" />
-            <element signature="e#893283#893284#0" expanded="false" />
-            <element signature="e#893344#893345#0" expanded="false" />
-            <element signature="e#893863#893864#0" expanded="false" />
-            <element signature="e#893924#893925#0" expanded="false" />
-            <element signature="e#894457#894458#0" expanded="false" />
-            <element signature="e#894499#894500#0" expanded="false" />
-            <element signature="e#908206#908207#0" expanded="false" />
-            <element signature="e#908234#908235#0" expanded="false" />
-            <element signature="e#908383#908384#0" expanded="false" />
-            <element signature="e#908433#908434#0" expanded="false" />
-            <element signature="e#910739#910740#0" expanded="false" />
-            <element signature="e#910808#910809#0" expanded="false" />
-            <element signature="e#918788#918789#0" expanded="false" />
-            <element signature="e#918826#918827#0" expanded="false" />
-            <element signature="e#925345#925346#0" expanded="false" />
-            <element signature="e#925398#925399#0" expanded="false" />
-            <element signature="e#959323#959324#0" expanded="false" />
-            <element signature="e#959358#959359#0" expanded="false" />
-            <element signature="e#961931#961932#0" expanded="false" />
-            <element signature="e#961959#961960#0" expanded="false" />
-            <element signature="e#963276#963277#0" expanded="false" />
-            <element signature="e#963322#963323#0" expanded="false" />
-            <element signature="e#963381#963382#0" expanded="false" />
-            <element signature="e#963429#963430#0" expanded="false" />
-            <element signature="e#963811#963812#0" expanded="false" />
-            <element signature="e#963864#963865#0" expanded="false" />
-            <element signature="e#963931#963932#0" expanded="false" />
-            <element signature="e#963986#963987#0" expanded="false" />
-            <element signature="e#964368#964369#0" expanded="false" />
-            <element signature="e#964421#964422#0" expanded="false" />
-            <element signature="e#964480#964481#0" expanded="false" />
-            <element signature="e#964535#964536#0" expanded="false" />
-            <element signature="e#964917#964918#0" expanded="false" />
-            <element signature="e#964970#964971#0" expanded="false" />
-            <element signature="e#965029#965030#0" expanded="false" />
-            <element signature="e#965084#965085#0" expanded="false" />
-            <element signature="e#965410#965411#0" expanded="false" />
-            <element signature="e#965452#965453#0" expanded="false" />
-            <element signature="e#965511#965512#0" expanded="false" />
-            <element signature="e#965555#965556#0" expanded="false" />
-            <element signature="e#965881#965882#0" expanded="false" />
-            <element signature="e#965923#965924#0" expanded="false" />
-            <element signature="e#965982#965983#0" expanded="false" />
-            <element signature="e#966026#966027#0" expanded="false" />
-            <element signature="e#966352#966353#0" expanded="false" />
-            <element signature="e#966394#966395#0" expanded="false" />
-            <element signature="e#966453#966454#0" expanded="false" />
-            <element signature="e#966497#966498#0" expanded="false" />
-            <element signature="e#966858#966859#0" expanded="false" />
-            <element signature="e#966907#966908#0" expanded="false" />
-            <element signature="e#966966#966967#0" expanded="false" />
-            <element signature="e#967017#967018#0" expanded="false" />
-            <element signature="e#967384#967385#0" expanded="false" />
-            <element signature="e#967434#967435#0" expanded="false" />
-            <element signature="e#967493#967494#0" expanded="false" />
-            <element signature="e#967545#967546#0" expanded="false" />
-            <element signature="e#967912#967913#0" expanded="false" />
-            <element signature="e#967962#967963#0" expanded="false" />
-            <element signature="e#968021#968022#0" expanded="false" />
-            <element signature="e#968073#968074#0" expanded="false" />
-            <element signature="e#968425#968426#0" expanded="false" />
-            <element signature="e#968472#968473#0" expanded="false" />
-            <element signature="e#968531#968532#0" expanded="false" />
-            <element signature="e#968580#968581#0" expanded="false" />
-            <element signature="e#968932#968933#0" expanded="false" />
-            <element signature="e#968979#968980#0" expanded="false" />
-            <element signature="e#969038#969039#0" expanded="false" />
-            <element signature="e#969087#969088#0" expanded="false" />
-            <element signature="e#973930#973931#0" expanded="false" />
-            <element signature="e#973987#973988#0" expanded="false" />
-            <element signature="e#976232#976233#0" expanded="false" />
-            <element signature="e#976303#976304#0" expanded="false" />
-            <element signature="e#976349#976350#0" expanded="false" />
-            <element signature="e#976408#976409#0" expanded="false" />
-            <element signature="e#976846#976847#0" expanded="false" />
-            <element signature="e#976884#976885#0" expanded="false" />
-            <element signature="e#977616#977617#0" expanded="false" />
-            <element signature="e#977664#977665#0" expanded="false" />
-            <element signature="e#978099#978100#0" expanded="false" />
-            <element signature="e#978137#978138#0" expanded="false" />
-            <element signature="e#988530#988531#0" expanded="false" />
-            <element signature="e#988571#988572#0" expanded="false" />
-            <element signature="e#990100#990101#0" expanded="false" />
-            <element signature="e#990142#990143#0" expanded="false" />
-            <element signature="e#990975#990976#0" expanded="false" />
-            <element signature="e#991016#991017#0" expanded="false" />
-            <element signature="e#991566#991567#0" expanded="false" />
-            <element signature="e#991627#991628#0" expanded="false" />
-            <element signature="e#991883#991884#0" expanded="false" />
-            <element signature="e#991946#991947#0" expanded="false" />
-            <element signature="e#1024604#1024605#0" expanded="false" />
-            <element signature="e#1024639#1024640#0" expanded="false" />
-            <element signature="e#1026022#1026023#0" expanded="false" />
-            <element signature="e#1026070#1026071#0" expanded="false" />
-            <element signature="e#1026246#1026247#0" expanded="false" />
-            <element signature="e#1026309#1026310#0" expanded="false" />
-            <element signature="e#1039553#1039554#0" expanded="false" />
-            <element signature="e#1039596#1039597#0" expanded="false" />
-            <element signature="e#1040296#1040297#0" expanded="false" />
-            <element signature="e#1040335#1040336#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/customer/HomeFragment2.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_home_vehicle_type.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-648">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/interfaceMgr/OnItemViewClickNotifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="72" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="8" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/OkHttp3Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/bookingHistory/BookingsHistoryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="395" column="0" lean-forward="false" selection-start-line="395" selection-start-column="0" selection-end-line="395" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="83" column="24" lean-forward="false" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/countrypic/MainActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeModelBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/adapter/AssignedBookingsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/adapter/DocumentAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/adapter/GoodsItemAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/LanguageActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state relative-caret-position="1026">
+          <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/HandlePictureEvents.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+        <state relative-caret-position="3510">
+          <caret line="226" column="82" lean-forward="false" selection-start-line="226" selection-start-column="82" selection-end-line="226" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SignUpActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-mdpi/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/KakaoSDKAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="53" column="13" lean-forward="false" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+        <state relative-caret-position="152">
+          <caret line="127" column="39" lean-forward="false" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/Second_Splash.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/SessionCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="1260">
+          <caret line="84" column="71" lean-forward="false" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/parent/ParentFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="252">
+          <caret line="64" column="28" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_drop_address.xml">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
-          <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_naver_login.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/NaverLoginActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/app/SearchManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        <state relative-caret-position="1620">
+          <caret line="90" column="50" lean-forward="false" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_auto_complete.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/abar_custom.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_drop_location.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AutoCompleteCursor.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/event/PlaceClickEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AutoCompleteCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
-          <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/DropAddressAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/event/SearchAddressEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/FavAddressAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/PlaceAutoCompleteAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="258" column="46" lean-forward="false" selection-start-line="258" selection-start-column="46" selection-end-line="258" selection-end-column="46" />
-          <folding>
-            <marker date="1528954876859" expanded="false" signature="6397:6420" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment2.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_pickupLocation/AddDropLocationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="664" column="67" lean-forward="false" selection-start-line="664" selection-start-column="52" selection-end-line="664" selection-end-column="67" />
+        <state relative-caret-position="162">
+          <caret line="9" column="59" lean-forward="false" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/parent/ParentActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/retrofit/RetrofitLib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="288">
+          <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/retrofit/RetrofitService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="18" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="227" column="57" lean-forward="false" selection-start-line="227" selection-start-column="57" selection-end-line="227" selection-end-column="57" />
+        <state relative-caret-position="54">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="31" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396">
+          <caret line="41" column="41" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="146" column="25" lean-forward="false" selection-start-line="146" selection-start-column="25" selection-end-line="146" selection-end-column="25" />
+          <folding>
+            <element signature="e#4965#4966#0" expanded="false" />
+            <element signature="e#5014#5015#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_kakao_login/KakaoLoginUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="38" column="7" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_naver_login/NaverHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_naver_login/NaverLoginUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#6809#6810#0" expanded="false" />
+            <element signature="e#6856#6857#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_sign/SignUpActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27720">
+          <caret line="1628" column="58" lean-forward="false" selection-start-line="1628" selection-start-column="49" selection-end-line="1628" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
+      <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7218">
+          <caret line="401" column="28" lean-forward="false" selection-start-line="401" selection-start-column="28" selection-end-line="401" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/controllers/VerifyOTPController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="78" column="27" lean-forward="false" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/customer/VerifyOTP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="118" column="69" lean-forward="false" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/model/SignUpModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="266" column="45" lean-forward="false" selection-start-line="266" selection-start-column="45" selection-end-line="266" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/Alerts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_verify_otp.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/model/VerifyOTPModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="289" column="30" lean-forward="false" selection-start-line="289" selection-start-column="30" selection-end-line="289" selection-end-column="30" />
+          <folding>
+            <element signature="e#1932#1966#0" expanded="true" />
+            <element signature="e#3856#3906#0" expanded="true" />
+            <element signature="e#4313#4363#0" expanded="true" />
+            <element signature="e#9377#9427#0" expanded="true" />
+            <element signature="e#11567#11617#0" expanded="true" />
+            <element signature="e#11986#12031#0" expanded="true" />
+            <element signature="e#15427#15477#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/customer/ForgotPasswordActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="282" column="0" lean-forward="false" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/model/LoginModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="206" column="30" lean-forward="true" selection-start-line="206" selection-start-column="30" selection-end-line="206" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/OkHttp3Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="268" column="32" lean-forward="false" selection-start-line="268" selection-start-column="29" selection-end-line="268" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/controllers/SignUpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="76" column="41" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="1024" column="40" lean-forward="false" selection-start-line="1024" selection-start-column="30" selection-end-line="1024" selection-end-column="40" />
+        <state relative-caret-position="261">
+          <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/controllers/ForgotPasswordController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-743">
-          <caret line="110" column="22" lean-forward="false" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+        <state relative-caret-position="371">
+          <caret line="122" column="39" lean-forward="false" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeModel.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/model/ForgotPasswordModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="476" column="40" lean-forward="false" selection-start-line="476" selection-start-column="40" selection-end-line="476" selection-end-column="40" />
+        <state relative-caret-position="86">
+          <caret line="86" column="107" lean-forward="false" selection-start-line="86" selection-start-column="107" selection-end-line="86" selection-end-column="107" />
+          <folding>
+            <element signature="e#2320#2355#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/utility/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="69" column="48" lean-forward="false" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_main/HomeFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_choose_delivery_time.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="243" column="25" lean-forward="true" selection-start-line="243" selection-start-column="25" selection-end-line="243" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/delex/a_choose_delivery_time/ChooseDeliveryTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>

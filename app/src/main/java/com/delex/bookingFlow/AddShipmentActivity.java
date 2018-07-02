@@ -51,26 +51,29 @@ import com.delex.pojos.ShipmentDetailSharePojo;
 import com.delex.customer.R;
 
 import org.json.JSONArray;
+
 import java.io.File;
 import java.util.ArrayList;
 
 import eu.janmuller.android.simplecropimage.CropImage;
+
 import static com.delex.utility.Constants.PICK_CONTACT;
 
 /**
  * <h1>AddShipmentActivity Activity</h1>
+ * load details page로 부킹 마지막 페이지
  * This class is used to Adding the shipment and then user can do the request..
+ *
  * @author Shubham
  * @since 8 Sep 2017.
  */
-public class AddShipmentActivity extends ParentActivity implements View.OnClickListener
-{
+public class AddShipmentActivity extends ParentActivity implements View.OnClickListener {
     private SessionManager sessionManager;
     private File mFileTemp;
     private String profilePicUrl;
-    private boolean  isImageAvailable = false;
+    private boolean isImageAvailable = false;
     private ImagesListAdapter imageAdapter;
-    private ArrayList<Uri> imageUriList=new ArrayList<Uri>();
+    private ArrayList<Uri> imageUriList = new ArrayList<Uri>();
     private JSONArray imageJsonArray;
     RelativeLayout back_Layout, rl_shipment_country_code;
     ImageView iv_shipment_contact_icon, iv_shipment_country_flag;
@@ -127,26 +130,24 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * getting data from other activity.
      * </p>
      */
-    private void getData()
-    {
-        Bundle bundle=getIntent().getExtras();
-        if(bundle!=null){
+    private void getData() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
             sharePojo = getIntent().getExtras().getParcelable("data");
         }
     }
+
     /**
      * <h2>initialize</h2>
      * <p>
      * This method is used to initialize all the views of our layout.
      * </p>
      */
-    private void initialize()
-    {
+    private void initialize() {
         mCountryPicker = CountryPicker.newInstance(getString(R.string.select_country));
 
-        if(Utility.isRTL())
-        {
-            ImageView ivBackBtn =  findViewById(R.id.ivBackArrow);
+        if (Utility.isRTL()) {
+            ImageView ivBackBtn = findViewById(R.id.ivBackArrow);
             ivBackBtn.setRotation((float) 180.0);
         }
         back_Layout = findViewById(R.id.rlBackArrow);
@@ -172,28 +173,26 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
     }
 
 
-
-
     /**
      * <h2>setFonts</h2>
      * <p>
      * This method is used to set fonts
      * </p>
      */
-    public void setFonts(){
+    public void setFonts() {
         AppTypeface typeface = AppTypeface.getInstance(this);
         Typeface proNarNews = typeface.getPro_News();
         Typeface proNarMedium = typeface.getPro_narMedium();
 
-        TextView tv_shipment_rcvr_title= findViewById(R.id.tv_shipment_rcvr_title);
-        TextView tv_shipment_sender_label= findViewById(R.id.tv_shipment_sender_label);
-        TextView tv_shipment_contact_label= findViewById(R.id.tv_shipment_contact_label);
-        TextView tv_shipment_phone_label= findViewById(R.id.tv_shipment_phone_label);
-        TextView tv_shipment_additional_label= findViewById(R.id.tv_shipment_additional_label);
-        TextView rv_shipment_additional_pics_title= findViewById(R.id.rv_shipment_additional_pics_title);
-        TextView tv_shipment_additional_pics_label= findViewById(R.id.tv_shipment_additional_pics_label);
+        TextView tv_shipment_rcvr_title = findViewById(R.id.tv_shipment_rcvr_title);
+        TextView tv_shipment_sender_label = findViewById(R.id.tv_shipment_sender_label);
+        TextView tv_shipment_contact_label = findViewById(R.id.tv_shipment_contact_label);
+        TextView tv_shipment_phone_label = findViewById(R.id.tv_shipment_phone_label);
+        TextView tv_shipment_additional_label = findViewById(R.id.tv_shipment_additional_label);
+        TextView rv_shipment_additional_pics_title = findViewById(R.id.rv_shipment_additional_pics_title);
+        TextView tv_shipment_additional_pics_label = findViewById(R.id.tv_shipment_additional_pics_label);
         TextView tv_shipment_handlers_label = findViewById(R.id.tv_shipment_handlers_label);
-        TextView tv_shipment_additional_notes_title= findViewById(R.id.tv_shipment_additional_notes_title);
+        TextView tv_shipment_additional_notes_title = findViewById(R.id.tv_shipment_additional_notes_title);
 
         tv_shipment_handlers_label.setTypeface(proNarNews);
         tv_shipment_handlers.setTypeface(proNarMedium);
@@ -220,15 +219,13 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * This method is used for initialising the Progress bar.
      * </p>
      */
-    private void showProgressDialog()
-    {
-        if(pDialog == null) {
+    private void showProgressDialog() {
+        if (pDialog == null) {
             pDialog = Utility.GetProcessDialog(this);
             pDialog.setMessage(getString(R.string.wait));
         }
 
-        if(!pDialog.isShowing())
-        {
+        if (!pDialog.isShowing()) {
             pDialog.show();
             pDialog.setCancelable(false);
         }
@@ -240,21 +237,17 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * <p>
      * This method is used to called , when user checked any box.
      * </p>
+     *
      * @param v view on which it is clicked
      */
-    public void checkBoxClicked(View v)
-    {
-        if (v.getId() == R.id.cb_shipment_sender)
-        {
-            Utility.printLog("clicked on check: customer "+sessionManager.username()+" , "+sessionManager.getMobileNo());
-            if(cb_shipment_sender.isChecked())
-            {
+    public void checkBoxClicked(View v) {
+        if (v.getId() == R.id.cb_shipment_sender) {
+            Utility.printLog("clicked on check: customer " + sessionManager.username() + " , " + sessionManager.getMobileNo());
+            if (cb_shipment_sender.isChecked()) {
                 Utility.printLog("clicked on check: customer true");
                 et_shipment_receiver_name.setText(sessionManager.username());
                 showSelectedCountry(sessionManager.getMobileNo());
-            }
-            else
-            {
+            } else {
                 Utility.printLog("clicked on check: customer false");
                 et_shipment_receiver_name.setText("");
                 et_shipment_phone_number.setText("");
@@ -267,26 +260,27 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * <p>
      * This method is used to set the listeners for our country picker.
      * </p>
-     * */
+     */
     private void setCountryListener() {
         mCountryPicker.setListener(new CountryPickerListener() {
-            @Override public void onSelectCountry(String name, String code, String dialCode,
-                                                  int flagDrawableResID, int min, int max) {
+            @Override
+            public void onSelectCountry(String name, String code, String dialCode,
+                                        int flagDrawableResID, int min, int max) {
 
-                if(dialCode.equalsIgnoreCase("+2")){
+                if (dialCode.equalsIgnoreCase("+2")) {
                     tv_shipment_country_code.setText("+20");
-                        max=11;
-                }else{
+                    max = 11;
+                } else {
                     tv_shipment_country_code.setText(dialCode);
 
                 }
 
                 iv_shipment_country_flag.setImageResource(flagDrawableResID);
-               Log.d("AddShipmentAct", "setCountryListener value of selecting:1: "
-                       +flagDrawableResID+" min: "+min+" max: "+max);
+                Log.d("AddShipmentAct", "setCountryListener value of selecting:1: "
+                        + flagDrawableResID + " min: " + min + " max: " + max);
                 countryCodeMinLength = 8;
                 countryCodeMaxLength = max;
-               // et_shipment_phone_number.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
+                // et_shipment_phone_number.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
                 mCountryPicker.dismiss();
             }
         });
@@ -309,11 +303,11 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
         Country country = mCountryPicker.getUserCountryInfo(this);
         iv_shipment_country_flag.setImageResource(country.getFlag());
 
-        if(country.getDialCode().equalsIgnoreCase("+2")){
+        if (country.getDialCode().equalsIgnoreCase("+2")) {
             tv_shipment_country_code.setText("+20");
             countryCodeMaxLength = 11;
 
-        }else{
+        } else {
             tv_shipment_country_code.setText(country.getDialCode());
             countryCodeMaxLength = country.getMaxDigits();
         }
@@ -331,23 +325,19 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * This method is used for checking that permission is granted/ not and then it will give the control to other method
      * which will show the the alert for choosing different options.
      * </p>
+     *
      * @param position ,positions i.e., starts from 0 -> 4 means total 5.
      */
-    public void chooseImageOperation(int position)
-    {
+    public void chooseImageOperation(int position) {
         isContactFlag = false;
         permissionArrayList.add(AppPermissionsRunTime.Permission.READ_EXTERNAL_STORAGE);
         permissionArrayList.add(AppPermissionsRunTime.Permission.CAMERA);
         permissionArrayList.add(AppPermissionsRunTime.Permission.PHONE);
-        if(Build.VERSION.SDK_INT >= 23)
-        {
-            if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-            {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                 selectImage(position);
             }
-        }
-        else
-        {
+        } else {
             selectImage(position);
         }
     }
@@ -357,16 +347,14 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * <p>
      * This method is used to create the file and store the image
      * </p>
+     *
      * @param position needs the position to store the image pos
      */
-    private void selectImage(int position)
-    {
+    private void selectImage(int position) {
         mFileTemp = imageOperation.clearOrCreateDir(position);
-        imageOperation.doImageOperation(mFileTemp , position, new ResultInterface()
-        {
+        imageOperation.doImageOperation(mFileTemp, position, new ResultInterface() {
             @Override
-            public void errorMandatoryNotifier()
-            {
+            public void errorMandatoryNotifier() {
                 Utility.printLog("first process");
             }
 
@@ -380,22 +368,19 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
     /**
      * <h2>hideProgressDialog</h2>
      * <p>
-     *     method to hide progress dialog if
-     *     its already visible
+     * method to hide progress dialog if
+     * its already visible
      * </p>
      */
-    private void hideProgressDialog()
-    {
-        if(pDialog != null && pDialog.isShowing())
-        {
+    private void hideProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
             pDialog.dismiss();
         }
     }
     //====================================================================
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode != RESULT_OK) {
@@ -423,7 +408,7 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
                     @Override
                     public void onSuccess(String fileName) {
                         isImageAvailable = true;
-                        profilePicUrl= fileName;
+                        profilePicUrl = fileName;
                         Utility.printLog("pppppp image upload in amazon ::: " + profilePicUrl);
                         imageUriList.add(Uri.parse(profilePicUrl));
                         imageJsonArray.put(profilePicUrl);
@@ -433,203 +418,193 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
 
                     @Override
                     public void onFailure() {
-                        if(this!=null)
+                        if (this != null)
                             hideProgressDialog();
-                        Toast.makeText(AddShipmentActivity.this,getString(R.string.failImageUpload),Toast.LENGTH_LONG).show();
+                        Toast.makeText(AddShipmentActivity.this, getString(R.string.failImageUpload), Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
 
             case PICK_CONTACT:
-                if (resultCode == Activity.RESULT_OK)
-                {
-                    if (resultCode == Activity.RESULT_OK)
-                    {
+                if (resultCode == Activity.RESULT_OK) {
+                    if (resultCode == Activity.RESULT_OK) {
                         controller.selectContact(data, tv_shipment_country_code.getText().toString(), new ContactInterface() {
                             @Override
-                            public void firstProcess(String s)
-                            {
+                            public void firstProcess(String s) {
                                 resetContactElement();
                                 et_shipment_receiver_name.setHint(getString(R.string.mand_full_name));
                             }
+
                             @Override
-                            public void secondProcess(String nameContact)
-                            {
+                            public void secondProcess(String nameContact) {
                                 resetContactElement();
                                 et_shipment_receiver_name.setText(nameContact);
                             }
+
                             @Override
-                            public void thirdProcess(String nameContact, String cNumber)
-                            {
+                            public void thirdProcess(String nameContact, String cNumber) {
                                 resetContactElement();
                                 et_shipment_receiver_name.setText(nameContact);
-                                String output="";
-                                String upToNCharacters="";
-                                String str="";
+                                String output = "";
+                                String upToNCharacters = "";
+                                String str = "";
 
-                                Log.d("threeprocess1234: ",tv_shipment_country_code.getText().toString()+"="+tv_shipment_country_code.getText().toString().length());
+                                Log.d("threeprocess1234: ", tv_shipment_country_code.getText().toString() + "=" + tv_shipment_country_code.getText().toString().length());
 
-                                if(tv_shipment_country_code.getText().toString().length()==4) {
+                                if (tv_shipment_country_code.getText().toString().length() == 4) {
 
 
+                                    for (int l = 0; l < cNumber.length(); l++) {
+                                        if (cNumber.charAt(l) == ' ' || cNumber.charAt(l) == '-') {
 
-                                    for (int l=0;l<cNumber.length();l++){
-                                        if(cNumber.charAt(l)==' '||cNumber.charAt(l)=='-'){
-
-                                        }else{
-                                            upToNCharacters=upToNCharacters+cNumber.charAt(l);
+                                        } else {
+                                            upToNCharacters = upToNCharacters + cNumber.charAt(l);
                                         }
                                     }
 
-                                    int i=upToNCharacters.length()-1;
-                                    Log.d("threeprocess123: ","=="+ i+"=="+upToNCharacters);
-                                    while (i>upToNCharacters.length()-1+-9){
-                                        str= upToNCharacters.charAt(i)+str;
+                                    int i = upToNCharacters.length() - 1;
+                                    Log.d("threeprocess123: ", "==" + i + "==" + upToNCharacters);
+                                    while (i > upToNCharacters.length() - 1 + -9) {
+                                        str = upToNCharacters.charAt(i) + str;
                                         i--;
                                     }
-                                    Log.d("threeprocess12: ","=="+ i+"=="+cNumber);
+                                    Log.d("threeprocess12: ", "==" + i + "==" + cNumber);
 
-                                }else if(tv_shipment_country_code.getText().toString().length()==3){
-                                    for (int l=0;l<cNumber.length();l++){
-                                        if(cNumber.charAt(l)==' '||cNumber.charAt(l)=='-'){
+                                } else if (tv_shipment_country_code.getText().toString().length() == 3) {
+                                    for (int l = 0; l < cNumber.length(); l++) {
+                                        if (cNumber.charAt(l) == ' ' || cNumber.charAt(l) == '-') {
 
-                                        }else{
-                                            upToNCharacters=upToNCharacters+cNumber.charAt(l);
+                                        } else {
+                                            upToNCharacters = upToNCharacters + cNumber.charAt(l);
                                         }
                                     }
 
-                                    if(tv_shipment_country_code.getText().toString().equalsIgnoreCase("+20"))
-                                    {
+                                    if (tv_shipment_country_code.getText().toString().equalsIgnoreCase("+20")) {
 
-                                        int i=upToNCharacters.length()-1;
-                                        Log.d("3thprocess123: ","=="+ i+"=="+upToNCharacters);
-                                        while (i>upToNCharacters.length()-1+-11){
-                                            str= upToNCharacters.charAt(i)+str;
+                                        int i = upToNCharacters.length() - 1;
+                                        Log.d("3thprocess123: ", "==" + i + "==" + upToNCharacters);
+                                        while (i > upToNCharacters.length() - 1 + -11) {
+                                            str = upToNCharacters.charAt(i) + str;
                                             i--;
                                         }
-                                    }else{
+                                    } else {
 
-                                        int i=upToNCharacters.length()-1;
-                                        Log.d("3process123: ","=="+ i+"=="+upToNCharacters);
-                                        while (i>upToNCharacters.length()-1+-10){
-                                            str= upToNCharacters.charAt(i)+str;
+                                        int i = upToNCharacters.length() - 1;
+                                        Log.d("3process123: ", "==" + i + "==" + upToNCharacters);
+                                        while (i > upToNCharacters.length() - 1 + -10) {
+                                            str = upToNCharacters.charAt(i) + str;
                                             i--;
                                         }
                                     }
-                                }else{
-                                    for (int l=0;l<cNumber.length();l++){
-                                        if(cNumber.charAt(l)==' '||cNumber.charAt(l)=='-'){
+                                } else {
+                                    for (int l = 0; l < cNumber.length(); l++) {
+                                        if (cNumber.charAt(l) == ' ' || cNumber.charAt(l) == '-') {
 
-                                        }else{
-                                            upToNCharacters=upToNCharacters+cNumber.charAt(l);
+                                        } else {
+                                            upToNCharacters = upToNCharacters + cNumber.charAt(l);
                                         }
                                     }
 
-                                    if(tv_shipment_country_code.getText().toString().equalsIgnoreCase("+2"))
-                                    {
+                                    if (tv_shipment_country_code.getText().toString().equalsIgnoreCase("+2")) {
 
-                                        int i=upToNCharacters.length()-1;
-                                        Log.d("fourthprocess123: ","=="+ i+"=="+upToNCharacters);
-                                        while (i>upToNCharacters.length()-1+-11){
-                                            str= upToNCharacters.charAt(i)+str;
+                                        int i = upToNCharacters.length() - 1;
+                                        Log.d("fourthprocess123: ", "==" + i + "==" + upToNCharacters);
+                                        while (i > upToNCharacters.length() - 1 + -11) {
+                                            str = upToNCharacters.charAt(i) + str;
                                             i--;
                                         }
-                                    }else{
+                                    } else {
 
                                         str = cNumber;
                                     }
                                 }
-                                Log.d("threeprocess: ",str+"=="+ upToNCharacters+"=="+cNumber);
+                                Log.d("threeprocess: ", str + "==" + upToNCharacters + "==" + cNumber);
                                 et_shipment_phone_number.setText(str);
                             }
+
                             @Override
-                            public void fourthProcess(String nameContact, String cNumber)
-                            {
+                            public void fourthProcess(String nameContact, String cNumber) {
                                 resetContactElement();
                                 et_shipment_receiver_name.setText(nameContact);
-                                String output="";
-                                String upToNCharacters="";
-                                String str="";
+                                String output = "";
+                                String upToNCharacters = "";
+                                String str = "";
 
-                                Log.d("fourthprocess1234: ",tv_shipment_country_code.getText().toString()+"="+tv_shipment_country_code.getText().toString().length());
+                                Log.d("fourthprocess1234: ", tv_shipment_country_code.getText().toString() + "=" + tv_shipment_country_code.getText().toString().length());
 
-                                if(tv_shipment_country_code.getText().toString().length()==4) {
+                                if (tv_shipment_country_code.getText().toString().length() == 4) {
 
 
+                                    for (int l = 0; l < cNumber.length(); l++) {
+                                        if (cNumber.charAt(l) == ' ' || cNumber.charAt(l) == '-') {
 
-                                    for (int l=0;l<cNumber.length();l++){
-                                        if(cNumber.charAt(l)==' '||cNumber.charAt(l)=='-'){
-
-                                        }else{
-                                            upToNCharacters=upToNCharacters+cNumber.charAt(l);
+                                        } else {
+                                            upToNCharacters = upToNCharacters + cNumber.charAt(l);
                                         }
                                     }
 
-                                    int i=upToNCharacters.length()-1;
-                                    Log.d("fourthprocess123: ","=="+ i+"=="+upToNCharacters);
-                                    while (i>upToNCharacters.length()-1+-9){
-                                        str= upToNCharacters.charAt(i)+str;
+                                    int i = upToNCharacters.length() - 1;
+                                    Log.d("fourthprocess123: ", "==" + i + "==" + upToNCharacters);
+                                    while (i > upToNCharacters.length() - 1 + -9) {
+                                        str = upToNCharacters.charAt(i) + str;
                                         i--;
                                     }
-                                    Log.d("fourthprocess12: ","=="+ i+"=="+cNumber);
+                                    Log.d("fourthprocess12: ", "==" + i + "==" + cNumber);
 
-                                }else if(tv_shipment_country_code.getText().toString().length()==3){
-                                    for (int l=0;l<cNumber.length();l++){
-                                        if(cNumber.charAt(l)==' '||cNumber.charAt(l)=='-'){
+                                } else if (tv_shipment_country_code.getText().toString().length() == 3) {
+                                    for (int l = 0; l < cNumber.length(); l++) {
+                                        if (cNumber.charAt(l) == ' ' || cNumber.charAt(l) == '-') {
 
-                                        }else{
-                                            upToNCharacters=upToNCharacters+cNumber.charAt(l);
+                                        } else {
+                                            upToNCharacters = upToNCharacters + cNumber.charAt(l);
                                         }
                                     }
 
-                                    if(tv_shipment_country_code.getText().toString().equalsIgnoreCase("+20")||tv_shipment_country_code.getText().toString().equalsIgnoreCase("+2"))
-                                    {
+                                    if (tv_shipment_country_code.getText().toString().equalsIgnoreCase("+20") || tv_shipment_country_code.getText().toString().equalsIgnoreCase("+2")) {
 
-                                        int i=upToNCharacters.length()-1;
-                                        Log.d("fourthprocess123: ","=="+ i+"=="+upToNCharacters);
-                                        while (i>upToNCharacters.length()-1+-11){
-                                            str= upToNCharacters.charAt(i)+str;
+                                        int i = upToNCharacters.length() - 1;
+                                        Log.d("fourthprocess123: ", "==" + i + "==" + upToNCharacters);
+                                        while (i > upToNCharacters.length() - 1 + -11) {
+                                            str = upToNCharacters.charAt(i) + str;
                                             i--;
                                         }
-                                    }else{
+                                    } else {
 
-                                        int i=upToNCharacters.length()-1;
-                                        Log.d("fourthprocess123: ","=="+ i+"=="+upToNCharacters);
-                                        while (i>upToNCharacters.length()-1+-10){
-                                            str= upToNCharacters.charAt(i)+str;
+                                        int i = upToNCharacters.length() - 1;
+                                        Log.d("fourthprocess123: ", "==" + i + "==" + upToNCharacters);
+                                        while (i > upToNCharacters.length() - 1 + -10) {
+                                            str = upToNCharacters.charAt(i) + str;
                                             i--;
                                         }
                                     }
 
-                                }else{
-                                    for (int l=0;l<cNumber.length();l++){
-                                        if(cNumber.charAt(l)==' '||cNumber.charAt(l)=='-'){
+                                } else {
+                                    for (int l = 0; l < cNumber.length(); l++) {
+                                        if (cNumber.charAt(l) == ' ' || cNumber.charAt(l) == '-') {
 
-                                        }else{
-                                            upToNCharacters=upToNCharacters+cNumber.charAt(l);
+                                        } else {
+                                            upToNCharacters = upToNCharacters + cNumber.charAt(l);
                                         }
                                     }
 
-                                    if(tv_shipment_country_code.getText().toString().equalsIgnoreCase("+2"))
-                                    {
+                                    if (tv_shipment_country_code.getText().toString().equalsIgnoreCase("+2")) {
 
-                                        int i=upToNCharacters.length()-1;
-                                        Log.d("fourthprocess123: ","=="+ i+"=="+upToNCharacters);
-                                        while (i>upToNCharacters.length()-1+-11){
-                                            str= upToNCharacters.charAt(i)+str;
+                                        int i = upToNCharacters.length() - 1;
+                                        Log.d("fourthprocess123: ", "==" + i + "==" + upToNCharacters);
+                                        while (i > upToNCharacters.length() - 1 + -11) {
+                                            str = upToNCharacters.charAt(i) + str;
                                             i--;
                                         }
-                                    }else{
+                                    } else {
 
                                         str = cNumber;
                                     }
 
 
-
                                 }
-                                Log.d("fourthprocess: ",str+"=="+ upToNCharacters+"=="+cNumber);
+                                Log.d("fourthprocess: ", str + "==" + upToNCharacters + "==" + cNumber);
                                 et_shipment_phone_number.setText(str);
-                                Log.d("fourthprocess: ",str+"=="+ upToNCharacters+"=="+cNumber+"=="+et_shipment_phone_number.getText());
+                                Log.d("fourthprocess: ", str + "==" + upToNCharacters + "==" + cNumber + "==" + et_shipment_phone_number.getText());
                             }
                         });
                     }
@@ -644,8 +619,7 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * This method is used to reset the value of receiver name and phone number.
      * </p>
      */
-    private void resetContactElement()
-    {
+    private void resetContactElement() {
         et_shipment_receiver_name.setText("");
         et_shipment_phone_number.setText("");
         et_shipment_receiver_name.clearFocus();
@@ -658,17 +632,15 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * <p>
      * This method is used to change the country flag and code, based on our number selection.
      * </p>
+     *
      * @param phone, contains the phone number.
      */
-    private void showSelectedCountry(String phone)
-    {
-        if (phone.startsWith("0"))
-        {
+    private void showSelectedCountry(String phone) {
+        if (phone.startsWith("0")) {
             Utility.printLog("value of phone: 4:else: method; " + phone);
-            phone = phone.replace("0","");
+            phone = phone.replace("0", "");
             et_shipment_phone_number.setText(phone);
-        }
-        else if (phone.startsWith("+")){
+        } else if (phone.startsWith("+")) {
             final String[] rl = getResources().getStringArray(R.array.CountryCodes);
             String[] code = new String[rl.length];
             for (int pos = 0; pos < rl.length; pos++) {
@@ -684,29 +656,27 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
                     iv_shipment_country_flag.setImageResource(flag_ids);
                 }
             }
-        }
-        else
-        {
+        } else {
             et_shipment_phone_number.setText(phone);
         }
     }
+
     /**
      * <h2>removeImageUri</h2>
      * <p>
      * This method is used for removing the image URI from the list that we are sending to the server.
      * </p>
+     *
      * @param pos position of the image to be removed
      */
-    public void removeImageUri(int pos)
-    {
+    public void removeImageUri(int pos) {
         imageUriList.remove(pos);
         imageAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.rlBackArrow:
                 onBackPressed();
                 break;
@@ -714,35 +684,30 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
             case R.id.iv_shipment_contact_icon:
                 isContactFlag = true;
                 permissionArrayList.add(AppPermissionsRunTime.Permission.READ_CONTACT);
-                if(Build.VERSION.SDK_INT >= 23)
-                {
-                    if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-                    {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                         selectContact();
                     }
-                }
-                else
-                {
+                } else {
                     selectContact();
                 }
                 break;
             case R.id.btn_shipment_request:
                 if (!et_shipment_receiver_name.getText().toString().equals("") && !et_shipment_phone_number.getText().toString().equals("")) {
 
-                    Log.d("onClickewrew123: ",et_shipment_phone_number.getText().toString().length()+"");
-                  if(et_shipment_phone_number.getText().toString().length()>=8&&et_shipment_phone_number.getText().toString().length()<12) {
-                      controller.requestBooking(et_shipment_receiver_name.getText().toString(), et_shipment_phone_number.getText().toString(),
-                              et_shipment_additional_notes.getText().toString(), isImageAvailable, imageJsonArray, sharePojo, tv_shipment_country_code.getText().toString(), sessionManager.getLength(), sessionManager.getWidth(), sessionManager.getHieght(), dimenUnit);
+                    Log.d("onClickewrew123: ", et_shipment_phone_number.getText().toString().length() + "");
+                    if (et_shipment_phone_number.getText().toString().length() >= 8 && et_shipment_phone_number.getText().toString().length() < 12) {
 
-                  }else{
+                        controller.requestBooking(et_shipment_receiver_name.getText().toString(), et_shipment_phone_number.getText().toString(),
+                                et_shipment_additional_notes.getText().toString(), isImageAvailable, imageJsonArray, sharePojo, tv_shipment_country_code.getText().toString(), sessionManager.getLength(), sessionManager.getWidth(), sessionManager.getHieght(), dimenUnit);
 
-                      Toast.makeText(this, "Enter A Valid phone Number", Toast.LENGTH_SHORT).show();
-                  }
-                }
-                else
-                    {
+                    } else {
+
+                        Toast.makeText(this, "Enter A Valid phone Number", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
                     Utility.printLog("working with else");
-                        Toast.makeText(this, getString(R.string.pleaseFillTheDetails), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.pleaseFillTheDetails), Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -754,35 +719,30 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
 
     /**
      * This method got called, once we give any permission to our required permission.
+     *
      * @param requestCode  contains request code.
-     * @param permissions   contains Permission list.
-     * @param grantResults  contains the grant permission result.
+     * @param permissions  contains Permission list.
+     * @param grantResults contains the grant permission result.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-    {
-        if (requestCode == Constants.REQUEST_CODE)
-        {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == Constants.REQUEST_CODE) {
             boolean isAllGranted = true;
             for (String permission : permissions) {
                 if (permission.equals(PackageManager.PERMISSION_GRANTED)) {
                     isAllGranted = false;
                 }
             }
-            if (! isAllGranted)
-            {
+            if (!isAllGranted) {
                 permissionsRunTime.getPermission(permissionArrayList, this, true);
-            }
-            else
-            {
+            } else {
                 if (isContactFlag)
                     selectContact();
                 else {
                     selectImage(0);
                 }
             }
-        }
-        else {
+        } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
@@ -793,8 +753,7 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * This method is used to select contact from devices contact list.
      * </p>
      */
-    private void selectContact()
-    {
+    private void selectContact() {
         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
         startActivityForResult(intent, PICK_CONTACT);
     }
@@ -810,10 +769,10 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
      * <p>
      * This method is used to open the dialog for handlers
      * </p>
+     *
      * @param tv_shipment_handlers textview to set the handlers
      */
-    private void alertDialogToSelectHelpersNo(final TextView tv_shipment_handlers)
-    {
+    private void alertDialogToSelectHelpersNo(final TextView tv_shipment_handlers) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         View view = LayoutInflater.from(this).inflate(R.layout.layout_helpers_selector_view, null);
         alertDialogBuilder.setView(view);
@@ -832,18 +791,16 @@ public class AddShipmentActivity extends ParentActivity implements View.OnClickL
 
         final NumberPicker npHelpers = view.findViewById(R.id.npHelpers);
         npHelpers.setTypeface(proNarMedium);
-        final String npDisplayedValues [] = { getResources().getString(R.string.no_Handlers), getString(R.string.one), getString(R.string.two), getString(R.string.three), getString(R.string.four), getString(R.string.five), getString(R.string.six), getString(R.string.seven), getString(R.string.eight), getString(R.string.nine), getString(R.string.ten) };
+        final String npDisplayedValues[] = {getResources().getString(R.string.no_Handlers), getString(R.string.one), getString(R.string.two), getString(R.string.three), getString(R.string.four), getString(R.string.five), getString(R.string.six), getString(R.string.seven), getString(R.string.eight), getString(R.string.nine), getString(R.string.ten)};
         npHelpers.setDisplayedValues(npDisplayedValues);
         npHelpers.setMinValue(0);
-        npHelpers.setMaxValue(npDisplayedValues.length -1);
+        npHelpers.setMaxValue(npDisplayedValues.length - 1);
 
         Button btnConfirm = view.findViewById(R.id.btnConfirm);
         btnConfirm.setTypeface(proNarMedium);
-        btnConfirm.setOnClickListener(new View.OnClickListener()
-        {
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 controller.setNoOfHelpers(String.valueOf(npHelpers.getValue()));
                 Log.d("AddShipmentActivity", "alertDialogToSelectHelpersNo npCurrentPosition: ");
                 tv_shipment_handlers.setText(String.valueOf(npHelpers.getValue()));

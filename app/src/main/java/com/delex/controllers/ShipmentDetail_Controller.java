@@ -10,7 +10,7 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.delex.a_pickupLocation.AddDropLocationActivity;
+import com.delex.a_chooseLocation.AddDropLocationActivity;
 import com.delex.interfaceMgr.SingleCallbackWithParam;
 import com.delex.utility.Alerts;
 import com.delex.utility.Constants;
@@ -374,12 +374,14 @@ public class ShipmentDetail_Controller {
     /**
      * <h2>getShipmentFare</h2>
      * <p>
+     *     이 메서드는 Model 클래스에있는 getShipmentFare () 메서드를 호출합니다.
      * This method will give a call to getShipmentFare() method that is resides in Model class.
      * </p>
      * @param singleCallbackWithParam callback.
      */
     public void getShipmentFare(SingleCallbackWithParam singleCallbackWithParam)
     {
+
         model.getShipmentFare(singleCallbackWithParam);
     }
 }

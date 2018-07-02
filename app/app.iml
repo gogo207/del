@@ -91,7 +91,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/build-info" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check-manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data-binding-compiler" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data-binding-info" />
@@ -121,93 +120,98 @@
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.google.android.gms:play-services-base-9.6.0" level="project" />
-    <orderEntry type="library" name="com.android.support:multidex-1.0.2" level="project" />
-    <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.0" level="project" />
-    <orderEntry type="library" name="com.pubnub:pubnub:4.0.3@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:design-27.1.0" level="project" />
-    <orderEntry type="library" name="com.squareup.okio:okio:1.8.0@jar" level="project" />
+    <orderEntry type="library" name="com.kakao.sdk:usermgmt-1.1.7" level="project" />
     <orderEntry type="library" name="com.android.support:transition-27.1.0" level="project" />
-    <orderEntry type="library" name="com.squareup.retrofit2:retrofit:2.1.0@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:C.\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\libs\com.skt.Tmap_1.52.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-basement-9.6.0" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.1@jar" level="project" />
-    <orderEntry type="library" name="com.android.databinding:library-1.3.1" level="project" />
-    <orderEntry type="library" name="com.android.support:recyclerview-v7-27.1.0" level="project" />
-    <orderEntry type="library" name="com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
-    <orderEntry type="library" name="org.slf4j:slf4j-api:1.7.21@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-core-9.6.0" level="project" />
-    <orderEntry type="library" name="com.github.oxo42:stateless4j:2.4.0@jar" level="project" />
-    <orderEntry type="library" name="com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
-    <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-auth-9.6.0" level="project" />
-    <orderEntry type="library" name="com.squareup.okhttp3:okhttp:3.3.1@jar" level="project" />
-    <orderEntry type="library" name="com.couchbase.lite:couchbase-lite-java-core:1.4.1@jar" level="project" />
     <orderEntry type="library" name="com.firebaseui:firebase-ui-storage-0.6.0" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-auth-9.6.0" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-iid-9.6.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-tasks-9.6.0" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-auth-module-9.6.0" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-auth-common-9.6.0" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:viewmodel-1.1.0" level="project" />
     <orderEntry type="library" name="com.amazonaws:aws-android-sdk-kms:2.6.16@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-common-9.6.0" level="project" />
-    <orderEntry type="library" name="com.github.Q42:AndroidScrollingImageView-1.2" level="project" />
     <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-annotations:2.7.3@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-analytics-9.6.0" level="project" />
     <orderEntry type="library" name="com.squareup.picasso:picasso:2.5.2@jar" level="project" />
     <orderEntry type="library" name="com.crashlytics.sdk.android:crashlytics-2.7.1" level="project" />
-    <orderEntry type="library" name="org.greenrobot:eventbus:3.0.0@jar" level="project" />
     <orderEntry type="library" name="com.crashlytics.sdk.android:answers-1.4.1" level="project" />
-    <orderEntry type="library" name="com.android.support:cardview-v7-26.0.2" level="project" />
-    <orderEntry type="library" name="com.yarolegovich:sliding-root-nav-1.1.0" level="project" />
-    <orderEntry type="library" name="com.android.support:animated-vector-drawable-27.1.0" level="project" />
-    <orderEntry type="library" name="com.github.livechat:chat-window-android-v2.0.0" level="project" />
     <orderEntry type="library" name="com.android.support:customtabs-23.4.0" level="project" />
-    <orderEntry type="library" name="com.facebook.android:facebook-android-sdk-4.14.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-messaging-9.6.0" level="project" />
-    <orderEntry type="library" name="com.amazonaws:aws-android-sdk-core:2.6.16@jar" level="project" />
     <orderEntry type="library" name="de.hdodenhof:circleimageview-2.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-27.1.0" level="project" />
-    <orderEntry type="library" name="android.arch.core:common:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="io.card:android-sdk-5.5.1" level="project" />
+    <orderEntry type="library" name="com.kakao.sdk:util-1.1.7" level="project" />
     <orderEntry type="library" name="com.firebaseui:firebase-ui-auth-0.6.0" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-auth-base-9.6.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-annotations:27.1.0@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-database-connection-9.6.0" level="project" />
     <orderEntry type="library" name="com.couchbase.lite:couchbase-lite-android-1.4.1" level="project" />
-    <orderEntry type="library" name="com.squareup.okhttp3:logging-interceptor:3.2.0@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-impl-9.6.0" level="project" />
-    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-core:2.7.3@jar" level="project" />
     <orderEntry type="library" name="com.parse.bolts:bolts-applinks:1.4.0@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:palette-v7-23.4.0" level="project" />
-    <orderEntry type="library" name="com.firebaseui:firebase-ui-database-0.6.0" level="project" />
+    <orderEntry type="library" name="com.kakao.sdk:network-1.1.7" level="project" />
     <orderEntry type="library" name="com.stripe:stripe-android-7.1.0" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-storage-9.6.0" level="project" />
-    <orderEntry type="library" name="com.android.databinding:adapters-1.3.1" level="project" />
-    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-databind:2.7.2@jar" level="project" />
     <orderEntry type="library" name="com.squareup.retrofit2:converter-gson:2.1.0@jar" level="project" />
     <orderEntry type="library" name="com.couchbase.lite:couchbase-lite-android-sqlite-custom-1.4.1" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:runtime-1.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-vector-drawable-27.1.0" level="project" />
     <orderEntry type="library" name="com.squareup.retrofit2:converter-jackson:2.0.2@jar" level="project" />
-    <orderEntry type="library" name="com.firebaseui:firebase-ui-0.6.0" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:common:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="org.slf4j:slf4j-nop:1.7.21@jar" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-location-9.6.0" level="project" />
     <orderEntry type="library" name="com.parse.bolts:bolts-android:1.4.0@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-compat-27.1.0" level="project" />
     <orderEntry type="library" name="io.fabric.sdk.android:fabric-1.4.1" level="project" />
-    <orderEntry type="library" name="com.google.firebase:firebase-database-9.6.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-ui-27.1.0" level="project" />
     <orderEntry type="library" name="com.crashlytics.sdk.android:crashlytics-core-2.4.1" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-places-9.6.0" level="project" />
+    <orderEntry type="library" name="com.android.support:multidex-1.0.2" level="project" />
+    <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.0" level="project" />
+    <orderEntry type="library" name="com.pubnub:pubnub:4.0.3@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:C.\Users\Administrator\.gradle\caches\transforms-1\files-1.1\naveridlogin_android_sdk_4.2.0.aar\a982f13b4b4e06f1caa200dd4125bc36:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:design-27.1.0" level="project" />
+    <orderEntry type="library" name="com.squareup.okio:okio:1.8.0@jar" level="project" />
+    <orderEntry type="library" name="com.squareup.retrofit2:retrofit:2.1.0@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:C.\Users\Administrator\AndroidStudioProjects\DelexCustomer\app\libs\com.skt.Tmap_1.52.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-basement-9.6.0" level="project" />
+    <orderEntry type="library" name="com.android.databinding:library-1.3.1" level="project" />
+    <orderEntry type="library" name="com.android.support:recyclerview-v7-27.1.0" level="project" />
+    <orderEntry type="library" name="com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
+    <orderEntry type="library" name="org.slf4j:slf4j-api:1.7.21@jar" level="project" />
+    <orderEntry type="library" name="com.github.oxo42:stateless4j:2.4.0@jar" level="project" />
+    <orderEntry type="library" name="com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
+    <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.0.2" level="project" />
+    <orderEntry type="library" name="com.squareup.okhttp3:okhttp:3.3.1@jar" level="project" />
+    <orderEntry type="library" name="com.couchbase.lite:couchbase-lite-java-core:1.4.1@jar" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-auth-module-9.6.0" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-auth-common-9.6.0" level="project" />
+    <orderEntry type="library" name="com.github.Q42:AndroidScrollingImageView-1.2" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-analytics-9.6.0" level="project" />
+    <orderEntry type="library" name="org.greenrobot:eventbus:3.0.0@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:cardview-v7-26.0.2" level="project" />
+    <orderEntry type="library" name="com.yarolegovich:sliding-root-nav-1.1.0" level="project" />
+    <orderEntry type="library" name="com.android.support:animated-vector-drawable-27.1.0" level="project" />
+    <orderEntry type="library" name="com.facebook.android:facebook-android-sdk-4.14.1" level="project" />
+    <orderEntry type="library" name="com.github.livechat:chat-window-android-v2.0.0" level="project" />
+    <orderEntry type="library" name="com.amazonaws:aws-android-sdk-core:2.6.16@jar" level="project" />
+    <orderEntry type="library" name="android.arch.core:common:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="io.card:android-sdk-5.5.1" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-auth-base-9.6.0" level="project" />
+    <orderEntry type="library" name="com.squareup.okhttp3:logging-interceptor:3.2.0@jar" level="project" />
+    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-core:2.7.3@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:palette-v7-23.4.0" level="project" />
+    <orderEntry type="library" name="com.firebaseui:firebase-ui-database-0.6.0" level="project" />
+    <orderEntry type="library" name="com.android.databinding:adapters-1.3.1" level="project" />
+    <orderEntry type="library" name="com.fasterxml.jackson.core:jackson-databind:2.7.2@jar" level="project" />
+    <orderEntry type="library" name="com.firebaseui:firebase-ui-0.6.0" level="project" />
+    <orderEntry type="library" name="org.slf4j:slf4j-nop:1.7.21@jar" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-location-9.6.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-compat-27.1.0" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-database-9.6.0" level="project" />
+    <orderEntry type="library" name="com.kakao.sdk:auth-1.1.7" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-storage-common-9.6.0" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:livedata-core-1.1.0" level="project" />
     <orderEntry type="library" name="com.crashlytics.sdk.android:beta-1.2.7" level="project" />
     <orderEntry type="library" name="com.hbb20:ccp-1.7.6" level="project" />
     <orderEntry type="library" name="com.android.databinding:baseLibrary:3.0.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-media-compat-27.1.0" level="project" />
-    <orderEntry type="library" name="com.google.android.gms:play-services-places-9.6.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-fragment-27.1.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-maps-9.6.0" level="project" />
     <orderEntry type="library" name="org.jsoup:jsoup:1.11.2@jar" level="project" />

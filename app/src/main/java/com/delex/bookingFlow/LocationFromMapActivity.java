@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.delex.parent.ParentActivity;
-import com.delex.a_pickupLocation.AddDropLocationActivity;
+import com.delex.a_chooseLocation.AddDropLocationActivity;
 import com.delex.a_sign.SignUpActivity;
 import com.delex.pojos.GeoCodingResponsePojo;
 import com.delex.utility.AppTypeface;

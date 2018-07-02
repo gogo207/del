@@ -513,6 +513,10 @@ public class ShipmentDetailsActivity extends ParentActivity implements View.OnCl
                 sessionManager.setWidth(etWidth.getText().toString());
                 sessionManager.setHieght(etHieght.getText().toString());
 
+                Log.d(TAG, "onClick: "+sharePojo.toString());
+
+
+
                 if(etWidth.getText().toString().equalsIgnoreCase("")&&etLength.getText().toString().equalsIgnoreCase("")&&etHieght.getText().toString().equalsIgnoreCase("")){
                     controller.moveAddShipmentScreen(drop_addr, card_no_Tv.getText().toString(),
                             goods_title, ent_loadtype, et_qty.getText().toString(), sharePojo);
@@ -765,6 +769,7 @@ public class ShipmentDetailsActivity extends ParentActivity implements View.OnCl
 
     /**
      * <h2>getShipmentFare</h2>
+     * 이 방법은 발송 요금을 얻는데 사용됩니다.
      * This method is used for getting the shipment fare.
      */
     private void getShipmentFare()
@@ -776,6 +781,7 @@ public class ShipmentDetailsActivity extends ParentActivity implements View.OnCl
             public void doFirstProcess(String result) {
                 if (progressDialog != null) {
                     progressDialog.dismiss();
+                    Log.d(TAG, "doFirstProcess: "+result);
                 }
                 try {
                     Gson gson = new Gson();

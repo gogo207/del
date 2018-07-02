@@ -29,6 +29,9 @@ import com.delex.interfaceMgr.SpannableInterface;
 import com.facebook.CallbackManager;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.delex.customer.R;
+import com.kakao.usermgmt.response.model.UserProfile;
+
+import org.json.JSONObject;
 
 /**
  * @since on 15/8/17.
@@ -58,7 +61,7 @@ public class LoginController {
     }
 
     /**
-     * This method checks only the inputted data is email or phone number.
+     * 입력 된 데이터 만 전자 메일 또는 전화 번호인지 확인
      * @param  mailId , contains the mailid / phone number.
      * @param loginInterface Interface for getting the callback
      */
@@ -140,6 +143,15 @@ public class LoginController {
         }
     }
 
+    public void naverLogin(JSONObject jsonObject){
+        loginModel.naverLogin(jsonObject);
+    }
+
+    public void kakaoLogin(UserProfile userProfile){
+        loginModel.kakaoLogin(userProfile);
+    }
+
+
     /**
      * <h2>fbLogin</h2>
      * This method is used for doing Facebook login.
@@ -151,7 +163,7 @@ public class LoginController {
 
     /**
      * <h2>googleLogin</h2>
-     * This method is used for doing Google login.
+     * Google 로그인에 사용됩니다.
      */
     public void googleLogin()
     {
@@ -159,6 +171,7 @@ public class LoginController {
     }
     /**
      * <h2>handleResult</h2>
+     * Google 로그인에서 콜백을 받았을 때 사용됩니다.
      * This method is used when we got the callback from Google login.
      * @param result Result of the login API
      */
@@ -169,13 +182,15 @@ public class LoginController {
 
     /**
      * <h2>firstTimeLogin</h2>
+     * 이전에 로그인했는지 여부를 확인하려면 이전에 로그인 한 경우 마지막으로 입력 한 자격 증명을 표시해야합니다.
      * To check that our app is logged in before or not, if it is logged in before then we have to show the last inputted credentials.
      * @param login_type  which kind of login we are using.
      * @param resultInterface Result of the login API
      */
     public void firstTimeLogin(int login_type, ResultInterface resultInterface)
     {
-        if(login_type == 1 && !sessionManager.getUserId().equals("")) {
+        if(login_type == 1 && !sessionManager.getUserId().equals("")) {  //로그인 타입이 1이고, 저장되있는 유저아이디 값이 있을때
+            Log.d("ddddddd", "firstTimeLogin: ");
             resultInterface.errorMandatoryNotifier();
         }
     }

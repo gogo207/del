@@ -80,28 +80,27 @@
             android:name="com.delex.a_sign.SignUpActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name="com.delex.a_sign.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.delex.customer.VerifyOTP"
+            android:name=".VerifyOTP"
             android:windowSoftInputMode="stateVisible" />
         <activity
             android:name="com.delex.a_main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.delex.customer.TermsActivity"
+            android:name=".TermsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.delex.customer.WebViewActivity"
+            android:name=".WebViewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.delex.customer.AddCardActivity"
+            android:name=".AddCardActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.delex.customer.DeleteCardActivity"
+            android:name=".DeleteCardActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="eu.janmuller.android.simplecropimage.CropImage"
@@ -111,9 +110,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.delex.bookingFlow.ShipmentDetailsActivity"
+            android:isScrollContainer="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified"
-            android:isScrollContainer="true"/>
+            android:windowSoftInputMode="adjustUnspecified" />
         <!-- android:theme="@style/MyTheme.Hint" -->
 
 
@@ -126,21 +125,21 @@
             android:name="com.delex.bookingHistory.BookingUnAssigned"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.delex.customer.GlobalAlertDialogActivity"
+            android:name=".GlobalAlertDialogActivity"
             android:screenOrientation="portrait" />
         <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar" -->
         <activity
-            android:name="com.delex.customer.NotificationHandler"
+            android:name=".NotificationHandler"
             android:label="@string/title_activity_notificaton_handler" />
         <!-- android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" -->
         <activity
-            android:name="com.delex.customer.ForgotPasswordActivity"
+            android:name=".ForgotPasswordActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.delex.customer.EditEmailActivity"
+            android:name=".EditEmailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.delex.customer.ChangePasswordActivity" />
-        <activity android:name="com.delex.customer.EditPhoneNumberActivity" />
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".EditPhoneNumberActivity" />
 
         <!--
 DayRunner Live
@@ -150,23 +149,25 @@ DayRunner Live
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBon9J3sYWvdGflVImc47E042ZubFHE43M"/>
-
+            android:value="AIzaSyBon9J3sYWvdGflVImc47E042ZubFHE43M" />
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="bd8a28688d4b2b7517016c7444e7f7a129ab76c9"/>
+            android:value="bd8a28688d4b2b7517016c7444e7f7a129ab76c9" />
 
         <service android:name="com.delex.servicesMgr.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <activity android:name="com.delex.a_pickupLocation.AddDropLocationActivity" />
+
+        <activity android:name="com.delex.a_chooseLocation.AddDropLocationActivity" />
         <activity android:name="com.delex.bookingFlow.BookingDetailsActivity" />
         <activity android:name="com.delex.bookingFlow.CancelBookingActivity" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -202,7 +203,7 @@ DayRunner Live
             android:name="com.delex.bookingHistory.BookingAssignedActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.delex.customer.EditNameActivity"
+            android:name=".EditNameActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.delex.bookingHistory.ReceiptActivity"
@@ -262,10 +263,26 @@ DayRunner Live
             </intent-filter>
         </service>
 
-        <activity android:name="com.delex.customer.LandingPage"
+        <activity
+            android:name=".LandingPage"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoTitleBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoTitleBar" />
+        <activity android:name="com.delex.a_introduction.IntroductionActivity" />
+
+        <!-- 카카오 로그인 디컴파일시 값이 노출되지 않게 키값을 메타데이타에 넣는다 -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
+        <!-- 네이버 로그인 -->
+
+
+        <!-- <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" -->
+        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar"/> -->
+        <!-- <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity" -->
+        <!-- android:label="OAuth2.0 In-app"/> -->
+
+        <activity android:name="com.delex.a_choose_delivery_time.ChooseDeliveryTime"></activity>
     </application>
 
 </manifest>

@@ -237,7 +237,7 @@ public class PubNubMgr {
                         // Log.i(TAG, "PubNubReceivedMsgHandler action: " + action + "  jsnResponse: " + jsnResponse.toString());
 
                         switch (action) {
-                            // getDrivers response
+                            // 드라이버 응답 받음
                             case 2:
                                 //Log.i(TAG, "PubNubReceivedMsgHandler massArr: "+jsnResponse.getString("masArr"));
                                 handleNewVehicleTypesData(msg, Integer.parseInt(params[1]));
@@ -434,8 +434,7 @@ public class PubNubMgr {
     /**
      * <h1>handleNewVehicleTypesData</h1>
      * <p>
-     * 새로운 차량 유형 데이터를 처리한다.
-     * pubnub로부터받은 설정 데이터를 처리하고 분석하는 메소드
+     * pubnub로부터받은 새로운 차량 유형 데이터를 처리 분석하는 메소드
      *      뷰가 변경된 경우 뷰를 업데이트합니다.
      * </p>
      */
@@ -543,10 +542,10 @@ public class PubNubMgr {
     //=============================================================
 
     /**
-     *
+     * 새로운 탈것 타입 정보 넘김
      */
     public void postNewVehicleTypes() {
-        Log.d(TAG, "postNewVehicleTypes: 탈 것 타입");
+        Log.d(TAG, "postNewVehicleTypes: ");
         Utility.printLog(TAG + "postNewVehicleTypes posted ");
         if (pubnubResponse_old == null) {
             EventBus.getDefault().post(new ArrayList<Types>());
@@ -558,6 +557,9 @@ public class PubNubMgr {
     }
     //=============================================================
 
+    /**
+     * 드라이버 마커 위치 정보 넘김
+     */
     private void postDriversMarkerPositions() {
         if (pubnubResponse_old != null && pubnubResponse_old.getMasArr() != null) {
             Log.i(TAG, "pubnub drivers size if");
@@ -572,7 +574,7 @@ public class PubNubMgr {
     //=============================================================
 
     /**
-     *
+     * 구독 취소
      */
     public void unSubscribePubNub() {
         Log.i(TAG, "unsubscribePubnub() " + pubNubListenerChannles + " hasPubNubSubscribed: " + hasPubNubSubscribed);

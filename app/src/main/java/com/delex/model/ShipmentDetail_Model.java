@@ -1,5 +1,7 @@
 package com.delex.model;
 
+import android.util.Log;
+
 import com.delex.interfaceMgr.SingleCallbackWithParam;
 import com.delex.utility.Constants;
 import com.delex.utility.OkHttp3Connection;
@@ -27,8 +29,8 @@ public class ShipmentDetail_Model {
 
     /**
      * <h2>getShipmentFare</h2>
-     * This method is used for knowing the actual fares between the location and also that the particular place are exist in our region or not.
-     * calling distance api.
+     * 이 방법은 위치 간의 실제 운임을 알기 위해 사용되며 또한 특정 지역이 우리 지역에 존재하는지 여부를 알기 위해 사용됩니다.
+     * 거리 api를 콜한다
      * @param singleCallbackWithParam
      */
     public void getShipmentFare(final SingleCallbackWithParam singleCallbackWithParam) {
@@ -39,6 +41,8 @@ public class ShipmentDetail_Model {
             jsonObject.put("drop", sessionManager.getDropAdr());
             jsonObject.put("start_lat_long", sessionManager.getPickLt() + "," + sessionManager.getPickLg());
             jsonObject.put("end_lat_long", sessionManager.getDropLt() + "," + sessionManager.getDropLg());
+
+            Log.d("dd", "getShipmentFare: "+jsonObject.toString());
             OkHttp3Connection.doOkHttp3Connection(sessionManager.getSession(),sessionManager.getLanguageId(), Constants.SHIPMENTfARE, OkHttp3Connection.Request_type.POST, jsonObject, new OkHttp3Connection.OkHttp3RequestCallback() {
                 @Override
                 public void onSuccess(String result) {
@@ -60,6 +64,8 @@ public class ShipmentDetail_Model {
 
     /**
      * <h2>applyPromo</h2>
+     * 이 메소드는 api를 호출하여 주어진 내 프로모션 코드가 유효한지 확인함으로써 프로모션 코드를 호출합니다.
+     * 유효한 경우 쿠폰을 제시하고 할인을 제공하거나 단순히 그대로 두십시오.
      * This method calling apply promo code, by calling api to check my given promo code is valid or not.
      * If it is valid then show the coupon and provide the discount or else leave it simply.
      * @param coupon coupon code.

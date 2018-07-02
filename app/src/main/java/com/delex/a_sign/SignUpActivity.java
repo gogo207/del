@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
@@ -37,7 +38,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.delex.parent.ParentActivity;
 import com.delex.customer.R;
 import com.delex.customer.VerifyOTP;
-import com.delex.a_pickupLocation.AddDropLocationActivity;
+import com.delex.a_chooseLocation.AddDropLocationActivity;
 import com.delex.controllers.SignUpController;
 import com.delex.countrypic.Country;
 import com.delex.countrypic.CountryPicker;
@@ -74,12 +75,12 @@ import java.util.ArrayList;
  * <p>This is a Controller class for SignUp Activity</p>
  * This class is used to provide the SignUp screen, where we can register our user and after that we get an OTP on our mobile and
  * this class is give a call to SignUpController class.
+ *
  * @version 1.0
  * @since 17/08/17
  */
 public class SignUpActivity extends ParentActivity implements
-        View.OnClickListener,View.OnFocusChangeListener,TextWatcher,LocationUtil.LocationNotifier
-{
+        View.OnClickListener, View.OnFocusChangeListener, TextWatcher, LocationUtil.LocationNotifier {
     private Resources resources;
     private Alerts alerts;
 
@@ -97,7 +98,7 @@ public class SignUpActivity extends ParentActivity implements
 
     private boolean isItBusinessAccount, isFullNameValid = false, isPhoneNoValid = false;
     private boolean isEmailValid = false, isPasswordValid = false, isReferralCodeEntered = false;
-    private boolean isCompanyNameValid = false, isCompanyAddressValid = false, isTermsAndCondsAccepted = false,iswebsite=false,islicence=false,iscontact=false,isvat=false,isexcontact=false;
+    private boolean isCompanyNameValid = false, isCompanyAddressValid = false, isTermsAndCondsAccepted = false, iswebsite = false, islicence = false, iscontact = false, isvat = false, isexcontact = false;
     private boolean smsFlag = false, isPPUploadedAmazon = false, isPPSelected = false;
     private String ent_socialMedia_id = "", profilePicUrl = "", address = "", picture;
     private double[] latLng = new double[2];
@@ -114,23 +115,23 @@ public class SignUpActivity extends ParentActivity implements
     private SignUpController signUpController;
     private int countryCodeMinLength, countryCodeMaxLength;
     private TextInputLayout til_Website;
-    private TextInputLayout til_ContactPerson,til_LicenseNumber,til_VAT,til_ExternalContractNumber;
-    private EditText etWebsite_signUp,etContactPerson_signUp,etLicenseNumber_signUp,etExternalContractNumber,etVAT_signUp;
-    private TextView tvBookingHead,tvBookingDoc;
-    private TextView tvLicenceCopy,tvVatCopy,tvChamberCopy,tvAgreementCopy;
-    private ImageView ivLicence,ivVat,ivChamber,ivAgrement;
-    private String profileChamberUrl="",profileVatUrl="",profileLic="",profileAgrementUrl="";
+    private TextInputLayout til_ContactPerson, til_LicenseNumber, til_VAT, til_ExternalContractNumber;
+    private EditText etWebsite_signUp, etContactPerson_signUp, etLicenseNumber_signUp, etExternalContractNumber, etVAT_signUp;
+    private TextView tvBookingHead, tvBookingDoc;
+    private TextView tvLicenceCopy, tvVatCopy, tvChamberCopy, tvAgreementCopy;
+    private ImageView ivLicence, ivVat, ivChamber, ivAgrement;
+    private String profileChamberUrl = "", profileVatUrl = "", profileLic = "", profileAgrementUrl = "";
     private ImageView ivCountryFlag_signUp1;
     private TextView tvCountryCode_signUp1;
-    private  LinearLayout llCountryFlag_signUp1;
+    private LinearLayout llCountryFlag_signUp1;
 
     /**
      * This is the onCreateHomeFrag method that is called firstly, when user came to login screen.
+     *
      * @param savedInstanceState contains an instance of Bundle.
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         overridePendingTransition(R.anim.side_slide_out, R.anim.side_slide_in);
@@ -142,8 +143,7 @@ public class SignUpActivity extends ParentActivity implements
         isItBusinessAccount = false;
         getCurrentLocation();
 
-        if(getIntent() != null)
-        {
+        if (getIntent() != null) {
             Intent savedInstanceBundle = getIntent();
             retrieveSavedInstance(savedInstanceBundle);
         }
@@ -152,21 +152,20 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>initVariablesAndReferences</h2>
      * <p>
-     *     method to initialize the required variables and
-     *     other required classes references
+     * method to initialize the required variables and
+     * other required classes references
      * </p>
      */
-    private void initVariablesAndReferences()
-    {
+    private void initVariablesAndReferences() {
         sessionManager = new SessionManager(SignUpActivity.this);
-        resources=getResources();
+        resources = getResources();
         appTypeface = AppTypeface.getInstance(this);
         imageOperation = new ImageOperation(this);
         signUpController = new SignUpController(this, sessionManager);
 
         amazons3 = AmazonCdn.getInstance();
         AmazonCdn.configureSettings(Constants.ACCESS_KEY_ID, Constants.SECRET_KEY, Regions.US_EAST_1);
-        AmazonS3Client s3Client = new AmazonS3Client( new BasicAWSCredentials(Constants.ACCESS_KEY_ID,Constants.SECRET_KEY ) );
+        AmazonS3Client s3Client = new AmazonS3Client(new BasicAWSCredentials(Constants.ACCESS_KEY_ID, Constants.SECRET_KEY));
         s3Client.setRegion(Region.getRegion(Regions.US_EAST_1));
         permissionsRunTime = AppPermissionsRunTime.getInstance();
         permissionArrayList = new ArrayList<AppPermissionsRunTime.Permission>();
@@ -185,14 +184,10 @@ public class SignUpActivity extends ParentActivity implements
      * Getting the current location of user.
      * </p>
      */
-    private void getCurrentLocation()
-    {
-        if (locationUtil == null)
-        {
+    private void getCurrentLocation() {
+        if (locationUtil == null) {
             locationUtil = new LocationUtil(this, this);    //checking the locationUtil.
-        }
-        else
-        {
+        } else {
             locationUtil.checkLocationSettings();   //checking location services.
         }
     }
@@ -200,15 +195,14 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>initToolBar</h2>
      * <p>
-     *     method to initialize the tool bar for this screen
+     * method to initialize the tool bar for this screen
      * </p>
      */
-    private void initToolBar()
-    {
-        TextView tvToolBarTitle =  findViewById(R.id.tvToolBarTitle);
+    private void initToolBar() {
+        TextView tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
         tvToolBarTitle.setTypeface(appTypeface.getPro_narMedium());
         tvToolBarTitle.setText(R.string.signup);
-        RelativeLayout rlToolBarBack =  findViewById(R.id.rlToolBarBack);
+        RelativeLayout rlToolBarBack = findViewById(R.id.rlToolBarBack);
         rlToolBarBack.setOnClickListener(this);
         ImageView iv_close = findViewById(R.id.iv_close);
         iv_close.setOnClickListener(this);
@@ -221,139 +215,137 @@ public class SignUpActivity extends ParentActivity implements
      * This method is used to initializing all views of this screen
      * </p>
      */
-    private void initializeViews()
-    {
-        network_bar =  findViewById(R.id.network_bar);
-        ivProfilePic_signUp =  findViewById(R.id.ivProfilePic_signUp);
-        tilFullName_signUp =  findViewById(R.id.tilFullName_signUp);
+    private void initializeViews() {
+        network_bar = findViewById(R.id.network_bar);
+        ivProfilePic_signUp = findViewById(R.id.ivProfilePic_signUp);
+        tilFullName_signUp = findViewById(R.id.tilFullName_signUp);
         tilFullName_signUp.setTypeface(appTypeface.getPro_News());
-        etFullName_signUp =  findViewById(R.id.etFullName_signUp);
+        etFullName_signUp = findViewById(R.id.etFullName_signUp);
         etFullName_signUp.setOnFocusChangeListener(this);
         etFullName_signUp.addTextChangedListener(this);
         etFullName_signUp.setTypeface(appTypeface.getPro_News());
         etFullName_signUp.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
-        LinearLayout llCountryFlag_signUp =  findViewById(R.id.llCountryFlag_signUp);
+        LinearLayout llCountryFlag_signUp = findViewById(R.id.llCountryFlag_signUp);
         llCountryFlag_signUp.setOnClickListener(this);
-        llCountryFlag_signUp1= findViewById(R.id.llCountryFlag_signUp1);
+        llCountryFlag_signUp1 = findViewById(R.id.llCountryFlag_signUp1);
         llCountryFlag_signUp1.setOnClickListener(this);
-        ivCountryFlag_signUp =  findViewById(R.id.ivCountryFlag_signUp);
-        ivCountryFlag_signUp1 =  findViewById(R.id.ivCountryFlag_signUp1);
+        ivCountryFlag_signUp = findViewById(R.id.ivCountryFlag_signUp);
+        ivCountryFlag_signUp1 = findViewById(R.id.ivCountryFlag_signUp1);
 
-        tvCountryCode_signUp =  findViewById(R.id.tvCountryCode_signUp);
+        tvCountryCode_signUp = findViewById(R.id.tvCountryCode_signUp);
         tvCountryCode_signUp.setTypeface(appTypeface.getPro_News());
-        tvCountryCode_signUp1 =  findViewById(R.id.tvCountryCode_signUp1);
+        tvCountryCode_signUp1 = findViewById(R.id.tvCountryCode_signUp1);
         tvCountryCode_signUp1.setTypeface(appTypeface.getPro_News());
 
 
-        tilPhoneNo_signUp =  findViewById(R.id.tilPhoneNo_signUp);
+        tilPhoneNo_signUp = findViewById(R.id.tilPhoneNo_signUp);
         tilPhoneNo_signUp.setTypeface(appTypeface.getPro_News());
-        etPhoneNo_signUp =  findViewById(R.id.etPhoneNo_signUp);
+        etPhoneNo_signUp = findViewById(R.id.etPhoneNo_signUp);
         etPhoneNo_signUp.setTypeface(appTypeface.getPro_News());
         etPhoneNo_signUp.setOnFocusChangeListener(this);
         etPhoneNo_signUp.addTextChangedListener(this);
-        tilEmail_signUp =  findViewById(R.id.tilEmail_signUp);
+        tilEmail_signUp = findViewById(R.id.tilEmail_signUp);
         tilEmail_signUp.setTypeface(appTypeface.getPro_News());
-        etEmail_signUp =  findViewById(R.id.etEmail_signUp);
+        etEmail_signUp = findViewById(R.id.etEmail_signUp);
         etEmail_signUp.setTypeface(appTypeface.getPro_News());
         etEmail_signUp.setOnFocusChangeListener(this);
         etEmail_signUp.addTextChangedListener(this);
-        tilPassword_signUp =  findViewById(R.id.tilPassword_signUp);
+        tilPassword_signUp = findViewById(R.id.tilPassword_signUp);
         tilPassword_signUp.setTypeface(appTypeface.getPro_News());
         etPassword_signUp = findViewById(R.id.etPassword_signUp);
         etPassword_signUp.setTypeface(appTypeface.getPro_News());
         etPassword_signUp.addTextChangedListener(this);
         etPassword_signUp.setOnFocusChangeListener(this);
-        tilReferral_signUp =  findViewById(R.id.tilReferral_signUp);
+        tilReferral_signUp = findViewById(R.id.tilReferral_signUp);
         tilReferral_signUp.setTypeface(appTypeface.getPro_News());
-        etReferral_signUp =  findViewById(R.id.etReferral_signUp);
+        etReferral_signUp = findViewById(R.id.etReferral_signUp);
         etReferral_signUp.setTypeface(appTypeface.getPro_News());
         etReferral_signUp.setOnFocusChangeListener(this);
         etReferral_signUp.addTextChangedListener(this);
 
         //=================== FOR BUSINESS ACCOUNT ===========
-        tilCompanyName_signUp =  findViewById(R.id.tilCompanyName_signUp);
+        tilCompanyName_signUp = findViewById(R.id.tilCompanyName_signUp);
         tilCompanyName_signUp.setTypeface(appTypeface.getPro_News());
-        tietCompanyName_signUp =  findViewById(R.id.etCompanyName_signUp);
+        tietCompanyName_signUp = findViewById(R.id.etCompanyName_signUp);
         tietCompanyName_signUp.setTypeface(appTypeface.getPro_News());
         tietCompanyName_signUp.addTextChangedListener(this);
 
-        til_companyAddress =  findViewById(R.id.til_companyAddress);
+        til_companyAddress = findViewById(R.id.til_companyAddress);
         til_companyAddress.setTypeface(appTypeface.getPro_News());
-        etCompanyAddress_signUp =  findViewById(R.id.etCompanyAddress_signUp);
+        etCompanyAddress_signUp = findViewById(R.id.etCompanyAddress_signUp);
         etCompanyAddress_signUp.setTypeface(appTypeface.getPro_News());
         etCompanyAddress_signUp.setOnClickListener(this);
         etCompanyAddress_signUp.addTextChangedListener(this);
 
         /* new field added in this app only in bussiness field*/
 
-        til_Website =  findViewById(R.id.tilWebsite_signUp);
+        til_Website = findViewById(R.id.tilWebsite_signUp);
         til_Website.setTypeface(appTypeface.getPro_News());
-        etWebsite_signUp =  findViewById(R.id.etWebsite_signUp);
+        etWebsite_signUp = findViewById(R.id.etWebsite_signUp);
         etWebsite_signUp.setTypeface(appTypeface.getPro_News());
         etWebsite_signUp.setOnClickListener(this);
         etWebsite_signUp.addTextChangedListener(this);
 
 
-        til_ContactPerson =  findViewById(R.id.tilContactPerson_signUp);
+        til_ContactPerson = findViewById(R.id.tilContactPerson_signUp);
         til_ContactPerson.setTypeface(appTypeface.getPro_News());
-        etContactPerson_signUp =  findViewById(R.id.etContactPerson_signUp);
+        etContactPerson_signUp = findViewById(R.id.etContactPerson_signUp);
         etContactPerson_signUp.setTypeface(appTypeface.getPro_News());
         etContactPerson_signUp.setOnClickListener(this);
         etContactPerson_signUp.addTextChangedListener(this);
 
 
-        til_LicenseNumber =  findViewById(R.id.tilLicenseNumber_signUp);
+        til_LicenseNumber = findViewById(R.id.tilLicenseNumber_signUp);
         til_LicenseNumber.setTypeface(appTypeface.getPro_News());
-        etLicenseNumber_signUp =  findViewById(R.id.etLicenseNumber_signUp);
+        etLicenseNumber_signUp = findViewById(R.id.etLicenseNumber_signUp);
         etLicenseNumber_signUp.setTypeface(appTypeface.getPro_News());
         etLicenseNumber_signUp.setOnClickListener(this);
         etLicenseNumber_signUp.addTextChangedListener(this);
 
 
-        til_VAT =  findViewById(R.id.tilVAT_signUp);
+        til_VAT = findViewById(R.id.tilVAT_signUp);
         til_VAT.setTypeface(appTypeface.getPro_News());
-        etVAT_signUp =  findViewById(R.id.etVAT_signUp);
+        etVAT_signUp = findViewById(R.id.etVAT_signUp);
         etVAT_signUp.setTypeface(appTypeface.getPro_News());
         etVAT_signUp.setOnClickListener(this);
         etVAT_signUp.addTextChangedListener(this);
 
-        til_ExternalContractNumber =  findViewById(R.id.tilExternalContractNumber_signUp);
+        til_ExternalContractNumber = findViewById(R.id.tilExternalContractNumber_signUp);
         til_ExternalContractNumber.setTypeface(appTypeface.getPro_News());
-        etExternalContractNumber =  findViewById(R.id.etExternalContractNumber_signUp);
+        etExternalContractNumber = findViewById(R.id.etExternalContractNumber_signUp);
         etExternalContractNumber.setTypeface(appTypeface.getPro_News());
         etExternalContractNumber.setOnClickListener(this);
         etExternalContractNumber.addTextChangedListener(this);
 
 
-        tvBookingHead =  findViewById(R.id.tv_booking_detail_heading);
+        tvBookingHead = findViewById(R.id.tv_booking_detail_heading);
         tvBookingHead.setTypeface(appTypeface.getPro_News());
         tvBookingDoc = findViewById(R.id.tv_booking_document_heading);
         tvBookingDoc.setTypeface(appTypeface.getPro_News());
 
 
-
-        tvLicenceCopy =  findViewById(R.id.tv_licence_copy);
+        tvLicenceCopy = findViewById(R.id.tv_licence_copy);
         tvLicenceCopy.setTypeface(appTypeface.getPro_News());
-        tvVatCopy =  findViewById(R.id.tv_vat_copy);
+        tvVatCopy = findViewById(R.id.tv_vat_copy);
         tvVatCopy.setTypeface(appTypeface.getPro_News());
-        tvChamberCopy= findViewById(R.id.tv_chamber_copy);
+        tvChamberCopy = findViewById(R.id.tv_chamber_copy);
         tvChamberCopy.setTypeface(appTypeface.getPro_News());
-        tvAgreementCopy=(TextView)findViewById(R.id.tv_agrement_copy);
+        tvAgreementCopy = (TextView) findViewById(R.id.tv_agrement_copy);
         tvAgreementCopy.setTypeface(appTypeface.getPro_News());
 
 
-        ivLicence =  findViewById(R.id.iv_licence_doc);
+        ivLicence = findViewById(R.id.iv_licence_doc);
         ivLicence.setOnClickListener(this);
-        ivVat =  findViewById(R.id.iv_vat_image);
+        ivVat = findViewById(R.id.iv_vat_image);
         ivVat.setOnClickListener(this);
-        ivChamber =  findViewById(R.id.iv_chamber_copy);
+        ivChamber = findViewById(R.id.iv_chamber_copy);
         ivChamber.setOnClickListener(this);
-        ivAgrement=findViewById(R.id.iv_agrement_copy);
+        ivAgrement = findViewById(R.id.iv_agrement_copy);
         ivAgrement.setOnClickListener(this);
 
 
-        TextView tvTermsConds_singUp =  findViewById(R.id.tvTermsConds_singUp);
+        TextView tvTermsConds_singUp = findViewById(R.id.tvTermsConds_singUp);
         tvTermsConds_singUp.setTypeface(appTypeface.getPro_News());
         tvTermsConds_singUp.setMovementMethod(LinkMovementMethod.getInstance());
         tvTermsConds_singUp.setHighlightColor(Color.TRANSPARENT);
@@ -361,44 +353,40 @@ public class SignUpActivity extends ParentActivity implements
     }
 
     /**
-     *<h2>initSwitchAndRadioButtons</h2>
+     * <h2>initSwitchAndRadioButtons</h2>
      * <p> method to init radio group views, radioButtons, switches and buttons</p>
      */
-    private void initSwitchAndRadioButtons()
-    {
-        rbIndividual =  findViewById(R.id.rb_signup_individual);
+    private void initSwitchAndRadioButtons() {
+        rbIndividual = findViewById(R.id.rb_signup_individual);
         rbIndividual.setTypeface(appTypeface.getPro_News());
 
-        rbCorporate =  findViewById(R.id.rb_signup_corporate);
+        rbCorporate = findViewById(R.id.rb_signup_corporate);
         rbCorporate.setTypeface(appTypeface.getPro_News());
 
-        RadioGroup radioGroup =  findViewById(R.id.radioGroup);
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 Utility.hideSoftKeyBoard(group);
                 clearFocusOfAllEditTexts();
 
                 isItBusinessAccount = checkedId != R.id.rb_signup_individual;
-                Log.d("SignUp", "initSwitchAndRadioButtons isItBusinessAccount: "+isItBusinessAccount);
+                Log.d("SignUp", "initSwitchAndRadioButtons isItBusinessAccount: " + isItBusinessAccount);
                 toggleViewsForAccountType();
             }
         });
 
-        switchTermsAndConds =  findViewById(R.id.switchTermsConds_singUp);
+        switchTermsAndConds = findViewById(R.id.switchTermsConds_singUp);
         switchTermsAndConds.setEnabled(false);
-        switchTermsAndConds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
+        switchTermsAndConds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
-            {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 isTermsAndCondsAccepted = b;
                 handleSignUpBtnStateEnabling();
             }
         });
 
-        btnCreateAccount =  findViewById(R.id.btnCreateAccount);
+        btnCreateAccount = findViewById(R.id.btnCreateAccount);
         btnCreateAccount.setTypeface(appTypeface.getPro_narMedium());
         btnCreateAccount.setEnabled(false);
         btnCreateAccount.setOnClickListener(this);
@@ -408,14 +396,12 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>toggleViewsForAccountType</h2>
      * <p>
-     *     method to toggle views on the basis of account types
+     * method to toggle views on the basis of account types
      * </p>
      */
-    private void toggleViewsForAccountType()
-    {
-        Log.d("SignUp", "toggleViewsForAccountType isItBusinessAccount: "+isItBusinessAccount);
-        if(isItBusinessAccount)
-        {
+    private void toggleViewsForAccountType() {
+        Log.d("SignUp", "toggleViewsForAccountType isItBusinessAccount: " + isItBusinessAccount);
+        if (isItBusinessAccount) {
             rbIndividual.setChecked(false);
             rbCorporate.setChecked(true);
             til_companyAddress.setVisibility(View.VISIBLE);
@@ -439,9 +425,7 @@ public class SignUpActivity extends ParentActivity implements
             ivChamber.setVisibility(View.VISIBLE);
             ivAgrement.setVisibility(View.VISIBLE);
 
-        }
-        else
-        {
+        } else {
 
 
             rbCorporate.setChecked(false);
@@ -476,7 +460,8 @@ public class SignUpActivity extends ParentActivity implements
 
     /**
      * implementing on Focus Change listeners method, that will be work whenever the focus got changed.
-     * @param v , contains the actual views.
+     *
+     * @param v        , contains the actual views.
      * @param hasFocus , contains the focus flag.
      */
     @Override
@@ -512,45 +497,45 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case R.id.etCompanyName_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateCompanyName();
                 }
                 break;
 
             case R.id.etCompanyAddress_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateCompanyAddress();
                 }
                 break;
 
             case R.id.etWebsite_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateWebsite();
                 }
                 break;
 
 
             case R.id.etLicenseNumber_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateLicence();
                 }
                 break;
 
 
             case R.id.etContactPerson_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateContactNum();
                 }
                 break;
 
             case R.id.etVAT_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateVat();
                 }
                 break;
 
             case R.id.etExternalContractNumber_signUp:
-                if(!hasFocus && isItBusinessAccount) {
+                if (!hasFocus && isItBusinessAccount) {
                     validateExContact();
                 }
                 break;
@@ -562,47 +547,34 @@ public class SignUpActivity extends ParentActivity implements
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }
+
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
     }
 
     @Override
-    public void afterTextChanged(Editable editable)
-    {
-        if (editable == etFullName_signUp.getEditableText())
-        {
+    public void afterTextChanged(Editable editable) {
+        if (editable == etFullName_signUp.getEditableText()) {
             validateFullName();
-        }
-        else if (editable == etPhoneNo_signUp.getEditableText())
-        {
+        } else if (editable == etPhoneNo_signUp.getEditableText()) {
             validatePhoneNo(false);
-        }
-        else if (editable == etEmail_signUp.getEditableText())
-        {
+        } else if (editable == etEmail_signUp.getEditableText()) {
             validateEmailId(false);
-        }
-        else if(editable == etPassword_signUp.getEditableText())
-        {
+        } else if (editable == etPassword_signUp.getEditableText()) {
             validatePassword();
-        }
-        else if(editable == etReferral_signUp.getEditableText())
-        {
+        } else if (editable == etReferral_signUp.getEditableText()) {
             validateReferralCode();
-        }
-        else if(editable == tietCompanyName_signUp.getEditableText() && isItBusinessAccount)
-        {
+        } else if (editable == tietCompanyName_signUp.getEditableText() && isItBusinessAccount) {
             validateCompanyName();
-        }
-        else if(editable == etCompanyAddress_signUp.getEditableText() && isItBusinessAccount)
-        {
+        } else if (editable == etCompanyAddress_signUp.getEditableText() && isItBusinessAccount) {
             validateCompanyAddress();
         }
     }
 
     /**
-     *<h2>validateFullName</h2>
+     * <h2>validateFullName</h2>
      * <p>
-     *     method to validate user full name
+     * method to validate user full name
      * </p>
      */
     private void validateFullName() {
@@ -624,7 +596,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
     /**
-     *<h2>validatePhoneNo</h2>
+     * <h2>validatePhoneNo</h2>
      * <p>method to validate the input phone number</p>
      */
     private void validatePhoneNo(boolean isFromOnFocusChange) {
@@ -632,8 +604,7 @@ public class SignUpActivity extends ParentActivity implements
         signUpController.phoneMailValidation(false, etPhoneNo_signUp.getText().toString(),
                 countryCodeMinLength, countryCodeMaxLength, new ResultInterface() {
                     @Override
-                    public void errorMandatoryNotifier()
-                    {
+                    public void errorMandatoryNotifier() {
                         tilPhoneNo_signUp.setErrorEnabled(true);
                         tilPhoneNo_signUp.setError(resources.getString(R.string.mandatory));
                         isPhoneValidTemp[0] = false;
@@ -647,40 +618,35 @@ public class SignUpActivity extends ParentActivity implements
                     }
                 });
 
-        if(isPhoneValidTemp[0])
-        {
+        if (isPhoneValidTemp[0]) {
             tilPhoneNo_signUp.setErrorEnabled(false);
         }
         isPhoneNoValid = isPhoneValidTemp[0];
 
-        if(isPhoneNoValid && isFromOnFocusChange)
-        {
+        if (isPhoneNoValid && isFromOnFocusChange) {
             signUpController.validatePhNoAvailability(etPhoneNo_signUp.getText().toString().trim(), new CallbackWithParam() {
                 @Override
-                public void successNotifier(String msg)
-                {
+                public void successNotifier(String msg) {
                     tilPhoneNo_signUp.setErrorEnabled(false);
                     isPhoneNoValid = true;
                     validateAllFieldsFlag();
                 }
 
                 @Override
-                public void errorNotifier(String msg)
-                {
+                public void errorNotifier(String msg) {
                     tilPhoneNo_signUp.setErrorEnabled(true);
                     tilPhoneNo_signUp.setError(msg);
                     isPhoneNoValid = false;
                     validateAllFieldsFlag();
                 }
             });
-        }
-        else {
+        } else {
             validateAllFieldsFlag();
         }
     }
 
     /**
-     *<h2>validateEmailId</h2>
+     * <h2>validateEmailId</h2>
      * <p> to validate whether entered email id is a valid email id or not
      * and this email id is available or not</p>
      */
@@ -695,54 +661,47 @@ public class SignUpActivity extends ParentActivity implements
             }
 
             @Override
-            public void errorInvalidNotifier()
-            {
+            public void errorInvalidNotifier() {
                 tilEmail_signUp.setErrorEnabled(true);
                 tilEmail_signUp.setError(resources.getString(R.string.email_invalid));
                 isEmailValidTemp[0] = false;
             }
         });
 
-        if(isEmailValidTemp[0])
-        {
+        if (isEmailValidTemp[0]) {
             tilEmail_signUp.setErrorEnabled(false);
         }
         isEmailValid = isEmailValidTemp[0];
 
-        if(isEmailValidTemp[0] && isFromOnFocusChange)
-        {
+        if (isEmailValidTemp[0] && isFromOnFocusChange) {
             signUpController.validateEmailAvailability(etEmail_signUp.getText().toString().trim(), new CallbackWithParam() {
                 @Override
-                public void successNotifier(String msg)
-                {
+                public void successNotifier(String msg) {
                     tilEmail_signUp.setErrorEnabled(false);
                     isEmailValid = true;
                     validateAllFieldsFlag();
                 }
 
                 @Override
-                public void errorNotifier(String msg)
-                {
+                public void errorNotifier(String msg) {
                     tilEmail_signUp.setErrorEnabled(true);
                     tilEmail_signUp.setError(msg);
                     isEmailValid = false;
                     validateAllFieldsFlag();
                 }
             });
-        }
-        else {
+        } else {
             validateAllFieldsFlag();
         }
     }
 
     /**
-     *<h2>validatePassword</h2>
+     * <h2>validatePassword</h2>
      * <p>
-     *     method to validate the input p[assword
+     * method to validate the input p[assword
      * </p>
      */
-    private void validatePassword()
-    {
+    private void validatePassword() {
         signUpController.validateFieldValue(etPassword_signUp.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -761,14 +720,13 @@ public class SignUpActivity extends ParentActivity implements
     }
 
     /**
-     *<h2>verifyReferralCode</h2>
+     * <h2>verifyReferralCode</h2>
      * <p>
-     *     method to validate the referral code
-     *     whether its a valid code or not and its correct code or not
+     * method to validate the referral code
+     * whether its a valid code or not and its correct code or not
      * </p>
      */
-    private void validateReferralCode()
-    {
+    private void validateReferralCode() {
         signUpController.validateReferralCode(etReferral_signUp.getText().toString(), new VerifyOTPInterface() {
             @Override
             public void doFirstProcess() {
@@ -792,13 +750,12 @@ public class SignUpActivity extends ParentActivity implements
     }
 
     /**
-     *<h2>validateCompanyName</h2>
+     * <h2>validateCompanyName</h2>
      * <p>
-     *     method to validate the input company name
+     * method to validate the input company name
      * </p>
      */
-    private void validateCompanyName()
-    {
+    private void validateCompanyName() {
         signUpController.validateFieldValue(tietCompanyName_signUp.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -817,13 +774,12 @@ public class SignUpActivity extends ParentActivity implements
     }
 
     /**
-     *<h2>validateCompanyAddress</h2>
+     * <h2>validateCompanyAddress</h2>
      * <p>
-     *     method to validate the chosen company address
+     * method to validate the chosen company address
      * </p>
      */
-    private void validateWebsite()
-    {
+    private void validateWebsite() {
         signUpController.validateFieldValue(etWebsite_signUp.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -842,8 +798,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-    private void validateContactNum()
-    {
+    private void validateContactNum() {
 
         signUpController.phoneMailValidation(true, etContactPerson_signUp.getText().toString(), 0, 0, new ResultInterface() {
             @Override
@@ -854,8 +809,7 @@ public class SignUpActivity extends ParentActivity implements
             }
 
             @Override
-            public void errorInvalidNotifier()
-            {
+            public void errorInvalidNotifier() {
                 til_ContactPerson.setErrorEnabled(true);
                 til_ContactPerson.setError(resources.getString(R.string.email_invalid));
                 iscontact = true;
@@ -863,46 +817,37 @@ public class SignUpActivity extends ParentActivity implements
         });
 
 
-        if(iscontact)
-        {
+        if (iscontact) {
             til_ContactPerson.setErrorEnabled(false);
         }
 
 
-        if(iscontact)
-        {
+        if (iscontact) {
             signUpController.validatePhNoAvailability(etContactPerson_signUp.getText().toString().trim(), new CallbackWithParam() {
                 @Override
-                public void successNotifier(String msg)
-                {
+                public void successNotifier(String msg) {
                     til_ContactPerson.setErrorEnabled(false);
                     iscontact = true;
                     validateAllFieldsFlag();
                 }
 
                 @Override
-                public void errorNotifier(String msg)
-                {
+                public void errorNotifier(String msg) {
                     til_ContactPerson.setErrorEnabled(true);
                     til_ContactPerson.setError(msg);
                     iscontact = false;
                     validateAllFieldsFlag();
                 }
             });
-        }
-        else {
+        } else {
             validateAllFieldsFlag();
         }
-
 
 
     }
 
 
-
-
-    private void validateLicence()
-    {
+    private void validateLicence() {
         signUpController.validateFieldValue(etLicenseNumber_signUp.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -921,10 +866,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-
-    private void validateVat()
-    {
+    private void validateVat() {
         signUpController.validateFieldValue(etVAT_signUp.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -943,9 +885,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-    private void validateExContact()
-    {
+    private void validateExContact() {
         signUpController.validateFieldValue(etExternalContractNumber.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -964,9 +904,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-    private void validateCompanyAddress()
-    {
+    private void validateCompanyAddress() {
         signUpController.validateFieldValue(etCompanyAddress_signUp.getText().toString(), new StringFieldValidator() {
             @Override
             public void inValidDataNotifier() {
@@ -985,13 +923,6 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-
-
-
-
-
-
     /**
      * <h2>getUserCountryInfo</h2>
      * <p>
@@ -1002,9 +933,8 @@ public class SignUpActivity extends ParentActivity implements
         Country country = mCountryPicker.getUserCountryInfo(this);
         ivCountryFlag_signUp.setImageResource(country.getFlag());
 
-
         tvCountryCode_signUp.setText(country.getDialCode());
-        countryCodeMinLength =9;
+        countryCodeMinLength = 9;
         countryCodeMaxLength = country.getMaxDigits();
         etPhoneNo_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
 
@@ -1017,89 +947,81 @@ public class SignUpActivity extends ParentActivity implements
         etContactPerson_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
 
 
-        Log.d("SignUp", "setCountryListener countryCodeMinLength: "+
-                countryCodeMinLength+" countryCodeMaxLength: "+countryCodeMaxLength);
+        Log.d("SignUp", "setCountryListener countryCodeMinLength: " +
+                countryCodeMinLength + " countryCodeMaxLength: " + countryCodeMaxLength);
     }
 
     /**
      * <h2>retrieveSavedInstance</h2>
      * <p>
-     *     method to retrieved stored data of input fields
+     * method to retrieved stored data of input fields
      * </p>
+     *
      * @param savedInstanceBundle: retrieved savedInstanceState from onCreate bundle
      */
-    private void retrieveSavedInstance(Intent savedInstanceBundle)
-    {
+    private void retrieveSavedInstance(Intent savedInstanceBundle) {
         isItBusinessAccount = savedInstanceBundle.getBooleanExtra("is_business_Account", false);
         login_type = savedInstanceBundle.getIntExtra("login_type", 1);
-        Log.d("SignUp", "retrieveSavedInstance isItBusinessAccount: "+isItBusinessAccount+" login_type: "+login_type);
+        Log.d("SignUp", "retrieveSavedInstance isItBusinessAccount: " + isItBusinessAccount + " login_type: " + login_type);
 
-        if (savedInstanceBundle.getStringExtra("name")!=null
-                && !savedInstanceBundle.getStringExtra("name").isEmpty())
-        {
+        if (savedInstanceBundle.getStringExtra("name") != null
+                && !savedInstanceBundle.getStringExtra("name").isEmpty()) {
             etFullName_signUp.setText(savedInstanceBundle.getStringExtra("name"));
             validateFullName();
         }
 
         //TODO if req retrived ISD code
         if (savedInstanceBundle.getStringExtra("phone") != null
-                && !savedInstanceBundle.getStringExtra("phone").isEmpty())
-        {
+                && !savedInstanceBundle.getStringExtra("phone").isEmpty()) {
             etPhoneNo_signUp.setText(savedInstanceBundle.getStringExtra("phone"));
             validatePhoneNo(true);
         }
 
 
         if (savedInstanceBundle.getStringExtra("email") != null
-                && !savedInstanceBundle.getStringExtra("email").isEmpty())
-        {
+                && !savedInstanceBundle.getStringExtra("email").isEmpty()) {
             etEmail_signUp.setText(savedInstanceBundle.getStringExtra("email"));
             validateEmailId(true);
         }
 
         if (savedInstanceBundle.getStringExtra("password") != null
-                && !savedInstanceBundle.getStringExtra("password").isEmpty())
-        {
+                && !savedInstanceBundle.getStringExtra("password").isEmpty()) {
             etPassword_signUp.setText(savedInstanceBundle.getStringExtra("password"));
             validatePassword();
         }
 
 
         if (savedInstanceBundle.getStringExtra("referral_code") != null
-                && !savedInstanceBundle.getStringExtra("referral_code").isEmpty())
-        {
+                && !savedInstanceBundle.getStringExtra("referral_code").isEmpty()) {
             etReferral_signUp.setText(savedInstanceBundle.getStringExtra("referral_code"));
             validateReferralCode();
         }
 
         if (savedInstanceBundle.getStringExtra("company_name") != null
-                && !savedInstanceBundle.getStringExtra("company_name").isEmpty())
-        {
+                && !savedInstanceBundle.getStringExtra("company_name").isEmpty()) {
             tietCompanyName_signUp.setText(savedInstanceBundle.getStringExtra("company_name"));
             validateCompanyName();
         }
 
         if (savedInstanceBundle.getStringExtra("drop_addr") != null
-                && !savedInstanceBundle.getStringExtra("drop_addr").isEmpty())
-        {
+                && !savedInstanceBundle.getStringExtra("drop_addr").isEmpty()) {
             address = savedInstanceBundle.getStringExtra("drop_addr");
             etCompanyAddress_signUp.setText(address);
             validateCompanyAddress();
         }
 
-        if (savedInstanceBundle.getStringExtra("ent_socialMedia_id") != null)
-        {
+        if (savedInstanceBundle.getStringExtra("ent_socialMedia_id") != null) {
             ent_socialMedia_id = savedInstanceBundle.getStringExtra("ent_socialMedia_id");
         }
-        if (savedInstanceBundle.getStringExtra("picture") != null){
+        if (savedInstanceBundle.getStringExtra("picture") != null) {
             picture = savedInstanceBundle.getStringExtra("picture");
             Uri uri = Uri.parse(picture);
 
-            double size[]= Scaler.getScalingFactor(SignUpActivity.this);
-            double height = (85)*size[1];
-            double width = (90)*size[0];
+            double size[] = Scaler.getScalingFactor(SignUpActivity.this);
+            double height = (85) * size[1];
+            double width = (90) * size[0];
             Picasso.with(this).load(uri)
-                    .resize((int)width, (int)height)
+                    .resize((int) width, (int) height)
                     .transform(new CircleTransform())
                     .placeholder(R.drawable.default_userpic)
                     .into(ivProfilePic_signUp);
@@ -1113,8 +1035,7 @@ public class SignUpActivity extends ParentActivity implements
 
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         toggleViewsForAccountType();
         super.onResume();
     }
@@ -1125,8 +1046,7 @@ public class SignUpActivity extends ParentActivity implements
      * This method is used for opening the selection type of image selection alert.
      * </p>
      */
-    private void selectImage()
-    {
+    private void selectImage() {
         imageOperation.doImageOperation(new ResultInterface() {
             @Override
             public void errorMandatoryNotifier() {
@@ -1137,6 +1057,7 @@ public class SignUpActivity extends ParentActivity implements
                     }
                 });
             }
+
             @Override
             public void errorInvalidNotifier() {
                 profilePicUrl = "";
@@ -1146,9 +1067,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-    private void selectImage1()
-    {
+    private void selectImage1() {
         imageOperation.doImageOperation1(new ResultInterface() {
             @Override
             public void errorMandatoryNotifier() {
@@ -1159,6 +1078,7 @@ public class SignUpActivity extends ParentActivity implements
                     }
                 });
             }
+
             @Override
             public void errorInvalidNotifier() {
                 profilePicUrl = "";
@@ -1168,10 +1088,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-
-    private void selectImage2()
-    {
+    private void selectImage2() {
         imageOperation.doImageOperation2(new ResultInterface() {
             @Override
             public void errorMandatoryNotifier() {
@@ -1182,6 +1099,7 @@ public class SignUpActivity extends ParentActivity implements
                     }
                 });
             }
+
             @Override
             public void errorInvalidNotifier() {
                 profilePicUrl = "";
@@ -1191,11 +1109,7 @@ public class SignUpActivity extends ParentActivity implements
     }
 
 
-
-
-
-    private void selectImage3()
-    {
+    private void selectImage3() {
         imageOperation.doImageOperation3(new ResultInterface() {
             @Override
             public void errorMandatoryNotifier() {
@@ -1206,6 +1120,7 @@ public class SignUpActivity extends ParentActivity implements
                     }
                 });
             }
+
             @Override
             public void errorInvalidNotifier() {
                 profilePicUrl = "";
@@ -1214,8 +1129,7 @@ public class SignUpActivity extends ParentActivity implements
         });
     }
 
-    private void selectImage4()
-    {
+    private void selectImage4() {
         imageOperation.doImageOperation4(new ResultInterface() {
             @Override
             public void errorMandatoryNotifier() {
@@ -1226,6 +1140,7 @@ public class SignUpActivity extends ParentActivity implements
                     }
                 });
             }
+
             @Override
             public void errorInvalidNotifier() {
                 profilePicUrl = "";
@@ -1233,13 +1148,6 @@ public class SignUpActivity extends ParentActivity implements
             }
         });
     }
-
-
-
-
-
-
-
 
 
     @Override
@@ -1262,13 +1170,12 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>onClick</h2>
      * override the on click listener
+     *
      * @param v: clicked view reference
      */
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.iv_close:
             case R.id.rlToolBarBack:
                 Utility.hideSoftKeyBoard(v);
@@ -1288,12 +1195,10 @@ public class SignUpActivity extends ParentActivity implements
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 if (Build.VERSION.SDK_INT >= 23) {
-                    if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-                    {
+                    if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                         selectImage();
                     }
-                }
-                else {
+                } else {
                     selectImage();
                 }
                 break;
@@ -1302,28 +1207,23 @@ public class SignUpActivity extends ParentActivity implements
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 if (Build.VERSION.SDK_INT >= 23) {
-                    if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-                    {
+                    if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                         selectImage1();
                     }
-                }
-                else {
+                } else {
                     selectImage1();
                 }
                 break;
-
 
 
             case R.id.iv_vat_image:
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 if (Build.VERSION.SDK_INT >= 23) {
-                    if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-                    {
+                    if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                         selectImage2();
                     }
-                }
-                else {
+                } else {
                     selectImage2();
                 }
                 break;
@@ -1332,12 +1232,10 @@ public class SignUpActivity extends ParentActivity implements
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 if (Build.VERSION.SDK_INT >= 23) {
-                    if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-                    {
+                    if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                         selectImage3();
                     }
-                }
-                else {
+                } else {
                     selectImage3();
                 }
                 break;
@@ -1346,32 +1244,31 @@ public class SignUpActivity extends ParentActivity implements
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 if (Build.VERSION.SDK_INT >= 23) {
-                    if (permissionsRunTime.getPermission(permissionArrayList, this, true))
-                    {
+                    if (permissionsRunTime.getPermission(permissionArrayList, this, true)) {
                         selectImage4();
                     }
-                }
-                else {
+                } else {
                     selectImage4();
                 }
                 break;
 
             case R.id.llCountryFlag_signUp:
+                //개인 용
+                Log.d(TAG, "onClick: llCountryFlag_signUp");
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 mCountryPicker.show(getSupportFragmentManager(), getResources().getString(R.string.Countrypicker));
-                mCountryPicker.setListener(new CountryPickerListener()
-                {
+                mCountryPicker.setListener(new CountryPickerListener() {
                     @Override
                     public void onSelectCountry(String name, String code, String dialCode,
                                                 int flagDrawableResID, int min, int max) {
 
-                        Log.d("serCountryInfo: ",dialCode);
+                        Log.d("serCountryInfo: ", dialCode);
 
-                        if(dialCode.equalsIgnoreCase("+2")){
+                        if (dialCode.equalsIgnoreCase("+2")) {
                             tvCountryCode_signUp.setText("+20");
-                            max=11;
-                        }else{
+                            max = 11;
+                        } else {
                             tvCountryCode_signUp.setText(dialCode);
                         }
 
@@ -1387,19 +1284,20 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case R.id.llCountryFlag_signUp1:
+                //사업자 용 추가 국가코드
+                Log.d(TAG, "onClick: llCountryFlag_signUp1");
                 Utility.hideSoftKeyBoard(v);
                 clearFocusOfAllEditTexts();
                 mCountryPicker.show(getSupportFragmentManager(), getResources().getString(R.string.Countrypicker));
-                mCountryPicker.setListener(new CountryPickerListener()
-                {
+                mCountryPicker.setListener(new CountryPickerListener() {
                     @Override
                     public void onSelectCountry(String name, String code, String dialCode,
                                                 int flagDrawableResID, int min, int max) {
 
-                        if(dialCode.equalsIgnoreCase("+2")){
+                        if (dialCode.equalsIgnoreCase("+2")) {
                             tvCountryCode_signUp.setText("+20");
-                            max=11;
-                        }else{
+                            max = 11;
+                        } else {
                             tvCountryCode_signUp.setText(dialCode);
                         }
 
@@ -1424,6 +1322,8 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case R.id.btnCreateAccount:
+
+                sessionManager.setCOUNTRYCODE(tvCountryCode_signUp.getText().toString());
                 initSignUpProcess();
                 break;
 
@@ -1435,25 +1335,24 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>addCompanyAddress</h2>
      * <p>
-     *     method to start AddDropLocationActivity to add company
-     *     address to
+     * method to start AddDropLocationActivity to add company
+     * address to
      * </p>
      */
-    private void addCompanyAddress()
-    {
+    private void addCompanyAddress() {
         Intent addrIntent = new Intent(this, AddDropLocationActivity.class);
-        addrIntent.putExtra("key","startActivityForResultAddr");
-        addrIntent.putExtra("keyId",Constants.PICK_ID);
-        addrIntent.putExtra("comingFrom","signup");
-        addrIntent.putExtra("login_type",login_type);
-        addrIntent.putExtra("is_business_Account",isItBusinessAccount);
+        addrIntent.putExtra("key", "startActivityForResultAddr");
+        addrIntent.putExtra("keyId", Constants.PICK_ID);
+        addrIntent.putExtra("comingFrom", "signup");
+        addrIntent.putExtra("login_type", login_type);
+        addrIntent.putExtra("is_business_Account", isItBusinessAccount);
         addrIntent.putExtra("name", etFullName_signUp.getText().toString());
         addrIntent.putExtra("phone", etPhoneNo_signUp.getText().toString());
         addrIntent.putExtra("email", etEmail_signUp.getText().toString());
         addrIntent.putExtra("password", etPassword_signUp.getText().toString());
         addrIntent.putExtra("referral_code", etReferral_signUp.getText().toString());
         addrIntent.putExtra("company_name", tietCompanyName_signUp.getText().toString());
-        addrIntent.putExtra("picture",picture);
+        addrIntent.putExtra("picture", picture);
 
         startActivityForResult(addrIntent, Constants.COMPANY_ADDR_ID);
         overridePendingTransition(R.anim.slide_in_up, R.anim.stay_still);
@@ -1462,44 +1361,42 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2></h2>
      */
-    private void clearFocusOfAllEditTexts()
-    {
-        if(etFullName_signUp.hasFocus())
+    private void clearFocusOfAllEditTexts() {
+        if (etFullName_signUp.hasFocus())
             etFullName_signUp.clearFocus();
 
-        if(etPhoneNo_signUp.hasFocus())
+        if (etPhoneNo_signUp.hasFocus())
             etPhoneNo_signUp.clearFocus();
 
-        if(etEmail_signUp.hasFocus())
+        if (etEmail_signUp.hasFocus())
             etEmail_signUp.clearFocus();
 
-        if(etPassword_signUp.hasFocus())
+        if (etPassword_signUp.hasFocus())
             etPassword_signUp.clearFocus();
 
-        if(etReferral_signUp.hasFocus())
+        if (etReferral_signUp.hasFocus())
             etReferral_signUp.clearFocus();
 
-        if(tietCompanyName_signUp.hasFocus())
+        if (tietCompanyName_signUp.hasFocus())
             tietCompanyName_signUp.clearFocus();
 
-        if(etCompanyAddress_signUp.hasFocus())
+        if (etCompanyAddress_signUp.hasFocus())
             etCompanyAddress_signUp.clearFocus();
     }
 
     /**
      * <h2>initSignUpProcess</h2>
      * <p>
-     *     method to validate all fields to init signUpApi call
+     * 회원가입 버튼 눌렀을때
+     * 모든 필드를 검증하여 signUpApi 호출하는 메소드
      * </p>
      */
-    private void initSignUpProcess()
-    {
-        Log.d("SignUp", "initSignUpProcess  address "+address+"  isReferralCodeEntered: "+isReferralCodeEntered);
+    private void initSignUpProcess() {
+        Log.d("SignUp", "initSignUpProcess  address " + address + "  isReferralCodeEntered: " + isReferralCodeEntered);
         Utility.hideSoftKeyBoard(btnCreateAccount);
         clearFocusOfAllEditTexts();
 
-        if(Utility.isNetworkAvailable(SignUpActivity.this))
-        {
+        if (Utility.isNetworkAvailable(SignUpActivity.this)) {
             permissionArrayList.clear();
             permissionArrayList.add(AppPermissionsRunTime.Permission.READ_EXTERNAL_STORAGE);
             permissionArrayList.add(AppPermissionsRunTime.Permission.CAMERA);
@@ -1507,15 +1404,13 @@ public class SignUpActivity extends ParentActivity implements
             permissionArrayList.add(AppPermissionsRunTime.Permission.READ_SMS);
             smsFlag = true;
 
-            if (isReferralCodeEntered)
+            if (isReferralCodeEntered)  //추천코드 입력되었으면
             {
                 initReferralCodeVerificationApi(true);
-            } else {
+            } else {  //추천코드 입력 안되었으면
                 callSignUp();
             }
-        }
-        else
-        {
+        } else {
             alerts.showNetworkAlert(SignUpActivity.this);
         }
     }
@@ -1523,16 +1418,15 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>callSignUp</h2>
      * <p>
-     * This method is used for calling SignUp related works.
+     * SignUp 관련 작업을 호출하는 데 사용됩니다.
      * </p>
      */
-    private void callSignUp()
-    {
+    private void callSignUp() {
         Log.d("SignUp", "callSignUp ");
 
         if (Build.VERSION.SDK_INT >= 23) {
             if (permissionsRunTime.getPermission(permissionArrayList, SignUpActivity.this, true)) {
-                signUpController.getVerification(tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(),new CallbackWithParam() {
+                signUpController.getVerification(etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
                     @Override
                     public void successNotifier(String msg) {
                         callOTP(msg);
@@ -1540,13 +1434,12 @@ public class SignUpActivity extends ParentActivity implements
 
                     @Override
                     public void errorNotifier(String msg) {
-                        Utility.printLog("value of error: "+msg);
+                        Utility.printLog("value of error: " + msg);
                     }
                 });
             }
-        }
-        else {
-            signUpController.getVerification(tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
+        } else {
+            signUpController.getVerification(etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
                 @Override
                 public void successNotifier(String msg) {
                     callOTP(msg);
@@ -1565,32 +1458,25 @@ public class SignUpActivity extends ParentActivity implements
      * This method is used for enabling the Toggle button,
      * that is used for accepting the Terms and Conditions.
      * </p>
-     * @return  boolean: true if all fields are valid
+     *
+     * @return boolean: true if all fields are valid
      */
-    private boolean validateAllFieldsFlag()
-    {
-        Utility.printLog("Signup  validateAllFieldsFlag isFullNameValid: "+isFullNameValid + "  isPhoneNoValid: "+isPhoneNoValid
-                +"isEmailValid  "+isEmailValid+"  isPasswordValid: "+isPasswordValid+" isItBusinessAccount "+isItBusinessAccount+"-"+iswebsite+"-"+islicence+"-"+isvat+"-"+isexcontact);
-        if(isFullNameValid && isPhoneNoValid && isEmailValid && isPasswordValid)
-        {
-            if (!isItBusinessAccount)
-            {
+    private boolean validateAllFieldsFlag() {
+        Utility.printLog("Signup  validateAllFieldsFlag isFullNameValid: " + isFullNameValid + "  isPhoneNoValid: " + isPhoneNoValid
+                + "isEmailValid  " + isEmailValid + "  isPasswordValid: " + isPasswordValid + " isItBusinessAccount " + isItBusinessAccount + "-" + iswebsite + "-" + islicence + "-" + isvat + "-" + isexcontact);
+        if (isFullNameValid && isPhoneNoValid && isEmailValid && isPasswordValid) {
+            if (!isItBusinessAccount) {
                 handleSwitchTnCStatesEnabling(true);
                 return true;
             }
-            if (isItBusinessAccount && isCompanyNameValid && isCompanyAddressValid&&!profileVatUrl.equalsIgnoreCase("")&&!profileAgrementUrl.equalsIgnoreCase("")&&!profileChamberUrl.equalsIgnoreCase(""))
-            {
+            if (isItBusinessAccount && isCompanyNameValid && isCompanyAddressValid && !profileVatUrl.equalsIgnoreCase("") && !profileAgrementUrl.equalsIgnoreCase("") && !profileChamberUrl.equalsIgnoreCase("")) {
                 handleSwitchTnCStatesEnabling(true);
                 return true;
-            }
-            else
-            {
+            } else {
                 handleSwitchTnCStatesEnabling(false);
                 return false;
             }
-        }
-        else
-        {
+        } else {
             handleSwitchTnCStatesEnabling(false);
             return false;
         }
@@ -1599,18 +1485,15 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>handleSwitchTnCStatesEnabling</h2>
      * <p>method to handle the switchTermsAndConds state to enable or disable</p>
+     *
      * @param isToEnableALl:
      */
-    private void handleSwitchTnCStatesEnabling(boolean isToEnableALl)
-    {
-        if(isToEnableALl)
-        {
+    private void handleSwitchTnCStatesEnabling(boolean isToEnableALl) {
+        if (isToEnableALl) {
             //isTermsAndCondsAccepted = true;
             switchTermsAndConds.setEnabled(true);
             switchTermsAndConds.setChecked(isTermsAndCondsAccepted);
-        }
-        else
-        {
+        } else {
             isTermsAndCondsAccepted = false;
             switchTermsAndConds.setChecked(isTermsAndCondsAccepted);
             switchTermsAndConds.setEnabled(false);
@@ -1621,32 +1504,25 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>handleSignUpBtnStateEnabling</h2>
      * <p>
-     *     method to enable and disable and set background color of create account button
+     * method to enable and disable and set background color of create account button
      * </p>
      */
-    private void handleSignUpBtnStateEnabling()
-    {
-        if(isItBusinessAccount){
-            if (isTermsAndCondsAccepted && switchTermsAndConds.isEnabled()&&!profileVatUrl.equalsIgnoreCase("")&&!profileAgrementUrl.equalsIgnoreCase("")&&!profileChamberUrl.equalsIgnoreCase(""))
-            {
+    private void handleSignUpBtnStateEnabling() {
+        if (isItBusinessAccount) {
+            if (isTermsAndCondsAccepted && switchTermsAndConds.isEnabled() && !profileVatUrl.equalsIgnoreCase("") && !profileAgrementUrl.equalsIgnoreCase("") && !profileChamberUrl.equalsIgnoreCase("")) {
                 btnCreateAccount.setEnabled(true);
                 btnCreateAccount.setBackgroundResource(R.drawable.selector_layout);
-            }
-            else
-            {
-               // Toast.makeText(this,"Please fill all the firld to proceed ",Toast.LENGTH_LONG).show();
+            } else {
+                // Toast.makeText(this,"Please fill all the firld to proceed ",Toast.LENGTH_LONG).show();
                 btnCreateAccount.setEnabled(false);
                 btnCreateAccount.setBackgroundColor(ContextCompat.getColor(this, R.color.shadow_color));
             }
-        }else{
-            if (isTermsAndCondsAccepted && switchTermsAndConds.isEnabled())
-            {
+        } else {
+            if (isTermsAndCondsAccepted && switchTermsAndConds.isEnabled()) {
                 btnCreateAccount.setEnabled(true);
                 btnCreateAccount.setBackgroundResource(R.drawable.selector_layout);
-            }
-            else
-            {
-               // Toast.makeText(this,"Please fill all the firld to proceed ",Toast.LENGTH_LONG).show();
+            } else {
+                // Toast.makeText(this,"Please fill all the firld to proceed ",Toast.LENGTH_LONG).show();
                 btnCreateAccount.setEnabled(false);
                 btnCreateAccount.setBackgroundColor(ContextCompat.getColor(this, R.color.shadow_color));
             }
@@ -1657,25 +1533,23 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>initVerifyReferralCodeApi</h2>
      * <p>
-     *     method to check whether its a referral
+     * method to check whether its a referral
      * </p>
+     *
      * @param hasCalledForReferralAndSignUp: true if its referral
      */
-    private void initReferralCodeVerificationApi(boolean hasCalledForReferralAndSignUp)
-    {
-        Log.d("SignUp", "initReferralCodeVerificationApi  hasCalledForReferralAndSignUp "+hasCalledForReferralAndSignUp);
+    private void initReferralCodeVerificationApi(boolean hasCalledForReferralAndSignUp) {
+        Log.d("SignUp", "initReferralCodeVerificationApi  hasCalledForReferralAndSignUp " + hasCalledForReferralAndSignUp);
 
         signUpController.initVerifyReferralCodeApi(etReferral_signUp.getText().toString(), latLng, hasCalledForReferralAndSignUp,
                 tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
                     @Override
-                    public void successNotifier(String msg)
-                    {
+                    public void successNotifier(String msg) {
                         callOTP(msg);
                     }
 
                     @Override
-                    public void errorNotifier(String msg)
-                    {
+                    public void errorNotifier(String msg) {
                         isReferralCodeEntered = true;
                         tilReferral_signUp.setErrorEnabled(true);
                         tilReferral_signUp.setError(msg);
@@ -1685,13 +1559,14 @@ public class SignUpActivity extends ParentActivity implements
 
     /**
      * <h2>callOTP</h2>
-     *<p>
-     *     method to init method to make api call to get otp
-     *</p>
+     * <p>
+     * API를 호출하여 otp를 얻는 메소드
+     * </p>
+     *
      * @param result: retrieved json response from signup api call
      */
-    private void callOTP(String result)
-    {
+    private void callOTP(String result) {
+        Log.d("SignUpModel", "callOTP: ");
         Utility.printLog("code validtion  onSuccess JSON DATA" + result);
         if (result != null && !result.isEmpty()) {
             Bundle mbundle = new Bundle();
@@ -1709,35 +1584,31 @@ public class SignUpActivity extends ParentActivity implements
             mbundle.putString("ent_referral_code", etReferral_signUp.getText().toString());
 
 
-            mbundle.putString("ent_website",etWebsite_signUp.getText().toString());
-            mbundle.putString("ent_licence",etLicenseNumber_signUp.getText().toString());
-            mbundle.putString("ent_contact_no",etContactPerson_signUp.getText().toString());
-            mbundle.putString("ent_vat",etVAT_signUp.getText().toString());
-            mbundle.putString("ent_extContactNumber",etExternalContractNumber.getText().toString());
-            mbundle.putString("ent_licenseCopy",profileLic);
-            mbundle.putString("ent_vatCopy",profileVatUrl);
-            mbundle.putString("ent_ChamberCopy",profileChamberUrl);
-            mbundle.putString("ent_agrement_copy",profileAgrementUrl);
+            mbundle.putString("ent_website", etWebsite_signUp.getText().toString());
+            mbundle.putString("ent_licence", etLicenseNumber_signUp.getText().toString());
+            mbundle.putString("ent_contact_no", etContactPerson_signUp.getText().toString());
+            mbundle.putString("ent_vat", etVAT_signUp.getText().toString());
+            mbundle.putString("ent_extContactNumber", etExternalContractNumber.getText().toString());
+            mbundle.putString("ent_licenseCopy", profileLic);
+            mbundle.putString("ent_vatCopy", profileVatUrl);
+            mbundle.putString("ent_ChamberCopy", profileChamberUrl);
+            mbundle.putString("ent_agrement_copy", profileAgrementUrl);
 
             if (isItBusinessAccount)
                 mbundle.putInt("ent_account_type", 2);
             else
                 mbundle.putInt("ent_account_type", 1);
 
-            if(isItBusinessAccount)
-            {
+            if (isItBusinessAccount) {
                 mbundle.putString("ent_company_name", tietCompanyName_signUp.getText().toString());
                 mbundle.putString("ent_company_address", address);
-            }
-            else
-            {
+            } else {
                 mbundle.putString("ent_company_name", "");
                 mbundle.putString("ent_company_address", "");
             }
 
-            for (String key : mbundle.keySet())
-            {
-                Log.d("SignUp", "callOTP bundle data  "+key + " = \"" + mbundle.get(key) + "\"");
+            for (String key : mbundle.keySet()) {
+                Log.d("SignUp", "callOTP bundle data  " + key + " = \"" + mbundle.get(key) + "\"");
             }
 
             if (isPPSelected) {
@@ -1764,65 +1635,53 @@ public class SignUpActivity extends ParentActivity implements
 
     /**
      * This is an overrided method, got a call, when an activity opens by StartActivityForResult(), and return something back to its calling activity.
+     *
      * @param requestCode returning the request code.
-     * @param resultCode returning the result code.
-     * @param data contains the actual data. */
+     * @param resultCode  returning the result code.
+     * @param data        contains the actual data.
+     */
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         int REQUEST_CODE_AUTOCOMPLETE = 99;
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE) {
             if (resultCode == -1) {
                 final Place place = PlaceAutocomplete.getPlace(SignUpActivity.this, data);
                 address = String.valueOf(place.getAddress());
-                if(address != null && !address.isEmpty())
-                {
-                    Log.d("SignUp", "onActivityResult resultCode == -1 address: "+address);
+                if (address != null && !address.isEmpty()) {
+                    Log.d("SignUp", "onActivityResult resultCode == -1 address: " + address);
                     etCompanyAddress_signUp.setText(address);
                     isCompanyAddressValid = true;
                 }
-            }
-            else if (resultCode == PlaceAutocomplete.RESULT_ERROR)
-            {
+            } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(SignUpActivity.this, data);
                 Log.e("SignUp", "Error: Status = " + status.toString());
             }
         }
-        if (requestCode == LocationUtil.REQUEST_CHECK_SETTINGS)
-        {
-            if (resultCode == RESULT_OK)
-            {
+        if (requestCode == LocationUtil.REQUEST_CHECK_SETTINGS) {
+            if (resultCode == RESULT_OK) {
                 locationUtil.checkLocationSettings();
-            }
-            else if (requestCode == RESULT_CANCELED)
-            {
+            } else if (requestCode == RESULT_CANCELED) {
                 Log.d("location", " user choose not to make required location settings");
             }
         }
-        if (requestCode == Constants.COMPANY_ADDR_ID)
-        {
-            if (resultCode == RESULT_OK)
-            {
-                Log.d("SignUp", "onActivityResult resultCode == RESULT_OK address: "+address);
+        if (requestCode == Constants.COMPANY_ADDR_ID) {
+            if (resultCode == RESULT_OK) {
+                Log.d("SignUp", "onActivityResult resultCode == RESULT_OK address: " + address);
                 address = data.getStringExtra("drop_addr");
-                if(address != null && !address.isEmpty())
-                {
+                if (address != null && !address.isEmpty()) {
                     etCompanyAddress_signUp.setText(address);
                     isCompanyAddressValid = true;
                 }
 
                 //Utility.printLog("value of flags in 685: 1: "+ isFullNameValid +" ,2: "+ isCompanyNameValid +" ,3: "+ isCompanyAddressValid +" ,5: "+ isEmailValid +" ,7: "+flag7+" ,9: "+flag9);
                 validateAllFieldsFlag();
-            }
-            else if (requestCode == RESULT_CANCELED)
-            {
+            } else if (requestCode == RESULT_CANCELED) {
                 Log.d("location", " user choose not to make required location settings");
             }
         }
 
-        switch (requestCode)
-        {
+        switch (requestCode) {
             case Constants.CAMERA_PIC:
                 newFile = imageOperation.startCropImage(newFile);
                 break;
@@ -1848,15 +1707,15 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.CROP_IMAGE:
-                Log.d("dataactivty: ","enetered");
+                Log.d("dataactivty: ", "enetered");
 
                 isPPSelected = true;    // profile pic now set
                 try {
-                    double size[]= Scaler.getScalingFactor(SignUpActivity.this);
-                    double height = (85)*size[1];
-                    double width = (90)*size[0];
+                    double size[] = Scaler.getScalingFactor(SignUpActivity.this);
+                    double height = (85) * size[1];
+                    double width = (90) * size[0];
                     Picasso.with(this).load(Uri.fromFile(newFile))
-                            .resize((int)width, (int)height)
+                            .resize((int) width, (int) height)
                             .transform(new CircleTransform())
                             .placeholder(R.drawable.shipment_details_profile_default_image_frame)
                             .into(ivProfilePic_signUp);
@@ -1864,17 +1723,17 @@ public class SignUpActivity extends ParentActivity implements
                     imageOperation.uploadToAmazon(newFile, Constants.AMAZON_PROFILE_FOLDER, new ImageOperationInterface() {
                         @Override
                         public void onSuccess(String fileName) {
-                            isPPUploadedAmazon=true;
-                            profilePicUrl=fileName;
+                            isPPUploadedAmazon = true;
+                            profilePicUrl = fileName;
                             Utility.printLog("pppppp image upload in amazon got uploaded: " + profilePicUrl);
                         }
 
                         @Override
                         public void onFailure() {
-                            isPPSelected=false;
-                            isPPUploadedAmazon=false;
-                            profilePicUrl="";
-                            Toast.makeText(SignUpActivity.this,resources.getString(R.string.failImageUpload),Toast.LENGTH_LONG).show();
+                            isPPSelected = false;
+                            isPPUploadedAmazon = false;
+                            profilePicUrl = "";
+                            Toast.makeText(SignUpActivity.this, resources.getString(R.string.failImageUpload), Toast.LENGTH_LONG).show();
                             ivProfilePic_signUp.setImageResource(R.drawable.shipment_details_profile_default_image_frame);
                         }
                     });
@@ -1908,14 +1767,14 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.CROP_IMAGE1:
-                Log.d("dataactivty1: ","enetered1");
+                Log.d("dataactivty1: ", "enetered1");
                 isPPSelected = true;    // profile pic now set
                 try {
-                    double size[]= Scaler.getScalingFactor(SignUpActivity.this);
-                    double height = (85)*size[1];
-                    double width = (90)*size[0];
+                    double size[] = Scaler.getScalingFactor(SignUpActivity.this);
+                    double height = (85) * size[1];
+                    double width = (90) * size[0];
                     Picasso.with(this).load(Uri.fromFile(newFile))
-                            .resize((int)width, (int)height)
+                            .resize((int) width, (int) height)
                             .error(R.drawable.shipment_details_profile_default_image_frame)
                             .placeholder(R.drawable.shipment_details_profile_default_image_frame)
                             .into(ivLicence);
@@ -1923,17 +1782,17 @@ public class SignUpActivity extends ParentActivity implements
                     imageOperation.uploadToAmazon(newFile, Constants.AMAZON_PROFILE_FOLDER, new ImageOperationInterface() {
                         @Override
                         public void onSuccess(String fileName) {
-                            isPPUploadedAmazon=true;
-                            profileLic=fileName;
+                            isPPUploadedAmazon = true;
+                            profileLic = fileName;
                             Utility.printLog("pppppp image upload in amazon got uploaded: " + profileLic);
                         }
 
                         @Override
                         public void onFailure() {
-                            isPPSelected=false;
-                            isPPUploadedAmazon=false;
-                            profileLic="";
-                            Toast.makeText(SignUpActivity.this,resources.getString(R.string.failImageUpload),Toast.LENGTH_LONG).show();
+                            isPPSelected = false;
+                            isPPUploadedAmazon = false;
+                            profileLic = "";
+                            Toast.makeText(SignUpActivity.this, resources.getString(R.string.failImageUpload), Toast.LENGTH_LONG).show();
                             ivLicence.setImageResource(R.drawable.shipment_details_profile_default_image_frame);
                         }
                     });
@@ -1967,15 +1826,15 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.CROP_IMAGE2:
-                Log.d("dataactivty2: ","enetered2");
+                Log.d("dataactivty2: ", "enetered2");
 
                 isPPSelected = true;    // profile pic now set
                 try {
-                    double size[]= Scaler.getScalingFactor(SignUpActivity.this);
-                    double height = (85)*size[1];
-                    double width = (90)*size[0];
+                    double size[] = Scaler.getScalingFactor(SignUpActivity.this);
+                    double height = (85) * size[1];
+                    double width = (90) * size[0];
                     Picasso.with(this).load(Uri.fromFile(newFile))
-                            .resize((int)width, (int)height)
+                            .resize((int) width, (int) height)
                             .error(R.drawable.shipment_details_profile_default_image_frame)
                             .placeholder(R.drawable.shipment_details_profile_default_image_frame)
                             .into(ivVat);
@@ -1983,17 +1842,17 @@ public class SignUpActivity extends ParentActivity implements
                     imageOperation.uploadToAmazon(newFile, Constants.AMAZON_PROFILE_FOLDER, new ImageOperationInterface() {
                         @Override
                         public void onSuccess(String fileName) {
-                            isPPUploadedAmazon=true;
-                            profileVatUrl=fileName;
+                            isPPUploadedAmazon = true;
+                            profileVatUrl = fileName;
                             Utility.printLog("pppppp image upload in amazon got uploaded: " + profileVatUrl);
                         }
 
                         @Override
                         public void onFailure() {
-                            isPPSelected=false;
-                            isPPUploadedAmazon=false;
-                            profileVatUrl="";
-                            Toast.makeText(SignUpActivity.this,resources.getString(R.string.failImageUpload),Toast.LENGTH_LONG).show();
+                            isPPSelected = false;
+                            isPPUploadedAmazon = false;
+                            profileVatUrl = "";
+                            Toast.makeText(SignUpActivity.this, resources.getString(R.string.failImageUpload), Toast.LENGTH_LONG).show();
                             ivVat.setImageResource(R.drawable.shipment_details_profile_default_image_frame);
                         }
                     });
@@ -2007,7 +1866,7 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.GALLERY_PIC3:
-                Log.d("dataactivty3: ","enetere3");
+                Log.d("dataactivty3: ", "enetere3");
                 try {
                     String state = Environment.getExternalStorageState();
                     String takenNewImage = "takenNewImage" + String.valueOf(System.nanoTime()) + ".png";
@@ -2028,14 +1887,14 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.CROP_IMAGE3:
-                Log.d("dataactivty3: ","enetere3");
+                Log.d("dataactivty3: ", "enetere3");
                 isPPSelected = true;    // profile pic now set
                 try {
-                    double size[]= Scaler.getScalingFactor(SignUpActivity.this);
-                    double height = (85)*size[1];
-                    double width = (90)*size[0];
+                    double size[] = Scaler.getScalingFactor(SignUpActivity.this);
+                    double height = (85) * size[1];
+                    double width = (90) * size[0];
                     Picasso.with(this).load(Uri.fromFile(newFile))
-                            .resize((int)width, (int)height)
+                            .resize((int) width, (int) height)
                             .error(R.drawable.shipment_details_profile_default_image_frame)
                             .placeholder(R.drawable.shipment_details_profile_default_image_frame)
                             .into(ivChamber);
@@ -2043,16 +1902,16 @@ public class SignUpActivity extends ParentActivity implements
                     imageOperation.uploadToAmazon(newFile, Constants.AMAZON_PROFILE_FOLDER, new ImageOperationInterface() {
                         @Override
                         public void onSuccess(String fileName) {
-                            isPPUploadedAmazon=true;
-                            profileChamberUrl=fileName;
+                            isPPUploadedAmazon = true;
+                            profileChamberUrl = fileName;
                             Utility.printLog("pppppp image upload in amazon got uploaded: " + profileChamberUrl);
                         }
 
                         @Override
                         public void onFailure() {
-                            isPPSelected=false;
-                            isPPUploadedAmazon=false;
-                            Toast.makeText(SignUpActivity.this,resources.getString(R.string.failImageUpload),Toast.LENGTH_LONG).show();
+                            isPPSelected = false;
+                            isPPUploadedAmazon = false;
+                            Toast.makeText(SignUpActivity.this, resources.getString(R.string.failImageUpload), Toast.LENGTH_LONG).show();
                             ivChamber.setImageResource(R.drawable.shipment_details_profile_default_image_frame);
                         }
                     });
@@ -2066,7 +1925,7 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.GALLERY_PIC4:
-                Log.d("dataactivty3: ","enetere3");
+                Log.d("dataactivty3: ", "enetere3");
                 try {
                     String state = Environment.getExternalStorageState();
                     String takenNewImage = "takenNewImage" + String.valueOf(System.nanoTime()) + ".png";
@@ -2087,14 +1946,14 @@ public class SignUpActivity extends ParentActivity implements
                 break;
 
             case Constants.CROP_IMAGE4:
-                Log.d("dataactivty3: ","enetere3");
+                Log.d("dataactivty3: ", "enetere3");
                 isPPSelected = true;    // profile pic now set
                 try {
-                    double size[]= Scaler.getScalingFactor(SignUpActivity.this);
-                    double height = (85)*size[1];
-                    double width = (90)*size[0];
+                    double size[] = Scaler.getScalingFactor(SignUpActivity.this);
+                    double height = (85) * size[1];
+                    double width = (90) * size[0];
                     Picasso.with(this).load(Uri.fromFile(newFile))
-                            .resize((int)width, (int)height)
+                            .resize((int) width, (int) height)
                             .error(R.drawable.shipment_details_profile_default_image_frame)
                             .placeholder(R.drawable.shipment_details_profile_default_image_frame)
                             .into(ivAgrement);
@@ -2102,16 +1961,16 @@ public class SignUpActivity extends ParentActivity implements
                     imageOperation.uploadToAmazon(newFile, Constants.AMAZON_PROFILE_FOLDER, new ImageOperationInterface() {
                         @Override
                         public void onSuccess(String fileName) {
-                            isPPUploadedAmazon=true;
-                            profileAgrementUrl=fileName;
+                            isPPUploadedAmazon = true;
+                            profileAgrementUrl = fileName;
                             Utility.printLog("pppppp image upload in amazon got uploaded: " + profileChamberUrl);
                         }
 
                         @Override
                         public void onFailure() {
-                            isPPSelected=false;
-                            isPPUploadedAmazon=false;
-                            Toast.makeText(SignUpActivity.this,resources.getString(R.string.failImageUpload),Toast.LENGTH_LONG).show();
+                            isPPSelected = false;
+                            isPPUploadedAmazon = false;
+                            Toast.makeText(SignUpActivity.this, resources.getString(R.string.failImageUpload), Toast.LENGTH_LONG).show();
                             ivChamber.setImageResource(R.drawable.shipment_details_profile_default_image_frame);
                         }
                     });
@@ -2127,52 +1986,43 @@ public class SignUpActivity extends ParentActivity implements
     /**
      * <h2>onRequestPermissionsResult</h2>
      * This method got called, once we give any permission to our required permission.
+     *
      * @param requestCode  contains request code.
-     * @param permissions   contains Permission list.
-     * @param grantResults  contains the grant permission result.
+     * @param permissions  contains Permission list.
+     * @param grantResults contains the grant permission result.
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == Constants.REQUEST_CODE)
-        {
+        if (requestCode == Constants.REQUEST_CODE) {
             boolean isAllGranted = true;
-            for (int permissionGrantResult : grantResults)
-            {
-                Log.d("SignUp", "permissionGrantResult "+permissionGrantResult);
-                if (permissionGrantResult == PackageManager.PERMISSION_DENIED)
-                {
-                    Log.d("SignUp", "permissionGrantResult if(): "+permissionGrantResult);
+            for (int permissionGrantResult : grantResults) {
+                Log.d("SignUp", "permissionGrantResult " + permissionGrantResult);
+                if (permissionGrantResult == PackageManager.PERMISSION_DENIED) {
+                    Log.d("SignUp", "permissionGrantResult if(): " + permissionGrantResult);
                     isAllGranted = false;
                 }
             }
 
-            if (! isAllGranted)
-            {
+            if (!isAllGranted) {
                 smsFlag = false;
                 permissionsRunTime.getPermission(permissionArrayList, this, true);
-            }
-            else
-            {
-                if (smsFlag)
-                {
-                    signUpController.getVerification(tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(),new CallbackWithParam() {
+            } else {
+                if (smsFlag) {
+                    signUpController.getVerification(tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
                         @Override
-                        public void successNotifier(String msg)
-                        {
+                        public void successNotifier(String msg) {
                             callOTP(msg);
                         }
 
                         @Override
                         public void errorNotifier(String msg) {
-                            Utility.printLog("value of error: "+msg);
+                            Utility.printLog("value of error: " + msg);
                         }
                     });
-                }
-                else
+                } else
                     selectImage();
             }
-        }
-        else {
+        } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
@@ -2182,14 +2032,13 @@ public class SignUpActivity extends ParentActivity implements
      * <p>
      * This method is used to update the location.
      * </p>
+     *
      * @param location instance of Location.
      */
     @Override
-    public void updateLocation(Location location)
-    {
+    public void updateLocation(Location location) {
         // updating location, and stopping update.
-        if(locationUtil != null)
-        {
+        if (locationUtil != null) {
             locationUtil.stop_Location_Update();
         }
         latLng[0] = location.getLatitude();
@@ -2202,16 +2051,13 @@ public class SignUpActivity extends ParentActivity implements
     }
 
     @Override
-    public void onStop()
-    {
+    public void onStop() {
         super.onStop();
     }
 
     @Override
-    protected void onDestroy()
-    {
-        if(locationUtil != null)
-        {
+    protected void onDestroy() {
+        if (locationUtil != null) {
             locationUtil.stop_Location_Update();
             locationUtil = null;
         }

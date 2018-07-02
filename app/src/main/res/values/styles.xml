@@ -6,7 +6,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <string name="TransparencyTheme" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </string>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="DialogThemeBottom" parent="@android:style/Theme.Dialog">
@@ -20,14 +27,12 @@
         <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
     </style>
 
-    <style name="ActionBar.TitleText"
-        parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="MySplashTheme" parent="Theme.AppCompat.NoActionBar">
-    </style>
+    <style name="MySplashTheme" parent="Theme.AppCompat.NoActionBar"></style>
 
     <style name="MyCustomSplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:background">@color/white</item>
@@ -110,11 +115,13 @@
     <style name="CustomToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@drawable/toolbar_green_background</item>
     </style>
+
     <style name="textViewCustomToolbar">
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/textsize_19_13sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="TextTabLayout" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">@dimen/text_size_13_8sp</item>
     </style>

@@ -3,6 +3,7 @@ package com.delex.model;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.res.Resources;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.delex.pojos.EmailValidatorPojo;
@@ -32,6 +33,8 @@ import org.json.JSONObject;
 
 public class SignUpModel
 {
+
+    public static final String TAG = SignUpModel.class.getSimpleName();
     private Activity context;
     private ProgressDialog pDialog;
     private Resources resources;
@@ -75,6 +78,7 @@ public class SignUpModel
     /**
      * <h2>verifyReferralCode</h2>
      * <p>
+     * 이 메소드는 주어진 프로모션 코드가 유효한지 확인하기 위해 프로모션 코드 적용 api를 호출합니다.
      * This method calling apply promo code api to check my given promo code is valid or not.
      * </p>
      * @return the result message.
@@ -191,7 +195,7 @@ public class SignUpModel
     /**
      * <h2>phNoValidationRequest</h2>
      * <p>
-     * This method checks phone no already registered or not by calling the phone validation service
+     * 전화 검증 서비스를 호출하여 이미 등록된 전화 번호를 확인합니다.
      * </p>
      * @param phNo, contains the phone number, whatever user input it.
      * @param callbackWithParam: api response notifier
@@ -203,6 +207,7 @@ public class SignUpModel
             jsonObject.put("ent_email", "");
             jsonObject.put("validationType", 2);
             jsonObject.put("mobile", phNo);
+            Log.d("dddd", "phNoValidationRequest: "+jsonObject.toString());
             OkHttp3Connection.doOkHttp3Connection("ordinory",sessionManager.getLanguageId(), Constants.PHONENOVALIDATION, OkHttp3Connection.Request_type.POST, jsonObject, new OkHttp3Connection.OkHttp3RequestCallback() {
                 @Override
                 public void onSuccess(String result)
@@ -247,7 +252,7 @@ public class SignUpModel
     /**
      * <h2>getVerificationCode</h2>
      * <p>
-     * This method will send the Verification code on our given Mobile No.
+     * 이 메소드는 지정된 모바일 번호에서 인증 코드를 전송합니다.
      * </p>
      * @param callbackWithParam: api response notifier
      */
@@ -259,15 +264,18 @@ public class SignUpModel
             jsonObject.put("countryCode",sessionManager.getCOUNTRYCODE());
             jsonObject.put("email",sessionManager.getEMail());
             jsonObject.put("userType", Constants.USER_TYPE);
+            Log.d(TAG, "getVerificationCode: "+jsonObject.toString());
             OkHttp3Connection.doOkHttp3Connection("ordinory",sessionManager.getLanguageId(), Constants.GETVERIFICATIONCODE, OkHttp3Connection.Request_type.POST, jsonObject, new OkHttp3Connection.OkHttp3RequestCallback() {
                 @Override
                 public void onSuccess(String result) {
+                    Log.d(TAG, "onSuccess: "+result);
                    hideProgressDialog();
                     callbackWithParam.successNotifier(result);
                 }
 
                 @Override
                 public void onError(String error) {
+                    Log.d(TAG, "onError: "+error);
                     callbackWithParam.errorNotifier(error);
                     hideProgressDialog();
                     Toast.makeText(context, error, Toast.LENGTH_SHORT).show();

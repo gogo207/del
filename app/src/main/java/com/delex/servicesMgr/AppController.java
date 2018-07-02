@@ -15,8 +15,10 @@ import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 
+import com.delex.a_kakao_login.KakaoSDKAdapter;
 import com.delex.chat_module.IsForeground;
 import com.delex.customer.R;
+import com.delex.logger.Dlog;
 import com.delex.utility.ConnectionService;
 import com.delex.utility.Utility;
 import com.google.android.gms.common.ConnectionResult;
@@ -38,10 +40,13 @@ import com.delex.interfaceMgr.OnGettingOfAppConfig;
 import com.delex.pojos.StartReceiptActPojo;
 import com.delex.utility.LocaleHelper;
 import com.delex.utility.SessionManager;
+import com.kakao.auth.KakaoSDK;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.Locale;
 
 /**
  * base Application
@@ -65,23 +70,42 @@ public class AppController extends MultiDexApplication implements Application.Ac
     private boolean chatScreenDestroyed = false;
     private SessionManager sessionManager;
     private Intent intent;
-
+///////////////////카카오톡 로그인 연동///////
+    private static volatile Activity currentActivity = null;
+////////////////////////////////////////////////
     public static boolean DEBUG = false;  // Dlog 셋팅
-
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
+        super.attachBaseContext(LocaleHelper.onAttach(base, "ko"));
         MultiDex.install(this);
     }
+
+//    @Override
+//    protected void attachBaseContext(Context base) {
+//        super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
+//        MultiDex.install(this);
+//    }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
+//        Locale locale = new Locale("ko");
+//
+//        Locale.setDefault(locale);
+//
+//        Configuration config = new Configuration();
+//
+//        config.locale = locale;
+//
+//        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
         this.DEBUG = isDebuggable(this);
 
         mInstance = this;
+        KakaoSDK.init(new KakaoSDKAdapter());  //카카오톡 로그인 어댑터
+
         EventBus.getDefault().register(this);
 
         IsForeground.init(this);
@@ -163,6 +187,16 @@ public class AppController extends MultiDexApplication implements Application.Ac
         }
         startService(intent);
     }
+
+    ////////////////////////카카오 로그인 연동////////////////
+    public static AppController getGlobalApplicationContext() {
+        return mInstance;
+    }
+
+    public static Activity getCurrentActivity() {
+        return currentActivity;
+    }
+    //////////////////////////////////////////////////
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(StartReceiptActPojo startReceiptActPojo)

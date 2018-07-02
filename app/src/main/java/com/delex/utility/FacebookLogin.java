@@ -52,7 +52,7 @@ public class FacebookLogin
     /**
      *<h2>facebookLogin</h2>
      * <P>
-     *     method to do facebook login
+     *     method 페이스북 로그인 할때
      * </P>
      * @param callbackmanager:  facebook sdk interface
      * @param required_data_list: contains the fields which values need to be fetched from facebook

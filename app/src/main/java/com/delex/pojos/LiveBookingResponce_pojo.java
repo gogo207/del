@@ -43,4 +43,14 @@ public class LiveBookingResponce_pojo implements Serializable {
     public void setData(LiveBookingDataPojo data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "LiveBookingResponce_pojo{" +
+                "errNum=" + errNum +
+                ", errMsg='" + errMsg + '\'' +
+                ", errFlag='" + errFlag + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

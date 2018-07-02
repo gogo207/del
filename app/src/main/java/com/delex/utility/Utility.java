@@ -64,6 +64,7 @@ import java.util.Locale;
 /**
  * <h2>Utility</h2>
  * <p>
+ *     기본 공통 기능 및 기타 일반적인 방법을 제공하는 클래스
  *     class to provide the basic common functionalities and other common methods
  * </p>
  *@since  23/5/15.
@@ -129,7 +130,7 @@ public class Utility
     /**
      * <h2>isNetworkAvailable</h2>
      * <P>
-     *      This method is used for checking internet connection
+     *      인터넷 연결을 확인하는 데 사용됩니다.
      * </P>
      * @param context current context.
      * @return boolean value.

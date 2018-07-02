@@ -43,25 +43,26 @@ import okio.Buffer;
 /**
  * <h2>OkHttp3Connection</h2>
  * <p>
- *     Class to handle all types of api calls
+ * Class to handle all types of api calls
  * </p>
+ *
  * @since 10/6/16.
  */
-public class OkHttp3Connection
-{
+public class OkHttp3Connection {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     /**
      * <h1>OkHttpRequestData</h1>
      * <p>
-     *     Class is use to hold three parameter i.e String object,RequestBody object and OkHttpRequestCallback
-     *     in a single place.
-     *     Because async Task takes only single parameter nad i have to send three parameter so.
-     *     Wrapping three things into a single object and sending one object to async task.
+     * Class is use to hold three parameter i.e String object,RequestBody object and OkHttpRequestCallback
+     * in a single place.
+     * Because async Task takes only single parameter nad i have to send three parameter so.
+     * Wrapping three things into a single object and sending one object to async task.
      * </p>
-     * @see RequestBody*/
-    private static  class OkHttpRequestData
-    {
+     *
+     * @see RequestBody
+     */
+    private static class OkHttpRequestData {
         public String request_Url;
         public JSONObject requestBody;
         OkHttp3RequestCallback callbacks;
@@ -69,6 +70,7 @@ public class OkHttp3Connection
         String token;
         String lang_id;
     }
+
     /**
      * <h2>doOkhttpRequest</h2>
      * <p>
@@ -77,22 +79,23 @@ public class OkHttp3Connection
      * Service Call using okHttp Request.
      * </p>
      * <p>
-     *     this Method Take a Request Body and a url,and OkHttpRequestCallback and does a Asyntask,
-     *     and does a request to the given Url
+     * this Method Take a Request Body and a url,and OkHttpRequestCallback and does a Asyntask,
+     * and does a request to the given Url
      * </p>
-     * @param token , contains the session token.
+     *
+     * @param token       , contains the session token.
      * @param request_Url contains the url of the given Service link to do performance.
      * @param requestBody contains the require data to send the given Url link.
-     * @param callbacks contains the reference to set the call back response to the calling class.  */
-    public static void doOkHttp3Connection(String token,String lang_id, String request_Url, Request_type request_type, JSONObject requestBody, OkHttp3RequestCallback callbacks)
-    {
+     * @param callbacks   contains the reference to set the call back response to the calling class.
+     */
+    public static void doOkHttp3Connection(String token, String lang_id, String request_Url, Request_type request_type, JSONObject requestBody, OkHttp3RequestCallback callbacks) {
         OkHttpRequestData data = new OkHttpRequestData();
         data.request_Url = request_Url;
         data.requestBody = requestBody;
         data.callbacks = callbacks;
-        data.request_type=request_type;
+        data.request_type = request_type;
         data.token = token;
-        data.lang_id=lang_id;
+        data.lang_id = lang_id;
 
         /**
          * Calling the Async task to perform the Service call.*/
@@ -103,62 +106,60 @@ public class OkHttp3Connection
      * <h1>OkHttpRequest</h1>
      * OkHttpRequest extends async task to perform the function indecently .
      * Does a service call using OkHttp client.
-     * <P>
-     *     This class extends async task and override the method of async task .
-     *     on doInBackground method of async task.
-     *     performing a service call to th given url and sending data given to the class.
-     *     By the help of the OkHttpClient and sending the call back method to the calling Activity by setting
-     *     data to the given reference of call-Back Interface object.
+     * <p>
+     * This class extends async task and override the method of async task .
+     * on doInBackground method of async task.
+     * performing a service call to th given url and sending data given to the class.
+     * By the help of the OkHttpClient and sending the call back method to the calling Activity by setting
+     * data to the given reference of call-Back Interface object.
      * </P>
      * If Any thing Happened to the service call like Connection Failed or any thin else.
      * Telling to the User that connection is too slow when handling Exception.
-     *@see Response
+     *
+     * @see Response
      * @see OkHttpClient
-     * */
-    private  static class OkHttpRequest extends AsyncTask<OkHttpRequestData, Void, String>
-    {
+     */
+    private static class OkHttpRequest extends AsyncTask<OkHttpRequestData, Void, String> {
         OkHttp3RequestCallback callbacks;
-        boolean error =false;
+        boolean error = false;
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             super.onPreExecute();
         }
 
         @Override
-        protected String doInBackground(OkHttpRequestData... params)
-        {
+        protected String doInBackground(OkHttpRequestData... params) {
             callbacks = params[0].callbacks;
-            String result="";
-            try
-            {
-                OkHttpClient.Builder builder=new OkHttpClient.Builder();
+            String result = "";
+            try {
+                OkHttpClient.Builder builder = new OkHttpClient.Builder();
                 builder.connectTimeout(30, TimeUnit.SECONDS);
                 builder.readTimeout(30, TimeUnit.SECONDS);
                 builder.writeTimeout(30, TimeUnit.SECONDS);
                 OkHttpClient httpClient = builder.build();
-                Request request=null;
-                if(params[0].request_type.equals(Request_type.URl))
-                {
-                    String url=getUrl(params[0].request_Url,params[0].requestBody);
+                Request request = null;
+                if (params[0].request_type.equals(Request_type.URl)) {
+                    String url = getUrl(params[0].request_Url, params[0].requestBody);
                     request = new Request.Builder()
                             .addHeader("authorization", params[0].token)
-                            .addHeader("lang",params[0].lang_id)
-                            .addHeader("userType", ""+Constants.USER_TYPE)
+                            .addHeader("lang", params[0].lang_id)
+                            .addHeader("userType", "" + Constants.USER_TYPE)
                             .url(url)
                             .build();
-                    Log.e("Request Body" , url);
+                    Log.e("Request Body", url);
+                    Log.d("getShipmentFare", "URl: " + params[0].token);
 
-                }else if(params[0].request_type.equals(Request_type.POST))
-                {
-                    RequestBody body = RequestBody.create(JSON,params[0].requestBody.toString());
+                } else if (params[0].request_type.equals(Request_type.POST)) {
+                    RequestBody body = RequestBody.create(JSON, params[0].requestBody.toString());
                     request = new Request.Builder()
                             .url(params[0].request_Url)
                             .addHeader("authorization", params[0].token)
-                            .addHeader("lang",params[0].lang_id)
+                            .addHeader("lang", params[0].lang_id)
                             .post(body)
                             .build();
+
+                    Log.d("getShipmentFare", "doInBackground: " + params[0].token + " , " + params[0].lang_id);
 
                     final Buffer buffer = new Buffer();
 
@@ -166,122 +167,107 @@ public class OkHttp3Connection
                     try {
                         request.body().writeTo(buffer);
                         buffer.close();
-                        Log.e("Request Body" , buffer.readUtf8());
+                        Log.e("Request Body", buffer.readUtf8());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Log.e("header Body: " , request.header("authorization"));
+                    Log.e("header Body: ", request.header("authorization"));
 
 
-                }
-                else if (params[0].request_type.equals(Request_type.PUT)){
+                } else if (params[0].request_type.equals(Request_type.PUT)) {
 
 
-                    RequestBody body = RequestBody.create(JSON,params[0].requestBody.toString());
+                    RequestBody body = RequestBody.create(JSON, params[0].requestBody.toString());
                     request = new Request.Builder()
                             .url(params[0].request_Url)
                             .addHeader("authorization", params[0].token)
-                            .addHeader("lang",params[0].lang_id)
-                            .addHeader("userType", ""+Constants.USER_TYPE)
+                            .addHeader("lang", params[0].lang_id)
+                            .addHeader("userType", "" + Constants.USER_TYPE)
                             .put(body)
                             .build();
                     final Buffer buffer = new Buffer();
                     try {
                         request.body().writeTo(buffer);
                         buffer.close();
-                        Log.e("Request Body" , buffer.readUtf8());
+                        Log.e("Request Body", buffer.readUtf8());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
-                }
-                else if (params[0].request_type.equals(Request_type.DELETE)){
+                } else if (params[0].request_type.equals(Request_type.DELETE)) {
 
-                    RequestBody body = RequestBody.create(JSON,params[0].requestBody.toString());
+                    RequestBody body = RequestBody.create(JSON, params[0].requestBody.toString());
                     request = new Request.Builder()
                             .url(params[0].request_Url)
                             .addHeader("authorization", params[0].token)
-                            .addHeader("lang",params[0].lang_id)
-                            .addHeader("userType", ""+Constants.USER_TYPE)
+                            .addHeader("lang", params[0].lang_id)
+                            .addHeader("userType", "" + Constants.USER_TYPE)
                             .delete(body)
                             .build();
                     final Buffer buffer = new Buffer();
                     try {
                         request.body().writeTo(buffer);
                         buffer.close();
-                        Log.e("Request Body" , buffer.readUtf8());
+                        Log.e("Request Body", buffer.readUtf8());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-                else
-                {
+                } else {
 
-                    RequestBody body = RequestBody.create(JSON,params[0].requestBody.toString());
+                    RequestBody body = RequestBody.create(JSON, params[0].requestBody.toString());
                     request = new Request.Builder()
                             .url(params[0].request_Url)
                             .addHeader("authorization", params[0].token)
-                            .addHeader("lang",params[0].lang_id)
+                            .addHeader("lang", params[0].lang_id)
                             .put(body)
                             .get()
                             .build();
 
-                    Log.e("Request Body" , params[0].request_Url);
-                    Log.e("header Body:else: " , request.header("authorization"));
+                    Log.e("Request Body", params[0].request_Url);
+                    Log.e("header Body:else: ", request.header("authorization"));
 
                 }
 
                 Response response = httpClient.newCall(request).execute();
-                int statusCode=response.code();
-                System.out.println("statusCode="+statusCode);
-                switch (statusCode)
-                {
-                    case 503 :
+                int statusCode = response.code();
+                System.out.println("statusCode=" + statusCode);
+                switch (statusCode) {
+                    case 503:
 
                         error = true;
-                        result ="Server Error (503 Bad Gateway)";
+                        result = "Server Error (503 Bad Gateway)";
                         break;
 
                     default:
                         result = response.body().string();
                 }
-            }
-            catch (UnsupportedEncodingException e)
-            {
+            } catch (UnsupportedEncodingException e) {
 
-                error= true;
+                error = true;
                 OkHttp3Connection.printLog("UnsupportedEncodingException" + e.toString());
-                result ="Connection Failed..Retry !";
+                result = "Connection Failed..Retry !";
                 e.printStackTrace();
 
-            }
-            catch (IOException e)
-            {
-                error= true;
+            } catch (IOException e) {
+                error = true;
                 OkHttp3Connection.printLog("Read IO exception" + e.toString());
-                result ="Connection is too slow...Retry!";
+                result = "Connection is too slow...Retry!";
                 e.printStackTrace();
-            }
-            catch (Exception e)
-            {
-                error= true;
-                printLog("Read Exception"+e.toString());
-                result ="Connection is too slow...Retry!";
+            } catch (Exception e) {
+                error = true;
+                printLog("Read Exception" + e.toString());
+                result = "Connection is too slow...Retry!";
                 e.printStackTrace();
             }
             return result;
         }
 
         @Override
-        protected void onPostExecute(String result)
-        {
+        protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if(!error)
-            {
+            if (!error) {
                 callbacks.onSuccess(result);
-            }
-            else
-            {
+            } else {
                 callbacks.onError(result);
             }
         }
@@ -290,10 +276,11 @@ public class OkHttp3Connection
 
     /**
      * <h2>getUnsafeOkHttpClient</h2>
-     * <P>
-     *     method to get getUnsafeOkHttpClient okHttpClient
-     *     i.e. without ssl certificate
+     * <p>
+     * method to get getUnsafeOkHttpClient okHttpClient
+     * i.e. without ssl certificate
      * </P>
+     *
      * @return
      */
     private static OkHttpClient getUnsafeOkHttpClient() {
@@ -344,18 +331,18 @@ public class OkHttp3Connection
 
     /**
      * <h2>OkHttp3RequestCallback</h2>
-     * <P>
+     * <p>
      * interface for OkHttp api response call back
      * </P>
-     * */
-    public interface OkHttp3RequestCallback
-    {
+     */
+    public interface OkHttp3RequestCallback {
         /**
          * Called When Success result of JSON request
          *
          * @param result
          */
         void onSuccess(String result);
+
         /**
          * Called When Error result of JSON request
          *
@@ -367,67 +354,62 @@ public class OkHttp3Connection
 
     /**
      * <h2>getUrl</h2>
-     * <P>
-     *     method to get the url
+     * <p>
+     * method to get the url
      * </P>
-     * */
-    private static String getUrl(String url, JSONObject jsonObject)
-    {
-        String service_url=url+"?";
-        String query="";
-        Iterator<String> object_keys=jsonObject.keys();
-        try
-        {
-            while (object_keys.hasNext())
-            {
-                String keys_value=object_keys.next();
-                query=query+keys_value+"="+jsonObject.getString(keys_value)+"&";
+     */
+    private static String getUrl(String url, JSONObject jsonObject) {
+        String service_url = url + "?";
+        String query = "";
+        Iterator<String> object_keys = jsonObject.keys();
+        try {
+            while (object_keys.hasNext()) {
+                String keys_value = object_keys.next();
+                query = query + keys_value + "=" + jsonObject.getString(keys_value) + "&";
             }
 
-        }catch (JSONException e)
-        {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        Log.d("Vallue",service_url+query);
+        Log.d("Vallue", service_url + query);
 
-        return service_url+query;
+        return service_url + query;
     }
 
     /**
      * <H3>Request_type</H3>
      * <p>
-     *
-     * </p>*/
-    public enum Request_type
-    {
+     * <p>
+     * </p>
+     */
+    public enum Request_type {
         GET("getRequest"),
         URl("urlRequest"),
         POST("postRequest"),
         DELETE("deleteRequest"),
         PUT("putRequest");
         public String value;
-        Request_type(String value)
-        {
+
+        Request_type(String value) {
             this.value = value;
         }
     }
 
-    public static void printLog(String message)
-    {
-        Log.d("OKHTTPCONNECTION",message);
+    public static void printLog(String message) {
+        Log.d("OKHTTPCONNECTION", message);
     }
 
     /**
      * <h2>callGeocodingRequest</h2>
      * This method is used to call google API for geocoder
+     *
      * @param url geoCoder URL
      * @return returns the response from the geocoder
      */
-    public static String callGeoCodingRequest(String url)
-    {
-        System.out.println("utility url..."+url);
-        url=url.replaceAll(" ", "%20");
+    public static String callGeoCodingRequest(String url) {
+        System.out.println("utility url..." + url);
+        url = url.replaceAll(" ", "%20");
         String resp = null;
         HttpGet httpRequest;
         try {
@@ -443,39 +425,37 @@ public class OkHttp3Connection
             HttpEntity entity = response.getEntity();
             BufferedHttpEntity bufHttpEntity = new BufferedHttpEntity(entity);
             final long contentLength = bufHttpEntity.getContentLength();
-            if ((contentLength >= 0))
-            {
+            if ((contentLength >= 0)) {
                 InputStream is = bufHttpEntity.getContent();
                 int tobeRead = is.available();
-                System.out.println("Utility callhttpRequest tobeRead.."+tobeRead);
+                System.out.println("Utility callhttpRequest tobeRead.." + tobeRead);
                 ByteArrayOutputStream bytestream = new ByteArrayOutputStream();
                 int ch;
 
-                while ((ch = is.read()) != -1)
-                {
+                while ((ch = is.read()) != -1) {
                     bytestream.write(ch);
                 }
 
                 resp = new String(bytestream.toByteArray());
-                System.out.println("Utility callhttpRequest resp.."+resp);
+                System.out.println("Utility callhttpRequest resp.." + resp);
 
 
             }
         } catch (MalformedURLException e) {
 
-            System.out.println("Utility callhttpRequest.."+e);
+            System.out.println("Utility callhttpRequest.." + e);
             e.printStackTrace();
 
         } catch (ClientProtocolException e) {
 
-            System.out.println("Utility callhttpRequest.."+e);
+            System.out.println("Utility callhttpRequest.." + e);
             e.printStackTrace();
 
         } catch (IOException e) {
-            System.out.println("Utility callhttpRequest.."+e);
+            System.out.println("Utility callhttpRequest.." + e);
             e.printStackTrace();
-        }catch (Exception e) {
-            System.out.println("Utility Exception.."+e);
+        } catch (Exception e) {
+            System.out.println("Utility Exception.." + e);
         }
         return resp;
     }

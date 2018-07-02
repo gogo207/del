@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * <h>Validator</h>
  * <p>
- *     Class to validate the fields
+ *     필드의 유효성을 검사하는 클래스
  * </p>
  * @since  11/5/15.
  */
@@ -61,7 +61,7 @@ public class Validator
     /**
      * <h2>emailValidation</h2>
      * <p>
-     *     method to validate the input email format
+     *     입력 전자 메일 형식의 유효성을 검사하는 메서드
      * </p>
      * @param email: input email
      * @return: flag: true if is valid
@@ -165,6 +165,7 @@ public class Validator
         return false;
     }
     /**
+     * 이것은 암호를 확인하는 데 사용되며 ReEnteredPassword는 같거나 같지 않습니다.
      * This is used to check the password and ReEnteredPassword are equal or not
      * @param password The String from the password field
      * @param reEnteredPass String from the Re Entered password field
@@ -177,6 +178,7 @@ public class Validator
         return false;
     }
     /**
+     * 이 메소드는 패스워드가 유효한지 아닌지를 검사하는데 사용된다.
      * This method is used to check whether a password is valid or not
      * @param passwd the string from the  password field which is used to check
      * @return Returns true if the password is valid, else false

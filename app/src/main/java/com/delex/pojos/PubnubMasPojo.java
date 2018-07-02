@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class PubnubMasPojo implements Serializable {
 
-    private String d;
+    private String d;  //????
 
     private String e;
 

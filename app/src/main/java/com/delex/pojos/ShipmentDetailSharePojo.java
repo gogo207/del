@@ -220,4 +220,28 @@ public class ShipmentDetailSharePojo implements Parcelable{
         parcel.writeString(pickupZone);
         parcel.writeString(dropZone);
     }
+
+    @Override
+    public String toString() {
+        return "ShipmentDetailSharePojo{" +
+                "pickltrtime='" + pickltrtime + '\'' +
+                ", approx_fare='" + approx_fare + '\'' +
+                ", distance='" + distance + '\'' +
+                ", ent_ZoneType='" + ent_ZoneType + '\'' +
+                ", paymenttype='" + paymenttype + '\'' +
+                ", ent_distFare='" + ent_distFare + '\'' +
+                ", ent_timeFare='" + ent_timeFare + '\'' +
+                ", ent_time='" + ent_time + '\'' +
+                ", ent_pick_id='" + ent_pick_id + '\'' +
+                ", ent_drop_id='" + ent_drop_id + '\'' +
+                ", estimateId='" + estimateId + '\'' +
+                ", coupon_code='" + coupon_code + '\'' +
+                ", goods_title='" + goods_title + '\'' +
+                ", ent_loadtype='" + ent_loadtype + '\'' +
+                ", qty='" + qty + '\'' +
+                ", ent_card_id='" + ent_card_id + '\'' +
+                ", dropZone='" + dropZone + '\'' +
+                ", pickupZone='" + pickupZone + '\'' +
+                '}';
+    }
 }

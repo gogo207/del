@@ -77,6 +77,7 @@ public class VerifyOTPModel {
             jsonObject.put("countryCode",sessionManager.getCOUNTRYCODE());
             jsonObject.put("email",sessionManager.getEMail());
             jsonObject.put("userType", Constants.USER_TYPE);
+            Log.d("ddd", "getVerification: "+jsonObject.toString());
         }
         catch (Exception exc)
         {
@@ -113,6 +114,7 @@ public class VerifyOTPModel {
     }
     /**
      * <h2>verifyOTp</h2>
+     * 핸드폰 확인 코드가 맞는지 확인
      * calling verify otp api, check that our entered OTP is correct or not.
      * @param phone phone number
      * @param otp 4 digit OTP number
@@ -121,6 +123,7 @@ public class VerifyOTPModel {
      * @param loginTypePojo contains the Login pojo.
      * @param singleCallbackInterface callback interface
      */
+
     public void verifyOTp(final String phone, final String otp, final String comingFrom,
                           final JSONObject signUpJsonObject, final LoginTypePojo loginTypePojo,
                           final SingleCallbackInterface singleCallbackInterface){
@@ -130,9 +133,11 @@ public class VerifyOTPModel {
         try {
             jsonObject.put("mobile", phone);
             jsonObject.put("code", otp);
+
             int processType = 2;
-            if (comingFrom.equals("forgotPassword"))
+            if (comingFrom.equals("forgotPassword")) {
                 processType = 1;
+            }
             jsonObject.put("processType", processType);
             jsonObject.put("userType", Constants.USER_TYPE);
         } catch (JSONException e) {
@@ -179,8 +184,9 @@ public class VerifyOTPModel {
                                     signUpService(signUpJsonObject, loginTypePojo);
                                 }
 
-                        } else
+                        } else {
                             alerts.showNetworkAlert(context);
+                        }
                     } else if (phoneNumberValidator_pojo.getErrNum() == 110 && phoneNumberValidator_pojo.getErrFlag() == 1) {
                         alerts.problemLoadingAlert(context, phoneNumberValidator_pojo.getErrMsg());
                         singleCallbackInterface.doWork();
@@ -254,9 +260,11 @@ public class VerifyOTPModel {
         }
     }
 
+    // TODO: 2018-06-29 sign up login_type 지훈님께 수정 부탁
+
     /**
      * <h2>signUpService</h2>
-     * Calling API for completing Sign up process.
+     * 가입 프로세스 완료 API 호출.
      * @param jsonObject this jsonObject data is coming from VerifyOTP Class and contains the entire request parameters needed for making an API call.
      * @param loginTypePojo contains the Login Type context.
      */
@@ -279,6 +287,7 @@ public class VerifyOTPModel {
                             break;
 
                         case 200:
+                            //로그인 성공시 데이터 값 sessionManager에 넣기
                             sessionManager.setIsLogin(true);
                             sessionManager.setSession(signup_pojo.getData().getToken());
                             sessionManager.SetChannel(signup_pojo.getData().getChn());

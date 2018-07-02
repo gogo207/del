@@ -81,3 +81,8 @@
 #Wave drawable
 -keep class com.truckr.utility.WaveDrawable {*;}
 
+#naver 아이디 로그인 프로가드
+-keep public class com.nhn.android.naverlogin.** {
+       public protected *;
+}
+

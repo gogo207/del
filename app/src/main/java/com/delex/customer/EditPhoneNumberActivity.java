@@ -297,7 +297,7 @@ public class EditPhoneNumberActivity extends ParentActivity implements View.OnFo
     /**
      * <h2>getVerificationCode</h2>
      * <p>
-     * This method will send the Verification code on our given Mobile No.
+     * 지정된 모바일 번호에서 인증 코드를 전송합니다.
      * </p>
      */
     private void getVerificationCode(){

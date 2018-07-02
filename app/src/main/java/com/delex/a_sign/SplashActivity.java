@@ -72,7 +72,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     private WaveDrawable waveDrawable;
     private RelativeLayout rrloutbooking, rLWaveOut;
     //private LinearInterpolator interpolator;
-    private volatile boolean hasGetDriversCalled;
+    private volatile boolean hasGetDriversCalled;  //드라이버 정보 false 면 드라이버 정보 가져오기 getDriver 후에 true로 바뀜
     private LinearLayout ll_login_button;
     private Button btnSignin;
     private TextView tvSignup;
@@ -88,12 +88,14 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
+
         Bundle bundle = getIntent().getExtras();
         Utility.printLog("value of bundle: " + bundle);
         sessionManager = new SessionManager(SplashActivity.this);
         sessionManager.setIsProfile(true);
-        getPushToken();
+        Log.d(TAG, "onCreate: "+sessionManager.getSession());
 
+        getPushToken();
 
         manager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         permissionsRunTime = AppPermissionsRunTime.getInstance();
@@ -109,6 +111,8 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>getPushToken</h2>
      * <p>
+     * 이 메서드는 푸시 토큰을 가져 오는 데 사용됩니다.
+     * 즉 pushToken을 사용하고 추가 사용을 위해 해당 토큰을 세션 관리자에 저장합니다.
      * This method is used for getting the push token.
      * i.e pushToken and saving that token in session manager for further use
      * </p>
@@ -116,12 +120,15 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * @see MyFirebaseInstanceIDService
      */
     private void getPushToken() {
+        Log.d(TAG, "getPushToken: "+checkPlayServices());
         if (checkPlayServices()) { // true면
+
             Intent intent = new Intent(this, MyFirebaseInstanceIDService.class);
             startService(intent);
             String token = FirebaseInstanceId.getInstance().getToken();
 
             if (token != null) {
+                Log.d(TAG, "getPushToken: ");
                 sessionManager.setRegistrationId(token);
             }
 
@@ -263,6 +270,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>workResume</h2>
      * <p>
+     *     로그인 되있을때
      * This method is used to perform all the task, which we wants to do on our onResume() method.
      * </p>
      */
@@ -289,13 +297,17 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
         }
 
         // checking network is available or nor. If not show alert
+        // 네트워크를 확인하거나 사용할 수 없습니다.
         if (Utility.isNetworkAvailable(SplashActivity.this)) {
             // This condition is used to check, whether, GPS is enabled or not,  If it is enabled, then only check that user is login or not.
+            // 이 조건은 GPS가 활성화되었는지 여부를 확인하는 데 사용됩니다. 활성화되어있는 경우 사용자가 로그인했는지 여부 만 확인합니다.
             if (!sessionManager.isLogin() && manager.isProviderEnabled(LocationManager.GPS_PROVIDER) &&
                     latiLongi[0] != 0.0 && latiLongi[1] != 0.0 && !hasGetDriversCalled) {
+                //드라이버 정보 가져오기
                 getDrivers();
             }
         } else {
+            //네트워크 설정 얼럿창
             Alerts alerts = new Alerts();
             alerts.showNetworkAlert(SplashActivity.this);
         }
@@ -363,8 +375,6 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
      * <p>
      * 로그인 서비스를 호출하고 성공한 경우 저장
      * 세션 관리자의 값 및 main activity 시작
-     * Calling login service and if success storing
-     * values in session manager and start main activity
      * </p>
      */
     private void getDrivers() {
@@ -373,7 +383,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
             final String url = Constants.GET_DRIVERS + sessionManager.getlatitude() + "/" + sessionManager.getlongitude()
                     + "/" + sessionManager.getChannel() + "/" + sessionManager.getPresenceTime() + "/1";
 
-            Log.d(TAG, "getDrivers: "+url);
+            Log.d(TAG, "getDrivers: " + url);
 
             context.getDrivers(sessionManager.getSession(), url, new GetDrivers.GetDriversCallback() {
                 @Override
@@ -389,7 +399,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
                                 case 200:
                                     String data = jsnResponse.getJSONObject("data").toString();
                                     PubnubResponsePojoHome temp = new Gson().fromJson(data, PubnubResponsePojoHome.class);
-                                    Log.d(TAG, "success: "+temp.toString());
+                                    Log.d(TAG, "success: " + temp.toString());
                                     Log.d(TAG, "PubNubMgrpostNewVehicleTypes: 탈 것 데이터 보내기");
                                     PubNubMgr.getInstance().updateNewVehicleTypesData(temp);
                                     startMainActivity();
@@ -419,6 +429,8 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>startWaveAnimation</h2>
      * <p>
+     *     로딩이미지 표시
+     *     이미 명시되지 않은 경우 Wave Animation을 시작하는 방법
      * method to start Wave Animation if not already stated
      * </p>
      */
@@ -441,7 +453,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>startMainActivity</h2>
      * <p>
-     * method to start Main Activity
+     * 메인 액티비티 시작
      * </p>
      */
     private void startMainActivity() {
@@ -464,8 +476,11 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
         finish();
     }
 
-
+    /**
+     * 로그인 안돼있을때 로그인 버튼 띄우는 애니메이션 뜨기
+     */
     private void StartAnimationLogin() {
+
         stopWaveAnimation();
         Animation bottomUp = AnimationUtils.loadAnimation(SplashActivity.this,
                 R.anim.bottom_down);
@@ -478,6 +493,7 @@ public class SplashActivity extends ParentActivity implements LocationUtil.Locat
     /**
      * <h2>stopWaveAnimation</h2>
      * <p>
+     *     로딩이미지 멈춤 레이아웃 안보이게
      * this method is used to stop the wave like animation
      * if its already visible
      * </p>
