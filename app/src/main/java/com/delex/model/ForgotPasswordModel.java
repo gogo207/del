@@ -70,7 +70,7 @@ public class ForgotPasswordModel {
      * This method gives a call to an api service for forget password
      * </p>
      */
-    public void forgotPassService(final String phone_Mail, final int mobile_email_type) {
+    public void forgotPassService(final String phone_Mail, final int mobile_email_type, String userName) {
         android.util.Log.d("dddddddd", "forgotPassService: " + phone_Mail + " , " + mobile_email_type);
 
         Log.d("ForgotPassword", "forgotPassService phone_Mail: " + phone_Mail + " mobile_email_type: " + mobile_email_type);
@@ -81,6 +81,9 @@ public class ForgotPasswordModel {
             jsonObject.put("ent_email_mobile", phone_Mail);
             jsonObject.put("userType", Constants.USER_TYPE);
             jsonObject.put("ent_type", mobile_email_type);
+
+            //사용자 이름 추가
+            jsonObject.put("ent_name", userName);
 
             android.util.Log.d("ddddddddd", "forgotPassService: " + jsonObject.toString());
 
@@ -131,7 +134,7 @@ public class ForgotPasswordModel {
      * @param phone_Mail
      * @param mobile_email_type
      */
-    public void getVerificationCode(final String phone_Mail, final int mobile_email_type) {
+    public void getVerificationCode(final String phone_Mail, final int mobile_email_type, String userName) {
         try {
             pDialog.setMessage(context.getString(R.string.wait));
             pDialog.show();
@@ -141,6 +144,10 @@ public class ForgotPasswordModel {
             jsonObject.put("userType", Constants.USER_TYPE);
             //Todo added api parameter
             jsonObject.put("ent_type", mobile_email_type);
+
+            //사용자 이름 추가
+            jsonObject.put("ent_name", userName);
+
             android.util.Log.d("dddddd", "getVerificationCode: " + jsonObject.toString());
             OkHttp3Connection.doOkHttp3Connection("", sessionManager.getLanguageId(), Constants.FORGOTPASSWORDTOMOBILE, OkHttp3Connection.Request_type.POST, jsonObject, new OkHttp3Connection.OkHttp3RequestCallback() {
                 @Override

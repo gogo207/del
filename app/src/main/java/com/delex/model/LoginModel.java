@@ -226,6 +226,7 @@ public class LoginModel implements GoogleApiClient.OnConnectionFailedListener {
             loginTypePojo.setEnt_profile_pic(personPhoto);
             loginTypePojo.setEnt_account_type("1");
             login_type = 3;
+            //로그인 api 호출
             callLoginService(loginTypePojo, account.getEmail(), account.getId());
             Log.d(TAG, "handleSignInResult: " + account.getId() + " , " + account.getEmail());
             // 구글 로그인시 비밀번호를 ID
@@ -326,9 +327,10 @@ public class LoginModel implements GoogleApiClient.OnConnectionFailedListener {
     }
 
     /**
+     * 로그인 api 호출 메소드
      * 로그인 서비스를 호출하고 세션 관리자에 값을 저장하고 주 활동을 시작
      * Calling login service and if success storing values in session manager and start main activity
-     * login_type -> 1- normal login, 2- Fb , 3-google
+     * login_type -> 1 - normal login, 2 - Fb , 3 - google, 4 - 네이버, 5 - 카카오
      *
      * @param loginTypePojo: login fields data
      * @param emailID:       email id of user

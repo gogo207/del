@@ -244,7 +244,7 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     /**
      * <h2>enableButton</h2>
      * <p>
-     * This method is used for enable and disable the button.
+     * 이 메서드는 버튼을 활성화 및 비활성화하는 데 사용됩니다.
      * </p>
      * //@param isToEnable : if selected input type filed data is valid
      */
@@ -305,9 +305,11 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
             Utility.printLog("network is not connected.");
         }
 
+        //텍스트뷰에 값이 있는지 확인
         loginController.checkMail(etEmailForgotPassword.getText().toString());
         loginController.checkPhone(etPhoneNoForgotPassword.getText().toString());
         loginController.checkPassword(etPassword_login.getText().toString());
+        ////////////////////////////
         isLoginBtnEnabled();
 
         try {
@@ -556,10 +558,14 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
             //카카오톡 로그인
             if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
                 Log.d(TAG, "onActivityResult: " + requestCode + " , " + resultCode + " , " + data);
-                login_type = 4;
+                login_type = 5;
+                etEmailForgotPassword.setText("");
+                etPassword_login.setText("");
 
                 return;
             }
+
+            //네이버 로그인은 login_type = 4
         }
 
         //구글 로그인
@@ -756,7 +762,7 @@ public class LoginActivity extends ParentActivity implements View.OnClickListene
     /**
      * <h2>isLoginBtnEnabled</h2>
      * <p>
-     * This method is only used for enable/ disable the Login button and change their look.
+     * 이 메소드는 로그인 버튼을 활성화 / 비활성화하고 모양을 변경하는 데에만 사용됩니다.
      * </p>
      */
     private void isLoginBtnEnabled() {

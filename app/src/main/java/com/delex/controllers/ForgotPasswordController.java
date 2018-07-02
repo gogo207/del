@@ -76,7 +76,7 @@ public class ForgotPasswordController {
      * 입력 된 데이터가 이메일 또는 전화번호인지 확인
      * </p>
      */
-    public void validate_phone_email(String phone_Mail) {
+    public void validate_phone_email(String phone_Mail, String userName) {
         int mobile_email_type;
         if (phone_Mail.equals("")) {
             ((TextView) dialog.findViewById(R.id.tv_text)).setText(R.string.enter_phone_mail);
@@ -115,12 +115,12 @@ public class ForgotPasswordController {
         Log.d("ForgotPassword", "validate_phone_email phone_Mail: " + phone_Mail + " mobile_email_type: " + mobile_email_type);
 
         if (mobile_email_type == 1) {              //for mobile
-            forgotPasswordModel.getVerificationCode(phone_Mail, mobile_email_type);
+            forgotPasswordModel.getVerificationCode(phone_Mail, mobile_email_type, userName);
             //지정된 핸드폰으로 인증코드 전송하기
 
         } else if (mobile_email_type == 2) {
             android.util.Log.d("dddddddd", "validate_phone_email: ");// for email
-            forgotPasswordModel.forgotPassService(phone_Mail, mobile_email_type);
+            forgotPasswordModel.forgotPassService(phone_Mail, mobile_email_type, userName);
             // 이메일로 비밀번호 찾기
         }
     }
