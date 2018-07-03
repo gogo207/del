@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.couchbase.lite:couchbase-lite-android-1.4.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/couchbase-lite-android-1.4.1.aar/c38f2e5cbc0553ed864d5a12ca8b81ef/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/couchbase-lite-android-1.4.1.aar/c38f2e5cbc0553ed864d5a12ca8b81ef/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/couchbase-lite-android-1.4.1.aar/4893a7c95de600827a77eaadaed233cb/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/couchbase-lite-android-1.4.1.aar/4893a7c95de600827a77eaadaed233cb/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -239,12 +239,12 @@ public class SignUpActivity extends ParentActivity implements
         tvCountryCode_signUp1.setTypeface(appTypeface.getPro_News());
 
 
-        tilPhoneNo_signUp = findViewById(R.id.tilPhoneNo_signUp);
-        tilPhoneNo_signUp.setTypeface(appTypeface.getPro_News());
-        etPhoneNo_signUp = findViewById(R.id.etPhoneNo_signUp);
-        etPhoneNo_signUp.setTypeface(appTypeface.getPro_News());
-        etPhoneNo_signUp.setOnFocusChangeListener(this);
-        etPhoneNo_signUp.addTextChangedListener(this);
+//        tilPhoneNo_signUp = findViewById(R.id.tilPhoneNo_signUp);
+//        tilPhoneNo_signUp.setTypeface(appTypeface.getPro_News());
+//        etPhoneNo_signUp = findViewById(R.id.etPhoneNo_signUp);
+//        etPhoneNo_signUp.setTypeface(appTypeface.getPro_News());
+//        etPhoneNo_signUp.setOnFocusChangeListener(this);
+//        etPhoneNo_signUp.addTextChangedListener(this);
         tilEmail_signUp = findViewById(R.id.tilEmail_signUp);
         tilEmail_signUp.setTypeface(appTypeface.getPro_News());
         etEmail_signUp = findViewById(R.id.etEmail_signUp);
@@ -472,11 +472,11 @@ public class SignUpActivity extends ParentActivity implements
                     validateFullName();
                 break;
 
-            case R.id.etPhoneNo_signUp:
-                if (!hasFocus) {
-                    validatePhoneNo(true);
-                }
-                break;
+//            case R.id.etPhoneNo_signUp:
+//                if (!hasFocus) {
+//                    validatePhoneNo(true);
+//                }
+//                break;
 
             case R.id.etEmail_signUp:
                 if (!hasFocus) {
@@ -556,8 +556,8 @@ public class SignUpActivity extends ParentActivity implements
     public void afterTextChanged(Editable editable) {
         if (editable == etFullName_signUp.getEditableText()) {
             validateFullName();
-        } else if (editable == etPhoneNo_signUp.getEditableText()) {
-            validatePhoneNo(false);
+//        } else if (editable == etPhoneNo_signUp.getEditableText()) {
+//            validatePhoneNo(false);
         } else if (editable == etEmail_signUp.getEditableText()) {
             validateEmailId(false);
         } else if (editable == etPassword_signUp.getEditableText()) {
@@ -936,7 +936,7 @@ public class SignUpActivity extends ParentActivity implements
         tvCountryCode_signUp.setText(country.getDialCode());
         countryCodeMinLength = 9;
         countryCodeMaxLength = country.getMaxDigits();
-        etPhoneNo_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
+//        etPhoneNo_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
 
 
         Country country1 = mCountryPicker.getUserCountryInfo(this);
@@ -971,11 +971,11 @@ public class SignUpActivity extends ParentActivity implements
         }
 
         //TODO if req retrived ISD code
-        if (savedInstanceBundle.getStringExtra("phone") != null
-                && !savedInstanceBundle.getStringExtra("phone").isEmpty()) {
-            etPhoneNo_signUp.setText(savedInstanceBundle.getStringExtra("phone"));
-            validatePhoneNo(true);
-        }
+//        if (savedInstanceBundle.getStringExtra("phone") != null
+//                && !savedInstanceBundle.getStringExtra("phone").isEmpty()) {
+//            etPhoneNo_signUp.setText(savedInstanceBundle.getStringExtra("phone"));
+//            validatePhoneNo(true);
+//        }
 
 
         if (savedInstanceBundle.getStringExtra("email") != null
@@ -1254,65 +1254,65 @@ public class SignUpActivity extends ParentActivity implements
 
             case R.id.llCountryFlag_signUp:
                 //개인 용
-                Log.d(TAG, "onClick: llCountryFlag_signUp");
-                Utility.hideSoftKeyBoard(v);
-                clearFocusOfAllEditTexts();
-                mCountryPicker.show(getSupportFragmentManager(), getResources().getString(R.string.Countrypicker));
-                mCountryPicker.setListener(new CountryPickerListener() {
-                    @Override
-                    public void onSelectCountry(String name, String code, String dialCode,
-                                                int flagDrawableResID, int min, int max) {
-
-                        Log.d("serCountryInfo: ", dialCode);
-
-                        if (dialCode.equalsIgnoreCase("+2")) {
-                            tvCountryCode_signUp.setText("+20");
-                            max = 11;
-                        } else {
-                            tvCountryCode_signUp.setText(dialCode);
-                        }
-
-
-                        ivCountryFlag_signUp.setImageResource(flagDrawableResID);
-                        countryCodeMinLength = 9;
-                        countryCodeMaxLength = max;
-                        etPhoneNo_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
-                        mCountryPicker.dismiss();
-                        validatePhoneNo(false);
-                    }
-                });
-                break;
-
-            case R.id.llCountryFlag_signUp1:
-                //사업자 용 추가 국가코드
-                Log.d(TAG, "onClick: llCountryFlag_signUp1");
-                Utility.hideSoftKeyBoard(v);
-                clearFocusOfAllEditTexts();
-                mCountryPicker.show(getSupportFragmentManager(), getResources().getString(R.string.Countrypicker));
-                mCountryPicker.setListener(new CountryPickerListener() {
-                    @Override
-                    public void onSelectCountry(String name, String code, String dialCode,
-                                                int flagDrawableResID, int min, int max) {
-
-                        if (dialCode.equalsIgnoreCase("+2")) {
-                            tvCountryCode_signUp.setText("+20");
-                            max = 11;
-                        } else {
-                            tvCountryCode_signUp.setText(dialCode);
-                        }
-
-
-                        //tvCountryCode_signUp1.setText(dialCode);
-                        ivCountryFlag_signUp1.setImageResource(flagDrawableResID);
-                        countryCodeMinLength = 9;
-                        countryCodeMaxLength = max;
-                        etContactPerson_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
-                        mCountryPicker.dismiss();
-                        validatePhoneNo(false);
-                    }
-                });
-
-                break;
+//                Log.d(TAG, "onClick: llCountryFlag_signUp");
+//                Utility.hideSoftKeyBoard(v);
+//                clearFocusOfAllEditTexts();
+//                mCountryPicker.show(getSupportFragmentManager(), getResources().getString(R.string.Countrypicker));
+//                mCountryPicker.setListener(new CountryPickerListener() {
+//                    @Override
+//                    public void onSelectCountry(String name, String code, String dialCode,
+//                                                int flagDrawableResID, int min, int max) {
+//
+//                        Log.d("serCountryInfo: ", dialCode);
+//
+//                        if (dialCode.equalsIgnoreCase("+2")) {
+//                            tvCountryCode_signUp.setText("+20");
+//                            max = 11;
+//                        } else {
+//                            tvCountryCode_signUp.setText(dialCode);
+//                        }
+//
+//
+//                        ivCountryFlag_signUp.setImageResource(flagDrawableResID);
+//                        countryCodeMinLength = 9;
+//                        countryCodeMaxLength = max;
+//                        etPhoneNo_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
+//                        mCountryPicker.dismiss();
+//                        validatePhoneNo(false);
+//                    }
+//                });
+//                break;
+//
+//            case R.id.llCountryFlag_signUp1:
+//                //사업자 용 추가 국가코드
+//                Log.d(TAG, "onClick: llCountryFlag_signUp1");
+//                Utility.hideSoftKeyBoard(v);
+//                clearFocusOfAllEditTexts();
+//                mCountryPicker.show(getSupportFragmentManager(), getResources().getString(R.string.Countrypicker));
+//                mCountryPicker.setListener(new CountryPickerListener() {
+//                    @Override
+//                    public void onSelectCountry(String name, String code, String dialCode,
+//                                                int flagDrawableResID, int min, int max) {
+//
+//                        if (dialCode.equalsIgnoreCase("+2")) {
+//                            tvCountryCode_signUp.setText("+20");
+//                            max = 11;
+//                        } else {
+//                            tvCountryCode_signUp.setText(dialCode);
+//                        }
+//
+//
+//                        //tvCountryCode_signUp1.setText(dialCode);
+//                        ivCountryFlag_signUp1.setImageResource(flagDrawableResID);
+//                        countryCodeMinLength = 9;
+//                        countryCodeMaxLength = max;
+//                        etContactPerson_signUp.setFilters(Utility.getInputFilterForPhoneNo(countryCodeMaxLength));
+//                        mCountryPicker.dismiss();
+//                        validatePhoneNo(false);
+//                    }
+//                });
+//
+//                break;
 
             case R.id.etCompanyAddress_signUp:
             case R.id.til_companyAddress:
@@ -1324,7 +1324,8 @@ public class SignUpActivity extends ParentActivity implements
             case R.id.btnCreateAccount:
 
                 sessionManager.setCOUNTRYCODE(tvCountryCode_signUp.getText().toString());
-                initSignUpProcess();
+                callOTP();
+//                initSignUpProcess();
                 break;
 
             default:
@@ -1347,7 +1348,7 @@ public class SignUpActivity extends ParentActivity implements
         addrIntent.putExtra("login_type", login_type);
         addrIntent.putExtra("is_business_Account", isItBusinessAccount);
         addrIntent.putExtra("name", etFullName_signUp.getText().toString());
-        addrIntent.putExtra("phone", etPhoneNo_signUp.getText().toString());
+//        addrIntent.putExtra("phone", etPhoneNo_signUp.getText().toString());
         addrIntent.putExtra("email", etEmail_signUp.getText().toString());
         addrIntent.putExtra("password", etPassword_signUp.getText().toString());
         addrIntent.putExtra("referral_code", etReferral_signUp.getText().toString());
@@ -1365,8 +1366,8 @@ public class SignUpActivity extends ParentActivity implements
         if (etFullName_signUp.hasFocus())
             etFullName_signUp.clearFocus();
 
-        if (etPhoneNo_signUp.hasFocus())
-            etPhoneNo_signUp.clearFocus();
+//        if (etPhoneNo_signUp.hasFocus())
+//            etPhoneNo_signUp.clearFocus();
 
         if (etEmail_signUp.hasFocus())
             etEmail_signUp.clearFocus();
@@ -1384,73 +1385,73 @@ public class SignUpActivity extends ParentActivity implements
             etCompanyAddress_signUp.clearFocus();
     }
 
-    /**
-     * <h2>initSignUpProcess</h2>
-     * <p>
-     * 회원가입 버튼 눌렀을때
-     * 모든 필드를 검증하여 signUpApi 호출하는 메소드
-     * </p>
-     */
-    private void initSignUpProcess() {
-        Log.d("SignUp", "initSignUpProcess  address " + address + "  isReferralCodeEntered: " + isReferralCodeEntered);
-        Utility.hideSoftKeyBoard(btnCreateAccount);
-        clearFocusOfAllEditTexts();
-
-        if (Utility.isNetworkAvailable(SignUpActivity.this)) {
-            permissionArrayList.clear();
-            permissionArrayList.add(AppPermissionsRunTime.Permission.READ_EXTERNAL_STORAGE);
-            permissionArrayList.add(AppPermissionsRunTime.Permission.CAMERA);
-            permissionArrayList.add(AppPermissionsRunTime.Permission.PHONE);
-            permissionArrayList.add(AppPermissionsRunTime.Permission.READ_SMS);
-            smsFlag = true;
-
-            if (isReferralCodeEntered)  //추천코드 입력되었으면
-            {
-                initReferralCodeVerificationApi(true);
-            } else {  //추천코드 입력 안되었으면
-                callSignUp();
-            }
-        } else {
-            alerts.showNetworkAlert(SignUpActivity.this);
-        }
-    }
-
-    /**
-     * <h2>callSignUp</h2>
-     * <p>
-     * SignUp 관련 작업을 호출하는 데 사용됩니다.
-     * </p>
-     */
-    private void callSignUp() {
-        Log.d("SignUp", "callSignUp ");
-
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (permissionsRunTime.getPermission(permissionArrayList, SignUpActivity.this, true)) {
-                signUpController.getVerification(etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
-                    @Override
-                    public void successNotifier(String msg) {
-                        callOTP(msg);
-                    }
-
-                    @Override
-                    public void errorNotifier(String msg) {
-                        Utility.printLog("value of error: " + msg);
-                    }
-                });
-            }
-        } else {
-            signUpController.getVerification(etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
-                @Override
-                public void successNotifier(String msg) {
-                    callOTP(msg);
-                }
-
-                @Override
-                public void errorNotifier(String msg) {
-                }
-            });
-        }
-    }
+//    /**
+//     * <h2>initSignUpProcess</h2>
+//     * <p>
+//     * 회원가입 버튼 눌렀을때
+//     * 모든 필드를 검증하여 signUpApi 호출하는 메소드
+//     * </p>
+//     */
+//    private void initSignUpProcess() {
+//        Log.d("SignUp", "initSignUpProcess  address " + address + "  isReferralCodeEntered: " + isReferralCodeEntered);
+//        Utility.hideSoftKeyBoard(btnCreateAccount);
+//        clearFocusOfAllEditTexts();
+//
+//        if (Utility.isNetworkAvailable(SignUpActivity.this)) {
+//            permissionArrayList.clear();
+//            permissionArrayList.add(AppPermissionsRunTime.Permission.READ_EXTERNAL_STORAGE);
+//            permissionArrayList.add(AppPermissionsRunTime.Permission.CAMERA);
+//            permissionArrayList.add(AppPermissionsRunTime.Permission.PHONE);
+//            permissionArrayList.add(AppPermissionsRunTime.Permission.READ_SMS);
+//            smsFlag = true;
+//
+//            if (isReferralCodeEntered)  //추천코드 입력되었으면
+//            {
+//                initReferralCodeVerificationApi(true);
+//            } else {  //추천코드 입력 안되었으면
+//                callSignUp();
+//            }
+//        } else {
+//            alerts.showNetworkAlert(SignUpActivity.this);
+//        }
+//    }
+//
+//    /**
+//     * <h2>callSignUp</h2>
+//     * <p>
+//     * SignUp 관련 작업을 호출하는 데 사용됩니다.
+//     * </p>
+//     */
+//    private void callSignUp() {
+//        Log.d("SignUp", "callSignUp ");
+//
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            if (permissionsRunTime.getPermission(permissionArrayList, SignUpActivity.this, true)) {
+//                signUpController.getVerification(etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
+//                    @Override
+//                    public void successNotifier(String msg) {
+//                        callOTP(msg);
+//                    }
+//
+//                    @Override
+//                    public void errorNotifier(String msg) {
+//                        Utility.printLog("value of error: " + msg);
+//                    }
+//                });
+//            }
+//        } else {
+//            signUpController.getVerification(etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
+//                @Override
+//                public void successNotifier(String msg) {
+//                    callOTP(msg);
+//                }
+//
+//                @Override
+//                public void errorNotifier(String msg) {
+//                }
+//            });
+//        }
+//    }
 
     /**
      * <h2>validateAllFieldsFlag</h2>
@@ -1538,24 +1539,24 @@ public class SignUpActivity extends ParentActivity implements
      *
      * @param hasCalledForReferralAndSignUp: true if its referral
      */
-    private void initReferralCodeVerificationApi(boolean hasCalledForReferralAndSignUp) {
-        Log.d("SignUp", "initReferralCodeVerificationApi  hasCalledForReferralAndSignUp " + hasCalledForReferralAndSignUp);
-
-        signUpController.initVerifyReferralCodeApi(etReferral_signUp.getText().toString(), latLng, hasCalledForReferralAndSignUp,
-                tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
-                    @Override
-                    public void successNotifier(String msg) {
-                        callOTP(msg);
-                    }
-
-                    @Override
-                    public void errorNotifier(String msg) {
-                        isReferralCodeEntered = true;
-                        tilReferral_signUp.setErrorEnabled(true);
-                        tilReferral_signUp.setError(msg);
-                    }
-                });
-    }
+//    private void initReferralCodeVerificationApi(boolean hasCalledForReferralAndSignUp) {
+//        Log.d("SignUp", "initReferralCodeVerificationApi  hasCalledForReferralAndSignUp " + hasCalledForReferralAndSignUp);
+//
+//        signUpController.initVerifyReferralCodeApi(etReferral_signUp.getText().toString(), latLng, hasCalledForReferralAndSignUp,
+//                tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
+//                    @Override
+//                    public void successNotifier(String msg) {
+//                        callOTP(msg);
+//                    }
+//
+//                    @Override
+//                    public void errorNotifier(String msg) {
+//                        isReferralCodeEntered = true;
+//                        tilReferral_signUp.setErrorEnabled(true);
+//                        tilReferral_signUp.setError(msg);
+//                    }
+//                });
+//    }
 
     /**
      * <h2>callOTP</h2>
@@ -1563,12 +1564,12 @@ public class SignUpActivity extends ParentActivity implements
      * API를 호출하여 otp를 얻는 메소드
      * </p>
      *
-     * @param result: retrieved json response from signup api call
+//     * @param result: retrieved json response from signup api call
      */
-    private void callOTP(String result) {
+    private void callOTP() {
         Log.d("SignUpModel", "callOTP: ");
-        Utility.printLog("code validtion  onSuccess JSON DATA" + result);
-        if (result != null && !result.isEmpty()) {
+//        Utility.printLog("code validtion  onSuccess JSON DATA" + result);
+//        if (result != null && !result.isEmpty()) {
             Bundle mbundle = new Bundle();
             mbundle.putString("comingFrom", "SignUp");
             mbundle.putString("ent_dev_id", Utility.getDeviceId(this));
@@ -1576,8 +1577,8 @@ public class SignUpActivity extends ParentActivity implements
             mbundle.putString("ent_socialMedia_id", ent_socialMedia_id);
 
             mbundle.putString("ent_fullname", etFullName_signUp.getText().toString());
-            mbundle.putString("ent_country_code", tvCountryCode_signUp.getText().toString());
-            mbundle.putString("ent_mobile", etPhoneNo_signUp.getText().toString());
+//            mbundle.putString("ent_country_code", tvCountryCode_signUp.getText().toString());
+//            mbundle.putString("ent_mobile", etPhoneNo_signUp.getText().toString());
             mbundle.putString("ent_email", etEmail_signUp.getText().toString());
             mbundle.putString("ent_password", etPassword_signUp.getText().toString());
             mbundle.putString("ent_push_token", sessionManager.getRegistrationId());
@@ -1631,7 +1632,7 @@ public class SignUpActivity extends ParentActivity implements
                 startActivity(intent);
             }
         }
-    }
+//    }
 
     /**
      * This is an overrided method, got a call, when an activity opens by StartActivityForResult(), and return something back to its calling activity.
@@ -1991,41 +1992,41 @@ public class SignUpActivity extends ParentActivity implements
      * @param permissions  contains Permission list.
      * @param grantResults contains the grant permission result.
      */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == Constants.REQUEST_CODE) {
-            boolean isAllGranted = true;
-            for (int permissionGrantResult : grantResults) {
-                Log.d("SignUp", "permissionGrantResult " + permissionGrantResult);
-                if (permissionGrantResult == PackageManager.PERMISSION_DENIED) {
-                    Log.d("SignUp", "permissionGrantResult if(): " + permissionGrantResult);
-                    isAllGranted = false;
-                }
-            }
-
-            if (!isAllGranted) {
-                smsFlag = false;
-                permissionsRunTime.getPermission(permissionArrayList, this, true);
-            } else {
-                if (smsFlag) {
-                    signUpController.getVerification(tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
-                        @Override
-                        public void successNotifier(String msg) {
-                            callOTP(msg);
-                        }
-
-                        @Override
-                        public void errorNotifier(String msg) {
-                            Utility.printLog("value of error: " + msg);
-                        }
-                    });
-                } else
-                    selectImage();
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        if (requestCode == Constants.REQUEST_CODE) {
+//            boolean isAllGranted = true;
+//            for (int permissionGrantResult : grantResults) {
+//                Log.d("SignUp", "permissionGrantResult " + permissionGrantResult);
+//                if (permissionGrantResult == PackageManager.PERMISSION_DENIED) {
+//                    Log.d("SignUp", "permissionGrantResult if(): " + permissionGrantResult);
+//                    isAllGranted = false;
+//                }
+//            }
+//
+//            if (!isAllGranted) {
+//                smsFlag = false;
+//                permissionsRunTime.getPermission(permissionArrayList, this, true);
+//            } else {
+//                if (smsFlag) {
+//                    signUpController.getVerification(tvCountryCode_signUp.getText().toString() + etPhoneNo_signUp.getText().toString(), new CallbackWithParam() {
+//                        @Override
+//                        public void successNotifier(String msg) {
+//                            callOTP(msg);
+//                        }
+//
+//                        @Override
+//                        public void errorNotifier(String msg) {
+//                            Utility.printLog("value of error: " + msg);
+//                        }
+//                    });
+//                } else
+//                    selectImage();
+//            }
+//        } else {
+//            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        }
+//    }
 
     /**
      * <h2>updateLocation</h2>

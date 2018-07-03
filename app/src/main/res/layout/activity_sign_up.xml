@@ -252,27 +252,27 @@ android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/llCountryFlag_signUp"
                         android:background="@color/lightGray" />
 
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/tilPhoneNo_signUp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@id/llCountryFlag_signUp"
-                        android:layout_toRightOf="@id/llCountryFlag_signUp"
-                        android:theme="@style/InputTextTheme">
+                    <!--<android.support.design.widget.TextInputLayout-->
+                        <!--android:id="@+id/tilPhoneNo_signUp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_toEndOf="@id/llCountryFlag_signUp"-->
+                        <!--android:layout_toRightOf="@id/llCountryFlag_signUp"-->
+                        <!--android:theme="@style/InputTextTheme">-->
 
-                        <EditText
-                            android:id="@+id/etPhoneNo_signUp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/color8d8f8e"
-                            android:hint="@string/phoneNumber"
-                            android:importantForAutofill="noExcludeDescendants"
-                            android:inputType="number"
-                            android:maxLength="16"
-                            android:textColor="@color/sign_up_edittext"
-                            android:textSize="@dimen/textsize_15_74sp" />
-                    </android.support.design.widget.TextInputLayout>
+                        <!--<EditText-->
+                            <!--android:id="@+id/etPhoneNo_signUp"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:backgroundTint="@color/color8d8f8e"-->
+                            <!--android:hint="@string/phoneNumber"-->
+                            <!--android:importantForAutofill="noExcludeDescendants"-->
+                            <!--android:inputType="number"-->
+                            <!--android:maxLength="16"-->
+                            <!--android:textColor="@color/sign_up_edittext"-->
+                            <!--android:textSize="@dimen/textsize_15_74sp" />-->
+                    <!--</android.support.design.widget.TextInputLayout>-->
                 </RelativeLayout>
 
                 <android.support.design.widget.TextInputLayout

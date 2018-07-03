@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.github.Q42:AndroidScrollingImageView-1.2">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/AndroidScrollingImageView-1.2.aar/4fb9ca412b0ad5ded6eed6a17f779255/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/AndroidScrollingImageView-1.2.aar/4fb9ca412b0ad5ded6eed6a17f779255/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/AndroidScrollingImageView-1.2.aar/bb00f92b5b2eedf4762e1263808b3101/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/AndroidScrollingImageView-1.2.aar/bb00f92b5b2eedf4762e1263808b3101/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

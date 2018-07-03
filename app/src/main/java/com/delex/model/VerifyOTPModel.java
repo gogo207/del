@@ -145,6 +145,7 @@ public class VerifyOTPModel {
             e.printStackTrace();
         }
 
+        // TODO: 2018-07-04 회원가입 잘되는지 확인  밑에 로그로
         Log.d("verifyOTp1232: ",jsonObject.toString());
             OkHttp3Connection.doOkHttp3Connection("",sessionManager.getLanguageId(), Constants.VERIFYPHONE, OkHttp3Connection.Request_type.POST, jsonObject, new OkHttp3Connection.OkHttp3RequestCallback() {
                 @Override

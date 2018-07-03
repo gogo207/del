@@ -1,156 +1,181 @@
+<layout>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <include layout="@layout/layout_toolbar_signup"
-        android:id="@+id/incToolBarVerifyOtp" />
+    <include
+        android:id="@+id/incToolBarVerifyOtp"
+        layout="@layout/layout_toolbar_signup" />
 
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <!--Phone Icon-->
 
-        <RelativeLayout android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rl_main">
+            android:layout_marginTop="78dp"
+            android:hint="이름" />
 
-            <!--Phone Icon-->
-            <ImageView
-                android:id="@+id/iv_mobileOtpImg"
-                android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/phone_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_edit"
+            android:hint="핸드폰번호" />
+
+        <Button
+            android:text="인증번호받기"
+            android:layout_below="@+id/phone_edit"
+            android:id="@+id/phone_ce_receive_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/phone_ce_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone_ce_receive_button"
+            android:hint="인증번호" />
+
+        <Button
+            android:text="회원가입"
+            android:layout_below="@+id/phone_ce_edit"
+            android:id="@+id/sign_up_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <ImageView
+            android:id="@+id/iv_mobileOtpImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone_ce_edit"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/mobileotp" />
+
+        <!--Otp input edittext-->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_mobileOtpImg"
+            android:layout_marginEnd="@dimen/dimen_40dp"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginRight="@dimen/dimen_40dp"
+            android:layout_marginStart="@dimen/dimen_40dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <!--1st otp-->
+            <EditText
+                android:id="@+id/etOtpFirstDigit"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/mobileotp"
-                android:layout_marginTop="78dp"
-                android:layout_centerHorizontal="true"/>
-
-            <TextView
-                android:id="@+id/tvOtpInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_mobileOtpImg"
-                android:textSize="@dimen/text_size_15sp"
-                android:layout_marginStart="@dimen/dimen_40dp"
-                android:layout_marginLeft="@dimen/dimen_40dp"
-                android:layout_marginRight="@dimen/dimen_40dp"
-                android:layout_marginEnd="@dimen/dimen_40dp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/otp_color"
-                android:layout_marginTop="@dimen/dimen_15dp"
-                android:gravity="center"/>
-
-            <!--Otp input edittext-->
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dimen_40dp"
-                android:layout_marginLeft="@dimen/dimen_40dp"
-                android:layout_marginStart="@dimen/dimen_40dp"
-                android:layout_marginEnd="@dimen/dimen_40dp"
-                android:layout_below="@+id/tvOtpInfo"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <!--1st otp-->
-                <EditText
-                    android:id="@+id/etOtpFirstDigit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/dimen_15dp"
-                    android:cursorVisible="true"
-                    android:inputType="number"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_26sp"
-                    android:backgroundTint="@drawable/otp_selector"
-                    android:textColorHint="@color/otp_shading"
-                    android:textColor="@color/colorPrimary"
-                    android:maxLength="1"/>
-
-                <!--2nd otp-->
-                <EditText
-                    android:id="@+id/etOtpSecondDigit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/dimen_15dp"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:textSize="@dimen/text_size_26sp"
-                    android:cursorVisible="true"
-                    android:backgroundTint="@drawable/otp_selector"
-                    android:textColorHint="@color/otp_shading"
-                    android:textColor="@color/colorPrimary"
-                    android:maxLength="1"/>
-
-                <!--3rd otp-->
-                <EditText
-                    android:id="@+id/etOtpThirdDigit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/dimen_15dp"
-                    android:inputType="number"
-                    android:gravity="center"
-                    android:cursorVisible="true"
-                    android:textSize="@dimen/text_size_26sp"
-                    android:backgroundTint="@drawable/otp_selector"
-                    android:textColorHint="@color/otp_shading"
-                    android:textColor="@color/colorPrimary"
-                    android:maxLength="1"/>
-
-                <!--4th otp-->
-                <EditText
-                    android:id="@+id/etOtpFourthDigit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/dimen_15dp"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:cursorVisible="true"
-                    android:textSize="@dimen/text_size_26sp"
-                    android:backgroundTint="@drawable/otp_selector"
-                    android:textColorHint="@color/otp_shading"
-                    android:textColor="@color/colorPrimary"
-                    android:maxLength="1"/>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvResend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/resend_code"
-                android:layout_below="@id/linearLayout"
-                android:textSize="@dimen/text_size_14sp"
-                android:maxLines="1"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/color333333"
-                android:layout_marginTop="@dimen/dimen_10dp"
-                android:layout_marginBottom="@dimen/dimen_10dp"/>
-
-            <TextView
-                android:id="@+id/tvResendContDownTimer"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@drawable/otp_selector"
+                android:cursorVisible="true"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_20sp"
-                android:layout_below="@id/tvResend"
-                android:layout_centerHorizontal="true"
-                android:visibility="visible"
-                android:paddingBottom="@dimen/dimen_10dp"/>
-        </RelativeLayout>
+                android:textColorHint="@color/otp_shading"
+                android:textSize="@dimen/text_size_26sp" />
+
+            <!--2nd otp-->
+            <EditText
+                android:id="@+id/etOtpSecondDigit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@drawable/otp_selector"
+                android:cursorVisible="true"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/otp_shading"
+                android:textSize="@dimen/text_size_26sp" />
+
+            <!--3rd otp-->
+            <EditText
+                android:id="@+id/etOtpThirdDigit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@drawable/otp_selector"
+                android:cursorVisible="true"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/otp_shading"
+                android:textSize="@dimen/text_size_26sp" />
+
+            <!--4th otp-->
+            <EditText
+                android:id="@+id/etOtpFourthDigit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_15dp"
+                android:layout_weight="1"
+                android:backgroundTint="@drawable/otp_selector"
+                android:cursorVisible="true"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/otp_shading"
+                android:textSize="@dimen/text_size_26sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvResend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:maxLines="1"
+            android:text="@string/resend_code"
+            android:textColor="@color/color333333"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:id="@+id/tvResendContDownTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvResend"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="@dimen/dimen_10dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_20sp"
+            android:visibility="visible" />
+    </RelativeLayout>
 
 
     <Button
         android:id="@+id/btnVerifyOtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/verify_otp"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_16sp"
-        android:textAllCaps="false"
-        android:background="@drawable/selector_layout"
         android:layout_alignParentBottom="true"
-        android:onClick="onClick"/>
+        android:background="@drawable/selector_layout"
+        android:onClick="onClick"
+        android:text="@string/verify_otp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16sp" />
 
 </RelativeLayout>
+</layout>
